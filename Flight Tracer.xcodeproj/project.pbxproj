@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD7FBF0C2A57AE4E005A366B /* WillImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FBF0B2A57AE4E005A366B /* WillImageView.swift */; };
+		FD7FBF0E2A57C0D0005A366B /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */; };
+		FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */; };
+		FDE0971C2A5643EA00102E96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0971B2A5643EA00102E96 /* ContentView.swift */; };
+		FDE0971E2A5643F600102E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0971D2A5643F600102E96 /* Assets.xcassets */; };
+		FDE097222A5643F600102E96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE097212A5643F600102E96 /* Preview Assets.xcassets */; };
+		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
+		FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */; };
+		FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */; };
+		FDE097452A5649CF00102E96 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097442A5649CF00102E96 /* ImagePicker.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDE097282A5643F800102E96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDE0970E2A5643EA00102E96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDE097152A5643EA00102E96;
+			remoteInfo = "Flight Tracer";
+		};
+		FDE097322A5643F800102E96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDE0970E2A5643EA00102E96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDE097152A5643EA00102E96;
+			remoteInfo = "Flight Tracer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FD7FBF0B2A57AE4E005A366B /* WillImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillImageView.swift; sourceTree = "<group>"; };
+		FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
+		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerApp.swift; sourceTree = "<group>"; };
+		FDE0971B2A5643EA00102E96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FDE0971D2A5643F600102E96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDE0971F2A5643F600102E96 /* Flight_Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flight_Tracer.entitlements; sourceTree = "<group>"; };
+		FDE097212A5643F600102E96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerTests.swift; sourceTree = "<group>"; };
+		FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerUITests.swift; sourceTree = "<group>"; };
+		FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDE097442A5649CF00102E96 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDE097132A5643EA00102E96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE097242A5643F800102E96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE0972E2A5643F800102E96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDE0970D2A5643EA00102E96 = {
+			isa = PBXGroup;
+			children = (
+				FDE097182A5643EA00102E96 /* Flight Tracer */,
+				FDE0972A2A5643F800102E96 /* Flight TracerTests */,
+				FDE097342A5643F800102E96 /* Flight TracerUITests */,
+				FDE097172A5643EA00102E96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDE097172A5643EA00102E96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDE097162A5643EA00102E96 /* Flight Tracer.app */,
+				FDE097272A5643F800102E96 /* Flight TracerTests.xctest */,
+				FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDE097182A5643EA00102E96 /* Flight Tracer */ = {
+			isa = PBXGroup;
+			children = (
+				FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */,
+				FDE0971B2A5643EA00102E96 /* ContentView.swift */,
+				FDE097442A5649CF00102E96 /* ImagePicker.swift */,
+				FDE0971D2A5643F600102E96 /* Assets.xcassets */,
+				FDE0971F2A5643F600102E96 /* Flight_Tracer.entitlements */,
+				FDE097202A5643F600102E96 /* Preview Content */,
+				FD7FBF0B2A57AE4E005A366B /* WillImageView.swift */,
+				FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */,
+			);
+			path = "Flight Tracer";
+			sourceTree = "<group>";
+		};
+		FDE097202A5643F600102E96 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FDE097212A5643F600102E96 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FDE0972A2A5643F800102E96 /* Flight TracerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */,
+			);
+			path = "Flight TracerTests";
+			sourceTree = "<group>";
+		};
+		FDE097342A5643F800102E96 /* Flight TracerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */,
+				FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */,
+			);
+			path = "Flight TracerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDE097152A5643EA00102E96 /* Flight Tracer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDE0973B2A5643F800102E96 /* Build configuration list for PBXNativeTarget "Flight Tracer" */;
+			buildPhases = (
+				FDE097122A5643EA00102E96 /* Sources */,
+				FDE097132A5643EA00102E96 /* Frameworks */,
+				FDE097142A5643EA00102E96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flight Tracer";
+			productName = "Flight Tracer";
+			productReference = FDE097162A5643EA00102E96 /* Flight Tracer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FDE097262A5643F800102E96 /* Flight TracerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDE0973E2A5643F800102E96 /* Build configuration list for PBXNativeTarget "Flight TracerTests" */;
+			buildPhases = (
+				FDE097232A5643F800102E96 /* Sources */,
+				FDE097242A5643F800102E96 /* Frameworks */,
+				FDE097252A5643F800102E96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDE097292A5643F800102E96 /* PBXTargetDependency */,
+			);
+			name = "Flight TracerTests";
+			productName = "Flight TracerTests";
+			productReference = FDE097272A5643F800102E96 /* Flight TracerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FDE097302A5643F800102E96 /* Flight TracerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDE097412A5643F800102E96 /* Build configuration list for PBXNativeTarget "Flight TracerUITests" */;
+			buildPhases = (
+				FDE0972D2A5643F800102E96 /* Sources */,
+				FDE0972E2A5643F800102E96 /* Frameworks */,
+				FDE0972F2A5643F800102E96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDE097332A5643F800102E96 /* PBXTargetDependency */,
+			);
+			name = "Flight TracerUITests";
+			productName = "Flight TracerUITests";
+			productReference = FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDE0970E2A5643EA00102E96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					FDE097152A5643EA00102E96 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					FDE097262A5643F800102E96 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FDE097152A5643EA00102E96;
+					};
+					FDE097302A5643F800102E96 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FDE097152A5643EA00102E96;
+					};
+				};
+			};
+			buildConfigurationList = FDE097112A5643EA00102E96 /* Build configuration list for PBXProject "Flight Tracer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDE0970D2A5643EA00102E96;
+			productRefGroup = FDE097172A5643EA00102E96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDE097152A5643EA00102E96 /* Flight Tracer */,
+				FDE097262A5643F800102E96 /* Flight TracerTests */,
+				FDE097302A5643F800102E96 /* Flight TracerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDE097142A5643EA00102E96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE097222A5643F600102E96 /* Preview Assets.xcassets in Resources */,
+				FDE0971E2A5643F600102E96 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE097252A5643F800102E96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE0972F2A5643F800102E96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDE097122A5643EA00102E96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD7FBF0C2A57AE4E005A366B /* WillImageView.swift in Sources */,
+				FDE097452A5649CF00102E96 /* ImagePicker.swift in Sources */,
+				FD7FBF0E2A57C0D0005A366B /* ImageTextRecognizer.swift in Sources */,
+				FDE0971C2A5643EA00102E96 /* ContentView.swift in Sources */,
+				FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE097232A5643F800102E96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE0972D2A5643F800102E96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */,
+				FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDE097292A5643F800102E96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDE097152A5643EA00102E96 /* Flight Tracer */;
+			targetProxy = FDE097282A5643F800102E96 /* PBXContainerItemProxy */;
+		};
+		FDE097332A5643F800102E96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDE097152A5643EA00102E96 /* Flight Tracer */;
+			targetProxy = FDE097322A5643F800102E96 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FDE097392A5643F800102E96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FDE0973A2A5643F800102E96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FDE0973C2A5643F800102E96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx13.1;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FDE0973D2A5643F800102E96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx13.1;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FDE0973F2A5643F800102E96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx13.1;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flight Tracer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Flight Tracer";
+			};
+			name = Debug;
+		};
+		FDE097402A5643F800102E96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx13.1;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flight Tracer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Flight Tracer";
+			};
+			name = Release;
+		};
+		FDE097422A5643F800102E96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx13.1;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Flight Tracer";
+			};
+			name = Debug;
+		};
+		FDE097432A5643F800102E96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx13.1;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Flight Tracer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDE097112A5643EA00102E96 /* Build configuration list for PBXProject "Flight Tracer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE097392A5643F800102E96 /* Debug */,
+				FDE0973A2A5643F800102E96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDE0973B2A5643F800102E96 /* Build configuration list for PBXNativeTarget "Flight Tracer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE0973C2A5643F800102E96 /* Debug */,
+				FDE0973D2A5643F800102E96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDE0973E2A5643F800102E96 /* Build configuration list for PBXNativeTarget "Flight TracerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE0973F2A5643F800102E96 /* Debug */,
+				FDE097402A5643F800102E96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDE097412A5643F800102E96 /* Build configuration list for PBXNativeTarget "Flight TracerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE097422A5643F800102E96 /* Debug */,
+				FDE097432A5643F800102E96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FDE0970E2A5643EA00102E96 /* Project object */;
+}
