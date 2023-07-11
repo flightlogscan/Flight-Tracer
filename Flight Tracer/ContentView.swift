@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack(spacing: 69) {
+                Button {
+                    isPickerShowing = true
+                } label: {
+                    Text("Select a Photo")
+                }
+                
+                NavigationLink(destination: WillImageView(image: selectedImage)) {
+                    Text("Do Something")
+                        .foregroundStyle(.red)
+                }
+            }
+            .sheet(isPresented: $isPickerShowing) {
+                ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+            }
         }
-        .padding()
     }
 }
 

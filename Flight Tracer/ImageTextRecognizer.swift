@@ -1,0 +1,51 @@
+//
+//  ImageTextScanner.swift
+//  Flight Tracer
+//
+//  Created by William Janis on 7/6/23.
+//
+
+import Foundation
+import Vision
+import VisionKit
+
+final class ImageTextRecognizer {
+    
+    init() {
+    }
+    
+    func scanImageForText(image: UIImage) {
+        
+        guard let cgImage = image.cgImage else { return }
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+        let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
+        request.usesLanguageCorrection = true
+
+        do {
+            // Perform the text-recognition request.
+            try requestHandler.perform([request])
+        } catch {
+            print("Unable to perform the requests: \(error).")
+        }
+    }
+    
+    func recognizeTextHandler(request: VNRequest, error: Error?) {
+        guard let observations =
+                request.results as? [VNRecognizedTextObservation] else {
+            return
+        }
+        let recognizedStrings = observations.compactMap { observation in
+            // Return the string of the top VNRecognizedText instance.
+            return observation.topCandidates(1).first?.string
+        }
+        
+        // Process the recognized strings.
+        processResults(recognizedStrings: recognizedStrings)
+    }
+    
+    func processResults(recognizedStrings: [String]) {
+        let joinedStr = recognizedStrings.joined(separator: "\n")
+        print("recognized strings: \(joinedStr)")
+    }
+}
+
