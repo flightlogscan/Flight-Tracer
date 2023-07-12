@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD7FBF0C2A57AE4E005A366B /* WillImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FBF0B2A57AE4E005A366B /* WillImageView.swift */; };
+		FD25CE1D2A5E3721003A1794 /* ImageTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CE1C2A5E3721003A1794 /* ImageTaker.swift */; };
+		FD7FBF0C2A57AE4E005A366B /* ScannableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FBF0B2A57AE4E005A366B /* ScannableImageView.swift */; };
 		FD7FBF0E2A57C0D0005A366B /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */; };
 		FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */; };
 		FDE0971C2A5643EA00102E96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0971B2A5643EA00102E96 /* ContentView.swift */; };
@@ -37,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FD7FBF0B2A57AE4E005A366B /* WillImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillImageView.swift; sourceTree = "<group>"; };
+		FD25CE1C2A5E3721003A1794 /* ImageTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaker.swift; sourceTree = "<group>"; };
+		FD7FBF0B2A57AE4E005A366B /* ScannableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannableImageView.swift; sourceTree = "<group>"; };
 		FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerApp.swift; sourceTree = "<group>"; };
@@ -103,12 +105,13 @@
 			children = (
 				FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */,
 				FDE0971B2A5643EA00102E96 /* ContentView.swift */,
+				FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */,
 				FDE097442A5649CF00102E96 /* ImagePicker.swift */,
+				FD25CE1C2A5E3721003A1794 /* ImageTaker.swift */,
+				FD7FBF0B2A57AE4E005A366B /* ScannableImageView.swift */,
 				FDE0971D2A5643F600102E96 /* Assets.xcassets */,
 				FDE0971F2A5643F600102E96 /* Flight_Tracer.entitlements */,
 				FDE097202A5643F600102E96 /* Preview Content */,
-				FD7FBF0B2A57AE4E005A366B /* WillImageView.swift */,
-				FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */,
 			);
 			path = "Flight Tracer";
 			sourceTree = "<group>";
@@ -202,7 +205,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					FDE097152A5643EA00102E96 = {
 						CreatedOnToolsVersion = 14.2;
@@ -268,11 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7FBF0C2A57AE4E005A366B /* WillImageView.swift in Sources */,
+				FD7FBF0C2A57AE4E005A366B /* ScannableImageView.swift in Sources */,
 				FDE097452A5649CF00102E96 /* ImagePicker.swift in Sources */,
 				FD7FBF0E2A57C0D0005A366B /* ImageTextRecognizer.swift in Sources */,
 				FDE0971C2A5643EA00102E96 /* ContentView.swift in Sources */,
 				FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */,
+				FD25CE1D2A5E3721003A1794 /* ImageTaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +346,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -400,6 +405,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -426,11 +432,13 @@
 				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -448,7 +456,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx13.1;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -464,11 +472,13 @@
 				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -486,7 +496,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx13.1;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -501,6 +511,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -508,7 +519,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx13.1;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -524,6 +535,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -531,7 +543,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx13.1;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -546,6 +558,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -553,7 +566,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx13.1;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -568,6 +581,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -575,7 +589,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx13.1;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

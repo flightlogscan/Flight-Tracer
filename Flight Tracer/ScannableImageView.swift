@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct WillImageView: View {
+struct ScannableImageView: View {
     
     let image: UIImage?
-    @State var imageText: String? = "initial state"
+    @State var imageText: String = "initial state"
     
     var body: some View {
         NavigationView {
@@ -21,17 +21,14 @@ struct WillImageView: View {
                         .resizable()
                         .frame(width: 420, height: 420)
                     Button {
-                        Task {
-                            let imageTextRecognizer = ImageTextRecognizer()
-                            imageTextRecognizer.scanImageForText(image: image)
-                        }
+                        let imageTextRecognizer = ImageTextRecognizer(imageText: $imageText)
+                        imageTextRecognizer.scanImageForText(image: image)
                     } label: {
                         Text("Scan text")
                     }
-                    Text(imageText!)
+                    Text(imageText)
                 } else {
                     Text("Missing image")
-                   
                 }
             }
         }

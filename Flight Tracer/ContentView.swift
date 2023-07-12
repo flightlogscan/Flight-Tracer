@@ -10,25 +10,44 @@ import SwiftUI
 struct ContentView: View {
     
     @State var isPickerShowing = false
+    @State var isTakerShowing = false
     @State var selectedImage: UIImage?
     
     var body: some View {
         NavigationView {
             VStack(spacing: 69) {
+                Text("Scan your flight log")
+                
                 Button {
                     isPickerShowing = true
                 } label: {
                     Text("Select a Photo")
                 }
+                .sheet(isPresented: $isPickerShowing) {
+                    ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                }
                 
-                NavigationLink(destination: WillImageView(image: selectedImage)) {
-                    Text("Do Something")
-                        .foregroundStyle(.red)
+                Button {
+                    isTakerShowing = true
+                } label: {
+                    Text("Take a Photo")
+                }
+                .sheet(isPresented: $isTakerShowing) {
+                    ImageTaker(selectedImage: $selectedImage, isTakerShowing: $isTakerShowing)
+                }
+                
+                if (selectedImage != nil) {
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    
+                    NavigationLink(destination: ScannableImageView(image: selectedImage)) {
+                        Text("Scan Image")
+                            .foregroundStyle(.red)
+                    }
                 }
             }
-            .sheet(isPresented: $isPickerShowing) {
-                ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
-            }
+            
         }
     }
 }

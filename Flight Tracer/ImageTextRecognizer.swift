@@ -8,10 +8,14 @@
 import Foundation
 import Vision
 import VisionKit
+import SwiftUI
 
 final class ImageTextRecognizer {
     
-    init() {
+    @Binding var imageText: String
+    
+    init(imageText: Binding<String>) {
+        self._imageText = imageText
     }
     
     func scanImageForText(image: UIImage) {
@@ -24,6 +28,8 @@ final class ImageTextRecognizer {
         do {
             // Perform the text-recognition request.
             try requestHandler.perform([request])
+            
+            
         } catch {
             print("Unable to perform the requests: \(error).")
         }
@@ -39,12 +45,12 @@ final class ImageTextRecognizer {
             return observation.topCandidates(1).first?.string
         }
         
-        // Process the recognized strings.
         processResults(recognizedStrings: recognizedStrings)
     }
     
     func processResults(recognizedStrings: [String]) {
         let joinedStr = recognizedStrings.joined(separator: "\n")
+        imageText = joinedStr
         print("recognized strings: \(joinedStr)")
     }
 }

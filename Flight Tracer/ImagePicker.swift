@@ -29,31 +29,28 @@ struct ImagePicker: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
-}
-
-class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var parent: ImagePicker
-    
-    init(_ picker: ImagePicker) {
-        self.parent = picker
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("image selected")
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            DispatchQueue.main.async {
-                self.parent.selectedImage = image
-            }
+        var parent: ImagePicker
+        
+        init(_ picker: ImagePicker) {
+            self.parent = picker
         }
         
-        parent.isPickerShowing = false
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("cancelled")
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            
+            if let image = info[.originalImage] as? UIImage {
+                DispatchQueue.main.async {
+                    self.parent.selectedImage = image
+                }
+            }
+            parent.isPickerShowing = false
+        }
         
-        parent.isPickerShowing = false
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {            
+            parent.isPickerShowing = false
+        }
     }
 }
+
