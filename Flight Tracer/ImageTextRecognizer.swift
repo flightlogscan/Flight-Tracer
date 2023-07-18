@@ -12,9 +12,9 @@ import SwiftUI
 
 final class ImageTextRecognizer {
     
-    @Binding var imageText: String
+    @Binding var imageText: [String]
     
-    init(imageText: Binding<String>) {
+    init(imageText: Binding<[String]>) {
         self._imageText = imageText
     }
     
@@ -49,8 +49,8 @@ final class ImageTextRecognizer {
     }
     
     func processResults(recognizedStrings: [String]) {
-        let joinedStr = recognizedStrings.joined(separator: "\n")
-        imageText = joinedStr
+        imageText = recognizedStrings
+        let joinedStr = recognizedStrings.joined(separator: ", ")
         print("recognized strings: \(joinedStr)")
     }
 }

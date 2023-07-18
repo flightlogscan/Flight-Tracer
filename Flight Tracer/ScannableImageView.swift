@@ -10,25 +10,36 @@ import SwiftUI
 
 struct ScannableImageView: View {
     
-    let image: UIImage?
-    @State var imageText: String = "initial state"
+    @Binding var selectedImage: UIImage?
+    @State var imageText: [String] = ["empty"]
     
     var body: some View {
         NavigationView {
-            VStack {
-                if let image = image {
-                    Image( uiImage: image )
+            VStack (spacing: 69) {
+                
+                if let selectedImage = selectedImage {
+                    
+                    Image( uiImage: selectedImage )
                         .resizable()
                         .frame(width: 420, height: 420)
-                    Button {
-                        let imageTextRecognizer = ImageTextRecognizer(imageText: $imageText)
-                        imageTextRecognizer.scanImageForText(image: image)
-                    } label: {
+                    
+                    let imageTextRecognizer = ImageTextRecognizer(imageText: $imageText)
+                    
+                    NavigationLink(destination: EditableLogGridView(imageText: imageText)) {
                         Text("Scan text")
                     }
-                    Text(imageText)
+                    .simultaneousGesture(TapGesture().onEnded {
+                        imageTextRecognizer.scanImageForText(image: selectedImage)
+                    })
+                    
                 } else {
                     Text("Missing image")
+                }
+                
+                Button {
+                    selectedImage = nil
+                } label: {
+                    Text("Select a different image")
                 }
             }
         }
