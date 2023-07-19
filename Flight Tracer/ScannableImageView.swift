@@ -11,7 +11,7 @@ import SwiftUI
 struct ScannableImageView: View {
     
     @Binding var selectedImage: UIImage?
-    @State var imageText: [String] = ["empty"]
+    @State var imageText: [[String]] = [["empty"], ["empty2"]]
     
     var body: some View {
         NavigationView {

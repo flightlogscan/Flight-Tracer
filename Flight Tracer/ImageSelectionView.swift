@@ -34,5 +34,12 @@ struct ImageSelectionView: View {
                 ImageTaker(selectedImage: $selectedImage, isTakerShowing: $isTakerShowing)
             }
         }
+        NavigationView {
+            VStack {
+                NavigationLink(destination: TestView()) {
+                    Text("Go to TestView")
+                }
+            }
+        }
     }
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FD25CE1D2A5E3721003A1794 /* ImageTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CE1C2A5E3721003A1794 /* ImageTaker.swift */; };
+		FD74BAEF2A6604A300E1C9EA /* ImageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD74BAEE2A6604A300E1C9EA /* ImageSelectionView.swift */; };
+		FD74BAF12A66155600E1C9EA /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD74BAF02A66155600E1C9EA /* EditableLogGridView.swift */; };
+		FD74BAF32A67697400E1C9EA /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD74BAF22A67697400E1C9EA /* TestView.swift */; };
 		FD7FBF0C2A57AE4E005A366B /* ScannableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FBF0B2A57AE4E005A366B /* ScannableImageView.swift */; };
 		FD7FBF0E2A57C0D0005A366B /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */; };
 		FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		FD25CE1C2A5E3721003A1794 /* ImageTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaker.swift; sourceTree = "<group>"; };
+		FD74BAEE2A6604A300E1C9EA /* ImageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionView.swift; sourceTree = "<group>"; };
+		FD74BAF02A66155600E1C9EA /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
+		FD74BAF22A67697400E1C9EA /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		FD7FBF0B2A57AE4E005A366B /* ScannableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannableImageView.swift; sourceTree = "<group>"; };
 		FD7FBF0D2A57C0D0005A366B /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,9 +115,12 @@
 				FDE097442A5649CF00102E96 /* ImagePicker.swift */,
 				FD25CE1C2A5E3721003A1794 /* ImageTaker.swift */,
 				FD7FBF0B2A57AE4E005A366B /* ScannableImageView.swift */,
+				FD74BAEE2A6604A300E1C9EA /* ImageSelectionView.swift */,
+				FD74BAF02A66155600E1C9EA /* EditableLogGridView.swift */,
 				FDE0971D2A5643F600102E96 /* Assets.xcassets */,
 				FDE0971F2A5643F600102E96 /* Flight_Tracer.entitlements */,
 				FDE097202A5643F600102E96 /* Preview Content */,
+				FD74BAF22A67697400E1C9EA /* TestView.swift */,
 			);
 			path = "Flight Tracer";
 			sourceTree = "<group>";
@@ -273,8 +282,11 @@
 			files = (
 				FD7FBF0C2A57AE4E005A366B /* ScannableImageView.swift in Sources */,
 				FDE097452A5649CF00102E96 /* ImagePicker.swift in Sources */,
+				FD74BAF12A66155600E1C9EA /* EditableLogGridView.swift in Sources */,
 				FD7FBF0E2A57C0D0005A366B /* ImageTextRecognizer.swift in Sources */,
 				FDE0971C2A5643EA00102E96 /* ContentView.swift in Sources */,
+				FD74BAEF2A6604A300E1C9EA /* ImageSelectionView.swift in Sources */,
+				FD74BAF32A67697400E1C9EA /* TestView.swift in Sources */,
 				FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */,
 				FD25CE1D2A5E3721003A1794 /* ImageTaker.swift in Sources */,
 			);
