@@ -11,7 +11,8 @@ import SwiftUI
 struct ScannableImageView: View {
     
     @Binding var selectedImage: UIImage?
-    @State var imageText: [[String]] = [["empty"], ["empty2"]]
+    @State var imageText: [String] = ["no image text"]
+    @State var processedImageText: [[String]] = [["no processed text"], ["no processed text"]]
     
     var body: some View {
         NavigationView {
@@ -24,12 +25,14 @@ struct ScannableImageView: View {
                         .frame(width: 420, height: 420)
                     
                     let imageTextRecognizer = ImageTextRecognizer(imageText: $imageText)
+                    let recogniedTextProcessor = RecognizedTextProcessor(processedImageText: $processedImageText)
                     
-                    NavigationLink(destination: EditableLogGridView(imageText: imageText)) {
+                    NavigationLink(destination: EditableLogGridView(imageText: processedImageText)) {
                         Text("Scan text")
                     }
                     .simultaneousGesture(TapGesture().onEnded {
                         imageTextRecognizer.scanImageForText(image: selectedImage)
+                        recogniedTextProcessor.processText(imageText: imageText)
                     })
                     
                 } else {
