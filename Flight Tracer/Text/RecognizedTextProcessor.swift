@@ -17,9 +17,7 @@ struct RecognizedTextProcessor {
     }
     
     func processText(imageText: [String]) {
-        
         convertTo2DArray(strings: imageText, columns: 10)
-        
     }
     
     func convertTo2DArray(strings: [String], columns: Int) {

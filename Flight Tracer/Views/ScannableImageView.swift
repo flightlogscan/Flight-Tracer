@@ -21,11 +21,6 @@ struct ScannableImageView: View {
                 
                 if let selectedImage = selectedImage {
                     
-                    Image( uiImage: selectedImage )
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200)
-                    
                     let imageTextRecognizer = ImageTextRecognizer(imageText: $imageText)
                     let recogniedTextProcessor = RecognizedTextProcessor(processedImageText: $processedImageText)
                     
@@ -57,11 +52,7 @@ struct ScannableImageView: View {
                     Text("Missing image")
                 }
                 
-                Button {
-                    selectedImage = nil
-                } label: {
-                    Text("Select a different image for \(pageSide.rawValue)")
-                }
+                
             }
         }
     }
