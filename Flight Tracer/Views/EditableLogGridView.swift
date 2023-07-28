@@ -21,7 +21,9 @@ struct EditableLogGridView: View {
                             TextField("Enter text", text: $imageText[rowIndex][columnIndex])
                                 .font(.system(size: 11, weight: rowIndex == 0 ? .bold : .regular, design: .default))
                                 .frame(width: frameWidth, height: frameHeight, alignment: .center)
-                                .background(rowIndex % 2 == 0 ? Color.gray.opacity(0.2): Color.clear)
+//                                .background(rowIndex % 2 == 1 ? Color(red: 210/255, green: 230/255, blue: 210/255) :
+//                                                Color(red: 190/255, green: 240/255, blue: 200/255))
+                                .background(rowIndex % 2 == 0 ? Color.clear : Color.gray.opacity(0.2))
                                 .border(Color.gray, width: 1)
                         }
                     }

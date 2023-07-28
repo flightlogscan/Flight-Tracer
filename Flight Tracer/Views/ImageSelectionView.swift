@@ -10,29 +10,39 @@ struct ImageSelectionView: View {
     
     @Binding var isPickerShowing: Bool
     @Binding var isTakerShowing: Bool
-    @Binding var selectedImage: UIImage?
+    @Binding var leftImage: UIImage?
+    @Binding var rightImage: UIImage?
     
     var body: some View {
         VStack(spacing: 69) {
-            Text("Scan your flight log")
+            Text("Scan your flight log!")
+//            
+//            Button {
+//                isPickerShowing = true
+//            } label: {
+//                Text("Select a Photo for left side")
+//            }
+//            .sheet(isPresented: $isPickerShowing) {
+//                ImagePicker(selectedImage: $leftImage, isPickerShowing: $isPickerShowing)
+//            }
+//            
+//            Button {
+//                isPickerShowing = true
+//            } label: {
+//                Text("Select a Photo for right side")
+//            }
+//            .sheet(isPresented: $isPickerShowing) {
+//                ImagePicker(selectedImage: $rightImage, isPickerShowing: $isPickerShowing)
+//            }
             
-            Button {
-                isPickerShowing = true
-            } label: {
-                Text("Select a Photo")
-            }
-            .sheet(isPresented: $isPickerShowing) {
-                ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
-            }
-            
-            Button {
-                isTakerShowing = true
-            } label: {
-                Text("Take a Photo")
-            }
-            .sheet(isPresented: $isTakerShowing) {
-                ImageTaker(selectedImage: $selectedImage, isTakerShowing: $isTakerShowing)
-            }
+//            Button {
+//                isTakerShowing = true
+//            } label: {
+//                Text("Take a Photo")
+//            }
+//            .sheet(isPresented: $isTakerShowing) {
+//                ImageTaker(selectedImage: $selectedImage, isTakerShowing: $isTakerShowing)
+//            }
         }
     }
 }
