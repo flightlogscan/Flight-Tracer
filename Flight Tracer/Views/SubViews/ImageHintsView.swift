@@ -1,0 +1,35 @@
+//
+//  HelpfulHintsView.swift
+//  Flight Tracer
+//
+//  Created by William Janis on 7/29/23.
+//
+
+import SwiftUI
+
+struct ImageHintsView: View {
+    
+    var body: some View {
+        VStack (alignment: .leading, spacing: 5){
+            HStack {
+                Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                Text("Readble, neat, and bold handwritten text")
+            }
+            HStack {
+                Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                Text("Well-lit images")
+            }
+            HStack {
+                Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
+                Text("Images that are not flight logs")
+            }
+            HStack {
+                Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
+                Text("Wrinkles or tears in the log")
+            }
+            Text("File size should be 4MB or less")
+                .font(.subheadline)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
