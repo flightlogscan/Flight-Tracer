@@ -16,7 +16,7 @@ struct ScannableImageView: View {
     @State var processedImageText: [[String]] = [["no processed text"], ["no processed text"]]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack (spacing: 37) {
                 
                 if let selectedImage = selectedImage {

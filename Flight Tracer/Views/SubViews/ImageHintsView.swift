@@ -29,7 +29,7 @@ struct ImageHintsView: View {
             }
             Text("File size should be 4MB or less")
                 .font(.subheadline)
+                .padding([.top])
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

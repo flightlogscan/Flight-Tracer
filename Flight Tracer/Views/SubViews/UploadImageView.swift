@@ -11,6 +11,7 @@ struct UploadImageView: View {
     
     @Binding var selectedImage: UIImage?
     @Binding var isPickerShowing: Bool
+    var showWarning: Bool
     
     var body: some View {
         if (selectedImage == nil) {
@@ -18,7 +19,8 @@ struct UploadImageView: View {
                 isPickerShowing = true
             } label: {
                 (Text(Image(systemName: "square.and.arrow.up.circle.fill")) + Text("\n") + Text("Upload photo"))
-                    .padding(80)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 275, height: 230)
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(10)
                     .imageScale(.large)
@@ -33,7 +35,7 @@ struct UploadImageView: View {
                 .resizable()
                 .cornerRadius(10)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 300, height: 200)
+                .frame(width: 275, height: 230)
                 .opacity(0.3)
                 .overlay (alignment: .center){
                     Button {
@@ -47,7 +49,10 @@ struct UploadImageView: View {
                     .foregroundColor(Color.black)
                 }
             
-            
+            if (showWarning) {
+                Text("Invalid flight log. Please try a new image.")
+                    .foregroundColor(Color.red)
+            }
         }
     }
 }

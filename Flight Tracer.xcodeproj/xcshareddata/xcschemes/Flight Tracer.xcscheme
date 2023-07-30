@@ -51,6 +51,17 @@
                ReferencedContainer = "container:Flight Tracer.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD74BAFB2A68CD6700E1C9EA"
+               BuildableName = "Flight TracerUnitTests.xctest"
+               BlueprintName = "Flight TracerUnitTests"
+               ReferencedContainer = "container:Flight Tracer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
