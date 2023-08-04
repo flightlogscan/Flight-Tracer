@@ -21,15 +21,15 @@ struct ScannableImageView: View {
                 
                 if let selectedImage = selectedImage {
                     
-                    let imageTextRecognizer = ImageTextRecognizer(imageText: $imageText)
-                    let recogniedTextProcessor = RecognizedTextProcessor(processedImageText: $processedImageText)
+                    let imageTextRecognizer = ImageTextRecognizer()
+                    let recogniedTextProcessor = RecognizedTextProcessor()
                     
                     NavigationLink(destination: EditableLogGridView(imageText: processedImageText)) {
                         Text("Scan \(pageSide.rawValue) text")
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        imageTextRecognizer.scanImageForText(image: selectedImage)
-                        recogniedTextProcessor.processText(imageText: imageText)
+//                        imageTextRecognizer.scanImageForText(image: selectedImage)
+//                        recogniedTextProcessor.processText(imageText: imageText)
                         
                         if(pageSide == PageSide.left) {
                             if (!imageText.contains { text in

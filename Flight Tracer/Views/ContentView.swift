@@ -1,26 +1,13 @@
-//
-//  ContentView.swift
-//  Flight Tracer
-//
-//  Created by William Janis on 7/5/23.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     
     @State var isLeftPickerShowing = false
     @State var isRightPickerShowing = false
-    @State private var areBothImagesValid : Bool = false
-    @State private var showLeftWarning = false
-    @State private var showRightWarning = false
     @State var leftImage: UIImage?
     @State var rightImage: UIImage?
-    @State var leftImageText: [String]?
-    @State var rightImageText: [String]?
-    @State var leftImageData: [[String]]?
-    @State var rightImageData: [[String]]?
-
+    @ObservedObject var contentViewModel = ContentViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -34,14 +21,28 @@ struct ContentView: View {
                     .padding([.leading])
                 
                 Spacer()
-                UploadImageView(selectedImage: $leftImage, isPickerShowing: $isLeftPickerShowing, showWarning: true)
+                UploadImageView(selectedImage: $leftImage, isPickerShowing: $isLeftPickerShowing)
+                
+                if (self.contentViewModel.isLeftImageValid != nil && !self.contentViewModel.isLeftImageValid!) {
+                    Text("Invalid flight log. Please try a new image.")
+                        .foregroundColor(Color.red)
+                }
                 Spacer()
-                UploadImageView(selectedImage: $rightImage, isPickerShowing: $isRightPickerShowing, showWarning: true)
+                UploadImageView(selectedImage: $rightImage, isPickerShowing: $isRightPickerShowing)
+                if (self.contentViewModel.isRightImageValid != nil && !self.contentViewModel.isRightImageValid!) {
+                    Text("Invalid flight log. Please try a new image.")
+                        .foregroundColor(Color.red)
+                }
                 Spacer()
                 
                 
                 Button{
-                    areBothImagesValid = validate(areBothImagesSelected: areBothImagesSelected)
+                    let leftImageText = contentViewModel.scanImage(image: leftImage, pageSide: PageSide.left)
+                    let rightImageText = contentViewModel.scanImage(image: rightImage, pageSide: PageSide.right)
+                    contentViewModel.checkAreAllImagesValid()
+                    contentViewModel.processImageText(imageText: leftImageText, pageSide: PageSide.left)
+                    contentViewModel.processImageText(imageText: rightImageText, pageSide: PageSide.right)
+                    contentViewModel.mergeImageText()
                 } label : {
                     Text("Scan")
                 }
@@ -52,18 +53,11 @@ struct ContentView: View {
                 .cornerRadius(5)
                 .padding()
             }
-            .navigationDestination(isPresented: $areBothImagesValid) {
-                EmptyView()
+            .navigationDestination(isPresented: $contentViewModel.areAllImagesValid) {
+                EditableLogGridView(imageText: self.contentViewModel.mergedGrids)
             }
         }
-    }
-    
-    private func validate(areBothImagesSelected: Bool) -> Bool {
-        if (!areBothImagesSelected) {
-            return false
-        }
-        return true
-    }
+    }    
 }
 
 
@@ -72,25 +66,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-//                NavigationLink(destination: ScannableImageView(pageSide: PageSide.left, selectedImage: $leftImage), isActive: $areBothImagesValid) {
-//                    Text("Scan")
-        
-//                }
-//                .disabled(!areBothImagesSelected)
-
-
-//                .simultaneousGesture(TapGesture().onEnded{
-//                        let leftImageTextRecognizer = ImageTextRecognizer(imageText: $leftImageText)
-//                        leftImageTextRecognizer.scanImageForText(image: $leftImage)
-//
-//                        let leftRecogniedTextProcessor = RecognizedTextProcessor(processedImageText: $leftImageData)
-//                        leftRecogniedTextProcessor.processText(imageText: $leftImageText)
-//
-//                        let rightImageTextRecognizer = ImageTextRecognizer(imageText: $rightImageText)
-//                        rightImageTextRecognizer.scanImageForText(image: $rightImage)
-//
-//                        let rightRecogniedTextProcessor = RecognizedTextProcessor(processedImageText: $rightImageData)
-//                        rightRecogniedTextProcessor.processText(imageText: $rightImageText)
-    //)

@@ -11,7 +11,6 @@ struct UploadImageView: View {
     
     @Binding var selectedImage: UIImage?
     @Binding var isPickerShowing: Bool
-    var showWarning: Bool
     
     var body: some View {
         if (selectedImage == nil) {
@@ -48,11 +47,6 @@ struct UploadImageView: View {
                     }
                     .foregroundColor(Color.black)
                 }
-            
-            if (showWarning) {
-                Text("Invalid flight log. Please try a new image.")
-                    .foregroundColor(Color.red)
-            }
         }
     }
 }
