@@ -54,7 +54,7 @@ struct ContentView: View {
                 .padding()
             }
             .navigationDestination(isPresented: $contentViewModel.areAllImagesValid) {
-                EditableLogGridView(imageText: self.contentViewModel.mergedGrids)
+                ScannedFlightLogsView(imageText: self.contentViewModel.mergedGrids)
             }
         }
     }    

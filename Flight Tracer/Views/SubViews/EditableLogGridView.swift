@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditableLogGridView: View {
-    @State var imageText: [[String]]
+    @Binding var imageText: [[String]]
     let frameWidth: CGFloat = 100
     let frameHeight: CGFloat = 25
 
