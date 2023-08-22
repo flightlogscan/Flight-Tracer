@@ -40,8 +40,8 @@ struct ContentView: View {
                     let leftImageText = contentViewModel.scanImage(image: leftImage, pageSide: PageSide.left)
                     let rightImageText = contentViewModel.scanImage(image: rightImage, pageSide: PageSide.right)
                     contentViewModel.checkAreAllImagesValid()
-                    contentViewModel.processImageText(imageText: leftImageText, pageSide: PageSide.left)
-                    contentViewModel.processImageText(imageText: rightImageText, pageSide: PageSide.right)
+//                    contentViewModel.processImageText(imageText: leftImageText, pageSide: PageSide.left)
+//                    contentViewModel.processImageText(imageText: rightImageText, pageSide: PageSide.right)
                     contentViewModel.mergeImageText()
                 } label : {
                     Text("Scan")
