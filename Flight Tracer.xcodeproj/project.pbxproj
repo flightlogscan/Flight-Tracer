@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D86BC05A2AA3997E00FB4E41 /* Example Data in Resources */ = {isa = PBXBuildFile; fileRef = D86BC0592AA3997E00FB4E41 /* Example Data */; };
-		D86BC0602AA3998C00FB4E41 /* Util in Resources */ = {isa = PBXBuildFile; fileRef = D86BC05B2AA3998C00FB4E41 /* Util */; };
-		D86BC0612AA3998C00FB4E41 /* ViewController in Resources */ = {isa = PBXBuildFile; fileRef = D86BC05C2AA3998C00FB4E41 /* ViewController */; };
-		D86BC0622AA3998C00FB4E41 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = D86BC05D2AA3998C00FB4E41 /* Views */; };
-		D86BC0632AA3998C00FB4E41 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = D86BC05E2AA3998C00FB4E41 /* Model */; };
-		D86BC0642AA3998C00FB4E41 /* ViewModel in Resources */ = {isa = PBXBuildFile; fileRef = D86BC05F2AA3998C00FB4E41 /* ViewModel */; };
-		FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */; };
-		FDE0971E2A5643F600102E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0971D2A5643F600102E96 /* Assets.xcassets */; };
-		FDE097222A5643F600102E96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE097212A5643F600102E96 /* Preview Assets.xcassets */; };
 		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
 		FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */; };
 		FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */; };
@@ -39,17 +30,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D86BC0592AA3997E00FB4E41 /* Example Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Example Data"; sourceTree = "<group>"; };
-		D86BC05B2AA3998C00FB4E41 /* Util */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Util; sourceTree = "<group>"; };
-		D86BC05C2AA3998C00FB4E41 /* ViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewController; sourceTree = "<group>"; };
-		D86BC05D2AA3998C00FB4E41 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
-		D86BC05E2AA3998C00FB4E41 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
-		D86BC05F2AA3998C00FB4E41 /* ViewModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModel; sourceTree = "<group>"; };
+		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
+		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
+		D87952432AA3D49F0076E898 /* Array+Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Conversions.swift"; sourceTree = "<group>"; };
+		D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTextProcessor.swift; sourceTree = "<group>"; };
+		D87952462AA3D49F0076E898 /* FieldNameConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldNameConverter.swift; sourceTree = "<group>"; };
+		D87952472AA3D49F0076E898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D87952492AA3D49F0076E898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flight_Tracer.entitlements; sourceTree = "<group>"; };
+		D879524C2AA3D49F0076E898 /* PageSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSide.swift; sourceTree = "<group>"; };
+		D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExampleGetAnalyzeResult.json; sourceTree = "<group>"; };
+		D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerApp.swift; sourceTree = "<group>"; };
+		D87952512AA3D49F0076E898 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D87952522AA3D49F0076E898 /* ImageTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaker.swift; sourceTree = "<group>"; };
+		D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedFlightLogsView.swift; sourceTree = "<group>"; };
+		D87952562AA3D49F0076E898 /* ImageHintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHintsView.swift; sourceTree = "<group>"; };
+		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
+		D87952582AA3D49F0076E898 /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
+		D87952592AA3D49F0076E898 /* ScannableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannableImageView.swift; sourceTree = "<group>"; };
+		D879525A2AA3D49F0076E898 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerApp.swift; sourceTree = "<group>"; };
-		FDE0971D2A5643F600102E96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FDE0971F2A5643F600102E96 /* Flight_Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flight_Tracer.entitlements; sourceTree = "<group>"; };
-		FDE097212A5643F600102E96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerTests.swift; sourceTree = "<group>"; };
 		FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,10 +83,117 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
+			isa = PBXGroup;
+			children = (
+				D879523D2AA3D49F0076E898 /* ViewModel */,
+				D87952402AA3D49F0076E898 /* Util */,
+				D87952472AA3D49F0076E898 /* Assets.xcassets */,
+				D87952482AA3D49F0076E898 /* Preview Content */,
+				D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */,
+				D879524B2AA3D49F0076E898 /* Model */,
+				D879524D2AA3D49F0076E898 /* Example Data */,
+				D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */,
+				D87952502AA3D49F0076E898 /* ViewController */,
+				D87952532AA3D49F0076E898 /* Views */,
+			);
+			path = "Flight Tracer";
+			sourceTree = "<group>";
+		};
+		D879523D2AA3D49F0076E898 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
+				D879523F2AA3D49F0076E898 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D87952402AA3D49F0076E898 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D87952412AA3D49F0076E898 /* CsvManager.swift */,
+				D87952422AA3D49F0076E898 /* Extensions */,
+				D87952442AA3D49F0076E898 /* Text */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D87952422AA3D49F0076E898 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D87952432AA3D49F0076E898 /* Array+Conversions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D87952442AA3D49F0076E898 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */,
+				D87952462AA3D49F0076E898 /* FieldNameConverter.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		D87952482AA3D49F0076E898 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D87952492AA3D49F0076E898 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D879524B2AA3D49F0076E898 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D879524C2AA3D49F0076E898 /* PageSide.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D879524D2AA3D49F0076E898 /* Example Data */ = {
+			isa = PBXGroup;
+			children = (
+				D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResult.json */,
+			);
+			path = "Example Data";
+			sourceTree = "<group>";
+		};
+		D87952502AA3D49F0076E898 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D87952512AA3D49F0076E898 /* ImagePicker.swift */,
+				D87952522AA3D49F0076E898 /* ImageTaker.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D87952532AA3D49F0076E898 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */,
+				D87952552AA3D49F0076E898 /* SubViews */,
+				D87952592AA3D49F0076E898 /* ScannableImageView.swift */,
+				D879525A2AA3D49F0076E898 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D87952552AA3D49F0076E898 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
+				D87952572AA3D49F0076E898 /* EditableLogGridView.swift */,
+				D87952582AA3D49F0076E898 /* UploadImageView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		FDE0970D2A5643EA00102E96 = {
 			isa = PBXGroup;
 			children = (
-				FDE097182A5643EA00102E96 /* Flight Tracer */,
+				D879523C2AA3D49F0076E898 /* Flight Tracer */,
 				FDE0972A2A5643F800102E96 /* Flight TracerTests */,
 				FDE097342A5643F800102E96 /* Flight TracerUITests */,
 				FDE097172A5643EA00102E96 /* Products */,
@@ -100,31 +208,6 @@
 				FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		FDE097182A5643EA00102E96 /* Flight Tracer */ = {
-			isa = PBXGroup;
-			children = (
-				D86BC05E2AA3998C00FB4E41 /* Model */,
-				D86BC05B2AA3998C00FB4E41 /* Util */,
-				D86BC05C2AA3998C00FB4E41 /* ViewController */,
-				D86BC05F2AA3998C00FB4E41 /* ViewModel */,
-				D86BC05D2AA3998C00FB4E41 /* Views */,
-				D86BC0592AA3997E00FB4E41 /* Example Data */,
-				FDE097192A5643EA00102E96 /* Flight_TracerApp.swift */,
-				FDE0971D2A5643F600102E96 /* Assets.xcassets */,
-				FDE0971F2A5643F600102E96 /* Flight_Tracer.entitlements */,
-				FDE097202A5643F600102E96 /* Preview Content */,
-			);
-			path = "Flight Tracer";
-			sourceTree = "<group>";
-		};
-		FDE097202A5643F600102E96 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				FDE097212A5643F600102E96 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		FDE0972A2A5643F800102E96 /* Flight TracerTests */ = {
@@ -248,14 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE097222A5643F600102E96 /* Preview Assets.xcassets in Resources */,
-				D86BC0612AA3998C00FB4E41 /* ViewController in Resources */,
-				FDE0971E2A5643F600102E96 /* Assets.xcassets in Resources */,
-				D86BC0622AA3998C00FB4E41 /* Views in Resources */,
-				D86BC0632AA3998C00FB4E41 /* Model in Resources */,
-				D86BC0642AA3998C00FB4E41 /* ViewModel in Resources */,
-				D86BC0602AA3998C00FB4E41 /* Util in Resources */,
-				D86BC05A2AA3997E00FB4E41 /* Example Data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE0971A2A5643EA00102E96 /* Flight_TracerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +585,6 @@
 		FDE0973F2A5643F800102E96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -535,7 +608,6 @@
 		FDE097402A5643F800102E96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -559,7 +631,6 @@
 		FDE097422A5643F800102E96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -582,7 +653,6 @@
 		FDE097432A5643F800102E96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
