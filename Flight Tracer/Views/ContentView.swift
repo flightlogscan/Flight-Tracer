@@ -14,7 +14,7 @@ struct ContentView: View {
                 
                 let areBothImagesSelected = leftImage != nil && rightImage != nil
                 Text("")
-                    .navigationTitle("Flight Log Selection")
+                    .navigationTitle("test")
 
                 ImageHintsView()
                     .frame(maxWidth: .infinity, alignment: .leading)
