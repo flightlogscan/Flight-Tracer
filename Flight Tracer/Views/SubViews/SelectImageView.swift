@@ -1,7 +1,7 @@
 import SwiftUI
 import _PhotosUI_SwiftUI
 
-struct UploadImageView: View {
+struct SelectImageView: View {
 
     @State private var selectedImage: Image?
     @State private var selectedItem: PhotosPickerItem?
@@ -40,10 +40,15 @@ struct UploadImageView: View {
                 .clipped()
                 .opacity(0.3)
                 .cornerRadius(10)
-                .overlay (alignment: .center){
-                    photosPicker
-                }
+            Spacer()
+            CameraView()
+            photosPicker
         } else {
+            //Update placeholder image
+            let placeholderImage = UIImage(named: "suns")
+            Image(uiImage: placeholderImage!)
+            Spacer()
+            CameraView()
             photosPicker
         }
         

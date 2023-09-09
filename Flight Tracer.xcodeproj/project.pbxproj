@@ -11,7 +11,7 @@
 		D879525B2AA3D5690076E898 /* ScannedFlightLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
-		D879525E2AA3D5690076E898 /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* UploadImageView.swift */; };
+		D879525E2AA3D5690076E898 /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* SelectImageView.swift */; };
 		D87952602AA3D5690076E898 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* ContentView.swift */; };
 		D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */; };
 		D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* ContentViewModel.swift */; };
@@ -20,6 +20,8 @@
 		D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */; };
 		D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952462AA3D49F0076E898 /* FieldNameConverter.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
+		D8D458DA2AACCFE500E29B83 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraView.swift */; };
+		D8D458DC2AACDCDF00E29B83 /* suns.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D458DB2AACDCDF00E29B83 /* suns.png */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8DD98262AA81FC600F43034 /* ExperimentalTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */; };
 		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
@@ -60,8 +62,10 @@
 		D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedFlightLogsView.swift; sourceTree = "<group>"; };
 		D87952562AA3D49F0076E898 /* ImageHintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHintsView.swift; sourceTree = "<group>"; };
 		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
-		D87952582AA3D49F0076E898 /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
+		D87952582AA3D49F0076E898 /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D8D458D92AACCFE500E29B83 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		D8D458DB2AACDCDF00E29B83 /* suns.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suns.png; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalTable.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +189,7 @@
 		D879524D2AA3D49F0076E898 /* Example Data */ = {
 			isa = PBXGroup;
 			children = (
+				D8D458DB2AACDCDF00E29B83 /* suns.png */,
 				D8DD98232AA81F4100F43034 /* custom-layout.json */,
 				D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */,
 			);
@@ -206,7 +211,8 @@
 			children = (
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D87952572AA3D49F0076E898 /* EditableLogGridView.swift */,
-				D87952582AA3D49F0076E898 /* UploadImageView.swift */,
+				D87952582AA3D49F0076E898 /* SelectImageView.swift */,
+				D8D458D92AACCFE500E29B83 /* CameraView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D458DC2AACDCDF00E29B83 /* suns.png in Resources */,
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +389,7 @@
 				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
 				D8DD98262AA81FC600F43034 /* ExperimentalTable.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
-				D879525E2AA3D5690076E898 /* UploadImageView.swift in Sources */,
+				D879525E2AA3D5690076E898 /* SelectImageView.swift in Sources */,
 				D87952602AA3D5690076E898 /* ContentView.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,
@@ -391,6 +398,7 @@
 				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
+				D8D458DA2AACCFE500E29B83 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +558,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
@@ -591,6 +600,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
