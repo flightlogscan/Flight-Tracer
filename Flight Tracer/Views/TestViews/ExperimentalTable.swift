@@ -34,9 +34,9 @@ struct TableView: View {
   var body: some View {
       ScrollView([.horizontal, .vertical], showsIndicators: false) {
           LazyVStack(spacing: 0) {
-              ForEach(0..<table.rowCount) { row in
+              ForEach(0..<table.rowCount, id: \.self) { row in
                   HStack(spacing: 0) {
-                      ForEach(0..<table.columnCount) { col in
+                      ForEach(0..<table.columnCount, id: \.self) { col in
                           Text(getCell(row: row, col: col))
                               .font(.system(size: 11, weight: row == 0 ? .bold : .regular, design: .default))
                               .frame(width: frameWidth, height: frameHeight, alignment: .center)

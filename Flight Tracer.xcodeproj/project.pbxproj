@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
 		D879525B2AA3D5690076E898 /* ScannedFlightLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
 		D879525E2AA3D5690076E898 /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* UploadImageView.swift */; };
-		D879525F2AA3D5690076E898 /* ScannableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952592AA3D49F0076E898 /* ScannableImageView.swift */; };
 		D87952602AA3D5690076E898 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* ContentView.swift */; };
-		D87952612AA3D5690076E898 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952512AA3D49F0076E898 /* ImagePicker.swift */; };
-		D87952622AA3D5690076E898 /* ImageTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952522AA3D49F0076E898 /* ImageTaker.swift */; };
-		D87952632AA3D5690076E898 /* PageSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524C2AA3D49F0076E898 /* PageSide.swift */; };
 		D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */; };
 		D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* ContentViewModel.swift */; };
 		D87952662AA3D5690076E898 /* CsvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952412AA3D49F0076E898 /* CsvManager.swift */; };
@@ -48,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
@@ -57,16 +55,12 @@
 		D87952472AA3D49F0076E898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87952492AA3D49F0076E898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flight_Tracer.entitlements; sourceTree = "<group>"; };
-		D879524C2AA3D49F0076E898 /* PageSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSide.swift; sourceTree = "<group>"; };
 		D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExampleGetAnalyzeResultFormLayout.json; sourceTree = "<group>"; };
 		D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerApp.swift; sourceTree = "<group>"; };
-		D87952512AA3D49F0076E898 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		D87952522AA3D49F0076E898 /* ImageTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaker.swift; sourceTree = "<group>"; };
 		D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedFlightLogsView.swift; sourceTree = "<group>"; };
 		D87952562AA3D49F0076E898 /* ImageHintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHintsView.swift; sourceTree = "<group>"; };
 		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
 		D87952582AA3D49F0076E898 /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
-		D87952592AA3D49F0076E898 /* ScannableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannableImageView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalTable.swift; sourceTree = "<group>"; };
@@ -103,16 +97,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D85561F62AAC233400A3CA49 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */,
+				D879525A2AA3D49F0076E898 /* ContentView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		D85561F72AAC234000A3CA49 /* TestViews */ = {
+			isa = PBXGroup;
+			children = (
+				D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */,
+			);
+			path = TestViews;
+			sourceTree = "<group>";
+		};
+		D85561F82AAC237600A3CA49 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				D87952412AA3D49F0076E898 /* CsvManager.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
 			isa = PBXGroup;
 			children = (
 				D87952532AA3D49F0076E898 /* Views */,
-				D87952502AA3D49F0076E898 /* ViewController */,
-				D879524D2AA3D49F0076E898 /* Example Data */,
-				D879524B2AA3D49F0076E898 /* Model */,
-				D87952482AA3D49F0076E898 /* Preview Content */,
 				D879523D2AA3D49F0076E898 /* ViewModel */,
+				D87952442AA3D49F0076E898 /* Text */,
 				D87952402AA3D49F0076E898 /* Util */,
+				D879524D2AA3D49F0076E898 /* Example Data */,
+				D87952482AA3D49F0076E898 /* Preview Content */,
 				D87952472AA3D49F0076E898 /* Assets.xcassets */,
 				D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */,
 				D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */,
@@ -125,6 +143,7 @@
 			children = (
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
 				D879523F2AA3D49F0076E898 /* ContentViewModel.swift */,
+				D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,9 +151,8 @@
 		D87952402AA3D49F0076E898 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D87952412AA3D49F0076E898 /* CsvManager.swift */,
+				D85561F82AAC237600A3CA49 /* File */,
 				D87952422AA3D49F0076E898 /* Extensions */,
-				D87952442AA3D49F0076E898 /* Text */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -164,14 +182,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D879524B2AA3D49F0076E898 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D879524C2AA3D49F0076E898 /* PageSide.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		D879524D2AA3D49F0076E898 /* Example Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,23 +191,12 @@
 			path = "Example Data";
 			sourceTree = "<group>";
 		};
-		D87952502AA3D49F0076E898 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				D87952512AA3D49F0076E898 /* ImagePicker.swift */,
-				D87952522AA3D49F0076E898 /* ImageTaker.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		D87952532AA3D49F0076E898 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */,
+				D85561F62AAC233400A3CA49 /* MainViews */,
 				D87952552AA3D49F0076E898 /* SubViews */,
-				D87952592AA3D49F0076E898 /* ScannableImageView.swift */,
-				D879525A2AA3D49F0076E898 /* ContentView.swift */,
-				D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */,
+				D85561F72AAC234000A3CA49 /* TestViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -382,12 +381,9 @@
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
 				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
 				D8DD98262AA81FC600F43034 /* ExperimentalTable.swift in Sources */,
+				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
 				D879525E2AA3D5690076E898 /* UploadImageView.swift in Sources */,
-				D879525F2AA3D5690076E898 /* ScannableImageView.swift in Sources */,
 				D87952602AA3D5690076E898 /* ContentView.swift in Sources */,
-				D87952612AA3D5690076E898 /* ImagePicker.swift in Sources */,
-				D87952622AA3D5690076E898 /* ImageTaker.swift in Sources */,
-				D87952632AA3D5690076E898 /* PageSide.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
@@ -567,6 +563,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -607,6 +604,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
