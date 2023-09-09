@@ -38,8 +38,6 @@ struct SelectImageView: View {
                 .resizable()
                 .scaledToFit()
                 .clipped()
-                .opacity(0.3)
-                .cornerRadius(10)
             Spacer()
             CameraView()
             photosPicker
