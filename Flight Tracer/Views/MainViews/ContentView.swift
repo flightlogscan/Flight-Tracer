@@ -4,6 +4,7 @@ import PhotosUI
 struct ContentView: View {
     
     @State var isImageValid = false
+    @State var images: [ImageDetail] = []
     @State var doScanImage = false
     @ObservedObject var contentViewModel = ContentViewModel()
     
@@ -19,9 +20,10 @@ struct ContentView: View {
                     .padding([.leading])
                                 
                 Spacer()
-                SelectImageView(isImageValid: $isImageValid)
-                    
-                if (isImageValid) {
+                SelectImageView(isImageValid: $isImageValid, selectedImages: $images)
+
+                // Only allow scanning if every image is valid
+                if (!images.contains(where: {$0.isImageValid})) {
                     Button{
                         doScanImage = isImageValid
                         //TODO: implement the call below for image text scanning
