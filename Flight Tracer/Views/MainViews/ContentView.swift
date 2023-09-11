@@ -3,9 +3,8 @@ import PhotosUI
 
 struct ContentView: View {
     
-    @State var isImageValid = false
     @State var images: [ImageDetail] = []
-    @State var doScanImage = false
+    @State var allowScan: Bool = false
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
@@ -20,14 +19,16 @@ struct ContentView: View {
                     .padding([.leading])
                                 
                 Spacer()
-                SelectImageView(isImageValid: $isImageValid, selectedImages: $images)
+                SelectImageView(selectedImages: $images)
 
                 // Only allow scanning if every image is valid
-                if (!images.contains(where: {$0.isImageValid})) {
+                let areImagesValid = (images.count > 0 && !images.contains(where: {$0.isImageValid}))
+                if (areImagesValid) {
                     Button{
-                        doScanImage = isImageValid
+                        allowScan = true
                         //TODO: implement the call below for image text scanning
-                        //contentViewModel.processImageText(imageText: imageText)
+                        // This is the legit scanner that will back the ultimate output going to the user
+                        contentViewModel.processImageText(images: images)
                     } label : {
                         Text("Scan")
                     }
@@ -39,7 +40,7 @@ struct ContentView: View {
                     .padding()
                 }
             }
-            .navigationDestination(isPresented: $doScanImage) {
+            .navigationDestination(isPresented: $allowScan) {
                 // TODO: replace test data with results from processImageText call
                 ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
             }

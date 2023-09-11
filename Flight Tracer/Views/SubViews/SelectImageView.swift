@@ -3,10 +3,7 @@ import _PhotosUI_SwiftUI
 
 struct SelectImageView: View {
     
-    @State private var selectedImage: Image?
     @State private var selectedItems: [PhotosPickerItem] = []
-    @State private var isValidated: Bool = false
-    @Binding var isImageValid: Bool
     @Binding var selectedImages: [ImageDetail]
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
     let recognizedTextProcessor = RecognizedTextProcessor()
@@ -16,7 +13,6 @@ struct SelectImageView: View {
         let photosPicker = PhotosPicker(selection: $selectedItems, matching: .images) {
             Label("Select photos", systemImage: "photo")
         }
-        //.tint(.gray.opacity(0.1))
             .cornerRadius(10)
             .foregroundColor(Color.black)
             .buttonStyle(.borderedProminent)
@@ -26,13 +22,15 @@ struct SelectImageView: View {
                     for item in selectedItems {
                         if let data = try? await item.loadTransferable(type: Data.self) {
                             if let uiImage = UIImage(data: data) {
-                                selectedImage = Image(uiImage: uiImage)
                                 let image = Image(uiImage: uiImage)
-                                selectImageViewModel.simpleValidateImage(image: uiImage)
-                                isValidated = true
-                                isImageValid = self.selectImageViewModel.isImageValid
+                                let isValidated = true
                                 
-                                let imageDetail = ImageDetail(image: image, isValidated: isValidated, isImageValid: isImageValid)
+                                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: isValidated)
+                                
+                                // This uses a very basic image scanner as a first-step sanity-check
+                                // before allowing users to send the image to the more resource-intensive scanner
+                                selectImageViewModel.simpleValidateImage(image: imageDetail)
+                                
                                 selectedImages.append(imageDetail)
                             }
                         }
@@ -63,11 +61,6 @@ struct SelectImageView: View {
             CameraView()
             photosPicker
         }
-        
-        if (isValidated && !isImageValid) {
-            Text("Invalid flight log. Please try a new image.")
-                .foregroundColor(Color.red)
-        }
     }
 }
 
@@ -75,6 +68,9 @@ public struct ImageDetail: Identifiable {
     public var id = UUID()
     
     @State var image: Image
-    @State var isValidated: Bool
-    @State var isImageValid: Bool
+    @State var uiImage: UIImage
+    @State var isValidated: Bool = false // TODO: Is this field used for anything anymore?
+    @State var isImageValid: Bool = false
+    @State var imageText: [String] = [] // Basic image text from the simple image scanner
+    @State var recognizedText: [[String]] = [[]] // Advanced image text from the heavy-duty image scanner
 }

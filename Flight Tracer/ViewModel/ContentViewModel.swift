@@ -3,10 +3,13 @@ import SwiftUI
 class ContentViewModel: ObservableObject {
     
     let recognizedTextProcessor = RecognizedTextProcessor()
-    @Published var recognizedText: [[String]] = [["image data empty"]]
     
-    func processImageText(imageText: [String]) {
-        self.recognizedText = recognizedTextProcessor.processText(imageText: imageText)
-        print("recognizedText: \(String(describing: self.recognizedText))")
+    func processImageText(images: [ImageDetail]) {
+        for image in images {
+            let recognizedText = recognizedTextProcessor.processText(imageText: image.imageText)
+            image.recognizedText = recognizedText
+            print("recognizedText: \(String(describing: recognizedText))")
+        }
+
     }
 }
