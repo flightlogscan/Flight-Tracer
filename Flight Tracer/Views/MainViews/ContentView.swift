@@ -29,7 +29,7 @@ struct ContentView: View {
                         //TODO: implement the call below for image text scanning
                         // This is the legit scanner that will back the ultimate output going to the user
                         contentViewModel.processImageText(images: images)
-                    } label : {
+                    } label: {
                         Text("Scan")
                     }
                     .foregroundColor(Color.white)
