@@ -1,24 +1,30 @@
 //
-//  CaptureImageView.swift
+//  CameraView.swift
 //  Flight Tracer
 //
-//  Created by Wilbur 😎 on 9/9/23.
+//  Created by Wilbur 😎 on 9/11/23.
 //
 
 import SwiftUI
 
-//Example:
-//https://developer.apple.com/documentation/avfoundation/capture_setup/avcam_building_a_camera_app
-//Says it requires ios17 which releases in a couple weeks
-//I think most can be done without ios17 tho
-//ios 17 required for this piece: https://developer.apple.com/documentation/avfoundation/avcapturedeferredphotoproxy?
 struct CameraView: View {
+    
+    @Binding var selectedImages: [ImageDetail]
+    @State private var showCamera: Bool = false
     
     var body: some View {
         Button {
-            
+            showCamera = true
         } label: {
-            Text("CaptureImage")
+            Text("Take a picture")
         }
+        .fullScreenCover(isPresented: $showCamera) {
+            ImageTaker(selectedImages: $selectedImages)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(.black)
+        }
+        .foregroundColor(Color.white)
+        .buttonStyle(.borderedProminent)
+
     }
 }

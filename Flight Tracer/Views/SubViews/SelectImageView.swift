@@ -1,65 +1,37 @@
 import SwiftUI
-import _PhotosUI_SwiftUI
 
 struct SelectImageView: View {
     
-    @State private var selectedItems: [PhotosPickerItem] = []
     @Binding var selectedImages: [ImageDetail]
-    @ObservedObject var selectImageViewModel = SelectImageViewModel()
     let recognizedTextProcessor = RecognizedTextProcessor()
     
     var body: some View {
         
-        let photosPicker = PhotosPicker(selection: $selectedItems, matching: .images) {
-            Label("Select photos", systemImage: "photo")
-        }
-            .cornerRadius(10)
-            .foregroundColor(Color.black)
-            .buttonStyle(.borderedProminent)
-            .onChange(of: selectedItems) { newItem in
-                Task {
-                    selectedImages = []
-                    for item in selectedItems {
-                        if let data = try? await item.loadTransferable(type: Data.self) {
-                            if let uiImage = UIImage(data: data) {
-                                let image = Image(uiImage: uiImage)
-                                let isValidated = true
-                                
-                                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: isValidated)
-                                
-                                // This uses a very basic image scanner as a first-step sanity-check
-                                // before allowing users to send the image to the more resource-intensive scanner
-                                selectImageViewModel.simpleValidateImage(image: imageDetail)
-                                
-                                selectedImages.append(imageDetail)
-                            }
-                        }
+        if selectedImages.count > 0 {
+            //TODO: Scroll UI shows one at a time. Need to make each element smaller.
+            ScrollView([.vertical], showsIndicators: false) {
+                ForEach(selectedImages) {image in
+                    image.image
+                        .resizable()
+                        .scaledToFit()
+                        .clipped()
+                    if (image.isValidated && !image.isImageValid) {
+                        Text("Invalid flight log. Please try a new image.")
+                            .foregroundColor(Color.red)
                     }
                 }
             }
-        
-        // TODO: All the images are constrained a fixed size, would be cool to enable scrolling through all of them
-        if selectedImages.count > 0 {
-            ForEach(selectedImages) {image in
-                image.image
-                    .resizable()
-                    .scaledToFit()
-                    .clipped()
-                if (image.isValidated && !image.isImageValid) {
-                    Text("Invalid flight log. Please try a new image.")
-                        .foregroundColor(Color.red)
-                }
-            }
             Spacer()
-            CameraView()
-            photosPicker
+            CameraView(selectedImages: $selectedImages)
+            PhotoPickerView(selectedImages: $selectedImages)
+                
         } else {
             //Update placeholder image
             let placeholderImage = UIImage(named: "suns")
             Image(uiImage: placeholderImage!)
             Spacer()
-            CameraView()
-            photosPicker
+            CameraView(selectedImages: $selectedImages)
+            PhotoPickerView(selectedImages: $selectedImages)
         }
     }
 }

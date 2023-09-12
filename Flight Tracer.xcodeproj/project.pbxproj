@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
+		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D879525B2AA3D5690076E898 /* ScannedFlightLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
@@ -20,10 +21,11 @@
 		D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */; };
 		D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952462AA3D49F0076E898 /* FieldNameConverter.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
-		D8D458DA2AACCFE500E29B83 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraView.swift */; };
+		D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* ImageTaker.swift */; };
 		D8D458DC2AACDCDF00E29B83 /* suns.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D458DB2AACDCDF00E29B83 /* suns.png */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8DD98262AA81FC600F43034 /* ExperimentalTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */; };
+		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
 		FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */; };
 		FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */; };
@@ -48,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
+		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
@@ -64,10 +67,11 @@
 		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
 		D87952582AA3D49F0076E898 /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D8D458D92AACCFE500E29B83 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		D8D458D92AACCFE500E29B83 /* ImageTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaker.swift; sourceTree = "<group>"; };
 		D8D458DB2AACDCDF00E29B83 /* suns.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suns.png; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalTable.swift; sourceTree = "<group>"; };
+		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerTests.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 		D879523D2AA3D49F0076E898 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D8D458D92AACCFE500E29B83 /* ImageTaker.swift */,
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
 				D879523F2AA3D49F0076E898 /* ContentViewModel.swift */,
 				D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */,
@@ -212,7 +217,8 @@
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D87952572AA3D49F0076E898 /* EditableLogGridView.swift */,
 				D87952582AA3D49F0076E898 /* SelectImageView.swift */,
-				D8D458D92AACCFE500E29B83 /* CameraView.swift */,
+				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
+				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -398,7 +404,9 @@
 				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
-				D8D458DA2AACCFE500E29B83 /* CameraView.swift in Sources */,
+				D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */,
+				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
+				D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,12 +581,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer";
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -615,12 +623,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer";
+				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
