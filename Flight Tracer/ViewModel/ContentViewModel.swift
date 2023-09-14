@@ -10,6 +10,5 @@ class ContentViewModel: ObservableObject {
             image.recognizedText = recognizedText
             print("recognizedText: \(String(describing: recognizedText))")
         }
-
     }
 }

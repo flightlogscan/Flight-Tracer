@@ -17,10 +17,14 @@ class SelectImageViewModel: ObservableObject {
     }
             
     private func checkBasicFlightLogText(imageText: [String]) -> Bool {
-        return imageText.contains { text in
+        let containsDate = imageText.contains { text in
             return text.contains("DATE")
-        } && imageText.contains { text in
+        }
+        
+        let containsConditions = imageText.contains { text in
             return text.contains("CONDITIONS")
         }
+
+        return containsDate && containsConditions
     }
 }

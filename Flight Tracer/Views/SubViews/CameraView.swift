@@ -25,6 +25,5 @@ struct CameraView: View {
         }
         .foregroundColor(Color.white)
         .buttonStyle(.borderedProminent)
-
     }
 }

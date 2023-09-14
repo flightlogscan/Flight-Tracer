@@ -22,7 +22,7 @@ struct ContentView: View {
                 SelectImageView(selectedImages: $images)
 
                 // Only allow scanning if every image is valid
-                let areImagesValid = (images.count > 0 && images.contains(where: {$0.isImageValid}))
+                let areImagesValid = (images.count > 0 && !images.contains(where: {!$0.isImageValid}))
                 if (areImagesValid) {
                     Button{
                         allowScan = true

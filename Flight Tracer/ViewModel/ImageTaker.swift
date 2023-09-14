@@ -23,6 +23,7 @@ struct ImageTaker: UIViewControllerRepresentable {
     final public class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         var parent: ImageTaker
+        @ObservedObject var selectImageViewModel = SelectImageViewModel()
         
         init(_ parent: ImageTaker) {
             self.parent = parent
@@ -32,7 +33,9 @@ struct ImageTaker: UIViewControllerRepresentable {
             if let uiImage = info[.originalImage] as? UIImage {
                 let image = Image(uiImage: uiImage)
                 let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
+                selectImageViewModel.simpleValidateImage(image: imageDetail)
 
+                parent.selectedImages = []
                 parent.selectedImages.append(imageDetail)
             }
             
