@@ -73,9 +73,3 @@ public class ImageDetail: Identifiable {
         self.recognizedText = [[]]
     }
 }
-
-struct aView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
