@@ -7,6 +7,9 @@ struct SelectImageView: View {
     
     var body: some View {
         
+        Spacer()
+        Spacer()
+        Spacer()
         if selectedImages.count > 0 {
             //TODO: Scroll UI shows one at a time. Need to make each element smaller.
             ScrollView([.vertical], showsIndicators: false) {
@@ -27,9 +30,23 @@ struct SelectImageView: View {
             PhotoPickerView(selectedImages: $selectedImages)
                 
         } else {
-            //Update placeholder image
-            let placeholderImage = UIImage(named: "suns")
-            Image(uiImage: placeholderImage!)
+            HStack {
+                Spacer()
+                Spacer()
+                Rectangle()
+                    .foregroundColor(.gray.opacity(0.2))
+                    .cornerRadius(5)
+                    .overlay(
+                        Text(Image(systemName: "text.book.closed.fill"))
+                            .font(.system(size: 150))
+                            .foregroundColor(.gray)
+                    )
+                Spacer()
+                Spacer()
+            }
+
+            Spacer()
+            Spacer()
             Spacer()
             CameraView(selectedImages: $selectedImages)
             PhotoPickerView(selectedImages: $selectedImages)
@@ -54,5 +71,11 @@ public class ImageDetail: Identifiable {
         self.isImageValid = false
         self.imageText = []
         self.recognizedText = [[]]
+    }
+}
+
+struct aView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }

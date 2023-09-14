@@ -10,7 +10,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                
                 Text("")
                     .navigationTitle("Flight Log Upload")
 
@@ -18,7 +17,6 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding([.leading])
                                 
-                Spacer()
                 SelectImageView(selectedImages: $images)
 
                 // Only allow scanning if every image is valid

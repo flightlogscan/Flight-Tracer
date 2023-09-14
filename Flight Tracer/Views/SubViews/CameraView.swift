@@ -13,17 +13,29 @@ struct CameraView: View {
     @State private var showCamera: Bool = false
     
     var body: some View {
-        Button {
-            showCamera = true
-        } label: {
-            Text("Take a picture")
+        HStack {
+            Spacer()
+            Button {
+                showCamera = true
+            } label: {
+                Label("Take a photo", systemImage: "camera.fill")
+                    .frame(maxWidth: .infinity)
+            }
+            .fullScreenCover(isPresented: $showCamera) {
+                ImageTaker(selectedImages: $selectedImages)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.black)
+            }
+            .foregroundColor(Color.white)
+            .buttonStyle(.borderedProminent)
+            Spacer()
         }
-        .fullScreenCover(isPresented: $showCamera) {
-            ImageTaker(selectedImages: $selectedImages)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(.black)
-        }
-        .foregroundColor(Color.white)
-        .buttonStyle(.borderedProminent)
+    }
+}
+
+
+struct cView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
