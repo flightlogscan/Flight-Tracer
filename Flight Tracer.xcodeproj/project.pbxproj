@@ -11,6 +11,7 @@
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5C92AB752E6009B2ACB /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
+		D84FF5CF2AB770DD009B2ACB /* SelectImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */; };
 		D879525B2AA3D5690076E898 /* ScannedFlightLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
@@ -54,6 +55,7 @@
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
+		D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageStyle.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D84FF5CD2AB77099009B2ACB /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		D85561F62AAC233400A3CA49 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
 			isa = PBXGroup;
 			children = (
+				D84FF5CD2AB77099009B2ACB /* Style */,
 				D84FF5CA2AB75461009B2ACB /* Model */,
 				D87952532AA3D49F0076E898 /* Views */,
 				D879523D2AA3D49F0076E898 /* ViewModel */,
@@ -413,6 +424,7 @@
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
 				D87952672AA3D5690076E898 /* Array+Conversions.swift in Sources */,
 				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
+				D84FF5CF2AB770DD009B2ACB /* SelectImageStyle.swift in Sources */,
 				D84FF5C92AB752E6009B2ACB /* SelectImageView.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
