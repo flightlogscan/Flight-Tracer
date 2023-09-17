@@ -13,7 +13,7 @@ struct ImageHintsView: View {
         VStack (alignment: .leading, spacing: 5){
             HStack {
                 Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
-                Text("Readble, neat, and bold handwritten text")
+                Text("Readable, neat, and bold handwritten text")
             }
             HStack {
                 Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)

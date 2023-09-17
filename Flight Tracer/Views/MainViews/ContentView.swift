@@ -5,7 +5,6 @@ struct ContentView: View {
     
     @State var images: [ImageDetail] = []
     @State var allowScan: Bool = false
-    @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
         NavigationStack {
@@ -26,32 +25,15 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding([.leading])
                         .foregroundColor(.black)
-                  
                         
                     ImagePresentationView(selectedImages: $images)
                     
-                    SelectImageView(selectedImages: $images)
-                    
-                    // Only allow scanning if every image is valid
-                    let areImagesValid = (images.count > 0 && !images.contains(where: {!$0.isImageValid}))
-                    
-                    Button{
-                        allowScan = areImagesValid
-                        //TODO: implement the call below for image text scanning
-                        // This is the legit scanner that will back the ultimate output going to the user
-                        if (allowScan) {
-                            contentViewModel.processImageText(images: images)
-                        }
-                    } label: {
-                        Label("Scan photo", systemImage: "doc.viewfinder.fill")
-                            .frame(maxWidth: .infinity)
-                            .font(.title2)
-                            .padding()
+                    HStack {
+                        CameraView(selectedImages: $images)
+                        PhotoPickerView(selectedImages: $images)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(areImagesValid ? .green : .gray.opacity(0.5))
-                    .bold()
-                    .padding([.leading, .trailing])
+                    
+                    ScanView(allowScan: $allowScan, selectedImages: $images)
                     
                 }
                 .navigationDestination(isPresented: $allowScan) {
@@ -59,6 +41,7 @@ struct ContentView: View {
                     ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
                 }
             }
+            Spacer()
         }
     }
 }

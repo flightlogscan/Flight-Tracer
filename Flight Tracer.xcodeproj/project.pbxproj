@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
-		D84FF5C92AB752E6009B2ACB /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
 		D84FF5CF2AB770DD009B2ACB /* SelectImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */; };
+		D84FF5D12AB773ED009B2ACB /* AnalyzeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5D02AB773ED009B2ACB /* AnalyzeResult.swift */; };
+		D84FF5D62AB776F6009B2ACB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5D52AB776F6009B2ACB /* ScanView.swift */; };
 		D879525B2AA3D5690076E898 /* ScannedFlightLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
@@ -53,9 +54,10 @@
 /* Begin PBXFileReference section */
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
-		D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageStyle.swift; sourceTree = "<group>"; };
+		D84FF5D02AB773ED009B2ACB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
+		D84FF5D52AB776F6009B2ACB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */,
+				D84FF5D02AB773ED009B2ACB /* AnalyzeResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,6 +126,16 @@
 				D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		D84FF5D42AB77683009B2ACB /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
+				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
+				D84FF5D52AB776F6009B2ACB /* ScanView.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		D85561F62AAC233400A3CA49 /* MainViews */ = {
@@ -153,10 +166,10 @@
 		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
 			isa = PBXGroup;
 			children = (
-				D84FF5CD2AB77099009B2ACB /* Style */,
 				D84FF5CA2AB75461009B2ACB /* Model */,
 				D87952532AA3D49F0076E898 /* Views */,
 				D879523D2AA3D49F0076E898 /* ViewModel */,
+				D84FF5CD2AB77099009B2ACB /* Style */,
 				D87952442AA3D49F0076E898 /* Text */,
 				D87952402AA3D49F0076E898 /* Util */,
 				D879524D2AA3D49F0076E898 /* Example Data */,
@@ -235,12 +248,10 @@
 		D87952552AA3D49F0076E898 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				D84FF5D42AB77683009B2ACB /* Buttons */,
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D87952572AA3D49F0076E898 /* EditableLogGridView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
-				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
-				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
-				D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -412,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D879525B2AA3D5690076E898 /* ScannedFlightLogsView.swift in Sources */,
+				D84FF5D12AB773ED009B2ACB /* AnalyzeResult.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
 				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
 				D8DD98262AA81FC600F43034 /* ExperimentalTable.swift in Sources */,
@@ -424,8 +436,8 @@
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
 				D87952672AA3D5690076E898 /* Array+Conversions.swift in Sources */,
 				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
+				D84FF5D62AB776F6009B2ACB /* ScanView.swift in Sources */,
 				D84FF5CF2AB770DD009B2ACB /* SelectImageStyle.swift in Sources */,
-				D84FF5C92AB752E6009B2ACB /* SelectImageView.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
 				D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */,

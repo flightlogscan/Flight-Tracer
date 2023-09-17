@@ -24,13 +24,11 @@ struct ExperimentalTable: View {
 }
 
 struct TableView: View {
-  let table: Table
+    let table: Table
     let frameWidth: CGFloat = 75
     let frameHeight: CGFloat = 20
     @State private var text: String = "initial"
 
-
-  
   var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {
           ScrollView(.vertical, showsIndicators: false) {
@@ -56,34 +54,6 @@ struct TableView: View {
     return table.cells.first(where: { $0.rowIndex == row && $0.columnIndex == col })?.content ?? ""
   }
 }
-
-struct RecognizedForm: Codable {
-  let analyzeResult: AnalyzeResult
-}
-
-struct AnalyzeResult: Codable {
-    let content: String
-    let tables: [Table]
-    let documents: [Document]
-}
-
-struct Document: Codable {
-    
-}
-
-
-struct Table: Codable {
-    let rowCount: Int
-    let columnCount: Int
-    let cells: [Cell]
-}
-
-struct Cell: Codable {
-    let rowIndex: Int
-    let columnIndex: Int
-    let content: String
-}
-
 
 struct ExperimentalTable_Previews: PreviewProvider {
     static var previews: some View {
