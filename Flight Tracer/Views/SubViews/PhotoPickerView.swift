@@ -10,35 +10,54 @@ import _PhotosUI_SwiftUI
 
 struct PhotoPickerView: View {
     
+    let color: Color = Color.black.opacity(0.7)
     @State private var selectedItems: [PhotosPickerItem] = []
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
     @Binding var selectedImages: [ImageDetail]
     
     var body: some View {
-        PhotosPicker(selection: $selectedItems, matching: .images) {
-            Label("Select photos", systemImage: "photo")
-        }
-        .cornerRadius(10)
-        .foregroundColor(Color.white)
-        .buttonStyle(.borderedProminent)
-        .onChange(of: selectedItems) { newItem in
-            Task {
-                selectedImages = []
-                for item in selectedItems {
-                    if let data = try? await item.loadTransferable(type: Data.self) {
-                        if let uiImage = UIImage(data: data) {
-                            let image = Image(uiImage: uiImage)
-                            let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
-                            
-                            // This uses a very basic image scanner as a first-step sanity-check
-                            // before allowing users to send the image to the more resource-intensive scanner
-                            selectImageViewModel.simpleValidateImage(image: imageDetail)
-
-                            selectedImages.append(imageDetail)
+        HStack {
+            PhotosPicker(selection: $selectedItems, matching: .images) {
+                VStack {
+                    Image(systemName: "photo.fill")
+                        .foregroundColor(color)
+                        .padding(.bottom, 1)
+            
+                    Text("photos")
+                        .font(.headline)
+                        .foregroundColor(color)
+                        .frame(maxWidth: .infinity)
+                }
+                .padding()
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.white)
+            .padding(.trailing)
+            .onChange(of: selectedItems) { newItem in
+                Task {
+                    selectedImages = []
+                    for item in selectedItems {
+                        if let data = try? await item.loadTransferable(type: Data.self) {
+                            if let uiImage = UIImage(data: data) {
+                                let image = Image(uiImage: uiImage)
+                                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
+                                
+                                // This uses a very basic image scanner as a first-step sanity-check
+                                // before allowing users to send the image to the more resource-intensive scanner
+                                selectImageViewModel.simpleValidateImage(image: imageDetail)
+                                
+                                selectedImages.append(imageDetail)
+                            }
                         }
                     }
                 }
             }
         }
+    }
+}
+
+struct e: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
