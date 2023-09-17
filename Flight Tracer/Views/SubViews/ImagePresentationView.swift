@@ -10,7 +10,7 @@ struct ImagePresentationView: View {
             //TODO: Scroll UI shows one at a time. Need to make each element smaller.
             ScrollView([.vertical], showsIndicators: false) {
                 ForEach(selectedImages) {image in
-                    
+                    //test
                     image.image
                         .resizable()
                         .scaledToFit()

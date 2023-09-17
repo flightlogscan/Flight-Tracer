@@ -35,8 +35,7 @@ struct CameraView: View {
                     .background(.black)
             }
             .foregroundColor(color)
-            .buttonStyle(.borderedProminent)
-            .tint(.white)
+            .buttonStyle(SelectImageStyle())
             .padding(.leading)
         }
     }

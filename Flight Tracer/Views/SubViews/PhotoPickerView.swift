@@ -30,8 +30,7 @@ struct PhotoPickerView: View {
                 }
                 .padding()
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.white)
+            .buttonStyle(SelectImageStyle())
             .padding(.trailing)
             .onChange(of: selectedItems) { newItem in
                 Task {

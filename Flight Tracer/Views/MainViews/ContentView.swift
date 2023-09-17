@@ -15,24 +15,18 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    Rectangle().overlay(
-                        VStack {
-                            Text("Flight Log Upload")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.largeTitle)
-                                .foregroundColor(.black)
-                                .bold()
-                                .padding([.leading, .top, .bottom])
-                            
-                            ImageHintsView()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding([.leading])
-                                .foregroundColor(.black)
-                        }
-                    )
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .padding([.leading, .trailing])
+                    Text("Flight Log Upload")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.largeTitle)
+                        .foregroundColor(.black)
+                        .bold()
+                        .padding([.leading, .top, .bottom])
+                    
+                    ImageHintsView()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding([.leading])
+                        .foregroundColor(.black)
+                  
                         
                     ImagePresentationView(selectedImages: $images)
                     
@@ -51,11 +45,13 @@ struct ContentView: View {
                     } label: {
                         Label("Scan photo", systemImage: "doc.viewfinder.fill")
                             .frame(maxWidth: .infinity)
+                            .font(.title2)
+                            .padding()
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(areImagesValid ? .green : .gray)
+                    .tint(areImagesValid ? .green : .gray.opacity(0.5))
                     .bold()
-                    .padding()
+                    .padding([.leading, .trailing])
                     
                 }
                 .navigationDestination(isPresented: $allowScan) {
