@@ -9,44 +9,62 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("")
-                    .navigationTitle("Flight Log Upload")
-
-                ImageHintsView()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.leading])
-                                
-                SelectImageView(selectedImages: $images)
-
-                // Only allow scanning if every image is valid
-                let areImagesValid = (images.count > 0 && !images.contains(where: {!$0.isImageValid}))
-                if (areImagesValid) {
+            ZStack {
+                Rectangle()
+                    .fill(Color.gray.opacity(0.1))
+                    .edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    Rectangle().overlay(
+                        VStack {
+                            Text("Flight Log Upload")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.largeTitle)
+                                .foregroundColor(.black)
+                                .bold()
+                                .padding([.leading, .top, .bottom])
+                            
+                            ImageHintsView()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding([.leading])
+                                .foregroundColor(.black)
+                        }
+                    )
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding([.leading, .trailing])
+                        
+                    ImagePresentationView(selectedImages: $images)
+                    
+                    SelectImageView(selectedImages: $images)
+                    
+                    // Only allow scanning if every image is valid
+                    let areImagesValid = (images.count > 0 && !images.contains(where: {!$0.isImageValid}))
+                    
                     Button{
-                        allowScan = true
+                        allowScan = areImagesValid
                         //TODO: implement the call below for image text scanning
                         // This is the legit scanner that will back the ultimate output going to the user
-                        contentViewModel.processImageText(images: images)
+                        if (allowScan) {
+                            contentViewModel.processImageText(images: images)
+                        }
                     } label: {
-                        Text("Scan")
+                        Label("Scan photo", systemImage: "doc.viewfinder.fill")
+                            .frame(maxWidth: .infinity)
                     }
-                    .foregroundColor(Color.white)
-                    .padding(10)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(5)
+                    .buttonStyle(.borderedProminent)
+                    .tint(areImagesValid ? .green : .gray)
+                    .bold()
                     .padding()
+                    
+                }
+                .navigationDestination(isPresented: $allowScan) {
+                    // TODO: replace test data with results from processImageText call
+                    ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
                 }
             }
-            .navigationDestination(isPresented: $allowScan) {
-                // TODO: replace test data with results from processImageText call
-                ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
-            }
-            Spacer()
-            Spacer()
-            Spacer()
         }
-    }    
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

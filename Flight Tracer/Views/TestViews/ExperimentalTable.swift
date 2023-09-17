@@ -25,23 +25,26 @@ struct ExperimentalTable: View {
 
 struct TableView: View {
   let table: Table
-    let frameWidth: CGFloat = 100
-    let frameHeight: CGFloat = 25
+    let frameWidth: CGFloat = 75
+    let frameHeight: CGFloat = 20
     @State private var text: String = "initial"
 
 
   
   var body: some View {
-      ScrollView([.horizontal, .vertical], showsIndicators: false) {
-          LazyVStack(spacing: 0) {
-              ForEach(0..<table.rowCount, id: \.self) { row in
-                  HStack(spacing: 0) {
-                      ForEach(0..<table.columnCount, id: \.self) { col in
-                          Text(getCell(row: row, col: col))
-                              .font(.system(size: 11, weight: row == 0 ? .bold : .regular, design: .default))
-                              .frame(width: frameWidth, height: frameHeight, alignment: .center)
-                              .background(col % 2 == 0 ? Color.clear : Color.gray.opacity(0.2))
-                              .border(Color.gray, width: 1)
+      ScrollView(.horizontal, showsIndicators: false) {
+          ScrollView(.vertical, showsIndicators: false) {
+              LazyVStack(spacing: 0) {
+                  ForEach(0..<table.rowCount, id: \.self) { row in
+                      LazyHStack(spacing: 0) {
+                          ForEach(0..<table.columnCount, id: \.self) { col in
+                              Text(getCell(row: row, col: col))
+                                  .font(.system(size: 11, weight: .regular, design: .default))
+                                  .opacity(row == 0 ? 0.7 : 1.0)
+                                  .frame(width: frameWidth, height: frameHeight, alignment: .center)
+                                  .background(row == 0 ? Color.gray.opacity(0.2) : Color.clear)
+                                  .border(Color.gray, width: 0.3)
+                          }
                       }
                   }
               }
@@ -61,7 +64,13 @@ struct RecognizedForm: Codable {
 struct AnalyzeResult: Codable {
     let content: String
     let tables: [Table]
+    let documents: [Document]
 }
+
+struct Document: Codable {
+    
+}
+
 
 struct Table: Codable {
     let rowCount: Int

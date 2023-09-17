@@ -10,19 +10,29 @@ import _PhotosUI_SwiftUI
 
 struct PhotoPickerView: View {
     
+    let color: Color = Color.black.opacity(0.7)
     @State private var selectedItems: [PhotosPickerItem] = []
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
     @Binding var selectedImages: [ImageDetail]
     
     var body: some View {
         HStack {
-            Spacer()
             PhotosPicker(selection: $selectedItems, matching: .images) {
-                Label("Select photos", systemImage: "photo.fill")
-                    .frame(maxWidth: .infinity)
+                VStack {
+                    Image(systemName: "photo.fill")
+                        .foregroundColor(color)
+                        .padding(.bottom, 1)
+            
+                    Text("photos")
+                        .font(.headline)
+                        .foregroundColor(color)
+                        .frame(maxWidth: .infinity)
+                }
+                .padding()
             }
-            .foregroundColor(Color.white)
             .buttonStyle(.borderedProminent)
+            .tint(.white)
+            .padding(.trailing)
             .onChange(of: selectedItems) { newItem in
                 Task {
                     selectedImages = []
@@ -42,7 +52,12 @@ struct PhotoPickerView: View {
                     }
                 }
             }
-            Spacer()
         }
+    }
+}
+
+struct e: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }

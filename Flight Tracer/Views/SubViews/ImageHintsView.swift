@@ -31,5 +31,12 @@ struct ImageHintsView: View {
                 .font(.subheadline)
                 .padding([.top])
         }
+        
+    }
+}
+
+struct b: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
