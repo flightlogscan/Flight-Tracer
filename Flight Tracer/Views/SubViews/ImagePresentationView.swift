@@ -8,21 +8,28 @@ struct ImagePresentationView: View {
     var body: some View {
         if selectedImages.count > 0 {
             //TODO: Scroll UI shows one at a time. Need to make each element smaller.
-            ScrollView([.vertical], showsIndicators: false) {
-                ForEach(selectedImages) {image in
-                    //test
-                    image.image
-                        .resizable()
-                        .scaledToFit()
-                        .clipped()
-                        .padding([.leading, .trailing])
-                    
-                    if (image.isValidated && !image.isImageValid) {
-                        Text("Invalid flight log. Please try a new image.")
-                            .foregroundColor(Color.red)
+            GeometryReader { geo in
+                ScrollView([.vertical], showsIndicators: false) {
+                    VStack {
+                        ForEach(selectedImages) {image in
+                            image.image
+                                .resizable()
+                                .scaledToFill()
+                                .clipped()
+                                .padding([.leading, .trailing])
+                            
+                            if (image.isValidated && !image.isImageValid) {
+                                Text("Invalid flight log. Please try a new image.")
+                                    .foregroundColor(Color.red)
+                            }
+                        }
                     }
-                }
-            }
+                    .frame(
+                        minWidth: geo.size.width,
+                        minHeight: geo.size.height
+                    )
+                }}
+            .frame(maxWidth: selectedImages[0].uiImage.size.width, maxHeight: selectedImages[0].uiImage.size.height)
         } else {
             Rectangle()
                 .foregroundColor(.white)

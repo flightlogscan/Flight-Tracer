@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */; };
+		9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8552AB7F9D000524C29 /* WarningView.swift */; };
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5C92AB752E6009B2ACB /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecognizer.swift; sourceTree = "<group>"; };
+		9E81E8552AB7F9D000524C29 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E81E8522AB7E9B100524C29 /* Daos */ = {
+			isa = PBXGroup;
+			children = (
+				9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */,
+			);
+			path = Daos;
+			sourceTree = "<group>";
+		};
 		D84FF5CA2AB75461009B2ACB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
 			isa = PBXGroup;
 			children = (
+				9E81E8522AB7E9B100524C29 /* Daos */,
 				D84FF5CD2AB77099009B2ACB /* Style */,
 				D84FF5CA2AB75461009B2ACB /* Model */,
 				D87952532AA3D49F0076E898 /* Views */,
@@ -241,6 +254,7 @@
 				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
 				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
 				D84FF5C82AB752E6009B2ACB /* SelectImageView.swift */,
+				9E81E8552AB7F9D000524C29 /* WarningView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -418,6 +432,7 @@
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* ContentView.swift in Sources */,
+				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
 				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,
@@ -425,6 +440,7 @@
 				D87952672AA3D5690076E898 /* Array+Conversions.swift in Sources */,
 				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
 				D84FF5CF2AB770DD009B2ACB /* SelectImageStyle.swift in Sources */,
+				9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */,
 				D84FF5C92AB752E6009B2ACB /* SelectImageView.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
