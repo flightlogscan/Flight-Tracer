@@ -28,7 +28,9 @@ struct ImagePresentationView: View {
                         minWidth: geo.size.width,
                         minHeight: geo.size.height
                     )
-                }}
+                }
+                .scrollDisabled(selectedImages.count <= 1)
+            }
             .frame(maxWidth: selectedImages[0].uiImage.size.width, maxHeight: selectedImages[0].uiImage.size.height)
         } else {
             Rectangle()
