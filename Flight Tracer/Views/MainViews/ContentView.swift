@@ -5,6 +5,7 @@ struct ContentView: View {
     
     @State var images: [ImageDetail] = []
     @State var allowScan: Bool = false
+    @State var scanTypeSelected: Bool = false
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
@@ -37,11 +38,6 @@ struct ContentView: View {
                     
                     Button{
                         allowScan = areImagesValid
-                        //TODO: implement the call below for image text scanning
-                        // This is the legit scanner that will back the ultimate output going to the user
-                        if (allowScan) {
-                            contentViewModel.processImageText(images: images)
-                        }
                     } label: {
                         Label("Scan photo", systemImage: "doc.viewfinder.fill")
                             .frame(maxWidth: .infinity)
@@ -55,8 +51,11 @@ struct ContentView: View {
                     
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    // TODO: replace test data with results from processImageText call
-                    ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
+                    // TODO: Remove dev-only warning view and replace with real logic (commented out below)
+                    WarningView(images: images, allowScan: allowScan, scanTypeSelected: scanTypeSelected, contentViewModel: contentViewModel)
+                    
+                    // contentViewModel.processImageText(images: images, realScan: true)
+                    // ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
                 }
             }
         }
