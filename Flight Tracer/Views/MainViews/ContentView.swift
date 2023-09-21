@@ -30,25 +30,13 @@ struct ContentView: View {
                   
                         
                     ImagePresentationView(selectedImages: $images)
-                    
-                    SelectImageView(selectedImages: $images)
-                    
-                    // Only allow scanning if every image is valid
-                    let areImagesValid = (images.count > 0 && !images.contains(where: {!$0.isImageValid}))
-                    
-                    Button{
-                        allowScan = areImagesValid
-                    } label: {
-                        Label("Scan photo", systemImage: "doc.viewfinder.fill")
-                            .frame(maxWidth: .infinity)
-                            .font(.title2)
-                            .padding()
+                                        
+                    HStack {
+                        CameraView(selectedImages: $images)
+                        PhotoPickerView(selectedImages: $images)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(areImagesValid ? .green : .gray.opacity(0.5))
-                    .bold()
-                    .padding([.leading, .trailing])
                     
+                    ScanView(allowScan: $allowScan, selectedImages: $images)
                 }
                 .navigationDestination(isPresented: $allowScan) {
                     // TODO: Remove dev-only warning view and replace with real logic (commented out below)
