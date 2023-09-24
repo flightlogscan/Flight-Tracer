@@ -1,22 +1,36 @@
 import SwiftUI
+import _PhotosUI_SwiftUI
 
 struct ImagePresentationView: View {
     
     @Binding var selectedImages: [ImageDetail]
+    @Binding var selectedItem: PhotosPickerItem?
     let recognizedTextProcessor = RecognizedTextProcessor()
     
     var body: some View {
         if selectedImages.count > 0 {
             //TODO: Scroll UI shows one at a time. Need to make each element smaller.
             GeometryReader { geo in
-                ScrollView([.vertical], showsIndicators: false) {
                     VStack {
                         ForEach(selectedImages) {image in
                             image.image
                                 .resizable()
-                                .scaledToFill()
-                                .clipped()
+                                .cornerRadius(10)
                                 .padding([.leading, .trailing])
+                                .overlay(
+                                    Button {
+                                        if let idx = selectedImages.firstIndex(of: image) {
+                                            selectedImages.remove(at: idx)
+                                            selectedItem = nil
+                                        }
+                                    } label: {
+                                        Label("", systemImage: "xmark.circle.fill")
+                                            .foregroundStyle(.white, .black.opacity(0.7))
+                                            .font(.title)
+                                            .offset(x: -15, y: 5)
+                                    },
+                                    alignment: .topTrailing
+                                )
                             
                             if (image.isValidated && !image.isImageValid) {
                                 Text("Invalid flight log. Please try a new image.")
@@ -24,12 +38,6 @@ struct ImagePresentationView: View {
                             }
                         }
                     }
-                    .frame(
-                        minWidth: geo.size.width,
-                        minHeight: geo.size.height
-                    )
-                }
-                .scrollDisabled(selectedImages.count <= 1)
             }
             .frame(maxWidth: selectedImages[0].uiImage.size.width, maxHeight: selectedImages[0].uiImage.size.height)
         } else {

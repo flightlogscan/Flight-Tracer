@@ -149,12 +149,13 @@
 			path = MainViews;
 			sourceTree = "<group>";
 		};
-		D85561F72AAC234000A3CA49 /* TestViews */ = {
+		D85561F72AAC234000A3CA49 /* DevViews */ = {
 			isa = PBXGroup;
 			children = (
+				9E81E8552AB7F9D000524C29 /* WarningView.swift */,
 				D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */,
 			);
-			path = TestViews;
+			path = DevViews;
 			sourceTree = "<group>";
 		};
 		D85561F82AAC237600A3CA49 /* File */ = {
@@ -243,7 +244,7 @@
 			children = (
 				D85561F62AAC233400A3CA49 /* MainViews */,
 				D87952552AA3D49F0076E898 /* SubViews */,
-				D85561F72AAC234000A3CA49 /* TestViews */,
+				D85561F72AAC234000A3CA49 /* DevViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,7 +256,6 @@
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D87952572AA3D49F0076E898 /* EditableLogGridView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
-				9E81E8552AB7F9D000524C29 /* WarningView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";

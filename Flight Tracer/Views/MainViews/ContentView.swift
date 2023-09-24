@@ -6,6 +6,7 @@ struct ContentView: View {
     @State var images: [ImageDetail] = []
     @State var allowScan: Bool = false
     @State var scanTypeSelected: Bool = false
+    @State var selectedItem: PhotosPickerItem?
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
@@ -27,13 +28,12 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding([.leading])
                         .foregroundColor(.black)
-                  
-                        
-                    ImagePresentationView(selectedImages: $images)
+                                          
+                    ImagePresentationView(selectedImages: $images, selectedItem: $selectedItem)
                                         
                     HStack {
                         CameraView(selectedImages: $images)
-                        PhotoPickerView(selectedImages: $images)
+                        PhotoPickerView(selectedItem: $selectedItem, selectedImages: $images)
                     }
                     
                     ScanView(allowScan: $allowScan, selectedImages: $images)
