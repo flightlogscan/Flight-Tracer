@@ -55,7 +55,7 @@ struct WarningView: View {
                     .padding()
             }
             .buttonStyle(.borderedProminent)
-            .tint(.green)
+            .tint(.red)
             .bold()
             .padding([.leading, .trailing])
             .scaledToFit()
