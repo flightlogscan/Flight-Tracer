@@ -11,7 +11,7 @@ import _PhotosUI_SwiftUI
 struct PhotoPickerView: View {
     
     let color: Color = Color.black.opacity(0.7)
-    @State private var selectedItem: PhotosPickerItem?
+    @Binding var selectedItem: PhotosPickerItem?
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
     @Binding var selectedImages: [ImageDetail]
     
@@ -33,12 +33,13 @@ struct PhotoPickerView: View {
             .buttonStyle(SelectImageStyle())
             .padding(.trailing)
             .onChange(of: selectedItem) { newItem in
-                Task {
-                    selectedImages = []
+                if (selectedItem != nil) {
+                    Task {
+                        selectedImages = []
                         if let data = try? await newItem!.loadTransferable(type: Data.self) {
                             if let uiImage = UIImage(data: data) {
                                 let image = Image(uiImage: uiImage)
-
+                                
                                 let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
                                 
                                 // This uses a very basic image scanner as a first-step sanity-check
@@ -48,7 +49,7 @@ struct PhotoPickerView: View {
                                 selectedImages.append(imageDetail)
                             }
                         }
-                    
+                    }
                 }
             }
         }

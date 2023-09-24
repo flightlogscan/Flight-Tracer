@@ -1,6 +1,12 @@
 import SwiftUI
 
-public class ImageDetail: Identifiable {
+public class ImageDetail: Identifiable, Equatable {
+    
+    public static func == (lhs: ImageDetail, rhs: ImageDetail) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    
     public var id = UUID()
     
     var image: Image
