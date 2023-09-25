@@ -30,3 +30,9 @@ struct ScanView: View {
         .padding([.leading, .trailing])
     }
 }
+
+struct asdf: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}

@@ -24,7 +24,7 @@ struct CameraView: View {
                     
                     Text("camera")
                         .font(.headline)
-                        .foregroundColor(color) // Customize text appearance as needed
+                        .foregroundColor(color)
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
