@@ -13,7 +13,7 @@ struct ContentView: View {
         NavigationStack {
             ZStack {
                 Rectangle()
-                    .fill(Color.gray.opacity(0.1))
+                    .fill(Color(.systemGray6))
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
