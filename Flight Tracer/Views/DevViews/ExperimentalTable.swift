@@ -9,7 +9,6 @@ struct ExperimentalTable: View {
         NavigationStack {
             if let form = form {
                 TableView(table: form.analyzeResult.tables[0])
-                    .padding(.top)
             }
         }
         .navigationBarBackButtonHidden()
@@ -29,6 +28,10 @@ struct ExperimentalTable: View {
                 }
             }
         })
+        .toolbarBackground(
+            Color.white,
+            for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
         .tint(.black.opacity(0.7))
         .onAppear {
             loadJSON()
@@ -100,8 +103,8 @@ struct ColHeaderView: View {
         
         LazyHStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
             Section(header: CornerCell()) {
-                ForEach(getHeaderRow(from: table), id: \.self) { cellData in
-                    Text(cellData)
+                ForEach(getHeaderRow(from: table)) { cellData in
+                    Text(cellData.string)
                         .font(.system(size: 11, weight: .regular, design: .default))
                         .opacity(0.8)
                         .frame(width: 75, height: 25, alignment: .center)
@@ -112,12 +115,25 @@ struct ColHeaderView: View {
         }
     }
     
-    func getHeaderRow(from table: Table) -> [String] {
+    func getHeaderRow(from table: Table) -> [CellValue] {
         return (0..<table.columnCount).map { colIndex in
-            return table.cells.first { 
+            
+            let content = table.cells.first {
                 $0.rowIndex == 0 && $0.columnIndex == colIndex
-            }?.content ?? ""
+            }?.content
+            
+            return CellValue(content ?? "")
         }
+    }
+}
+
+//Cell values can be identical so need to give unique id for ForEach loop
+struct CellValue: Identifiable {
+    let id = UUID()
+    let string: String
+
+    init(_ string: String) {
+        self.string = string
     }
 }
 
