@@ -61,7 +61,7 @@ struct WarningView: View {
             .scaledToFit()
         }.navigationDestination(isPresented: $scanTypeSelected) {
             // TODO: replace test data with results from processImageText call
-            ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
+            ScannedFlightLogsView(inputArray: [["test", "test2"], ["text", "text2"]])
         }
     }
 }

@@ -20,7 +20,6 @@ struct Emptytest: View {
                 }
             }
             .navigationDestination(isPresented: $isClicked) {
-                ExperimentalTable()
             }
         }
     }

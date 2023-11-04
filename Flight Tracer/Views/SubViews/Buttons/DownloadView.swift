@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DownloadView: View {
     
-    @Binding var data: [[String]]
+    var data: [[String]]
     var body: some View {
         Button {
             if let fileURL = CSVManager.createCSVFile(data, filename: "flight_log.csv") {
@@ -13,7 +13,8 @@ struct DownloadView: View {
                 window?.rootViewController?.present(documentPicker, animated: true)
             }
         } label: {
-            Text("Download CSV")
+            Label("", systemImage: "square.and.arrow.down")
+                .font(.title)
         }
     }
 }
