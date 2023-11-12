@@ -20,7 +20,14 @@ struct Emptytest: View {
                 }
             }
             .navigationDestination(isPresented: $isClicked) {
+                ScannedFlightLogsView(inputArray: [["test", "test2"], ["text", "text2"]])
             }
         }
+    }
+}
+
+struct e_Previews: PreviewProvider {
+    static var previews: some View {
+        Emptytest()
     }
 }

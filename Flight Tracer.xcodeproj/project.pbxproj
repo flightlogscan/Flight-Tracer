@@ -13,6 +13,7 @@
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
 		D84FF5CF2AB770DD009B2ACB /* SelectImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */; };
+		D85B852D2AFB3A70009E39F7 /* LogTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B852C2AFB3A70009E39F7 /* LogTableView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
 		D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* ImagePresentationView.swift */; };
@@ -62,6 +63,7 @@
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageStyle.swift; sourceTree = "<group>"; };
+		D85B852C2AFB3A70009E39F7 /* LogTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D87952572AA3D49F0076E898 /* EditableLogGridView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
+				D85B852C2AFB3A70009E39F7 /* LogTableView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* ContentView.swift in Sources */,
+				D85B852D2AFB3A70009E39F7 /* LogTableView.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
@@ -641,7 +645,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -683,7 +687,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
