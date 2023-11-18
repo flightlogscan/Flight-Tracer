@@ -10,6 +10,10 @@
 		9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */; };
 		9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8552AB7F9D000524C29 /* WarningView.swift */; };
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
+		D836F93C2B014AC2000FC988 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = D836F93B2B014AC2000FC988 /* Auth0 */; };
+		D836F93E2B014CC8000FC988 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = D836F93D2B014CC8000FC988 /* Auth0.plist */; };
+		D836F9412B01520F000FC988 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* LoginView.swift */; };
+		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
 		D84FF5CF2AB770DD009B2ACB /* SelectImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */; };
@@ -59,6 +63,10 @@
 		9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecognizer.swift; sourceTree = "<group>"; };
 		9E81E8552AB7F9D000524C29 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
+		D836F93D2B014CC8000FC988 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D836F9402B01520F000FC988 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		D84FF5CE2AB770DD009B2ACB /* SelectImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageStyle.swift; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D836F93C2B014AC2000FC988 /* Auth0 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +141,7 @@
 			children = (
 				D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */,
 				D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */,
+				D836F9422B0153B6000FC988 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +159,7 @@
 			children = (
 				D87952542AA3D49F0076E898 /* ScannedFlightLogsView.swift */,
 				D879525A2AA3D49F0076E898 /* ContentView.swift */,
+				D836F9402B01520F000FC988 /* LoginView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
 			isa = PBXGroup;
 			children = (
+				D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */,
 				9E81E8522AB7E9B100524C29 /* Daos */,
 				D84FF5CD2AB77099009B2ACB /* Style */,
 				D84FF5CA2AB75461009B2ACB /* Model */,
@@ -279,6 +291,7 @@
 		FDE0970D2A5643EA00102E96 = {
 			isa = PBXGroup;
 			children = (
+				D836F93D2B014CC8000FC988 /* Auth0.plist */,
 				D879523C2AA3D49F0076E898 /* Flight Tracer */,
 				FDE0972A2A5643F800102E96 /* Flight TracerTests */,
 				FDE097342A5643F800102E96 /* Flight TracerUITests */,
@@ -329,6 +342,9 @@
 			dependencies = (
 			);
 			name = "Flight Tracer";
+			packageProductDependencies = (
+				D836F93B2B014AC2000FC988 /* Auth0 */,
+			);
 			productName = "Flight Tracer";
 			productReference = FDE097162A5643EA00102E96 /* Flight Tracer.app */;
 			productType = "com.apple.product-type.application";
@@ -401,6 +417,9 @@
 				Base,
 			);
 			mainGroup = FDE0970D2A5643EA00102E96;
+			packageReferences = (
+				D836F93A2B014AC2000FC988 /* XCRemoteSwiftPackageReference "Auth0" */,
+			);
 			productRefGroup = FDE097172A5643EA00102E96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -418,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
+				D836F93E2B014CC8000FC988 /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +482,9 @@
 				9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
+				D836F9432B0153B6000FC988 /* User.swift in Sources */,
 				D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */,
+				D836F9412B01520F000FC988 /* LoginView.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
 				D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
@@ -629,6 +651,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -671,6 +694,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -832,6 +856,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D836F93A2B014AC2000FC988 /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D836F93B2B014AC2000FC988 /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D836F93A2B014AC2000FC988 /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FDE0970E2A5643EA00102E96 /* Project object */;
 }
