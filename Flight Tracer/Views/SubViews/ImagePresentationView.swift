@@ -53,9 +53,3 @@ struct ImagePresentationView: View {
         }
     }
 }
-
-struct a: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

@@ -38,7 +38,7 @@ struct FormRecognizer {
             }
             
             if (200...299).contains(httpResponse.statusCode) {
-                if let data = data {
+                if data != nil {
                     // After posting the image this result ID is used to retrieve the analysis result
                     let resultId: String = httpResponse.allHeaderFields["operation-location"] as! String
                     
