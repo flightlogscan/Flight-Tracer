@@ -34,9 +34,3 @@ struct ImageHintsView: View {
         
     }
 }
-
-struct b: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

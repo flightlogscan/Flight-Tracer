@@ -32,7 +32,7 @@ struct PhotoPickerView: View {
             }
             .buttonStyle(SelectImageStyle())
             .padding(.trailing)
-            .onChange(of: selectedItem) { newItem in
+            .onChange(of: selectedItem) { oldItem, newItem in
                 if (selectedItem != nil) {
                     Task {
                         selectedImages = []
@@ -53,11 +53,5 @@ struct PhotoPickerView: View {
                 }
             }
         }
-    }
-}
-
-struct e: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

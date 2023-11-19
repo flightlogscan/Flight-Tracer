@@ -66,9 +66,3 @@ struct WarningView: View {
     }
 }
 
-struct l: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
