@@ -40,9 +40,3 @@ struct CameraView: View {
         }
     }
 }
-
-struct x: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
