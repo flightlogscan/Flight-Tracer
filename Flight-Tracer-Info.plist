@@ -6,12 +6,12 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>None</string>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>auth0</string>
+			<string>GoogleSignIn</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+				<string>com.googleusercontent.apps.276065417009-nco9f83f7jikr16njniiacrn943p1ovm</string>
 			</array>
 		</dict>
 	</array>
