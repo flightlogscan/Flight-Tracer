@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseAuthUI
 import PhotosUI
 
 struct FlightLogUploadView: View {
@@ -9,6 +10,7 @@ struct FlightLogUploadView: View {
     @State var selectedItem: PhotosPickerItem?
     @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
+    let authUI = FUIAuth.defaultAuthUI()
     
     var body: some View {
         NavigationStack {
@@ -29,6 +31,11 @@ struct FlightLogUploadView: View {
                         Menu {
                             Button {
                                 user = nil
+                                do {
+                                  try self.authUI?.signOut()
+                                } catch let error {
+                                  print("error: \(error)")
+                                }
                             } label: {
                                 Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                             }
