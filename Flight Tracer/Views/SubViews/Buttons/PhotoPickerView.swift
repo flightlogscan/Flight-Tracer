@@ -16,42 +16,39 @@ struct PhotoPickerView: View {
     @Binding var selectedImages: [ImageDetail]
     
     var body: some View {
-        HStack {
-            PhotosPicker(selection: $selectedItem, matching: .images) {
-                VStack {
+        PhotosPicker(selection: $selectedItem, matching: .images) {
+            Rectangle()
+                .overlay (
                     Image(systemName: "photo.fill")
                         .foregroundColor(color)
-                        .padding(.bottom, 1)
-            
-                    Text("photos")
-                        .font(.headline)
-                        .foregroundColor(color)
-                        .frame(maxWidth: .infinity)
-                }
-                .padding()
-            }
-            .buttonStyle(SelectImageStyle())
-            .padding(.trailing)
-            .onChange(of: selectedItem) { oldItem, newItem in
-                if (selectedItem != nil) {
-                    Task {
-                        selectedImages = []
-                        if let data = try? await newItem!.loadTransferable(type: Data.self) {
-                            if let uiImage = UIImage(data: data) {
-                                let image = Image(uiImage: uiImage)
-                                
-                                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
-                                
-                                // This uses a very basic image scanner as a first-step sanity-check
-                                // before allowing users to send the image to the more resource-intensive scanner
-                                selectImageViewModel.simpleValidateImage(image: imageDetail)
-                                
-                                selectedImages.append(imageDetail)
-                            }
+                )
+                .foregroundColor(.white)
+        }
+        .cornerRadius(10)
+        .aspectRatio(1, contentMode: .fit)
+        .onChange(of: selectedItem) { oldItem, newItem in
+            if (selectedItem != nil) {
+                Task {
+                    selectedImages = []
+                    if let data = try? await newItem!.loadTransferable(type: Data.self) {
+                        if let uiImage = UIImage(data: data) {
+                            let image = Image(uiImage: uiImage)
+                            
+                            let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
+                            
+                            // This uses a very basic image scanner as a first-step sanity-check
+                            // before allowing users to send the image to the more resource-intensive scanner
+                            selectImageViewModel.simpleValidateImage(image: imageDetail)
+                            
+                            selectedImages.append(imageDetail)
                         }
                     }
                 }
             }
         }
     }
+}
+
+#Preview {
+    FlightLogUploadView(user: Binding.constant(nil))
 }

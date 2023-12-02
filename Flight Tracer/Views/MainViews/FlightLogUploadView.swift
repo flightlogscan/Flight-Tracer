@@ -21,42 +21,24 @@ struct FlightLogUploadView: View {
                 
                 VStack {
                     HStack {
-                        Text("Flight Log Upload")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.largeTitle)
-                            .foregroundColor(.black)
-                            .bold()
-                            .padding([.leading, .top, .bottom])
+//                        Text("Flight Log Upload")
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                            .font(.largeTitle)
+//                            .foregroundColor(.black)
+//                            .bold()
+//                            .padding([.leading, .top, .bottom])
                         
-                        Menu {
-                            Button {
-                                user = nil
-                                do {
-                                  try self.authUI?.signOut()
-                                } catch let error {
-                                  print("error: \(error)")
-                                }
-                            } label: {
-                                Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
-                            }
-                        } label: {
-                            Label("", systemImage: "gearshape.fill")
-                                .font(.title)
-                                .foregroundColor(.black)
-                        }
+                        
                     }
                     
                     ImageHintsView()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding([.leading])
+                        .padding([.leading, .top])
                         .foregroundColor(.black)
                                           
                     ImagePresentationView(selectedImages: $images, selectedItem: $selectedItem)
-                                        
-                    HStack {
-                        CameraView(selectedImages: $images)
-                        PhotoPickerView(selectedItem: $selectedItem, selectedImages: $images)
-                    }
+                    
+                    PhotoCarouselView(selectedImages: $images, selectedItem: $selectedItem)
                     
                     ScanView(allowScan: $allowScan, selectedImages: $images)
                 }
@@ -67,7 +49,42 @@ struct FlightLogUploadView: View {
                     // contentViewModel.processImageText(images: images, realScan: true)
                     // ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
                 }
+                
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(content: {
+                ToolbarItem (placement: .principal) {
+                    Image(systemName: "airplane.departure")
+                        .foregroundStyle(Color.white)
+                }
+            
+                ToolbarItem (placement: .primaryAction) {
+                    Menu {
+                        Button {
+                            user = nil
+                            do {
+                                try self.authUI?.signOut()
+                            } catch let error {
+                                print("error: \(error)")
+                            }
+                        } label: {
+                            Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
+                        }
+                    } label: {
+                        Label("", systemImage: "gearshape")
+                    }
+                }
+            })
+            .toolbarBackground(
+                Color(red: 0.0, green: 0.2, blue: 0.5),
+                for: .navigationBar
+            )
+            .tint(.white)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
+}
+
+#Preview {
+    FlightLogUploadView(user: Binding.constant(nil))
 }
