@@ -14,29 +14,27 @@ struct CameraView: View {
     @State private var showCamera: Bool = false
     
     var body: some View {
-        HStack {
-            Button {
-                showCamera = true
-            } label: {
-                VStack {
+        Button {
+            showCamera = true
+        } label: {
+            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                .overlay (
                     Image(systemName: "camera.fill")
-                        .padding(.bottom, 1)
-                    
-                    Text("camera")
-                        .font(.headline)
                         .foregroundColor(color)
-                }
-                .padding()
-                .frame(maxWidth: .infinity)
-            }
-            .fullScreenCover(isPresented: $showCamera) {
-                ImageTaker(selectedImages: $selectedImages)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(.black)
-            }
-            .foregroundColor(color)
-            .buttonStyle(SelectImageStyle())
-            .padding(.leading)
+                )
+                .foregroundColor(.white)
+        }
+        .cornerRadius(10)
+        .aspectRatio(1, contentMode: .fit)
+        .foregroundColor(color)
+        .fullScreenCover(isPresented: $showCamera) {
+            ImageTaker(selectedImages: $selectedImages)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.black)
         }
     }
+}
+
+#Preview {
+    FlightLogUploadView(user: Binding.constant(nil))
 }

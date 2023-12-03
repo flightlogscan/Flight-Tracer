@@ -17,4 +17,3 @@ struct l_Previews: PreviewProvider {
         ContentView()
     }
 }
-

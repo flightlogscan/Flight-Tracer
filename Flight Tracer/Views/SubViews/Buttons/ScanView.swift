@@ -27,6 +27,10 @@ struct ScanView: View {
         .buttonStyle(.borderedProminent)
         .tint(areImagesValid ? .green : .gray.opacity(0.5))
         .bold()
-        .padding([.leading, .trailing])
+        .padding([.leading, .trailing, .bottom])
     }
+}
+
+#Preview {
+    FlightLogUploadView(user: Binding.constant(nil))
 }
