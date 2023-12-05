@@ -10,44 +10,57 @@ struct ImagePresentationView: View {
     var body: some View {
         if selectedImages.count > 0 {
             VStack {
-                ForEach(selectedImages) {image in
-                selectedImages[0].image
-                        .resizable()
-                        .cornerRadius(10)
-                        //.aspectRatio(1, contentMode: .fit)
+                ZStack {
+                    // Invisible rectangle underneath photo to keep spacing
+                    Rectangle()
+                        .foregroundColor(.clear)
                         .padding([.leading, .trailing])
-                        .overlay(
-                            Button {
-                                if let idx = selectedImages.firstIndex(of: selectedImages[0]) {
-                                    selectedImages.remove(at: idx)
-                                    selectedItem = nil
-                                }
-                            } label: {
-                                Label("", systemImage: "xmark.circle.fill")
-                                    .foregroundStyle(.white, .black.opacity(0.7))
-                                    .font(.title)
-                                    .offset(x: -15, y: 5)
-                            },
-                            alignment: .topTrailing
-                        )
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
                     
-                    if (selectedImages[0].isValidated && !selectedImages[0].isImageValid) {
-                        Text("Invalid flight log. Please try a new image.")
-                            .foregroundColor(Color.red)
+                    ForEach(selectedImages) {image in
+                        selectedImages[0].image
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                            .padding([.leading, .trailing])
+                            .overlay(
+                                Button {
+                                    if let idx = selectedImages.firstIndex(of: selectedImages[0]) {
+                                        selectedImages.remove(at: idx)
+                                        selectedItem = nil
+                                    }
+                                } label: {
+                                    Label("", systemImage: "xmark.circle.fill")
+                                        .foregroundStyle(.white, .black.opacity(0.7))
+                                        .font(.title)
+                                    .offset(x: -15, y: 5)
+                                },
+                                alignment: .topTrailing
+                            )
                     }
+                }
+                if (selectedImages[0].isValidated && !selectedImages[0].isImageValid) {
+                    Text("Invalid flight log. Please try a new image.")
+                        .foregroundColor(Color.red)
                 }
             }
         } else {
-            Rectangle()
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .overlay(
-                    Text("Please select a photo")
-                        .font(.title3)
-                        .foregroundColor(.black.opacity(0.7))
-                )
-                .padding([.leading, .trailing])
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding([.leading, .trailing])
+                    .shadow(radius: 5)
+                
+                Text("Please select a photo")
+                    .font(.title3)
+                    .foregroundColor(.black.opacity(0.7))
+            }
         }
     }
 }
 
+#Preview {
+    FlightLogUploadView(user: Binding.constant(nil))
+}

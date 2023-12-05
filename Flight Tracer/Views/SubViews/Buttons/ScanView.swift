@@ -26,6 +26,7 @@ struct ScanView: View {
         }
         .buttonStyle(.borderedProminent)
         .tint(areImagesValid ? .green : .gray.opacity(0.5))
+        .shadow(color: areImagesValid ? .gray : .clear, radius: areImagesValid ? 5 : 0)
         .bold()
         .padding([.leading, .trailing, .bottom])
     }

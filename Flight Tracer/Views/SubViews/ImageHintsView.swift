@@ -31,6 +31,11 @@ struct ImageHintsView: View {
                 .font(.subheadline)
                 .padding([.top])
         }
-        
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding([.leading, .top])      
     }
+}
+
+#Preview {
+    FlightLogUploadView(user: Binding.constant(nil))
 }

@@ -22,7 +22,6 @@ struct PhotoCarouselView: View {
                 PhotoPickerView(selectedItem: $selectedItem, selectedImages: $selectedImages)
             }
         }
-        //.border(.red)
         .frame(height: 75)
         .padding([.leading, .trailing])
         .onAppear {
@@ -37,12 +36,13 @@ struct PhotoCarouselView: View {
             
             fetchResult.enumerateObjects { (phAsset, _, _) in
                 imageManager.requestImage(
-                    for: phAsset, targetSize: CGSize(width: 1280, height: 768), contentMode: .default, options: imageRequestOptions
+                    for: phAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: imageRequestOptions
                 ) { (uiImage, _) in
                     thumbnailImages.append(uiImage!)
                 }
             }
         }
+        .shadow(radius: 1)
     }
     
     //This code is gross and needs to be extracted to a different class

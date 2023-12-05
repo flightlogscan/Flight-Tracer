@@ -20,21 +20,7 @@ struct FlightLogUploadView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    HStack {
-//                        Text("Flight Log Upload")
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .font(.largeTitle)
-//                            .foregroundColor(.black)
-//                            .bold()
-//                            .padding([.leading, .top, .bottom])
-                        
-                        
-                    }
-                    
                     ImageHintsView()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding([.leading, .top])
-                        .foregroundColor(.black)
                                           
                     ImagePresentationView(selectedImages: $images, selectedItem: $selectedItem)
                     
@@ -52,13 +38,13 @@ struct FlightLogUploadView: View {
                 
             }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
+            .toolbar {
                 ToolbarItem (placement: .principal) {
                     Image(systemName: "airplane.departure")
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(.white)
                 }
             
-                ToolbarItem (placement: .primaryAction) {
+                ToolbarItem {
                     Menu {
                         Button {
                             user = nil
@@ -74,12 +60,12 @@ struct FlightLogUploadView: View {
                         Label("", systemImage: "gearshape")
                     }
                 }
-            })
+            }
+            .tint(.white)
             .toolbarBackground(
                 Color(red: 0.0, green: 0.2, blue: 0.5),
                 for: .navigationBar
             )
-            .tint(.white)
             .toolbarBackground(.visible, for: .navigationBar)
         }
     }
