@@ -45,7 +45,9 @@ struct PhotoCarouselView: View {
         .shadow(radius: 1)
     }
     
-    //This code is gross and needs to be extracted to a different class
+    // This code is gross and needs to be extracted to a different class
+    // There is a bug where if a photo is added or deleted in the photos app, FLT won't
+    // know to update the index and thus show incorrect images.
     func getImage(index: Int) -> UIImage {
         let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         

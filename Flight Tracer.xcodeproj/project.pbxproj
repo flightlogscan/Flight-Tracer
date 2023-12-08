@@ -10,6 +10,7 @@
 		9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */; };
 		9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8552AB7F9D000524C29 /* WarningView.swift */; };
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
+		D81FA38D2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift */; };
 		D836F9412B01520F000FC988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* ContentView.swift */; };
 		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
 		D83C3CEF2B13ACF80094EEAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CEE2B13ACF80094EEAE /* FirebaseAuth */; };
@@ -69,6 +70,7 @@
 		9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecognizer.swift; sourceTree = "<group>"; };
 		9E81E8552AB7F9D000524C29 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
+		D81FA38C2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFUIAuthPickerViewController.swift; sourceTree = "<group>"; };
 		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D836F9402B01520F000FC988 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 			path = Daos;
 			sourceTree = "<group>";
 		};
+		D81FA38B2B2287AC0082B178 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D81FA38C2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D84FF5CA2AB75461009B2ACB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 				9E81E8522AB7E9B100524C29 /* Daos */,
 				D84FF5CA2AB75461009B2ACB /* Model */,
 				D87952532AA3D49F0076E898 /* Views */,
+				D81FA38B2B2287AC0082B178 /* ViewControllers */,
 				D879523D2AA3D49F0076E898 /* ViewModel */,
 				D87952442AA3D49F0076E898 /* Text */,
 				D87952402AA3D49F0076E898 /* Util */,
@@ -479,6 +490,7 @@
 				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
 				D8DD98262AA81FC600F43034 /* ExperimentalTable.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
+				D81FA38D2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* FlightLogUploadView.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,

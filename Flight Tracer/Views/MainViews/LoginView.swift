@@ -37,10 +37,14 @@ struct LoginView : UIViewControllerRepresentable {
           requireDisplayName: false,
           actionCodeSetting: settings
         )
+        emailAuth.buttonAlignment = .center
+        
+        let googleAuth = FUIGoogleAuth(authUI: authUI!)
+        googleAuth.buttonAlignment = .center
 
         let providers : [FUIAuthProvider] = [
             emailAuth,
-            FUIGoogleAuth(authUI: authUI!),
+            googleAuth,
             //https://firebase.google.com/docs/auth/ios/apple
             //Apple requires enrollment which seems like a pain so do later: https://developer.apple.com/programs/enroll/
             //FUIOAuth.appleAuthProvider()
@@ -77,7 +81,9 @@ struct LoginView : UIViewControllerRepresentable {
                 print("authDataResult null")
             }
         }
-
-        func authUI(_ authUI: FUIAuth, didFinish operation: FUIAccountSettingsOperationType, error: Error?){}
+        
+        func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
+            return CustomFUIAuthPickerViewController(authUI: authUI)
+        }
     }
 }
