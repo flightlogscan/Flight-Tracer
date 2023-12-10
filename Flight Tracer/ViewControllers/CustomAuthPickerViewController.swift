@@ -8,7 +8,7 @@
 import FirebaseAuthUI
 import SwiftUI
 
-class CustomFUIAuthPickerViewController : FUIAuthPickerViewController {
+class CustomAuthPickerViewController : FUIAuthPickerViewController {
     
     let NAVY_BLUE = UIColor(red: 0.0, green: 0.2, blue: 0.5, alpha: 1.0)
     let GOLD = UIColor(red: 0.84, green: 0.69, blue: 0.21, alpha: 1.0)
@@ -16,9 +16,11 @@ class CustomFUIAuthPickerViewController : FUIAuthPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainBackground = view.subviews[0]
+        let mainBackground = view.subviews[0] as! UIScrollView
+        mainBackground.isScrollEnabled = false
         mainBackground.backgroundColor = NAVY_BLUE
         
+        mainBackground.isScrollEnabled = false
         createAirplaneLogo()
         
         let buttonTray = mainBackground.subviews[0]
@@ -26,6 +28,7 @@ class CustomFUIAuthPickerViewController : FUIAuthPickerViewController {
         buttonTray.backgroundColor = .black
         buttonTray.layer.cornerRadius = 40.0
         buttonTray.translatesAutoresizingMaskIntoConstraints = false
+        
         
         // Only top left and right corners of view are rounded
         buttonTray.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]

@@ -66,11 +66,11 @@ struct LoginView : UIViewControllerRepresentable {
     class Coordinator : NSObject, FUIAuthDelegate {
         
         var parent : LoginView
-
+        
         init(_ parent : LoginView) {
             self.parent = parent
         }
-
+        
         func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?){
             
             if let authDataResult {
@@ -83,7 +83,15 @@ struct LoginView : UIViewControllerRepresentable {
         }
         
         func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
-            return CustomFUIAuthPickerViewController(authUI: authUI)
+            return CustomAuthPickerViewController(authUI: authUI)
+        }
+        
+        func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
+            return CustomEmailEntryViewController(authUI: authUI)
         }
     }
+}
+
+#Preview {
+    ContentView()
 }

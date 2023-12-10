@@ -10,7 +10,8 @@
 		9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */; };
 		9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8552AB7F9D000524C29 /* WarningView.swift */; };
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
-		D81FA38D2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift */; };
+		D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */; };
+		D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */; };
 		D836F9412B01520F000FC988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* ContentView.swift */; };
 		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
 		D83C3CEF2B13ACF80094EEAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CEE2B13ACF80094EEAE /* FirebaseAuth */; };
@@ -70,7 +71,8 @@
 		9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecognizer.swift; sourceTree = "<group>"; };
 		9E81E8552AB7F9D000524C29 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
-		D81FA38C2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFUIAuthPickerViewController.swift; sourceTree = "<group>"; };
+		D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailEntryViewController.swift; sourceTree = "<group>"; };
+		D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D836F9402B01520F000FC988 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -153,7 +155,8 @@
 		D81FA38B2B2287AC0082B178 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D81FA38C2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift */,
+				D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */,
+				D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -490,7 +493,7 @@
 				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
 				D8DD98262AA81FC600F43034 /* ExperimentalTable.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
-				D81FA38D2B2287F60082B178 /* CustomFUIAuthPickerViewController.swift in Sources */,
+				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* FlightLogUploadView.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
@@ -514,6 +517,7 @@
 				D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
 				D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */,
+				D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
