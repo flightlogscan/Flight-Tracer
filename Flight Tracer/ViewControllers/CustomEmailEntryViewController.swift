@@ -10,19 +10,22 @@ import FirebaseEmailAuthUI
 
 class CustomEmailEntryViewController : FUIEmailEntryViewController {
     
-    let NAVY_BLUE = UIColor(red: 0.0, green: 0.2, blue: 0.5, alpha: 1.0)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableView = view.subviews[0] as! UITableView
-        tableView.backgroundColor = NAVY_BLUE
-   
-        //Need a better way of doing this sorta hacky
-        //I think this changes ALL UIBar and navbar items to white regardless of view
-        UIBarButtonItem.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        let mainView = view.subviews[0] as! UIScrollView
+        mainView.isScrollEnabled = false
+        mainView.backgroundColor = Colors.NAVY_BLUE
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        // Sign in flow navigation color only needs to be set once for the entire
+        // navigation flow. No need to revert in viewWillDisappear because future screens use a different
+        // NavigationController.
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     // Unclear why, but view crashes if these aren't here.
@@ -34,6 +37,20 @@ class CustomEmailEntryViewController : FUIEmailEntryViewController {
         super.init(coder: aDecoder)
     }
 }
+
+// Keeping in. Helpful for discovery of firebase auth ui views
+//extension UIView {
+//    func findViews<T: UIView>(subclassOf: T.Type) -> [T] {
+//        return recursiveSubviews.compactMap { $0 as? T }
+//    }
+//
+//    var recursiveSubviews: [UIBarItem] {
+//        print("willy" + self.description)
+//        print("sv count: \(self.subviews.count)")
+//        print("=========================")
+//        return subviews + subviews.flatMap { $0.recursiveSubviews }
+//    }
+//}
 
 #Preview {
     ContentView()

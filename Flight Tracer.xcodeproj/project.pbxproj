@@ -11,6 +11,11 @@
 		9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8552AB7F9D000524C29 /* WarningView.swift */; };
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
 		D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */; };
+		D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */; };
+		D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */; };
+		D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */; };
+		D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */; };
+		D803E2322B26795E001B5100 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2312B26795E001B5100 /* Colors.swift */; };
 		D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */; };
 		D836F9412B01520F000FC988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* ContentView.swift */; };
 		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
@@ -72,6 +77,11 @@
 		9E81E8552AB7F9D000524C29 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
 		D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailEntryViewController.swift; sourceTree = "<group>"; };
+		D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordRecoveryViewController.swift; sourceTree = "<group>"; };
+		D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignInViewController.swift; sourceTree = "<group>"; };
+		D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignUpViewController.swift; sourceTree = "<group>"; };
+		D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordVerificationViewController.swift; sourceTree = "<group>"; };
+		D803E2312B26795E001B5100 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D836F9402B01520F000FC988 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +167,10 @@
 			children = (
 				D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */,
 				D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */,
+				D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */,
+				D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */,
+				D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */,
+				D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,6 +231,7 @@
 				D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */,
 				D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */,
 				D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */,
+				D803E2312B26795E001B5100 /* Colors.swift */,
 			);
 			path = "Flight Tracer";
 			sourceTree = "<group>";
@@ -488,6 +503,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D88DE8A52AC0AF7F0080D5EB /* DownloadView.swift in Sources */,
+				D803E2322B26795E001B5100 /* Colors.swift in Sources */,
+				D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */,
+				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
+				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
 				D879525B2AA3D5690076E898 /* ScannedFlightLogsView.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
 				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
@@ -498,6 +517,7 @@
 				D87952602AA3D5690076E898 /* FlightLogUploadView.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
+				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
 				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,

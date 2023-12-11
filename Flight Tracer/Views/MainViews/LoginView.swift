@@ -89,6 +89,23 @@ struct LoginView : UIViewControllerRepresentable {
         func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
             return CustomEmailEntryViewController(authUI: authUI)
         }
+        
+        func passwordSignUpViewController(forAuthUI authUI: FUIAuth, email: String?, requireDisplayName: Bool) -> FUIPasswordSignUpViewController {
+            return CustomPasswordSignUpViewController(authUI: authUI, email: email, requireDisplayName: false)
+        }
+        
+        func passwordSignInViewController(forAuthUI authUI: FUIAuth, email: String?) -> FUIPasswordSignInViewController {
+            return CustomPasswordSignInViewController(authUI: authUI, email: email)
+        }
+        
+        func passwordVerificationViewController(forAuthUI authUI: FUIAuth, email: String?, newCredential: AuthCredential) -> FUIPasswordVerificationViewController {
+            return CustomPasswordVerificationViewController(authUI: authUI, email: email, newCredential: newCredential)
+        }
+        
+        func passwordRecoveryViewController(forAuthUI authUI: FUIAuth, email: String?) -> FUIPasswordRecoveryViewController {
+            return CustomPasswordRecoveryViewController(authUI: authUI, email: email)
+        }
+
     }
 }
 

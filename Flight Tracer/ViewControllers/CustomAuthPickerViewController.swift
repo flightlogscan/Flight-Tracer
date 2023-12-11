@@ -10,15 +10,12 @@ import SwiftUI
 
 class CustomAuthPickerViewController : FUIAuthPickerViewController {
     
-    let NAVY_BLUE = UIColor(red: 0.0, green: 0.2, blue: 0.5, alpha: 1.0)
-    let GOLD = UIColor(red: 0.84, green: 0.69, blue: 0.21, alpha: 1.0)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let mainBackground = view.subviews[0] as! UIScrollView
         mainBackground.isScrollEnabled = false
-        mainBackground.backgroundColor = NAVY_BLUE
+        mainBackground.backgroundColor = Colors.NAVY_BLUE
         
         mainBackground.isScrollEnabled = false
         createAirplaneLogo()
@@ -27,8 +24,6 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
 
         buttonTray.backgroundColor = .black
         buttonTray.layer.cornerRadius = 40.0
-        buttonTray.translatesAutoresizingMaskIntoConstraints = false
-        
         
         // Only top left and right corners of view are rounded
         buttonTray.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -47,7 +42,7 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
     private func createAirplaneLogo() {
         let image = UIImage(systemName: "airplane")
         let imageView = UIImageView(image: image!)
-        imageView.tintColor = GOLD
+        imageView.tintColor = Colors.GOLD
         imageView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
         imageView.center = view.center
         view.subviews[0].addSubview(imageView)
