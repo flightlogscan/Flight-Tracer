@@ -24,6 +24,18 @@ struct LoginView : UIViewControllerRepresentable {
             }
         }
         
+        //Get id token to send to backend
+//        let currentUser = FIRAuth.auth()?.currentUser
+//        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+//          if let error = error {
+//            // Handle error
+//            return;
+//          }
+//
+//          // Send token to your backend via HTTPS
+//          // ...
+//        }
+        
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.shouldHideCancelButton = true
         
