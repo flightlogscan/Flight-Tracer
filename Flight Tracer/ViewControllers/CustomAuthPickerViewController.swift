@@ -8,19 +8,22 @@
 import FirebaseAuthUI
 import SwiftUI
 
+// Override values in FUIAuthPickerViewController to make custom auth picker
+// This will help understand how to modify the ViewController
+// Reference FUIAuthPickerViewController.m to see initial structure
 class CustomAuthPickerViewController : FUIAuthPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainBackground = view.subviews[0] as! UIScrollView
-        mainBackground.isScrollEnabled = false
-        mainBackground.backgroundColor = Colors.NAVY_BLUE
+        let scrollView = view.subviews[0] as! UIScrollView
+        scrollView.isScrollEnabled = false
+        scrollView.backgroundColor = Colors.NAVY_BLUE
         
-        mainBackground.isScrollEnabled = false
+        scrollView.isScrollEnabled = false
         createAirplaneLogo()
         
-        let buttonTray = mainBackground.subviews[0]
+        let buttonTray = scrollView.subviews[0]
 
         buttonTray.backgroundColor = .black
         buttonTray.layer.cornerRadius = 40.0
@@ -28,13 +31,23 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
         // Only top left and right corners of view are rounded
         buttonTray.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
-        let buttonsParent = buttonTray.subviews[0]
-        for each in buttonsParent.subviews {
-            if let button = each as? UIButton {
-                button.layer.cornerRadius = 10.0
-                button.layer.backgroundColor = UIColor.darkGray.cgColor
-                button.layer.masksToBounds = true
-                button.setTitleColor(.white, for: .normal)
+        let buttonContainerView = buttonTray.subviews[0]
+        for each in buttonContainerView.subviews {
+            if let providerButton = each as? UIButton {
+                providerButton.frame.origin.x -= 50
+                providerButton.frame.size = CGSizeMake(320.0, 45.0)
+                providerButton.layer.cornerRadius = 10.0
+                providerButton.layer.backgroundColor = UIColor.darkGray.cgColor
+                providerButton.layer.masksToBounds = true
+                providerButton.setTitleColor(.white, for: .normal)
+                providerButton.titleLabel?.textAlignment = .center
+                
+                var configuration = UIButton.Configuration.filled()
+                configuration.baseBackgroundColor = .darkGray
+
+                providerButton.configuration = configuration
+                providerButton.contentHorizontalAlignment = .center
+                providerButton.titleLabel?.font = .boldSystemFont(ofSize: 12)
             }
         }
     }
