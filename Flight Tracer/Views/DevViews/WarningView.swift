@@ -12,6 +12,7 @@ struct WarningView: View {
     @State var images: [ImageDetail] = []
     @State var allowScan: Bool = false
     @State var scanTypeSelected: Bool = false
+    @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
@@ -26,7 +27,7 @@ struct WarningView: View {
                 //TODO: implement the call below for image text scanning
                 // This is the legit scanner that will back the ultimate output going to the user
                 if (allowScan) {
-                    contentViewModel.processImageText(images: images, realScan: true)
+                    contentViewModel.processImageText(images: images, realScan: true, user: user)
                 }
                 scanTypeSelected = true
             } label: {
@@ -45,7 +46,7 @@ struct WarningView: View {
                 //TODO: implement the call below for image text scanning
                 // This is the legit scanner that will back the ultimate output going to the user
                 if (allowScan) {
-                    contentViewModel.processImageText(images: images, realScan: false)
+                    contentViewModel.processImageText(images: images, realScan: false, user: user)
                 }
                 scanTypeSelected = true
             } label: {

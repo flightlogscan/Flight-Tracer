@@ -3,6 +3,7 @@ import FirebaseAuth
 struct User {
     let id: String
     let email: String
+    var token: String?
 }
 
 extension User {
