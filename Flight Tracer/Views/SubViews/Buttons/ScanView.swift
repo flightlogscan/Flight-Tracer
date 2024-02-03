@@ -5,6 +5,7 @@ struct ScanView: View {
     @Binding var allowScan: Bool
     @State var areImagesValid: Bool = false
     @Binding var selectedImages: [ImageDetail]
+    @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
@@ -16,7 +17,7 @@ struct ScanView: View {
             //TODO: implement the call below for image text scanning
             // This is the legit scanner that will back the ultimate output going to the user
             if (allowScan) {
-                contentViewModel.processImageText(images: selectedImages)
+                contentViewModel.processImageText(images: selectedImages, user: user)
             }
         } label: {
             Label("Scan photo", systemImage: "doc.viewfinder.fill")

@@ -20,20 +20,32 @@ struct LoginView : UIViewControllerRepresentable {
         auth.addStateDidChangeListener { [self] (_, user) in
             if let user = user {
                 self.user = User(id: user.uid, email: user.email!)
+                
+                user.getIDTokenForcingRefresh(true) { idToken, error in
+                    if error != nil {
+                        // Handle error
+                        print("user token retrieval error")
+                        return;
+                    }
+
+                    //print("id token \(String(describing: idToken))")
+                    self.user?.token = idToken
+                }
+                
                 print("already logged in user: \(String(describing: user.email))")
             }
         }
         
         //Get id token to send to backend
-//        let currentUser = FIRAuth.auth()?.currentUser
+//        let currentUser = Auth.auth().currentUser
 //        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-//          if let error = error {
-//            // Handle error
-//            return;
-//          }
-//
-//          // Send token to your backend via HTTPS
-//          // ...
+//            if let error = error {
+//                // Handle error
+//                print("willy error")
+//                return;
+//            }
+//            
+//            print("id token \(String(describing: idToken))")
 //        }
         
         let authUI = FUIAuth.defaultAuthUI()
@@ -87,8 +99,18 @@ struct LoginView : UIViewControllerRepresentable {
             
             if let authDataResult {
                 parent.user = User(from: authDataResult)
-                authDataResult.user.getIDToken()
-                print("user \(String(describing: parent.user))")
+                
+                authDataResult.user.getIDTokenForcingRefresh(true) { idToken, error in
+                    if let error = error {
+                        // Handle error
+                        print("user token retrieval error")
+                        return;
+                    }
+
+                    //print("id token \(String(describing: idToken))")
+                    self.parent.user?.token = idToken
+                    print("user \(String(describing: self.parent.user))")
+                }
             } else {
                 print("authDataResult null")
             }
