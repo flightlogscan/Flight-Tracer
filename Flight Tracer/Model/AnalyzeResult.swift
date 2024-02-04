@@ -7,7 +7,7 @@ struct RecognizedForm: Codable {
 struct AnalyzeResult: Codable {
     let content: String
     let tables: [Table]
-    let documents: [Document]
+    //let documents: [Document]
 }
 
 struct Document: Codable {

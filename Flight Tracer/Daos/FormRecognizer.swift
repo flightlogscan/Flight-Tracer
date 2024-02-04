@@ -54,8 +54,12 @@ struct FormRecognizer {
             }
             
             if (200...299).contains(httpResponse.statusCode) {
-                print("Response: ")
-                print(httpResponse)
+                if let data = data {
+                    let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
+                    
+                    print("Analyze Result: ")
+                    print(analyzeResult)
+                }
             } else {
                 print("API request failed. Status code: \(httpResponse.statusCode)")
             }
