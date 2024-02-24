@@ -12,49 +12,46 @@ struct WarningView: View {
     @State var images: [ImageDetail] = []
     @State var scanTypeSelected: Bool = false
     @Binding var user: User?
+    @State var isDataLoaded: Bool?
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
-        VStack {
-            Text("Real scan?")
-                .font(Font.largeTitle)
-                .bold()
-                .foregroundColor(Color.red)
-                .scaledToFit()
-            Button{
-                
-                contentViewModel.processImageText(images: images, realScan: true, user: user)
-                scanTypeSelected = true
-            } label: {
-                Label("Yes", systemImage: "checkmark.circle.fill")
-                    .frame(maxWidth: .infinity)
-                    .font(.title2)
-                    .padding()
+        ZStack {
+            if (isDataLoaded == nil || !isDataLoaded!){
+                Color(uiColor: Colors.NAVY_BLUE)
+                    .ignoresSafeArea()
+                Image(systemName: "airplane")
+                    .resizable()
+                    .frame(width: 150, height: 150, alignment: .center)
+                    .foregroundColor(Color(uiColor: Colors.GOLD))
+            } else if (!isDataLoaded!) {
+                Color(uiColor: Colors.NAVY_BLUE)
+                    .ignoresSafeArea()
+                Image(systemName: "airplane")
+                    .resizable()
+                    .frame(width: 150, height: 150, alignment: .center)
+                    .foregroundColor(Color(uiColor: Colors.GOLD))
+            } else if (isDataLoaded!){
+                ExperimentalTable(imageDetail: images[0])
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.green)
-            .bold()
-            .padding([.leading, .trailing])
-            .scaledToFit()
-            Button{
-                contentViewModel.processImageText(images: images, realScan: false, user: user)
-                scanTypeSelected = true
-            } label: {
-                Label("No", systemImage: "x.circle.fill")
-                    .frame(maxWidth: .infinity)
-                    .font(.title2)
-                    .padding()
+        }.animation(.easeInOut(duration: 0.25), value:isDataLoaded)
+            .onAppear {
+                self.loadData()
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.red)
-            .bold()
-            .padding([.leading, .trailing])
-            .scaledToFit()
-        }.navigationDestination(isPresented: $scanTypeSelected) {
+        .navigationDestination(isPresented: $scanTypeSelected) {
             // NOTE: Comment ScannedFlightLogsView and uncomment ExperimentalTable to use real data
             // ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
             ExperimentalTable(imageDetail: images[0])
         }
+    }
+    
+    func loadData() {
+        contentViewModel.processImageText(images: images, realScan: true, user: user)
+        
+        while (images[0].analyzeResult == nil) {
+            isDataLoaded = false
+        }
+        isDataLoaded = true
     }
 }
 
