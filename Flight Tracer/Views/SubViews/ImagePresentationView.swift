@@ -5,7 +5,6 @@ struct ImagePresentationView: View {
     
     @Binding var selectedImages: [ImageDetail]
     @Binding var selectedItem: PhotosPickerItem?
-    let recognizedTextProcessor = RecognizedTextProcessor()
     
     var body: some View {
         if selectedImages.count > 0 {

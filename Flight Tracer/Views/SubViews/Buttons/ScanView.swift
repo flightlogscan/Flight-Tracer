@@ -14,11 +14,6 @@ struct ScanView: View {
         
         Button {
             allowScan = areImagesValid
-            //TODO: implement the call below for image text scanning
-            // This is the legit scanner that will back the ultimate output going to the user
-            if (allowScan) {
-                contentViewModel.processImageText(images: selectedImages, user: user)
-            }
         } label: {
             Label("Scan photo", systemImage: "doc.viewfinder.fill")
                 .frame(maxWidth: .infinity)
