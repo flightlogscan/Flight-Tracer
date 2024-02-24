@@ -12,13 +12,11 @@ let endpoint = "http://localhost"
 struct FormRecognizer {
     
     func scanImage(image: ImageDetail, user: User?) {
-        
-        let imageData = image.uiImage.jpegData(compressionQuality: 0.9)!
-        
-        submitImageAndGetResults(imageData: imageData, user: user)
+        submitImageAndGetResults(imageDetail: image, user: user)
     }
     
-    func submitImageAndGetResults(imageData: Data, user: User?) {
+    func submitImageAndGetResults(imageDetail: ImageDetail, user: User?) {
+        let imageData = imageDetail.uiImage.jpegData(compressionQuality: 0.9)!
         // no call to azure
         let urlString = "\(endpoint)/api/analyze/dummy"
         
@@ -59,6 +57,7 @@ struct FormRecognizer {
                     
                     print("Analyze Result: ")
                     print(analyzeResult)
+                    imageDetail.analyzeResult = analyzeResult
                 }
             } else {
                 print("API request failed. Status code: \(httpResponse.statusCode)")
