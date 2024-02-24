@@ -1,15 +1,58 @@
 import SwiftUI
+import FirebaseAuthUI
 
 struct ContentView: View {
     @State var user: User?
+    @State var isLoggedIn: Bool?
 
     var body: some View {
-        if (user == nil) {
-            LoginView(user: $user)
-                .ignoresSafeArea()
+        
+        ZStack {
+            if (user == nil && isLoggedIn == nil){
+                Color(uiColor: Colors.NAVY_BLUE)
+                    .ignoresSafeArea()
+                Image(systemName: "airplane")
+                    .resizable()
+                    .frame(width: 150, height: 150, alignment: .center)
+                    .foregroundColor(Color(uiColor: Colors.GOLD))
+            } else if (user == nil || !isLoggedIn!) {
+                LoginView(user: $user)
+                    .ignoresSafeArea()
+                    .zIndex(1)
+            } else if (user != nil && isLoggedIn!){
+                FlightLogUploadView(user: $user)
+                    .zIndex(1)
+            }
+        }
+        .animation(.easeInOut(duration: 0.25), value:isLoggedIn)
+        .onAppear {
+            self.checkLogIn()
+        }
+    }
+    
+    func checkLogIn() {
+        // Check if user has already logged in
+        Auth.auth().addStateDidChangeListener { [self] (_, user) in
+            if let user = user {
+                self.user = User(id: user.uid, email: user.email!)
+                
+                user.getIDTokenForcingRefresh(true) { idToken, error in
+                    if error != nil {
+                        // Handle error
+                        print("user token retrieval error")
+                        isLoggedIn = false
+                        return;
+                    }
 
-        } else {
-            FlightLogUploadView(user: $user)
+                    //print("id token \(String(describing: idToken))")
+                    self.user?.token = idToken
+                }
+                isLoggedIn = true
+                
+                print("already logged in user: \(String(describing: user.email))")
+            } else {
+                isLoggedIn = false
+            }
         }
     }
 }

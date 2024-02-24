@@ -14,40 +14,6 @@ struct LoginView : UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> UIViewController
     {
-        let auth = Auth.auth()
-        
-        // Check if user has already logged in
-        auth.addStateDidChangeListener { [self] (_, user) in
-            if let user = user {
-                self.user = User(id: user.uid, email: user.email!)
-                
-                user.getIDTokenForcingRefresh(true) { idToken, error in
-                    if error != nil {
-                        // Handle error
-                        print("user token retrieval error")
-                        return;
-                    }
-
-                    //print("id token \(String(describing: idToken))")
-                    self.user?.token = idToken
-                }
-                
-                print("already logged in user: \(String(describing: user.email))")
-            }
-        }
-        
-        //Get id token to send to backend
-//        let currentUser = Auth.auth().currentUser
-//        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-//            if let error = error {
-//                // Handle error
-//                print("willy error")
-//                return;
-//            }
-//            
-//            print("id token \(String(describing: idToken))")
-//        }
-        
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.shouldHideCancelButton = true
         
