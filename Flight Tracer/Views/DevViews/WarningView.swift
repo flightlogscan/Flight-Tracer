@@ -42,7 +42,6 @@ struct WarningView: View {
             .padding([.leading, .trailing])
             .scaledToFit()
             Button{
-                
                 //TODO: implement the call below for image text scanning
                 // This is the legit scanner that will back the ultimate output going to the user
                 if (allowScan) {
@@ -61,8 +60,9 @@ struct WarningView: View {
             .padding([.leading, .trailing])
             .scaledToFit()
         }.navigationDestination(isPresented: $scanTypeSelected) {
-            // TODO: replace test data with results from processImageText call
+            // NOTE: Comment ScannedFlightLogsView and uncomment ExperimentalTable to use real data
             ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
+            // ExperimentalTable(imageDetail: images[0])
         }
     }
 }

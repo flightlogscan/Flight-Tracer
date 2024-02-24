@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RecognizedForm: Codable {
-  let analyzeResult: AnalyzeResult
+  let analyzeResult: AnalyzeResult?
 }
 
 struct AnalyzeResult: Codable {

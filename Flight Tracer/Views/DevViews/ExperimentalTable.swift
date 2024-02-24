@@ -2,13 +2,14 @@ import SwiftUI
 
 struct ExperimentalTable: View {
   
-    @State private var form: RecognizedForm?
+    @State var imageDetail: ImageDetail
+    @State var form: RecognizedForm?
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationStack {
             if let form = form {
-                TableView(table: form.analyzeResult.tables[0])
+                TableView(table: form.analyzeResult!.tables[0])
             }
         }
         .navigationBarBackButtonHidden()
@@ -36,12 +37,18 @@ struct ExperimentalTable: View {
         .onAppear {
             loadJSON()
         }
+        // TODO: Do this on receive instead of onAppear
+        //        .onReceive(imageDetail.$analyzeResult) {_ in
+        //            loadJSON()
+        //        }
     }
       
     func loadJSON() {
-        let url = Bundle.main.url(forResource: "custom-layout", withExtension: "json")!
-        let data = try! Data(contentsOf: url)
-        form = try! JSONDecoder().decode(RecognizedForm.self, from: data)
+//        let url = Bundle.main.url(forResource: "custom-layout", withExtension: "json")!
+//        let data = try! Data(contentsOf: url)
+        // TODO: Remove sleep
+        sleep(2)
+        form = RecognizedForm(analyzeResult: imageDetail.analyzeResult)
     }
 }
 
