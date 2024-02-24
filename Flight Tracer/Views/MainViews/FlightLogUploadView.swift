@@ -29,11 +29,7 @@ struct FlightLogUploadView: View {
                     ScanView(allowScan: $allowScan, selectedImages: $images, user: $user)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    // TODO: Remove dev-only warning view and replace with real logic (commented out below)
-                    WarningView(images: images, allowScan: allowScan, scanTypeSelected: scanTypeSelected, user: $user, contentViewModel: contentViewModel)
-                    
-                    // contentViewModel.processImageText(images: images, realScan: true)
-                    // ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
+                    WarningView(images: images, user: $user)
                 }
                 
             }

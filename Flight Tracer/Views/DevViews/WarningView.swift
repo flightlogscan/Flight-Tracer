@@ -10,7 +10,6 @@ import SwiftUI
 struct WarningView: View {
     
     @State var images: [ImageDetail] = []
-    @State var allowScan: Bool = false
     @State var scanTypeSelected: Bool = false
     @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
@@ -24,11 +23,7 @@ struct WarningView: View {
                 .scaledToFit()
             Button{
                 
-                //TODO: implement the call below for image text scanning
-                // This is the legit scanner that will back the ultimate output going to the user
-                if (allowScan) {
-                    contentViewModel.processImageText(images: images, realScan: true, user: user)
-                }
+                contentViewModel.processImageText(images: images, realScan: true, user: user)
                 scanTypeSelected = true
             } label: {
                 Label("Yes", systemImage: "checkmark.circle.fill")
@@ -42,11 +37,7 @@ struct WarningView: View {
             .padding([.leading, .trailing])
             .scaledToFit()
             Button{
-                //TODO: implement the call below for image text scanning
-                // This is the legit scanner that will back the ultimate output going to the user
-                if (allowScan) {
-                    contentViewModel.processImageText(images: images, realScan: false, user: user)
-                }
+                contentViewModel.processImageText(images: images, realScan: false, user: user)
                 scanTypeSelected = true
             } label: {
                 Label("No", systemImage: "x.circle.fill")
@@ -61,8 +52,8 @@ struct WarningView: View {
             .scaledToFit()
         }.navigationDestination(isPresented: $scanTypeSelected) {
             // NOTE: Comment ScannedFlightLogsView and uncomment ExperimentalTable to use real data
-            ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
-            // ExperimentalTable(imageDetail: images[0])
+            // ScannedFlightLogsView(imageText: [["test", "test2"], ["text", "text2"]])
+            ExperimentalTable(imageDetail: images[0])
         }
     }
 }
