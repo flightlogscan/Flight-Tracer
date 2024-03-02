@@ -46,8 +46,6 @@ struct ExperimentalTable: View {
     func loadJSON() {
 //        let url = Bundle.main.url(forResource: "custom-layout", withExtension: "json")!
 //        let data = try! Data(contentsOf: url)
-        // TODO: Remove sleep
-        sleep(2)
         form = RecognizedForm(analyzeResult: imageDetail.analyzeResult)
     }
 }

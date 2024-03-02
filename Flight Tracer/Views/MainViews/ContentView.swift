@@ -35,7 +35,7 @@ struct ContentView: View {
         Auth.auth().addStateDidChangeListener { [self] (_, user) in
             if let user = user {
                 self.user = User(id: user.uid, email: user.email!)
-                
+                 
                 user.getIDTokenForcingRefresh(true) { idToken, error in
                     if error != nil {
                         // Handle error
