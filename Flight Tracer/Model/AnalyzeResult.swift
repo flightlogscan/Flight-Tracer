@@ -4,7 +4,15 @@ struct RecognizedForm: Codable {
   let analyzeResult: AnalyzeResult?
 }
 
-struct AnalyzeResult: Codable {
+struct AnalyzeResult: Codable, Equatable {
+    static func == (lhs: AnalyzeResult, rhs: AnalyzeResult) -> Bool {
+        print("lhs")
+        print(lhs)
+        print("rhs")
+        print(rhs)
+        return lhs.content == rhs.content
+    }
+    
     let content: String
     let tables: [Table]
     //let documents: [Document]

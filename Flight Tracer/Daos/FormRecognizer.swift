@@ -53,6 +53,7 @@ struct FormRecognizer {
             
             if (200...299).contains(httpResponse.statusCode) {
                 if let data = data {
+                    sleep (5)
                     let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
                     
                     print("Analyze Result: ")
