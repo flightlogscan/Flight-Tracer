@@ -2,14 +2,27 @@ import SwiftUI
 
 struct ExperimentalTable: View {
   
-    @State var imageDetail: ImageDetail
     @State var form: RecognizedForm?
+    @State var isDataLoaded: Bool?
+    @ObservedObject var contentViewModel = ContentViewModel()
+    @State var images: [ImageDetail] = []
+    @State var scanTypeSelected: Bool = false
+    @Binding var user: User?
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        NavigationStack {
-            if let form = form {
-                TableView(table: form.analyzeResult!.tables[0])
+        ZStack {
+            if (isDataLoaded == nil || !isDataLoaded!){
+                Color(uiColor: Colors.NAVY_BLUE)
+                    .ignoresSafeArea()
+                Image(systemName: "airplane")
+                    .resizable()
+                    .frame(width: 150, height: 150, alignment: .center)
+                    .foregroundColor(Color(uiColor: Colors.GOLD))
+            } else if (isDataLoaded!) {
+                if let form = form {
+                    TableView(table: images[0].analyzeResult!.tables[0])
+                }
             }
         }
         .navigationBarBackButtonHidden()
@@ -37,16 +50,17 @@ struct ExperimentalTable: View {
         .onAppear {
             loadJSON()
         }
-        // TODO: Do this on receive instead of onAppear
-        //        .onReceive(imageDetail.$analyzeResult) {_ in
-        //            loadJSON()
-        //        }
+        .onReceive(images[0].$analyzeResult) {_ in
+            if (images[0].analyzeResult != nil) {
+                isDataLoaded = true
+            }
+        }
     }
       
     func loadJSON() {
-//        let url = Bundle.main.url(forResource: "custom-layout", withExtension: "json")!
-//        let data = try! Data(contentsOf: url)
-        form = RecognizedForm(analyzeResult: imageDetail.analyzeResult)
+        isDataLoaded = false
+        contentViewModel.processImageText(images: images, realScan: true, user: user)
+        form = RecognizedForm(analyzeResult: images[0].analyzeResult)
     }
 }
 

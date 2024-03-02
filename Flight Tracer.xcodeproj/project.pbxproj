@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */; };
-		9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8552AB7F9D000524C29 /* WarningView.swift */; };
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
 		D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */; };
 		D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */; };
@@ -74,7 +73,6 @@
 
 /* Begin PBXFileReference section */
 		9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecognizer.swift; sourceTree = "<group>"; };
-		9E81E8552AB7F9D000524C29 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
 		D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailEntryViewController.swift; sourceTree = "<group>"; };
 		D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordRecoveryViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		D85561F72AAC234000A3CA49 /* DevViews */ = {
 			isa = PBXGroup;
 			children = (
-				9E81E8552AB7F9D000524C29 /* WarningView.swift */,
 				D8DD98252AA81FC600F43034 /* ExperimentalTable.swift */,
 				D88DE8A62AC0B86C0080D5EB /* Emptytest.swift */,
 			);
@@ -525,7 +522,6 @@
 				D88DE8A72AC0B86C0080D5EB /* Emptytest.swift in Sources */,
 				D87952672AA3D5690076E898 /* Array+Conversions.swift in Sources */,
 				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
-				9E81E8562AB7F9D000524C29 /* WarningView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */,

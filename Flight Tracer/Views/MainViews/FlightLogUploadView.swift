@@ -29,7 +29,7 @@ struct FlightLogUploadView: View {
                     ScanView(allowScan: $allowScan, selectedImages: $images, user: $user)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    WarningView(images: images, user: $user)
+                    ExperimentalTable(images: images, user: $user)
                 }
                 
             }
