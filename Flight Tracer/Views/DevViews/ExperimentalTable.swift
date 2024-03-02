@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ExperimentalTable: View {
   
-    @State var form: RecognizedForm?
     @State var isDataLoaded: Bool?
     @ObservedObject var contentViewModel = ContentViewModel()
     @State var images: [ImageDetail] = []
@@ -13,16 +12,15 @@ struct ExperimentalTable: View {
     var body: some View {
         ZStack {
             if (isDataLoaded == nil || !isDataLoaded!){
-                Color(uiColor: Colors.NAVY_BLUE)
-                    .ignoresSafeArea()
-                Image(systemName: "airplane")
-                    .resizable()
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .foregroundColor(Color(uiColor: Colors.GOLD))
+                ProgressView()
+                    .tint(.white)
+                    .padding()
+                    .background(.black)
+                    .cornerRadius(10)
+                    .zIndex(1)
+                TableView(table: Table(rowCount: 1000, columnCount: 1000, cells: []))
             } else if (isDataLoaded!) {
-                if let form = form {
-                    TableView(table: images[0].analyzeResult!.tables[0])
-                }
+                TableView(table: images[0].analyzeResult!.tables[0])
             }
         }
         .navigationBarBackButtonHidden()
@@ -60,7 +58,6 @@ struct ExperimentalTable: View {
     func loadJSON() {
         isDataLoaded = false
         contentViewModel.processImageText(images: images, realScan: true, user: user)
-        form = RecognizedForm(analyzeResult: images[0].analyzeResult)
     }
 }
 
