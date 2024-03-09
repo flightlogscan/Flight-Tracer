@@ -19,10 +19,6 @@ struct CarouselButtonView: View {
             let image = Image(uiImage: hiResImage)
             let imageDetail = ImageDetail(image: image, uiImage: hiResImage, isValidated: true)
             
-            // This uses a very basic image scanner as a first-step sanity-check
-            // before allowing users to send the image to the more resource-intensive scanner
-            selectImageViewModel.simpleValidateImage(image: imageDetail)
-            
             selectedImages = []
             selectedImages.append(imageDetail)
             
