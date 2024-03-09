@@ -31,7 +31,6 @@ struct PhotoCarouselView: View {
             for: UIScene.willEnterForegroundNotification)) { _ in
                 // Refresh photo carousel when app is back in focus in case anything changed
                 // Slow, but it works..
-                thumbnailImages = []
                 getThumbnailPhotos()
                 
         }
@@ -47,6 +46,7 @@ struct PhotoCarouselView: View {
         imageRequestOptions.isSynchronous = true
         
         let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        thumbnailImages = []
         
         fetchResult.enumerateObjects { (phAsset, _, _) in
             imageManager.requestImage(
