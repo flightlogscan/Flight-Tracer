@@ -7,6 +7,9 @@ class SelectImageViewModel: ObservableObject {
     
     func simpleValidateImage(image: ImageDetail?) {
         if (image != nil) {
+            //image!.isImageValid = true
+            sleep(1)
+            print("simple validate image")
             imageTextRecognizer.scanImageForText(image: image!.uiImage) { recognizedStrings in
                 image!.imageText = recognizedStrings
                 image!.isImageValid = self.checkBasicFlightLogText(imageText: recognizedStrings)

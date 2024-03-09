@@ -9,22 +9,24 @@ struct ScanView: View {
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
-        // Only allow scanning if every image is valid
-        let areImagesValid = (selectedImages.count > 0 && !selectedImages.contains(where: {!$0.isImageValid}))
-        
-        Button {
-            allowScan = areImagesValid
-        } label: {
-            Label("Scan photo", systemImage: "doc.viewfinder.fill")
-                .frame(maxWidth: .infinity)
-                .font(.title2)
-                .padding()
+        VStack{
+            // Only allow scanning if every image is valid
+            let areImagesValid = (selectedImages.count > 0 && !selectedImages.contains(where: {$0.isImageValid != true}))
+            
+            Button {
+                allowScan = areImagesValid
+            } label: {
+                Label("Scan photo", systemImage: "doc.viewfinder.fill")
+                    .frame(maxWidth: .infinity)
+                    .font(.title2)
+                    .padding()
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(areImagesValid ? .green : .gray.opacity(0.5))
+            .shadow(color: areImagesValid ? .gray : .clear, radius: areImagesValid ? 5 : 0)
+            .bold()
+            .padding([.leading, .trailing, .bottom])
         }
-        .buttonStyle(.borderedProminent)
-        .tint(areImagesValid ? .green : .gray.opacity(0.5))
-        .shadow(color: areImagesValid ? .gray : .clear, radius: areImagesValid ? 5 : 0)
-        .bold()
-        .padding([.leading, .trailing, .bottom])
     }
 }
 

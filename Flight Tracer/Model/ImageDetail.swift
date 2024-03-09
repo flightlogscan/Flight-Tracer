@@ -11,7 +11,7 @@ public class ImageDetail: Identifiable, Equatable, ObservableObject {
     var image: Image
     var uiImage: UIImage
     var isValidated: Bool // TODO: Is this field used for anything anymore?
-    var isImageValid: Bool
+    @Published var isImageValid: Bool?
     var imageText: [String] // Basic image text from the simple image scanner
     var recognizedText: [[String]] // Advanced image text from the heavy-duty image scanner
     @Published var analyzeResult: AnalyzeResult?
@@ -20,7 +20,7 @@ public class ImageDetail: Identifiable, Equatable, ObservableObject {
         self.image = image
         self.uiImage = uiImage
         self.isValidated = isValidated
-        self.isImageValid = false
+        self.isImageValid = nil
         self.imageText = []
         self.recognizedText = [[]]
         self.analyzeResult = analyzeResult

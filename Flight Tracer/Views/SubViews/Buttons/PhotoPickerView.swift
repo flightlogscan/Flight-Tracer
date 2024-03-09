@@ -36,10 +36,6 @@ struct PhotoPickerView: View {
                             
                             let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
                             
-                            // This uses a very basic image scanner as a first-step sanity-check
-                            // before allowing users to send the image to the more resource-intensive scanner
-                            selectImageViewModel.simpleValidateImage(image: imageDetail)
-                            
                             selectedImages.append(imageDetail)
                         }
                     }
