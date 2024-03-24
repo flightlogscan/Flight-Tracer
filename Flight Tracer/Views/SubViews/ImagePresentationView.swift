@@ -4,12 +4,12 @@ import _PhotosUI_SwiftUI
 struct ImagePresentationView: View {
     
     @State var isValidated: Bool?
-    @Binding var selectedImage: ImageDetail?
+    @Binding var selectedImage: ImageDetail
     @Binding var selectedItem: PhotosPickerItem?
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
     
     var body: some View {
-        if selectedImage?.image != nil {
+        if selectedImage.image != nil {
             VStack {
                 if (isValidated == nil || !isValidated!) {
                     ZStack {
@@ -19,7 +19,7 @@ struct ImagePresentationView: View {
                             .padding([.leading, .trailing])
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
                         
-                        selectedImage!.image!
+                        selectedImage.image!
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(10)
@@ -57,7 +57,7 @@ struct ImagePresentationView: View {
                             .padding([.leading, .trailing])
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
                         
-                        selectedImage!.image!
+                        selectedImage.image!
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(10)
@@ -77,14 +77,14 @@ struct ImagePresentationView: View {
                             )
                     }
                 }
-                if (selectedImage!.isValidated! && selectedImage!.isImageValid == false) {
+                if (selectedImage.isValidated! && selectedImage.isImageValid == false) {
                     Text("Invalid flight log. Please try a new image.")
                         .foregroundColor(Color.red)
-                    if (selectedImage!.validationResult != nil) {
-                        Text(selectedImage!.validationResult!)
+                    if (selectedImage.validationResult != nil) {
+                        Text(selectedImage.validationResult!)
                             .foregroundColor(Color.secondary)
                     }
-                } else if (selectedImage!.isValidated! && selectedImage!.isImageValid == true) {
+                } else if (selectedImage.isValidated! && selectedImage.isImageValid == true) {
                     // TODO: This green is ugly af plz pick a better shade of green
                     Text("Validated image successfully, ready for scan.")
                         .foregroundColor(Color.green)
@@ -96,8 +96,8 @@ struct ImagePresentationView: View {
                     validateImage()
                 }
             }
-            .onReceive(selectedImage!.$isImageValid) {_ in
-                if (selectedImage!.isImageValid != nil) {
+            .onReceive(selectedImage.$isImageValid) {_ in
+                if (selectedImage.isImageValid != nil) {
                     isValidated = true
                 }
                 else {
@@ -129,5 +129,5 @@ struct ImagePresentationView: View {
 }
 
 #Preview {
-    FlightLogUploadView(user: Binding.constant(nil))
+    UploadPageView(user: Binding.constant(nil))
 }

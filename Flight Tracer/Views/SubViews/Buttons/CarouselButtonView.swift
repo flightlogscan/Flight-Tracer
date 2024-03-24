@@ -12,7 +12,7 @@ struct CarouselButtonView: View {
     var thumbnailImage: UIImage
     var hiResImage: UIImage
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
-    @Binding var selectedImage: ImageDetail?
+    @Binding var selectedImage: ImageDetail
     
     var body: some View {
         Button {

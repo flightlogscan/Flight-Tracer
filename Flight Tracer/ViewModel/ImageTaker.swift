@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ImageTaker: UIViewControllerRepresentable {
     
-    @Binding var selectedImage: ImageDetail?
+    @Binding var selectedImage: ImageDetail
 
     @Environment(\.presentationMode) private var presentationMode
 

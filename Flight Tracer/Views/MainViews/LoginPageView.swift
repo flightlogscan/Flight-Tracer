@@ -67,7 +67,7 @@ struct LoginView : UIViewControllerRepresentable {
                 parent.user = User(from: authDataResult)
                 
                 authDataResult.user.getIDTokenForcingRefresh(true) { idToken, error in
-                    if let error = error {
+                    if error != nil {
                         // Handle error
                         print("user token retrieval error")
                         return;
