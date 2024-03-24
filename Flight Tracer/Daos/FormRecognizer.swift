@@ -16,7 +16,7 @@ struct FormRecognizer {
     }
     
     func submitImageAndGetResults(imageDetail: ImageDetail, user: User?) {
-        let imageData = imageDetail.uiImage.jpegData(compressionQuality: 0.9)!
+        let imageData = imageDetail.uiImage!.jpegData(compressionQuality: 0.9)!
         // no call to azure
         let urlString = "\(endpoint)/api/analyze/dummy"
         

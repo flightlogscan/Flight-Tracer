@@ -8,13 +8,23 @@ public class ImageDetail: Identifiable, Equatable, ObservableObject {
     
     public var id = UUID()
     
-    var image: Image
-    var uiImage: UIImage
-    var isValidated: Bool // TODO: Is this field used for anything anymore?
-    @Published var isImageValid: Bool?
+    var image: Image? = nil
+    var uiImage: UIImage? = nil
+    var isValidated: Bool? = nil
+    @Published var isImageValid: Bool? = nil
     var imageText: [String] // Basic image text from the simple image scanner
     var recognizedText: [[String]] // Advanced image text from the heavy-duty image scanner
     @Published var analyzeResult: AnalyzeResult?
+    
+    init() {
+        self.image = nil
+        self.uiImage = nil
+        self.isValidated = nil
+        self.isImageValid = nil
+        self.imageText = []
+        self.recognizedText = [[]]
+        self.analyzeResult = analyzeResult
+    }
     
     init (image: Image, uiImage: UIImage, isValidated: Bool, analyzeResult: AnalyzeResult? = nil) {
         self.image = image

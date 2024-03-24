@@ -2,30 +2,38 @@ import SwiftUI
 
 struct ScanView: View {
 
+    @State var buttonActive: Bool = false
     @Binding var allowScan: Bool
-    @State var areImagesValid: Bool = false
-    @Binding var selectedImages: [ImageDetail]
+    @Binding var selectedImage: ImageDetail?
     @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
         VStack{
-            // Only allow scanning if every image is valid
-            let areImagesValid = (selectedImages.count > 0 && !selectedImages.contains(where: {$0.isImageValid != true}))
             
             Button {
-                allowScan = areImagesValid
+                allowScan = buttonActive
             } label: {
                 Label("Scan photo", systemImage: "doc.viewfinder.fill")
                     .frame(maxWidth: .infinity)
                     .font(.title2)
                     .padding()
             }
+            .onAppear() {
+                buttonActive = selectedImage != nil && selectedImage!.isImageValid == true
+            }
             .buttonStyle(.borderedProminent)
-            .tint(areImagesValid ? .green : .gray.opacity(0.5))
-            .shadow(color: areImagesValid ? .gray : .clear, radius: areImagesValid ? 5 : 0)
+            .tint(buttonActive ? .green : .gray.opacity(0.5))
+            .shadow(color: buttonActive ? .gray : .clear, radius: buttonActive ? 5 : 0)
             .bold()
             .padding([.leading, .trailing, .bottom])
+        }
+        .onReceive(selectedImage!.$isImageValid) {_ in
+            if (selectedImage!.isImageValid != nil) {
+                buttonActive = selectedImage!.isImageValid!
+            } else {
+                buttonActive = false
+            }
         }
     }
 }

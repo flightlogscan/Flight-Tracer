@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ImageTaker: UIViewControllerRepresentable {
     
-    @Binding var selectedImages: [ImageDetail]
+    @Binding var selectedImage: ImageDetail?
 
     @Environment(\.presentationMode) private var presentationMode
 
@@ -34,8 +34,7 @@ struct ImageTaker: UIViewControllerRepresentable {
                 let image = Image(uiImage: uiImage)
                 let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
 
-                parent.selectedImages = []
-                parent.selectedImages.append(imageDetail)
+                parent.selectedImage = imageDetail
             }
             
             parent.presentationMode.wrappedValue.dismiss()

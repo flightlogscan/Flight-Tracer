@@ -12,15 +12,14 @@ struct CarouselButtonView: View {
     var thumbnailImage: UIImage
     var hiResImage: UIImage
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
-    @Binding var selectedImages: [ImageDetail]
+    @Binding var selectedImage: ImageDetail?
     
     var body: some View {
         Button {
             let image = Image(uiImage: hiResImage)
             let imageDetail = ImageDetail(image: image, uiImage: hiResImage, isValidated: true)
             
-            selectedImages = []
-            selectedImages.append(imageDetail)
+            selectedImage = imageDetail
             
         } label: {
             Image(uiImage: thumbnailImage)

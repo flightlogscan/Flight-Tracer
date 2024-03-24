@@ -4,7 +4,7 @@ import PhotosUI
 
 struct FlightLogUploadView: View {
     
-    @State var images: [ImageDetail] = []
+    @State var image: ImageDetail? = ImageDetail()
     @State var allowScan: Bool = false
     @State var scanTypeSelected: Bool = false
     @State var selectedItem: PhotosPickerItem?
@@ -22,14 +22,14 @@ struct FlightLogUploadView: View {
                 VStack {
                     ImageHintsView()
                                           
-                    ImagePresentationView(selectedImages: $images, selectedItem: $selectedItem)
+                    ImagePresentationView(selectedImage: $image, selectedItem: $selectedItem)
                     
-                    PhotoCarouselView(selectedImages: $images, selectedItem: $selectedItem)
+                    PhotoCarouselView(selectedImage: $image, selectedItem: $selectedItem)
                     
-                    ScanView(allowScan: $allowScan, selectedImages: $images, user: $user)
+                    ScanView(allowScan: $allowScan, selectedImage: $image, user: $user)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    ExperimentalTable(images: images, user: $user)
+                    ExperimentalTable(selectedImage: $image, user: $user)
                 }
                 
             }

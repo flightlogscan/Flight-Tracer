@@ -10,7 +10,7 @@ import SwiftUI
 struct CameraView: View {
     
     let color = Color.black.opacity(0.7)
-    @Binding var selectedImages: [ImageDetail]
+    @Binding var selectedImage: ImageDetail?
     @State private var showCamera: Bool = false
     
     var body: some View {
@@ -28,7 +28,7 @@ struct CameraView: View {
         .aspectRatio(1, contentMode: .fit)
         .foregroundColor(color)
         .fullScreenCover(isPresented: $showCamera) {
-            ImageTaker(selectedImages: $selectedImages)
+            ImageTaker(selectedImage: $selectedImage)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.black)
         }

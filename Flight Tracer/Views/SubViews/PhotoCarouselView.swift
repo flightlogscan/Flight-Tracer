@@ -7,19 +7,19 @@ let imageRequestOptions = PHImageRequestOptions()
 
 struct PhotoCarouselView: View {
     @State var thumbnailImages:[UIImage] = []
-    @Binding var selectedImages: [ImageDetail]
+    @Binding var selectedImage: ImageDetail?
     @Binding var selectedItem: PhotosPickerItem?
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem()]) {
-                CameraView(selectedImages: $selectedImages)
+                CameraView(selectedImage: $selectedImage)
                 
                 ForEach(0..<thumbnailImages.count, id: \.self) { index in
-                    CarouselButtonView(thumbnailImage: thumbnailImages[index], hiResImage: getImage(index: index), selectedImages: $selectedImages)
+                    CarouselButtonView(thumbnailImage: thumbnailImages[index], hiResImage: getImage(index: index), selectedImage: $selectedImage)
                 }
                 
-                PhotoPickerView(selectedItem: $selectedItem, selectedImages: $selectedImages)
+                PhotoPickerView(selectedItem: $selectedItem, selectedImage: $selectedImage)
             }
         }
         .frame(height: 75)
