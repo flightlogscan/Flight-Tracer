@@ -13,7 +13,7 @@ struct PhotoPickerView: View {
     let color: Color = Color.black.opacity(0.7)
     @Binding var selectedItem: PhotosPickerItem?
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
-    @Binding var selectedImage: ImageDetail?
+    @Binding var selectedImage: ImageDetail
     
     var body: some View {
         PhotosPicker(selection: $selectedItem, matching: .images) {
@@ -45,5 +45,5 @@ struct PhotoPickerView: View {
 }
 
 #Preview {
-    FlightLogUploadView(user: Binding.constant(nil))
+    UploadPageView(user: Binding.constant(nil))
 }

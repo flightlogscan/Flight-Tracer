@@ -10,7 +10,7 @@ import SwiftUI
 struct CameraView: View {
     
     let color = Color.black.opacity(0.7)
-    @Binding var selectedImage: ImageDetail?
+    @Binding var selectedImage: ImageDetail
     @State private var showCamera: Bool = false
     
     var body: some View {
@@ -36,5 +36,5 @@ struct CameraView: View {
 }
 
 #Preview {
-    FlightLogUploadView(user: Binding.constant(nil))
+    UploadPageView(user: Binding.constant(nil))
 }

@@ -4,7 +4,7 @@ struct ScanView: View {
 
     @State var buttonActive: Bool = false
     @Binding var allowScan: Bool
-    @Binding var selectedImage: ImageDetail?
+    @Binding var selectedImage: ImageDetail
     @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     
@@ -20,7 +20,7 @@ struct ScanView: View {
                     .padding()
             }
             .onAppear() {
-                buttonActive = selectedImage != nil && selectedImage!.isImageValid == true
+                buttonActive = selectedImage.isImageValid == true
             }
             .buttonStyle(.borderedProminent)
             .tint(buttonActive ? .green : .gray.opacity(0.5))
@@ -28,9 +28,9 @@ struct ScanView: View {
             .bold()
             .padding([.leading, .trailing, .bottom])
         }
-        .onReceive(selectedImage!.$isImageValid) {_ in
-            if (selectedImage!.isImageValid != nil) {
-                buttonActive = selectedImage!.isImageValid!
+        .onReceive(selectedImage.$isImageValid) {_ in
+            if (selectedImage.isImageValid != nil) {
+                buttonActive = selectedImage.isImageValid!
             } else {
                 buttonActive = false
             }
@@ -39,5 +39,5 @@ struct ScanView: View {
 }
 
 #Preview {
-    FlightLogUploadView(user: Binding.constant(nil))
+    UploadPageView(user: Binding.constant(nil))
 }

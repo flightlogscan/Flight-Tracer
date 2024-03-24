@@ -37,5 +37,5 @@ struct ImageHintsView: View {
 }
 
 #Preview {
-    FlightLogUploadView(user: Binding.constant(nil))
+    UploadPageView(user: Binding.constant(nil))
 }

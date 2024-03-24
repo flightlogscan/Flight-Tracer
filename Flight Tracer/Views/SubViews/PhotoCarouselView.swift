@@ -7,7 +7,7 @@ let imageRequestOptions = PHImageRequestOptions()
 
 struct PhotoCarouselView: View {
     @State var thumbnailImages:[UIImage] = []
-    @Binding var selectedImage: ImageDetail?
+    @Binding var selectedImage: ImageDetail
     @Binding var selectedItem: PhotosPickerItem?
     
     var body: some View {
@@ -79,5 +79,5 @@ struct PhotoCarouselView: View {
 
 
 #Preview {
-    FlightLogUploadView(user: Binding.constant(nil))
+    UploadPageView(user: Binding.constant(nil))
 }

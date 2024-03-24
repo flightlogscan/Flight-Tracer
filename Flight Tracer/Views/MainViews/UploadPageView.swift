@@ -2,16 +2,16 @@ import SwiftUI
 import FirebaseAuthUI
 import PhotosUI
 
-struct FlightLogUploadView: View {
+struct UploadPageView: View {
     
-    @State var image: ImageDetail? = ImageDetail()
+    @State var selectedImage: ImageDetail = ImageDetail()
     @State var allowScan: Bool = false
     @State var scanTypeSelected: Bool = false
     @State var selectedItem: PhotosPickerItem?
     @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     let authUI = FUIAuth.defaultAuthUI()
-    
+         
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,14 +22,14 @@ struct FlightLogUploadView: View {
                 VStack {
                     ImageHintsView()
                                           
-                    ImagePresentationView(selectedImage: $image, selectedItem: $selectedItem)
+                    ImagePresentationView(selectedImage: $selectedImage, selectedItem: $selectedItem)
                     
-                    PhotoCarouselView(selectedImage: $image, selectedItem: $selectedItem)
+                    PhotoCarouselView(selectedImage: $selectedImage, selectedItem: $selectedItem)
                     
-                    ScanView(allowScan: $allowScan, selectedImage: $image, user: $user)
+                    ScanView(allowScan: $allowScan, selectedImage: $selectedImage, user: $user)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    ExperimentalTable(selectedImage: $image, user: $user)
+                    TablePageView(selectedImage: selectedImage, user: $user)
                 }
                 
             }
@@ -68,5 +68,5 @@ struct FlightLogUploadView: View {
 }
 
 #Preview {
-    FlightLogUploadView(user: Binding.constant(nil))
+    UploadPageView(user: Binding.constant(nil))
 }

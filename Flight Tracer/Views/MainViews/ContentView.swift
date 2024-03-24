@@ -20,7 +20,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                     .zIndex(1)
             } else if (user != nil && isLoggedIn!){
-                FlightLogUploadView(user: $user)
+                UploadPageView(user: $user)
                     .zIndex(1)
             }
         }
