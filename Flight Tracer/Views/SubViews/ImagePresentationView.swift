@@ -82,7 +82,9 @@ struct ImagePresentationView: View {
             }
         
             .onAppear {
+                if (isValidated != true) {
                     validateImage()
+                }
             }
             .onReceive(selectedImage!.$isImageValid) {_ in
                 if (selectedImage!.isImageValid != nil) {
