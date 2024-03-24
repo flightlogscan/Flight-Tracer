@@ -46,6 +46,8 @@ struct ImagePresentationView: View {
                             .cornerRadius(10)
                             .zIndex(1)
                     }
+                    Text("Validating...")
+                        .foregroundColor(Color.gray)
                 }
              else {
                     ZStack {
@@ -78,6 +80,14 @@ struct ImagePresentationView: View {
                 if (selectedImage!.isValidated! && selectedImage!.isImageValid == false) {
                     Text("Invalid flight log. Please try a new image.")
                         .foregroundColor(Color.red)
+                    if (selectedImage!.validationResult != nil) {
+                        Text(selectedImage!.validationResult!)
+                            .foregroundColor(Color.secondary)
+                    }
+                } else if (selectedImage!.isValidated! && selectedImage!.isImageValid == true) {
+                    // TODO: This green is ugly af plz pick a better shade of green
+                    Text("Validated image successfully, ready for scan.")
+                        .foregroundColor(Color.green)
                 }
             }
         
