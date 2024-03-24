@@ -10,7 +10,7 @@ class SelectImageViewModel: ObservableObject {
             //image!.isImageValid = true
             sleep(1)
             print("simple validate image")
-            imageTextRecognizer.scanImageForText(image: image!.uiImage) { recognizedStrings in
+            imageTextRecognizer.scanImageForText(image: image!.uiImage!) { recognizedStrings in
                 image!.imageText = recognizedStrings
                 image!.isImageValid = self.checkBasicFlightLogText(imageText: recognizedStrings)
             }

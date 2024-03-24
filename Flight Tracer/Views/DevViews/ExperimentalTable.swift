@@ -4,7 +4,7 @@ struct ExperimentalTable: View {
   
     @State var isDataLoaded: Bool?
     @ObservedObject var contentViewModel = ContentViewModel()
-    @State var images: [ImageDetail] = []
+    @Binding var selectedImage: ImageDetail?
     @State var scanTypeSelected: Bool = false
     @Binding var user: User?
     @Environment(\.presentationMode) var presentationMode
@@ -20,7 +20,7 @@ struct ExperimentalTable: View {
                     .zIndex(1)
                 TableView(table: Table(rowCount: 1000, columnCount: 1000, cells: []))
             } else if (isDataLoaded!) {
-                TableView(table: images[0].analyzeResult!.tables[0])
+                TableView(table: selectedImage!.analyzeResult!.tables[0])
             }
         }
         .navigationBarBackButtonHidden()
@@ -48,8 +48,8 @@ struct ExperimentalTable: View {
         .onAppear {
             loadJSON()
         }
-        .onReceive(images[0].$analyzeResult) {_ in
-            if (images[0].analyzeResult != nil) {
+        .onReceive(selectedImage!.$analyzeResult) {_ in
+            if (selectedImage!.analyzeResult != nil) {
                 isDataLoaded = true
             }
         }
@@ -57,7 +57,7 @@ struct ExperimentalTable: View {
       
     func loadJSON() {
         isDataLoaded = false
-        contentViewModel.processImageText(images: images, realScan: true, user: user)
+        contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: user)
     }
 }
 

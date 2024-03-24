@@ -13,7 +13,7 @@ struct PhotoPickerView: View {
     let color: Color = Color.black.opacity(0.7)
     @Binding var selectedItem: PhotosPickerItem?
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
-    @Binding var selectedImages: [ImageDetail]
+    @Binding var selectedImage: ImageDetail?
     
     var body: some View {
         PhotosPicker(selection: $selectedItem, matching: .images) {
@@ -29,14 +29,13 @@ struct PhotoPickerView: View {
         .onChange(of: selectedItem) { oldItem, newItem in
             if (selectedItem != nil) {
                 Task {
-                    selectedImages = []
                     if let data = try? await newItem!.loadTransferable(type: Data.self) {
                         if let uiImage = UIImage(data: data) {
                             let image = Image(uiImage: uiImage)
                             
                             let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
                             
-                            selectedImages.append(imageDetail)
+                            selectedImage = imageDetail
                         }
                     }
                 }
