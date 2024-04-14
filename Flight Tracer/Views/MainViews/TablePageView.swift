@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TablePageView: View {
-  
+    
     @State var isDataLoaded: Bool?
     @ObservedObject var contentViewModel = ContentViewModel()
     @State var selectedImage: ImageDetail
@@ -9,7 +9,7 @@ struct TablePageView: View {
     @Binding var user: User?
     @Environment(\.presentationMode) var presentationMode
     @State var imageText: [[String]] = [[]]
-
+    
     var body: some View {
         ZStack {
             if (isDataLoaded == nil || !isDataLoaded!){
@@ -23,8 +23,10 @@ struct TablePageView: View {
                 //LogTableView(imageText: $imageText)
                 //need skeleton log table here
             } else if (isDataLoaded!) {
-                //.LogTableView(table: images[0].analyzeResult!.tables[0])
-                LogTableView(imageText: $imageText)
+                VStack{
+                    ResultsInstructionsView()
+                    LogTableView(imageText: $imageText)
+                }
             }
         }
         .navigationBarBackButtonHidden()
@@ -59,7 +61,7 @@ struct TablePageView: View {
             }
         }
     }
-      
+    
     func loadJSON() {
         isDataLoaded = false
         contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: user)
