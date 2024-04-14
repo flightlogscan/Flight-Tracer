@@ -36,12 +36,7 @@ struct TablePageView: View {
             }
             
             ToolbarItem (placement: .topBarTrailing) {
-                Button {
-                    //TODO: Download data here.
-                } label: {
-                    Label("", systemImage: "square.and.arrow.down")
-                        .font(.title)
-                }
+                DownloadView(data: $imageText)
             }
         })
         .toolbarBackground(
