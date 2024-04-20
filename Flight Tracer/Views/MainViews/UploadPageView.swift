@@ -65,7 +65,10 @@ struct UploadPageView: View {
             .toolbarBackground(.visible, for: .navigationBar)
         }
     }
+    
+    
 }
+
 
 #Preview {
     UploadPageView(user: Binding.constant(nil))

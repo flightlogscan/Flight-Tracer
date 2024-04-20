@@ -709,7 +709,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"does stuff\"";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"Allows user to select flight logs from photo library\"";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -755,7 +755,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"does stuff\"";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"Allows user to select flight logs from photo library\"";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
