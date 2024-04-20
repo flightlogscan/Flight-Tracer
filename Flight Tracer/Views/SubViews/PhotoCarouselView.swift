@@ -7,6 +7,7 @@ let imageRequestOptions = PHImageRequestOptions()
 
 struct PhotoCarouselView: View {
     @State var thumbnailImages:[UIImage] = []
+    @State var showAlert = false
     @Binding var selectedImage: ImageDetail
     @Binding var selectedItem: PhotosPickerItem?
     
@@ -21,20 +22,46 @@ struct PhotoCarouselView: View {
                 
                 PhotoPickerView(selectedItem: $selectedItem, selectedImage: $selectedImage)
             }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("scuffed"),
+                    message: Text("gimme access bro"),
+                    primaryButton: .default(
+                        Text("Go to settings"),
+                        action: openSettings
+                    ),
+                    secondaryButton: .cancel()
+                )
+            }
         }
         .frame(height: 75)
         .padding([.leading, .trailing])
         .onAppear {
+            isAuthd()
             getThumbnailPhotos()
         }
         .onReceive(NotificationCenter.default.publisher(
             for: UIScene.willEnterForegroundNotification)) { _ in
                 // Refresh photo carousel when app is back in focus in case anything changed
                 // Slow, but it works..
+                
                 getThumbnailPhotos()
                 
-        }
+            }
         .shadow(radius: 1)
+        
+    }
+    
+    func isAuthd() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        
+        if(status == .denied) {
+            showAlert = true
+        }
+    }
+    
+    func openSettings() {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
     
     func getThumbnailPhotos() {
