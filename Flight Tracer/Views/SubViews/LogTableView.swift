@@ -29,7 +29,7 @@ struct LogTableView: View {
 }
 
 struct LogRowView: View {
-    let frameWidth: CGFloat = 75
+    let frameWidth: CGFloat = 150
     let frameHeight: CGFloat = 25
     let rowIndex: Int
     @Binding var row: [String]
@@ -59,7 +59,7 @@ struct HeaderRowView: View {
                     TextField("", text: $headerRow[cellIndex])
                         .font(.system(size: 11, weight: .regular, design: .default))
                         .opacity(0.8)
-                        .frame(width: 75, height: 25, alignment: .center)
+                        .frame(width: 150, height: 25, alignment: .center)
                         .background(Color(.systemGray5))
                         .border(Color.gray, width: 0.3)
                 }
