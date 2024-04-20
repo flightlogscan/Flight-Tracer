@@ -8,6 +8,7 @@ struct UploadPageView: View {
     @State var allowScan: Bool = false
     @State var scanTypeSelected: Bool = false
     @State var selectedItem: PhotosPickerItem?
+    @State var selectedOption: Int = 0
     @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     let authUI = FUIAuth.defaultAuthUI()
@@ -27,9 +28,11 @@ struct UploadPageView: View {
                     PhotoCarouselView(selectedImage: $selectedImage, selectedItem: $selectedItem)
                     
                     ScanView(allowScan: $allowScan, selectedImage: $selectedImage, user: $user)
+                    
+                    RadioButtonAPIView(selectedOption: $selectedOption)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    TablePageView(selectedImage: selectedImage, user: $user)
+                    TablePageView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
                 }
                 
             }

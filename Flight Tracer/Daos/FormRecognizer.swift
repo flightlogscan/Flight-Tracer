@@ -11,11 +11,11 @@ let endpoint = "http://localhost"
 
 struct FormRecognizer {
     
-    func scanImage(image: ImageDetail, user: User?) {
-        submitImageAndGetResults(imageDetail: image, user: user)
+    func scanImage(image: ImageDetail, user: User?, selectedScanType: Int) {
+        submitImageAndGetResults(imageDetail: image, user: user, selectedScanType: selectedScanType)
     }
     
-    func submitImageAndGetResults(imageDetail: ImageDetail, user: User?) {
+    func submitImageAndGetResults(imageDetail: ImageDetail, user: User?, selectedScanType: Int) {
         let imageData = imageDetail.uiImage!.jpegData(compressionQuality: 0.9)!
         // no call to azure
         let urlString = "\(endpoint)/api/analyze/dummy"
@@ -39,33 +39,48 @@ struct FormRecognizer {
         print("url: \(url)")
         print("headers: \(String(describing: request.allHTTPHeaderFields))")
         
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                print("Invalid response")
-                return
-            }
-            
-            if (200...299).contains(httpResponse.statusCode) {
-                if let data = data {
-                    // NOTE: Uncomment this to simulate latency when testing loading
-                    // sleep (2)
-                    let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
-                    
-                    print("Analyze Result: ")
-                    print(analyzeResult)
-                    imageDetail.analyzeResult = analyzeResult
+        if (selectedScanType == 0) {
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
                 }
-            } else {
-                print("API request failed. Status code: \(httpResponse.statusCode)")
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    print("Invalid response")
+                    return
+                }
+                
+                if (200...299).contains(httpResponse.statusCode) {
+                    if let data = data {
+                        // NOTE: Uncomment this to simulate latency when testing loading
+                        // sleep (2)
+                        let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
+                        
+                        print("Analyze Result: ")
+                        print(analyzeResult)
+                        imageDetail.analyzeResult = analyzeResult
+                    }
+                } else {
+                    print("API request failed. Status code: \(httpResponse.statusCode)")
+                }
             }
+            
+            task.resume()
         }
         
-        task.resume()
+        else if (selectedScanType == 2) {
+            print("Scan type 2")
+            if let filePath = Bundle.main.path(forResource: "SampleResultResponse", ofType: "json", inDirectory: "Example Data") {
+                do {
+                    let contents = try String(contentsOfFile: filePath)
+                    print(contents)
+                } catch {
+                    print("Error reading contents: \(error)")
+                }
+            } else {
+                print("File not found.")
+            }
+        }
     }
 }
