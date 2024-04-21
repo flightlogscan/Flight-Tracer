@@ -5,6 +5,7 @@ struct TablePageView: View {
     @State var isDataLoaded: Bool?
     @ObservedObject var contentViewModel = ContentViewModel()
     @State var selectedImage: ImageDetail
+    @State var selectedScanType: Int
     @State var scanTypeSelected: Bool = false
     @Binding var user: User?
     @Environment(\.presentationMode) var presentationMode
@@ -59,7 +60,7 @@ struct TablePageView: View {
     
     func loadJSON() {
         isDataLoaded = false
-        contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: user)
+        contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: user, selectedScanType: selectedScanType)
     }
     
     func convertTo2DArray(analyzeResult: AnalyzeResult) -> [[String]] {

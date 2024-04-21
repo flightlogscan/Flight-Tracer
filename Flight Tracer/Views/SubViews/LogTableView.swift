@@ -16,7 +16,7 @@ struct LogTableView: View {
         ScrollView([.horizontal, .vertical], showsIndicators: true) {
             LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
                 Section(header: HeaderRowView(headerRow: $imageText[0])) {
-                    ForEach(1..<imageText.count, id: \.self) { rowIndex in
+                    ForEach(1..<14, id: \.self) { rowIndex in
                         LogRowView(rowIndex: rowIndex, row: $imageText[rowIndex])
                     }
                 }
