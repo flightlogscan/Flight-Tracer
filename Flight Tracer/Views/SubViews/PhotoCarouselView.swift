@@ -7,7 +7,7 @@ let imageRequestOptions = PHImageRequestOptions()
 
 struct PhotoCarouselView: View {
     @State var thumbnailImages:[UIImage] = []
-    @State var showAlert = false
+    @State var hasPhotoPermissions = true
     @Binding var selectedImage: ImageDetail
     @Binding var selectedItem: PhotosPickerItem?
     
@@ -15,29 +15,24 @@ struct PhotoCarouselView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem()]) {
                 CameraView(selectedImage: $selectedImage)
-                
+                                
                 ForEach(0..<thumbnailImages.count, id: \.self) { index in
                     CarouselButtonView(thumbnailImage: thumbnailImages[index], hiResImage: getImage(index: index), selectedImage: $selectedImage)
                 }
                 
+                if !hasPhotoPermissions {
+                    CarouselSkeleton()
+                    CarouselSkeleton()
+                    CarouselSkeleton()
+                }
+                
                 PhotoPickerView(selectedItem: $selectedItem, selectedImage: $selectedImage)
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("scuffed"),
-                    message: Text("gimme access bro"),
-                    primaryButton: .default(
-                        Text("Go to settings"),
-                        action: openSettings
-                    ),
-                    secondaryButton: .cancel()
-                )
             }
         }
         .frame(height: 75)
         .padding([.leading, .trailing])
         .onAppear {
-            isAuthd()
+            checkPhotoPermissions()
             getThumbnailPhotos()
         }
         .onReceive(NotificationCenter.default.publisher(
@@ -52,16 +47,12 @@ struct PhotoCarouselView: View {
         
     }
     
-    func isAuthd() {
+    func checkPhotoPermissions() {
         let status = PHPhotoLibrary.authorizationStatus()
         
         if(status == .denied) {
-            showAlert = true
+            hasPhotoPermissions = false
         }
-    }
-    
-    func openSettings() {
-        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
     
     func getThumbnailPhotos() {
