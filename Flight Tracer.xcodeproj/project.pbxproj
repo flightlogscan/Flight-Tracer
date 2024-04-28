@@ -41,6 +41,7 @@
 		D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */; };
 		D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952462AA3D49F0076E898 /* FieldNameConverter.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
+		D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */; };
 		D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */; };
 		D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A22ABBE1E40080D5EB /* ScanView.swift */; };
 		D88DE8A52AC0AF7F0080D5EB /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A42AC0AF7F0080D5EB /* DownloadView.swift */; };
@@ -109,6 +110,7 @@
 		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
 		D87952582AA3D49F0076E898 /* ImagePresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentationView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* UploadPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageView.swift; sourceTree = "<group>"; };
+		D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselSkeleton.swift; sourceTree = "<group>"; };
 		D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
 		D88DE8A22ABBE1E40080D5EB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D88DE8A42AC0AF7F0080D5EB /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		D87952552AA3D49F0076E898 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				D88ABFF52BDE9E5F001244B2 /* SkeletonViews */,
 				D88DE8A12ABBE1C30080D5EB /* Buttons */,
 				D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */,
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
@@ -315,6 +318,14 @@
 				9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		D88ABFF52BDE9E5F001244B2 /* SkeletonViews */ = {
+			isa = PBXGroup;
+			children = (
+				D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */,
+			);
+			path = SkeletonViews;
 			sourceTree = "<group>";
 		};
 		D88DE8A12ABBE1C30080D5EB /* Buttons */ = {
@@ -519,6 +530,7 @@
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
+				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
