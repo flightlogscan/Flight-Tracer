@@ -11,10 +11,6 @@ struct CarouselSkeleton: View {
             showAlert = true
         } label: {
             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-//                .overlay (
-//                    Image(systemName: "photo.badge.plus.fill")
-//                        .foregroundColor(color)
-//                )
                 .foregroundColor(.white.opacity(0.5))
         }
         .cornerRadius(10)
