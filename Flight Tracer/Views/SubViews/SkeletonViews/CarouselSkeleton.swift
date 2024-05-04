@@ -16,19 +16,14 @@ struct CarouselSkeleton: View {
         .cornerRadius(10)
         .aspectRatio(1, contentMode: .fit)
         .foregroundColor(color)
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Allow access?"),
-                message: Text("Flight Tracer needs camera roll access to display preview photos"),
-                primaryButton: .default(
-                    Text("Go to settings"),
-                    action: {
-                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                    }
-                ),
-                secondaryButton: .default(Text("Cancel"))
-            )
+        .alert("Allow access?", isPresented: $showAlert) {
+            Button ("Open Settings") {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+            Button ("Cancel") {
+            }
+        } message: {
+            Text("Flight Tracer needs Camera Roll access to display preview photos.")
         }
-        
     }
 }

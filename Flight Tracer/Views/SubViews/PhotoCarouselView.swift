@@ -93,9 +93,3 @@ struct PhotoCarouselView: View {
       return image!
     }
 }
-
-
-
-#Preview {
-    UploadPageView(user: Binding.constant(nil))
-}
