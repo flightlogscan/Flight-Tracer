@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
+		9E4A085D2BEFE48300EC7C17 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
+		9E4A085E2BEFE48300EC7C17 /* ExampleGetAnalyzeResultFormLayout.json in Resources */ = {isa = PBXBuildFile; fileRef = D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */; };
+		9E4A085F2BEFE48300EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
+		9E4A08602BEFE48B00EC7C17 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
+		9E4A08612BEFE48B00EC7C17 /* ExampleGetAnalyzeResultFormLayout.json in Resources */ = {isa = PBXBuildFile; fileRef = D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */; };
+		9E4A08622BEFE48B00EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
+		9E4A08642BEFE79B00EC7C17 /* OptionsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */; };
 		9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */; };
 		9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */; };
 		9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */; };
@@ -75,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsMenu.swift; sourceTree = "<group>"; };
 		9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonAPIView.swift; sourceTree = "<group>"; };
 		9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleResultResponse.json; sourceTree = "<group>"; };
 		9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecognizer.swift; sourceTree = "<group>"; };
@@ -316,6 +325,7 @@
 				D8FC8B522BB08D4300FA4DB8 /* LogTableView.swift */,
 				9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */,
 				9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */,
+				9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -448,7 +458,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					FDE097152A5643EA00102E96 = {
 						CreatedOnToolsVersion = 14.2;
@@ -492,6 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */,
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
 				D83C3CF32B13B34C0094EEAE /* GoogleService-Info.plist in Resources */,
 			);
@@ -501,6 +512,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E4A085D2BEFE48300EC7C17 /* custom-layout.json in Resources */,
+				9E4A085E2BEFE48300EC7C17 /* ExampleGetAnalyzeResultFormLayout.json in Resources */,
+				9E4A085F2BEFE48300EC7C17 /* SampleResultResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +522,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E4A08602BEFE48B00EC7C17 /* custom-layout.json in Resources */,
+				9E4A08612BEFE48B00EC7C17 /* ExampleGetAnalyzeResultFormLayout.json in Resources */,
+				9E4A08622BEFE48B00EC7C17 /* SampleResultResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +556,7 @@
 				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
+				9E4A08642BEFE79B00EC7C17 /* OptionsMenu.swift in Sources */,
 				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
 				D88DE8A72AC0B86C0080D5EB /* Emptytest.swift in Sources */,
@@ -720,7 +738,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
-				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				DEVELOPMENT_TEAM = 82G935W95D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -766,7 +784,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
-				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				DEVELOPMENT_TEAM = 82G935W95D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;

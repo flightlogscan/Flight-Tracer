@@ -9,7 +9,7 @@ struct RadioButtonAPIView: View {
             RadioButtonField(id: 1, label: "Real API call", isSelected: selectedOption == 1, callback: radioButtonSelected)
             RadioButtonField(id: 2, label: "Hardcoded data call", isSelected: selectedOption == 2, callback: radioButtonSelected)
             
-            //Text("Selected option: \(selectedOption)")
+            Text("Selected option: \(selectedOption)")
         }
     }
     

@@ -28,8 +28,6 @@ struct UploadPageView: View {
                     PhotoCarouselView(selectedImage: $selectedImage, selectedItem: $selectedItem)
                     
                     ScanView(allowScan: $allowScan, selectedImage: $selectedImage, user: $user)
-                    
-                    RadioButtonAPIView(selectedOption: $selectedOption)
                 }
                 .navigationDestination(isPresented: $allowScan) {
                     TablePageView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
@@ -38,27 +36,7 @@ struct UploadPageView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem (placement: .principal) {
-                    Image(systemName: "airplane.departure")
-                        .foregroundStyle(.white)
-                }
-            
-                ToolbarItem {
-                    Menu {
-                        Button {
-                            user = nil
-                            do {
-                                try self.authUI?.signOut()
-                            } catch let error {
-                                print("error: \(error)")
-                            }
-                        } label: {
-                            Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
-                        }
-                    } label: {
-                        Label("", systemImage: "gearshape")
-                    }
-                }
+                OptionsMenu(selectedOption: $selectedOption, user: $user, authUI: authUI)
             }
             .tint(.white)
             .toolbarBackground(
@@ -66,6 +44,9 @@ struct UploadPageView: View {
                 for: .navigationBar
             )
             .toolbarBackground(.visible, for: .navigationBar)
+            .onAppear() {
+                selectedImage.analyzeResult = nil
+            }
         }
     }
     
