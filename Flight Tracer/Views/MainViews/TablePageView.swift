@@ -14,15 +14,7 @@ struct TablePageView: View {
     var body: some View {
         ZStack {
             if (isDataLoaded == nil || !isDataLoaded!){
-                ProgressView()
-                    .tint(.white)
-                    .padding()
-                    .background(.black)
-                    .cornerRadius(10)
-                    .zIndex(1)
-                
-                //LogTableView(imageText: $imageText)
-                //need skeleton log table here
+                TableSkeleton()
             } else if (isDataLoaded!) {
                 VStack{
                     ResultsInstructionsView()
