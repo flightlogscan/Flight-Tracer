@@ -8,7 +8,7 @@ struct UploadPageView: View {
     @State var allowScan: Bool = false
     @State var scanTypeSelected: Bool = false
     @State var selectedItem: PhotosPickerItem?
-    @State var selectedOption: Int = 0
+    @State var selectedOption: Int = 0 // TODO: Default to real API call instead of localhost
     @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     let authUI = FUIAuth.defaultAuthUI()
