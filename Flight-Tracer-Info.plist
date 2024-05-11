@@ -15,5 +15,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
+	<true/>
 </dict>
 </plist>
