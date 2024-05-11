@@ -1,10 +1,10 @@
 import SwiftUI
 
 //When server is up
-//let endpoint = "https://flightlogtracer.com"
+let realEndpoint = "https://flightlogtracer.com"
 
 //local
-let endpoint = "http://localhost"
+let localEndpoint = "http://localhost"
 
 //test device (e.g. iphone) needs to use IP
 //let endpoint = "(insert IP here)"
@@ -17,29 +17,32 @@ struct FormRecognizer {
     
     func submitImageAndGetResults(imageDetail: ImageDetail, user: User?, selectedScanType: Int) {
         let imageData = imageDetail.uiImage!.jpegData(compressionQuality: 0.9)!
-        // no call to azure
-        let urlString = "\(endpoint)/api/analyze/dummy"
         
-        // real call to azure
-        //let urlString = "\(endpoint)/api/analyze"
+        // Call localhost or real server
+        if (selectedScanType == 0 || selectedScanType == 1) {
+            print("Scan type selected: ")
+            print(selectedScanType)
+            
+            let urlString = selectedScanType == 0 ?"\(localEndpoint)/api/analyze/dummy" : "\(realEndpoint)/api/analyze"
+            print("Using urlString: ")
+            print(urlString)
 
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-        
-        let bearerToken = "Bearer \(user!.token!)"
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
-        request.setValue(bearerToken, forHTTPHeaderField: "Authorization")
-        request.httpBody = imageData
-        
-        print("url: \(url)")
-        print("headers: \(String(describing: request.allHTTPHeaderFields))")
-        
-        if (selectedScanType == 0) {
+            guard let url = URL(string: urlString) else {
+                print("Invalid URL")
+                return
+            }
+            
+            let bearerToken = "Bearer \(user!.token!)"
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+            request.setValue(bearerToken, forHTTPHeaderField: "Authorization")
+            request.httpBody = imageData
+            
+            print("url: \(url)")
+            print("headers: \(String(describing: request.allHTTPHeaderFields))")
+            
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
@@ -69,17 +72,28 @@ struct FormRecognizer {
             task.resume()
         }
         
+        // Use hardcoded data instead of calling a server
         else if (selectedScanType == 2) {
-            print("Scan type 2")
-            if let filePath = Bundle.main.path(forResource: "SampleResultResponse", ofType: "json", inDirectory: "Example Data") {
+            print("Scan type 2, using hardcoded data")
+            
+            if let filePath = Bundle.main.path(forResource: "SampleResultResponse", ofType: "json") {
                 do {
-                    let contents = try String(contentsOfFile: filePath)
-                    print(contents)
+                    let fileContent = try String(contentsOfFile: filePath)
+                    print("File content:")
+                    print(fileContent)
+                    
+                    // Convert string to data
+                    if let fileData = fileContent.data(using: .utf8) {
+                        let analyzeResult = try JSONDecoder().decode(AnalyzeResult.self, from: fileData)
+                        imageDetail.analyzeResult = analyzeResult
+                    } else {
+                        print("Error converting string to data")
+                    }
                 } catch {
-                    print("Error reading contents: \(error)")
+                    print("Error reading file:", error.localizedDescription)
                 }
             } else {
-                print("File not found.")
+                print("File not found. Make sure the file is included in the app bundle and the filename and extension are correct.")
             }
         }
     }
