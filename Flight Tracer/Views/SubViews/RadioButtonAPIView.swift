@@ -30,7 +30,7 @@ struct RadioButtonField: View {
         }) {
             HStack {
                 Image(systemName: isSelected ? "largecircle.fill.circle" : "circle").foregroundColor(.black)
-                Text(label).foregroundColor(.black).font(.system(size: 12)) // Set font size
+                Text(label).foregroundColor(.black).font(.system(size: 12))
             }
         }
     }
