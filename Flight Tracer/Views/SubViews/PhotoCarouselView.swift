@@ -26,7 +26,7 @@ struct PhotoCarouselView: View {
                     CarouselSkeleton()
                 }
                 
-                PhotoPickerView(selectedItem: $selectedItem, selectedImage: $selectedImage)
+                PhotoPickerView(selectedImage: $selectedImage)
             }
         }
         .frame(height: 75)
