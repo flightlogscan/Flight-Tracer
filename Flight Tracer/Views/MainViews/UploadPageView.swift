@@ -36,7 +36,13 @@ struct UploadPageView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                OptionsMenu(selectedOption: $selectedOption, user: $user, authUI: authUI)
+                ToolbarItem (placement: .principal) {
+                    Image(systemName: "airplane.departure")
+                        .foregroundStyle(.white)
+                }
+                ToolbarItem (placement: .primaryAction) {
+                    OptionsMenu(selectedOption: $selectedOption, user: $user, authUI: authUI)
+                }
             }
             .tint(.white)
             .toolbarBackground(

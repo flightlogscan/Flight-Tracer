@@ -14,6 +14,8 @@ struct TablePageView: View {
     var body: some View {
         ZStack {
             if (isDataLoaded == nil || !isDataLoaded!){
+                // TODO: Show the bullet points with the skeleton loader
+                // TODO: Update the styling of the skeleton loader to more closely match our actual table
                 TableSkeleton()
             } else if (isDataLoaded!) {
                 VStack{
