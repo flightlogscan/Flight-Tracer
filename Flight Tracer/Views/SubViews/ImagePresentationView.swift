@@ -90,15 +90,17 @@ struct ImagePresentationView: View {
                         .foregroundColor(Color.green)
                 }
             }
-        
             .onAppear {
                 if (isValidated != true) {
                     validateImage()
                 }
             }
             .onReceive(selectedImage.$isImageValid) {_ in
-                if (selectedImage.isImageValid != nil) {
-                    isValidated = true
+                 if (selectedImage.isImageValid != nil) {
+                     if (selectedImage.isValidated == true && selectedImage.validationResult != nil && selectedImage.validationResult!.contains("Transient")) {
+                         isValidated = nil // Reset to force refresh of the view
+                     }
+                     isValidated = true
                 }
                 else {
                     validateImage()
