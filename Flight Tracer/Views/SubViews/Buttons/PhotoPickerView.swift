@@ -13,6 +13,7 @@ struct PhotoPickerView: View {
         VStack {
             Button(action: {
                 showImagePicker.toggle()
+                selectedAsset = nil
             }) {
                 Rectangle()
                     .overlay (
