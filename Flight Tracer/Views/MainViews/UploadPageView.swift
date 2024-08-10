@@ -30,7 +30,8 @@ struct UploadPageView: View {
                     ScanView(allowScan: $allowScan, selectedImage: $selectedImage, user: $user)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    TablePageView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
+//                    TablePageView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
+                    LogSwiperView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
                 }
                 
             }

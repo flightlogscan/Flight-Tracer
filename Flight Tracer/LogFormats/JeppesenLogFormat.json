@@ -1,0 +1,23 @@
+[
+    {"fieldName": "DATE", "columnCount": 1},
+    {"fieldName": "AIRCRAFT TYPE", "columnCount": 1},
+    {"fieldName": "AIRCRAFT IDENT", "columnCount": 1},
+    {"fieldName": "FROM", "columnCount": 1},
+    {"fieldName": "TO", "columnCount": 1},
+    {"fieldName": "NR INST. APP.", "columnCount": 1},
+    {"fieldName": "REMARKS AND ENDORSEMENTS", "columnCount": 1},
+    {"fieldName": "NR T/O", "columnCount": 1},
+    {"fieldName": "NR LDG", "columnCount": 1},
+    {"fieldName": "SINGLE-ENGINE LAND", "columnCount": 2},
+    {"fieldName": "MULTI-ENGINE LAND", "columnCount": 2},
+    {"fieldName": "AND CLASS", "columnCount": 4},
+    {"fieldName": "NIGHT", "columnCount": 2},
+    {"fieldName": "ACTUAL INSTRUMENT", "columnCount": 2},
+    {"fieldName": "SIMULATED INSTRUMENT (HOOD)", "columnCount": 2},
+    {"fieldName": "FLIGHT SIMULATOR", "columnCount": 2},
+    {"fieldName": "CROSS COUNTRY", "columnCount": 2},
+    {"fieldName": "AS FLIGHT INSTRUCTOR", "columnCount": 2},
+    {"fieldName": "DUAL RECEIVED", "columnCount": 2},
+    {"fieldName": "PILOT IN COMMAND (INCL. SOLO)", "columnCount": 2},
+    {"fieldName": "TOTAL DURATION OF FLIGHT", "columnCount": 2}
+]

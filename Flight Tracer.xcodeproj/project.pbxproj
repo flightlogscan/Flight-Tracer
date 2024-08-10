@@ -39,6 +39,7 @@
 		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
+		D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
 		D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* ImagePresentationView.swift */; };
@@ -60,6 +61,8 @@
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8DD98262AA81FC600F43034 /* TablePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD98252AA81FC600F43034 /* TablePageView.swift */; };
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
+		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
+		D8F756DB2C67D29100C68CBA /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* JsonLoader.swift */; };
 		D8FC8B532BB08D4300FA4DB8 /* LogTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC8B522BB08D4300FA4DB8 /* LogTableView.swift */; };
 		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
 		FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */; };
@@ -106,6 +109,7 @@
 		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
+		D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8DD98252AA81FC600F43034 /* TablePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePageView.swift; sourceTree = "<group>"; };
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
+		D8F756DA2C67D29100C68CBA /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
 		D8FC8B522BB08D4300FA4DB8 /* LogTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableView.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				D87952412AA3D49F0076E898 /* CsvManager.swift */,
+				D8F756DA2C67D29100C68CBA /* JsonLoader.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -239,6 +246,7 @@
 				D879523D2AA3D49F0076E898 /* ViewModel */,
 				D87952442AA3D49F0076E898 /* Text */,
 				D87952402AA3D49F0076E898 /* Util */,
+				D8F756D32C67CCC900C68CBA /* LogFormats */,
 				D879524D2AA3D49F0076E898 /* Example Data */,
 				D87952482AA3D49F0076E898 /* Preview Content */,
 				D87952472AA3D49F0076E898 /* Assets.xcassets */,
@@ -328,6 +336,7 @@
 				9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */,
 				9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */,
 				9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */,
+				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -351,6 +360,14 @@
 				D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		D8F756D32C67CCC900C68CBA /* LogFormats */ = {
+			isa = PBXGroup;
+			children = (
+				D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */,
+			);
+			path = LogFormats;
 			sourceTree = "<group>";
 		};
 		FDE0970D2A5643EA00102E96 = {
@@ -508,6 +525,7 @@
 				9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */,
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
 				D83C3CF32B13B34C0094EEAE /* GoogleService-Info.plist in Resources */,
+				D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +573,7 @@
 				D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */,
+				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
@@ -565,6 +584,7 @@
 				D88DE8A72AC0B86C0080D5EB /* Emptytest.swift in Sources */,
 				D87952672AA3D5690076E898 /* Array+Conversions.swift in Sources */,
 				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
+				D8F756DB2C67D29100C68CBA /* JsonLoader.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */,
 				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */,
@@ -744,7 +764,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
-				DEVELOPMENT_TEAM = 82G935W95D;
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -790,7 +810,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
-				DEVELOPMENT_TEAM = 82G935W95D;
+				DEVELOPMENT_TEAM = FCQ8S8M7W8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
