@@ -48,6 +48,9 @@ struct TablePageView: View {
             if (selectedImage.analyzeResult != nil) {
                 isDataLoaded = true
                 imageText = convertTo2DArray(analyzeResult: selectedImage.analyzeResult!)
+            } else if (selectedImage.isImageValid == false) {
+                // Navigate back to the main view if there are errors
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
     }

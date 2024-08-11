@@ -57,7 +57,7 @@ struct FormRecognizer {
                 if (200...299).contains(httpResponse.statusCode) {
                     if let data = data {
                         // NOTE: Uncomment this to simulate latency when testing loading
-                        sleep (5)
+                        // sleep (5)
                         let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
                         
                         print("Analyze Result: ")
@@ -66,6 +66,9 @@ struct FormRecognizer {
                     }
                 } else {
                     print("API request failed. Status code: \(httpResponse.statusCode)")
+                    imageDetail.validationResult = "Transient failure"
+                    imageDetail.isImageValid = false
+                    imageDetail.analyzeResult = nil
                 }
             }
             
