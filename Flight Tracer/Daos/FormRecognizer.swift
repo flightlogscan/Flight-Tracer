@@ -46,11 +46,17 @@ struct FormRecognizer {
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                    imageDetail.isImageValid = false
+                    imageDetail.analyzeResult = nil
                     return
                 }
                 
                 guard let httpResponse = response as? HTTPURLResponse else {
                     print("Invalid response")
+                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                    imageDetail.isImageValid = false
+                    imageDetail.analyzeResult = nil
                     return
                 }
                 
@@ -90,12 +96,21 @@ struct FormRecognizer {
                         let analyzeResult = try JSONDecoder().decode(AnalyzeResult.self, from: fileData)
                         imageDetail.analyzeResult = analyzeResult
                     } else {
+                        imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                        imageDetail.isImageValid = false
+                        imageDetail.analyzeResult = nil
                         print("Error converting string to data")
                     }
                 } catch {
+                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                    imageDetail.isImageValid = false
+                    imageDetail.analyzeResult = nil
                     print("Error reading file:", error.localizedDescription)
                 }
             } else {
+                imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                imageDetail.isImageValid = false
+                imageDetail.analyzeResult = nil
                 print("File not found. Make sure the file is included in the app bundle and the filename and extension are correct.")
             }
         }
