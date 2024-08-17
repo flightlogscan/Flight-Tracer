@@ -78,10 +78,15 @@ struct ImagePresentationView: View {
                     }
                 }
                 if (selectedImage.isValidated! && selectedImage.isImageValid == false) {
-                    Text("Invalid flight log. Please try a new image.")
-                        .foregroundColor(Color.red)
+                    if (selectedImage.validationResult != ErrorCode.TRANSIENT_FAILURE) {
+                        Text("Invalid flight log. Please try a new image.")
+                            .foregroundColor(Color.red)
+                    } else {
+                        Text("Something went wrong, please try again.")
+                            .foregroundColor(Color.red)
+                    }
                     if (selectedImage.validationResult != nil) {
-                        Text(selectedImage.validationResult!)
+                        Text(selectedImage.validationResult!.rawValue)
                             .foregroundColor(Color.secondary)
                     }
                 } else if (selectedImage.isValidated! && selectedImage.isImageValid == true) {
@@ -97,7 +102,8 @@ struct ImagePresentationView: View {
             }
             .onReceive(selectedImage.$isImageValid) {_ in
                  if (selectedImage.isImageValid != nil) {
-                     if (selectedImage.isValidated == true && selectedImage.validationResult != nil && selectedImage.validationResult!.contains("Transient")) {
+                     if (selectedImage.isValidated == true && selectedImage.validationResult != nil &&
+                         selectedImage.validationResult == ErrorCode.TRANSIENT_FAILURE) {
                          isValidated = nil // Reset to force refresh of the view
                      }
                      isValidated = true
@@ -123,9 +129,11 @@ struct ImagePresentationView: View {
     }
     
     func validateImage() {
-        isValidated = nil
+        isValidated = false
+        selectedImage.isValidated = false
         Task {
             selectImageViewModel.simpleValidateImage(image: selectedImage)
+            selectedImage.isValidated = true
         }
     }
 }

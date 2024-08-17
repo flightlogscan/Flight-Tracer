@@ -20,7 +20,7 @@ struct ScanView: View {
                     .padding()
             }
             .onAppear() {
-                buttonActive = selectedImage.isImageValid == true
+                buttonActive = (selectedImage.isImageValid == true && selectedImage.isValidated == true)
             }
             .buttonStyle(.borderedProminent)
             .tint(buttonActive ? .green : .gray.opacity(0.5))
@@ -30,7 +30,8 @@ struct ScanView: View {
         }
         .onReceive(selectedImage.$isImageValid) {_ in
             if (selectedImage.isImageValid != nil) {
-                buttonActive = selectedImage.isImageValid!
+                print(selectedImage.isImageValid)
+                buttonActive = selectedImage.isImageValid! && selectedImage.isValidated == true
             } else {
                 buttonActive = false
             }

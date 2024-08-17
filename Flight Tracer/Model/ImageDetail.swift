@@ -10,8 +10,8 @@ public class ImageDetail: Identifiable, Equatable, ObservableObject {
     
     var image: Image? = nil
     var uiImage: UIImage? = nil
-    var isValidated: Bool? = nil
-    var validationResult: String? = nil
+    @Published var isValidated: Bool? = nil
+    var validationResult: ErrorCode? = nil
     @Published var isImageValid: Bool? = nil
     var imageText: [String] // Basic image text from the simple image scanner
     var recognizedText: [[String]] // Advanced image text from the heavy-duty image scanner

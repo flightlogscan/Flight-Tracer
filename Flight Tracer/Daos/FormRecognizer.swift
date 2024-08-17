@@ -66,7 +66,7 @@ struct FormRecognizer {
                     }
                 } else {
                     print("API request failed. Status code: \(httpResponse.statusCode)")
-                    imageDetail.validationResult = "Transient failure"
+                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
                     imageDetail.analyzeResult = nil
                 }
