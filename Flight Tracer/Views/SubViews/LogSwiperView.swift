@@ -103,37 +103,37 @@ struct LogSwiperView: View {
     }
     
     func convertTo2DArray(analyzeResult: AnalyzeResult, headers: [JsonLoader.Field]) -> [[String]] {
-        guard let table = analyzeResult.tables.first else { return [] }
-        
-        // Calculate total number of columns
+        // Calculate total number of columns from headers
         let columnCount = headers.reduce(0) { $0 + $1.columnCount }
-        let rowCount = table.rowCount
+        
+        // Get the first and third tables, if available
+        let tables = analyzeResult.tables.indices.contains(2) ? [analyzeResult.tables[0], analyzeResult.tables[2]] : [analyzeResult.tables[0]]
+        
+        // Find the maximum row count across the selected tables
+        let maxRowCount = tables.reduce(0) { max($0, $1.rowCount) }
         
         // Initialize the result array
-        var resultArray = Array(repeating: Array(repeating: "", count: columnCount), count: rowCount + 1)
+        var resultArray = Array(repeating: Array(repeating: "", count: columnCount), count: maxRowCount + 1)
         
-        // Map headers to their column ranges
-        var colOffset = 0
-        var columnMapping: [Int: Int] = [:]
-        for field in headers {
-            for i in 0..<field.columnCount {
-                columnMapping[colOffset + i] = colOffset + i
-            }
-            colOffset += field.columnCount
-        }
+        // Initialize column offset to track column positions across the selected tables
+        var columnOffset = 0
         
-        // Fill in the table data
-        for cell in table.cells {
-            if let columnIndex = columnMapping[cell.columnIndex] {
-                resultArray[cell.rowIndex + 1][columnIndex] = cell.content
+        // Iterate through the selected tables and merge rows
+        for table in tables {
+            for cell in table.cells {
+                let rowIndex = cell.rowIndex + 1
+                let columnIndex = columnOffset + cell.columnIndex
+                
+                // Ensure indices are within bounds
+                if rowIndex < resultArray.count && columnIndex < resultArray[rowIndex].count {
+                    resultArray[rowIndex][columnIndex] = cell.content
+                }
             }
+            columnOffset += table.columnCount
         }
         
         return resultArray
     }
-
-
-
 }
 
 struct Logs: View {
@@ -200,9 +200,3 @@ func expandHeaders(_ headers: [JsonLoader.Field]) -> [String] {
     
     return result
 }
-
-
-//
-//#Preview {
-//    LogSwiperView()
-//}
