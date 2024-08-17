@@ -27,7 +27,7 @@ struct ImageHintsView: View {
                 Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
                 Text("Wrinkles or tears in the log")
             }
-            Text("File size should be 4MB or less")
+            Text("File size should be 10MB or less")
                 .font(.subheadline)
                 .padding([.top])
         }
