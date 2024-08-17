@@ -134,6 +134,7 @@ struct ImagePresentationView: View {
         Task {
             selectImageViewModel.simpleValidateImage(image: selectedImage)
             selectedImage.isValidated = true
+            isValidated = true
         }
     }
 }
