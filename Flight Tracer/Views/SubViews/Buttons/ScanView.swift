@@ -20,7 +20,6 @@ struct ScanView: View {
                     .padding()
             }
             .onAppear() {
-                print("onAppear scanView")
                 buttonActive = (selectedImage.isImageValid == true && selectedImage.isValidated == true)
             }
             .buttonStyle(.borderedProminent)

@@ -54,7 +54,7 @@ struct FormRecognizer {
                     return
                 }
                 
-                if (300...399).contains(httpResponse.statusCode) {
+                if (200...299).contains(httpResponse.statusCode) {
                     if let data = data {
                         // NOTE: Uncomment this to simulate latency when testing loading
                         // sleep (5)
