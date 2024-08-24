@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebasePerformance
 
 class SelectImageViewModel: ObservableObject {
     
@@ -12,7 +13,11 @@ class SelectImageViewModel: ObservableObject {
         formatter.countStyle = ByteCountFormatter.CountStyle.file
         let imageSizeKBString = formatter.string(fromByteCount: Int64(data.count))
         
+        let trace = Performance.startTrace(name: "BasicImageValidation")
+        
         if (data.count/1000 > 10000) {
+            trace?.incrementMetric("InvalidSize", by: 1)
+            trace?.stop()
             image.isImageValid = false
             image.validationResult = ErrorCode.MAX_SIZE_EXCEEDED
             return
@@ -23,8 +28,12 @@ class SelectImageViewModel: ObservableObject {
             let isImageValid = self.checkBasicFlightLogText(imageText: recognizedStrings)
             image.isImageValid = isImageValid
             if (isImageValid == false) {
+                trace?.incrementMetric("NoRecognizedText", by: 1)
                 image.validationResult = ErrorCode.NO_RECOGNIZED_TEXT
+            } else {
+                trace?.incrementMetric("Success", by: 1)
             }
+            trace?.stop()
         }
     }
             
