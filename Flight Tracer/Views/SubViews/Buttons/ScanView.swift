@@ -30,7 +30,6 @@ struct ScanView: View {
         }
         .onReceive(selectedImage.$isImageValid) {_ in
             if (selectedImage.isImageValid != nil) {
-                print(selectedImage.isImageValid)
                 buttonActive = selectedImage.isImageValid! && selectedImage.isValidated == true
             } else {
                 buttonActive = false
