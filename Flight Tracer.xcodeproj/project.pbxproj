@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0222102C7A513A0022B50E /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 9E02220F2C7A513A0022B50E /* FirebasePerformance */; };
+		9E181E7E2C71296C00ED6150 /* CoreMetrics in Frameworks */ = {isa = PBXBuildFile; productRef = 9E181E7D2C71296C00ED6150 /* CoreMetrics */; };
+		9E181E802C71296C00ED6150 /* Metrics in Frameworks */ = {isa = PBXBuildFile; productRef = 9E181E7F2C71296C00ED6150 /* Metrics */; };
+		9E181E852C712A7800ED6150 /* Prometheus in Frameworks */ = {isa = PBXBuildFile; productRef = 9E181E842C712A7800ED6150 /* Prometheus */; };
 		9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
 		9E4A085D2BEFE48300EC7C17 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		9E4A085E2BEFE48300EC7C17 /* ExampleGetAnalyzeResultFormLayout.json in Resources */ = {isa = PBXBuildFile; fileRef = D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */; };
@@ -152,10 +156,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83C3CFA2B13B6F70094EEAE /* FirebaseGoogleAuthUI in Frameworks */,
+				9E181E7E2C71296C00ED6150 /* CoreMetrics in Frameworks */,
+				9E0222102C7A513A0022B50E /* FirebasePerformance in Frameworks */,
 				D83C3CFC2B13B6F70094EEAE /* FirebaseOAuthUI in Frameworks */,
 				D83C3CF82B13B6F70094EEAE /* FirebaseEmailAuthUI in Frameworks */,
 				D83C3CF62B13B6F70094EEAE /* FirebaseAuthUI in Frameworks */,
 				D83C3CEF2B13ACF80094EEAE /* FirebaseAuth in Frameworks */,
+				9E181E852C712A7800ED6150 /* Prometheus in Frameworks */,
+				9E181E802C71296C00ED6150 /* Metrics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +184,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E02220E2C7A513A0022B50E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9E81E8522AB7E9B100524C29 /* Daos */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +392,7 @@
 				FDE0972A2A5643F800102E96 /* Flight TracerTests */,
 				FDE097342A5643F800102E96 /* Flight TracerUITests */,
 				FDE097172A5643EA00102E96 /* Products */,
+				9E02220E2C7A513A0022B50E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -429,6 +445,10 @@
 				D83C3CF72B13B6F70094EEAE /* FirebaseEmailAuthUI */,
 				D83C3CF92B13B6F70094EEAE /* FirebaseGoogleAuthUI */,
 				D83C3CFB2B13B6F70094EEAE /* FirebaseOAuthUI */,
+				9E181E7D2C71296C00ED6150 /* CoreMetrics */,
+				9E181E7F2C71296C00ED6150 /* Metrics */,
+				9E181E842C712A7800ED6150 /* Prometheus */,
+				9E02220F2C7A513A0022B50E /* FirebasePerformance */,
 			);
 			productName = "Flight Tracer";
 			productReference = FDE097162A5643EA00102E96 /* Flight Tracer.app */;
@@ -505,6 +525,8 @@
 			packageReferences = (
 				D83C3CED2B13ACF80094EEAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D83C3CF42B13B6F70094EEAE /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
+				9E181E7C2C71296C00ED6150 /* XCRemoteSwiftPackageReference "swift-metrics" */,
+				9E181E832C712A7800ED6150 /* XCRemoteSwiftPackageReference "swift-prometheus" */,
 			);
 			productRefGroup = FDE097172A5643EA00102E96 /* Products */;
 			projectDirPath = "";
@@ -981,6 +1003,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9E181E7C2C71296C00ED6150 /* XCRemoteSwiftPackageReference "swift-metrics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-metrics.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 3.0.0;
+				minimumVersion = 1.0.0;
+			};
+		};
+		9E181E832C712A7800ED6150 /* XCRemoteSwiftPackageReference "swift-prometheus" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swift-server/swift-prometheus.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		D83C3CED2B13ACF80094EEAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1000,6 +1039,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9E02220F2C7A513A0022B50E /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D83C3CED2B13ACF80094EEAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		9E181E7D2C71296C00ED6150 /* CoreMetrics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E181E7C2C71296C00ED6150 /* XCRemoteSwiftPackageReference "swift-metrics" */;
+			productName = CoreMetrics;
+		};
+		9E181E7F2C71296C00ED6150 /* Metrics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E181E7C2C71296C00ED6150 /* XCRemoteSwiftPackageReference "swift-metrics" */;
+			productName = Metrics;
+		};
+		9E181E842C712A7800ED6150 /* Prometheus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E181E832C712A7800ED6150 /* XCRemoteSwiftPackageReference "swift-prometheus" */;
+			productName = Prometheus;
+		};
 		D83C3CEE2B13ACF80094EEAE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D83C3CED2B13ACF80094EEAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

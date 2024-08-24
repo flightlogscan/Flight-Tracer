@@ -1,4 +1,6 @@
 import SwiftUI
+import FirebasePerformance
+
 
 //When server is up
 let realEndpoint = "https://flightlogtracer.com"
@@ -43,8 +45,12 @@ struct FormRecognizer {
             print("url: \(url)")
             print("headers: \(String(describing: request.allHTTPHeaderFields))")
             
+            let trace = Performance.startTrace(name: "BackendImageRequest")
+            
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
+                    trace?.incrementMetric("Error", by: 1)
+                    trace?.stop()
                     print("Error: \(error.localizedDescription)")
                     imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
@@ -54,6 +60,8 @@ struct FormRecognizer {
                 
                 guard let httpResponse = response as? HTTPURLResponse else {
                     print("Invalid response")
+                    trace?.incrementMetric("InvalidResponse", by: 1)
+                    trace?.stop()
                     imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
                     imageDetail.analyzeResult = nil
@@ -62,7 +70,14 @@ struct FormRecognizer {
                 
                 if (200...299).contains(httpResponse.statusCode) {
                     if let data = data {
+<<<<<<< Updated upstream
                         //sleep (5)
+=======
+                        // NOTE: Uncomment this to simulate latency when testing loading
+                        // sleep (5)
+                        trace?.incrementMetric("Success", by: 1)
+                        trace?.stop()
+>>>>>>> Stashed changes
                         let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
                         
                         print("Analyze Result: ")
@@ -71,6 +86,8 @@ struct FormRecognizer {
                     }
                 } else {
                     print("API request failed. Status code: \(httpResponse.statusCode)")
+                    trace?.incrementMetric("UnhealthyResponse", by: 1)
+                    trace?.stop()
                     imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
                     imageDetail.analyzeResult = nil
