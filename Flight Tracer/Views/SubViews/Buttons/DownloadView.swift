@@ -13,7 +13,7 @@ struct DownloadView: View {
                 window?.rootViewController?.present(documentPicker, animated: true)
             }
         } label: {
-            Label("", systemImage: "square.and.arrow.down")
+            Text("Download CSV")
         }
     }
 }

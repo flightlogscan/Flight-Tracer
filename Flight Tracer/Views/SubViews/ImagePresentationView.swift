@@ -89,10 +89,6 @@ struct ImagePresentationView: View {
                         Text(selectedImage.validationResult!.rawValue)
                             .foregroundColor(Color.secondary)
                     }
-                } else if (selectedImage.isValidated! && selectedImage.isImageValid == true) {
-                    // TODO: This green is ugly af plz pick a better shade of green
-                    Text("Validated image successfully, ready for scan.")
-                        .foregroundColor(Color.green)
                 }
             }
             .onAppear {
