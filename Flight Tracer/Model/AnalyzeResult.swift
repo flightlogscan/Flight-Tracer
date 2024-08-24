@@ -30,7 +30,7 @@ struct Cell: Codable {
 }
 
 enum ErrorCode: String {
-    case TRANSIENT_FAILURE = "Transient failure"
+    case TRANSIENT_FAILURE = "Something went wrong. Please try again"
     case MAX_SIZE_EXCEEDED = "Max size exceeded"
     case NO_RECOGNIZED_TEXT = "No recognized text"
 }
