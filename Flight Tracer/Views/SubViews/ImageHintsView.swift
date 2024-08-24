@@ -17,6 +17,10 @@ struct ImageHintsView: View {
             }
             HStack {
                 Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                Text("Includes both pages of the log")
+            }
+            HStack {
+                Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
                 Text("Well-lit images")
             }
             HStack {

@@ -62,10 +62,11 @@ struct LogSwiperView: View {
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
-                            Text("Yes")
+                            Text("Yes - delete my scan")
+                                .foregroundStyle(.red)
                         }
                         
-                        Button ("Cancel") {
+                        Button ("No - keep my scan") {
                         }
                     } message: {
                         Text("You will lose the log data from this scan.")
