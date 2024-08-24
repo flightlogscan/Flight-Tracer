@@ -4,6 +4,7 @@ import _PhotosUI_SwiftUI
 struct ImagePresentationView: View {
     
     @State var isValidated: Bool?
+    @State var showAlert = false
     @Binding var selectedImage: ImageDetail
     @Binding var selectedItem: PhotosPickerItem?
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
@@ -39,15 +40,14 @@ struct ImagePresentationView: View {
                                 alignment: .topTrailing
                             )
                         
-                        ProgressView()
+                        ProgressView("Validating")
+                            .foregroundColor(.white)
                             .tint(.white)
                             .padding()
                             .background(.black)
                             .cornerRadius(10)
                             .zIndex(1)
                     }
-                    Text("Validating...")
-                        .foregroundColor(Color.gray)
                 }
              else {
                     ZStack {
@@ -75,18 +75,28 @@ struct ImagePresentationView: View {
                                 },
                                 alignment: .topTrailing
                             )
+                            .overlay(
+                                Group {
+                                    if selectedImage.validationResult != nil {
+                                        Button {
+                                            showAlert = true
+                                        } label: {
+                                            Label("", systemImage: "exclamationmark.circle.fill")
+                                                .foregroundStyle(.white, .red)
+                                                .font(.title)
+                                                .offset(x: 25, y: 5)
+                                        }
+                                    }
+                                },
+                                alignment: .topLeading
+                            )
+
                     }
-                }
-                if (selectedImage.isValidated! && selectedImage.isImageValid == false) {
-                    if (selectedImage.validationResult != ErrorCode.TRANSIENT_FAILURE) {
-                        Text("Invalid flight log. Please try a new image.")
-                            .foregroundColor(Color.red)
-                    } else {
-                        Text("Something went wrong, please try again.")
-                            .foregroundColor(Color.red)
-                    }
-                    if (selectedImage.validationResult != nil) {
-                        Text(selectedImage.validationResult!.rawValue)
+                    .alert("Error detected:", isPresented: $showAlert) {
+                        Button ("Close") {
+                        }
+                    } message: {
+                        Text(selectedImage.validationResult?.rawValue ?? "")
                             .foregroundColor(Color.secondary)
                     }
                 }
@@ -101,6 +111,9 @@ struct ImagePresentationView: View {
                      if (selectedImage.isValidated == true && selectedImage.validationResult != nil &&
                          selectedImage.validationResult == ErrorCode.TRANSIENT_FAILURE) {
                          isValidated = nil // Reset to force refresh of the view
+                     }
+                     if (selectedImage.isValidated == true && selectedImage.isImageValid == false){
+                         showAlert = true
                      }
                      isValidated = true
                 }

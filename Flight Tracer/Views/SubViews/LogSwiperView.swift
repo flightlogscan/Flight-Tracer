@@ -93,6 +93,9 @@ struct LogSwiperView: View {
                     imageText = convertTo2DArray(analyzeResult: selectedImage.analyzeResult!, headers: headers)
                     let _ = print("image text loaded count \(imageText.count)")
                     isDataLoaded = true
+                } else if (selectedImage.isImageValid == false) {
+                    // Navigate back to the main view if there are errors
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             }
         }
