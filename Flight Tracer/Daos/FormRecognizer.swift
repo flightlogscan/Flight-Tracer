@@ -70,14 +70,10 @@ struct FormRecognizer {
                 
                 if (200...299).contains(httpResponse.statusCode) {
                     if let data = data {
-<<<<<<< Updated upstream
-                        //sleep (5)
-=======
                         // NOTE: Uncomment this to simulate latency when testing loading
                         // sleep (5)
                         trace?.incrementMetric("Success", by: 1)
                         trace?.stop()
->>>>>>> Stashed changes
                         let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
                         
                         print("Analyze Result: ")
