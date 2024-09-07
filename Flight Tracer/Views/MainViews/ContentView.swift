@@ -11,10 +11,11 @@ struct ContentView: View {
             if (user == nil && isLoggedIn == nil){
                 Color(uiColor: Colors.NAVY_BLUE)
                     .ignoresSafeArea()
-                Image(systemName: "airplane")
-                    .resizable()
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .foregroundColor(Color(uiColor: Colors.GOLD))
+                Text("Flight Log Tracer")
+                    .font(.custom(
+                        "Apple Chancery",
+                        fixedSize: 36))
+                    .foregroundStyle(.white)
             } else if (user == nil || !isLoggedIn!) {
                 LoginView(user: $user)
                     .ignoresSafeArea()

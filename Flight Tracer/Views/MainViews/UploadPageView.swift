@@ -38,7 +38,10 @@ struct UploadPageView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem (placement: .principal) {
-                    Image(systemName: "airplane.departure")
+                    Text("Flight Log Tracer")
+                        .font(.custom(
+                            "Apple Chancery",
+                            fixedSize: 20))
                         .foregroundStyle(.white)
                 }
                 ToolbarItem (placement: .primaryAction) {

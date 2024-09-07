@@ -55,6 +55,8 @@
 		D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */; };
 		D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952462AA3D49F0076E898 /* FieldNameConverter.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
+		D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87952472AA3D49F0076E898 /* Assets.xcassets */; };
+		D885E5D62C8CD6340088D1CD /* AppleChancery.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D885E5D52C8CD5270088D1CD /* AppleChancery.ttf */; };
 		D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */; };
 		D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */; };
 		D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A22ABBE1E40080D5EB /* ScanView.swift */; };
@@ -129,6 +131,7 @@
 		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
 		D87952582AA3D49F0076E898 /* ImagePresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentationView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* UploadPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageView.swift; sourceTree = "<group>"; };
+		D885E5D52C8CD5270088D1CD /* AppleChancery.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleChancery.ttf; sourceTree = "<group>"; };
 		D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselSkeleton.swift; sourceTree = "<group>"; };
 		D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
 		D88DE8A22ABBE1E40080D5EB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
@@ -269,6 +272,7 @@
 				D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */,
 				D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */,
 				D803E2312B26795E001B5100 /* Colors.swift */,
+				D885E5D52C8CD5270088D1CD /* AppleChancery.ttf */,
 			);
 			path = "Flight Tracer";
 			sourceTree = "<group>";
@@ -544,6 +548,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D885E5D62C8CD6340088D1CD /* AppleChancery.ttf in Resources */,
+				D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */,
 				9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */,
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
 				D83C3CF32B13B34C0094EEAE /* GoogleService-Info.plist in Resources */,
@@ -778,8 +784,9 @@
 		FDE0973C2A5643F800102E96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = willicon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -793,13 +800,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"Allows user to select flight logs from photo library\"";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -813,8 +822,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -824,8 +833,9 @@
 		FDE0973D2A5643F800102E96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = willicon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -839,13 +849,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"Allows user to select flight logs from photo library\"";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -859,8 +871,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
