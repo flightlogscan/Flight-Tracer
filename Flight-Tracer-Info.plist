@@ -17,5 +17,14 @@
 	</array>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AppleChancery.ttf</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>plane2</string>
+	</dict>
 </dict>
 </plist>
