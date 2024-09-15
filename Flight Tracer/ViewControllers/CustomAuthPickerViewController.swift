@@ -19,10 +19,8 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
         let scrollView = view.subviews[0] as! UIScrollView
         scrollView.isScrollEnabled = false
         scrollView.backgroundColor = Colors.NAVY_BLUE
-        
-        scrollView.isScrollEnabled = false
-        createAirplaneLogo()
-        
+        scrollView.showsVerticalScrollIndicator = false
+                
         let buttonTray = scrollView.subviews[0]
 
         buttonTray.backgroundColor = .black
@@ -52,22 +50,33 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
         }
     }
     
-    private func createAirplaneLogo() {
-        let image = UIImage(systemName: "airplane")
-        let imageView = UIImageView(image: image!)
-        imageView.tintColor = Colors.GOLD
-        imageView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
-        imageView.center = view.center
-        view.subviews[0].addSubview(imageView)
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        createLogoText()
+    }
+    
+    private func createLogoText() {
+        let logoLabel = UILabel()
+        logoLabel.text = "Flight Log Tracer"
+        logoLabel.textColor = .white
+        logoLabel.font = UIFont(name: "Magnolia Script", size: 40)
+        logoLabel.sizeToFit()
+        
+        logoLabel.center = view.center
+        view.addSubview(logoLabel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        // Remove "Welcome" navigation from login page
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // Keep Navigation bar on sign up page
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }

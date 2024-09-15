@@ -9,13 +9,8 @@ struct ContentView: View {
         
         ZStack {
             if (user == nil && isLoggedIn == nil){
-                Color(uiColor: Colors.NAVY_BLUE)
+                Color(uiColor: Colors.NAVY_BLUE!)
                     .ignoresSafeArea()
-                Text("Flight Log Tracer")
-                    .font(.custom(
-                        "Apple Chancery",
-                        fixedSize: 36))
-                    .foregroundStyle(.white)
             } else if (user == nil || !isLoggedIn!) {
                 LoginView(user: $user)
                     .ignoresSafeArea()
