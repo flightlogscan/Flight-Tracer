@@ -30,7 +30,6 @@ struct UploadPageView: View {
                     ScanView(allowScan: $allowScan, selectedImage: $selectedImage, user: $user)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-//                    TablePageView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
                     LogSwiperView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
                 }
                 
@@ -40,7 +39,7 @@ struct UploadPageView: View {
                 ToolbarItem (placement: .principal) {
                     Text("Flight Log Tracer")
                         .font(.custom(
-                            "Apple Chancery",
+                            "Magnolia Script",
                             fixedSize: 20))
                         .foregroundStyle(.white)
                 }
@@ -50,7 +49,7 @@ struct UploadPageView: View {
             }
             .tint(.white)
             .toolbarBackground(
-                Color(red: 0.0, green: 0.2, blue: 0.5),
+                Color(Colors.NAVY_BLUE!),
                 for: .navigationBar
             )
             .toolbarBackground(.visible, for: .navigationBar)

@@ -19,14 +19,12 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>AppleChancery.ttf</string>
+		<string>Magnolia Script.otf</string>
 	</array>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>Colors.NAVY_BLUE</string>
-		<key>UIImageName</key>
-		<string>plane2</string>
+		<string>NAVY_BLUE</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<false/>
 	</dict>

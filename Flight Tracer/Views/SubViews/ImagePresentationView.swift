@@ -40,7 +40,7 @@ struct ImagePresentationView: View {
                                 alignment: .topTrailing
                             )
                         
-                        ProgressView("Validating")
+                        ProgressView()
                             .foregroundColor(.white)
                             .tint(.white)
                             .padding()

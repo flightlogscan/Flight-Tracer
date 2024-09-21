@@ -43,6 +43,8 @@
 		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
+		D86B85B92C95EDC5002E8C13 /* Flight-Tracer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */; };
+		D86B85BC2C95EFC2002E8C13 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */; };
 		D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
@@ -56,7 +58,6 @@
 		D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952462AA3D49F0076E898 /* FieldNameConverter.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
 		D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87952472AA3D49F0076E898 /* Assets.xcassets */; };
-		D885E5D62C8CD6340088D1CD /* AppleChancery.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D885E5D52C8CD5270088D1CD /* AppleChancery.ttf */; };
 		D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */; };
 		D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */; };
 		D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A22ABBE1E40080D5EB /* ScanView.swift */; };
@@ -115,6 +116,7 @@
 		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
+		D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
 		D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
@@ -131,7 +133,6 @@
 		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
 		D87952582AA3D49F0076E898 /* ImagePresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentationView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* UploadPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageView.swift; sourceTree = "<group>"; };
-		D885E5D52C8CD5270088D1CD /* AppleChancery.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleChancery.ttf; sourceTree = "<group>"; };
 		D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselSkeleton.swift; sourceTree = "<group>"; };
 		D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
 		D88DE8A22ABBE1E40080D5EB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
@@ -272,7 +273,7 @@
 				D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */,
 				D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */,
 				D803E2312B26795E001B5100 /* Colors.swift */,
-				D885E5D52C8CD5270088D1CD /* AppleChancery.ttf */,
+				D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */,
 			);
 			path = "Flight Tracer";
 			sourceTree = "<group>";
@@ -548,10 +549,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D885E5D62C8CD6340088D1CD /* AppleChancery.ttf in Resources */,
 				D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */,
 				9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */,
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
+				D86B85BC2C95EFC2002E8C13 /* Magnolia Script.otf in Resources */,
+				D86B85B92C95EDC5002E8C13 /* Flight-Tracer-Info.plist in Resources */,
 				D83C3CF32B13B34C0094EEAE /* GoogleService-Info.plist in Resources */,
 				D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */,
 			);
@@ -799,7 +801,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FlightLogTracer;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used to access flight logs in your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -808,6 +812,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
@@ -848,7 +853,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FlightLogTracer;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used to access flight logs in your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -857,6 +864,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
