@@ -13,13 +13,23 @@ import SwiftUI
 // Reference FUIAuthPickerViewController.m to see initial structure
 class CustomAuthPickerViewController : FUIAuthPickerViewController {
     
+    let gradient = CAGradientLayer()
+    let logoLabel = UILabel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let scrollView = view.subviews[0] as! UIScrollView
         scrollView.isScrollEnabled = false
-        scrollView.backgroundColor = Colors.NAVY_BLUE
         scrollView.showsVerticalScrollIndicator = false
+        
+        //Add gradient and logo here so they are only drawn once
+        gradient.colors = [Colors.NAVY_BLUE!.cgColor, UIColor.white]
+        gradient.startPoint = CGPoint.zero
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        scrollView.layer.insertSublayer(gradient, at: 0)
+        
+        createLogoText()
                 
         let buttonTray = scrollView.subviews[0]
 
@@ -52,18 +62,21 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
-        createLogoText()
+        
+        //Any bounds related settings need to be updated here becase
+        //bounds of the view aren't established until `viewWillLayoutSubviews`
+        //gradient/label aren't added here because this method is called multiple times
+        //so they would get drawn multiple times
+        gradient.frame = view.subviews[0].bounds
+        logoLabel.center = view.center
     }
     
     private func createLogoText() {
-        let logoLabel = UILabel()
         logoLabel.text = "Flight Log Tracer"
         logoLabel.textColor = .white
         logoLabel.font = UIFont(name: "Magnolia Script", size: 40)
         logoLabel.sizeToFit()
         
-        logoLabel.center = view.center
         view.addSubview(logoLabel)
     }
     
@@ -82,5 +95,5 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
 }
 
 #Preview {
-    ContentView()
+    ContentView(user: nil, isLoggedIn: nil)
 }
