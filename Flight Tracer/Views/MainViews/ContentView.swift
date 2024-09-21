@@ -9,8 +9,7 @@ struct ContentView: View {
         
         ZStack {
             if (user == nil && isLoggedIn == nil){
-                Color(uiColor: Colors.NAVY_BLUE!)
-                    .ignoresSafeArea()
+                Color(uiColor: Colors.NAVY_BLUE!).ignoresSafeArea()
             } else if (user == nil || !isLoggedIn!) {
                 LoginView(user: $user)
                     .ignoresSafeArea()
@@ -20,7 +19,7 @@ struct ContentView: View {
                     .zIndex(1)
             }
         }
-        .animation(.easeInOut(duration: 0.25), value:isLoggedIn)
+        .animation(.easeIn(duration: 0.5), value:isLoggedIn)
         .onAppear {
             self.checkLogIn()
         }
@@ -55,6 +54,6 @@ struct ContentView: View {
 
 struct l_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(user: nil, isLoggedIn: nil)
     }
 }
