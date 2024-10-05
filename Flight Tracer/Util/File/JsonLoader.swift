@@ -5,6 +5,7 @@ public class JsonLoader {
     public struct Field: Codable {
         let fieldName: String
         let columnCount: Int
+        let type: String
     }
 
     
@@ -27,4 +28,21 @@ public class JsonLoader {
         }
     }
 
+}
+
+enum FieldType: Codable {
+    case STRING
+    case INTEGER
+    case unknown // to handle invalid input
+
+    init(from string: String) {
+        switch string.uppercased() {
+        case "STRING":
+            self = .STRING
+        case "INTEGER":
+            self = .INTEGER
+        default:
+            self = .unknown
+        }
+    }
 }
