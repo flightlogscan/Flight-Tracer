@@ -17,7 +17,7 @@ var headers: [JsonLoader.Field] {
        }
    }
 
-var expandedHeaders = expandHeaders(headers)
+var expandedHeaders: [Result] = expandHeaders(headers)
 
 struct LogSwiperView: View {
     @State var tempdata = [[""]]
@@ -121,7 +121,6 @@ struct LogSwiperView: View {
         
         // Initialize column offset to track column positions across the selected tables
         var columnOffset = 0
-        
         // Iterate through the selected tables and merge rows
         for table in tables {
             for cell in table.cells {
@@ -172,34 +171,85 @@ struct LogTab: View {
         
     var body: some View {
         List {
-
             ForEach(0..<expandedHeaders.count, id: \.self) { cellIndex in
                 HStack {
-                    Text(expandedHeaders[cellIndex])
+                    Text(expandedHeaders[cellIndex].value)
                         .bold()
                         .font(.system(size: 14))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    if cellIndex < $row.count {
-                        TextField("", text: $row[cellIndex])
-                            .font(.system(size: 14))
-                            .multilineTextAlignment(.trailing)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    let _ = print("Lance type")
+                    let _ = print(expandedHeaders[cellIndex].type)
+                    let _ = print(row[cellIndex])
+                    
+                    if cellIndex < row.count {
+                        // Bind the TextField to the original row value
+                        TextField("", text: Binding(
+                            get: {
+                                // If type is INTEGER, return the modified value
+                                if expandedHeaders[cellIndex].type == .INTEGER {
+                                    return replaceCharacters(in: row[cellIndex])
+                                } else {
+                                    return row[cellIndex]
+                                }
+                            },
+                            set: { newValue in
+                                // Update the original row value
+                                row[cellIndex] = newValue
+
+                                // If type is INTEGER, update it to the modified value
+                                if expandedHeaders[cellIndex].type == .INTEGER {
+                                    row[cellIndex] = replaceCharacters(in: newValue)
+                                }
+                            }
+                        ))
+                        .font(.system(size: 14))
+                        .multilineTextAlignment(.trailing)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                     } else {
                         Text(">")
                     }
-                                    
                 }
             }
         }
     }
 }
 
-func expandHeaders(_ headers: [JsonLoader.Field]) -> [String] {
-    var result: [String] = []
+func expandHeaders(_ headers: [JsonLoader.Field]) -> [Result] {
+    var results: [Result] = []
     
     for field in headers {
-        result.append(contentsOf: Array(repeating: field.fieldName, count: field.columnCount))
+        let result: Result = Result(value: field.fieldName, type: FieldType(from: field.type))
+        results.append(contentsOf: Array(repeating: result, count: field.columnCount))
+    }
+    
+    return results
+}
+
+struct Result {
+    var value: String
+    var type: FieldType
+}
+
+func replaceCharacters(in input: String) -> String {
+    var result = input
+    
+    // Define a dictionary for replacements
+    let replacements: [Character: String] = [
+        "/": "1",
+        "\\": "1",
+        "o": "0",
+        "O": "0",
+        "l": "1", // lowercase L
+        "I": "1", // uppercase I
+        "S": "5",
+        "Z": "2",
+        "z": "2"
+    ]
+    
+    // Replace each character in the input string
+    for (key, value) in replacements {
+        result = result.replacingOccurrences(of: String(key), with: value)
     }
     
     return result
