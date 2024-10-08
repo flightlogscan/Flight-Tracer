@@ -61,8 +61,7 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+        super.viewWillLayoutSubviews()
         //Any bounds related settings need to be updated here becase
         //bounds of the view aren't established until `viewWillLayoutSubviews`
         //gradient/label aren't added here because this method is called multiple times
