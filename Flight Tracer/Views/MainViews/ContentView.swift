@@ -19,7 +19,6 @@ struct ContentView: View {
                     .zIndex(1)
             }
         }
-        .animation(.easeIn(duration: 0.5), value:isLoggedIn)
         .onAppear {
             self.checkLogIn()
         }

@@ -110,5 +110,5 @@ struct LoginView : UIViewControllerRepresentable {
 }
 
 #Preview {
-    ContentView()
+    ContentView(user: nil, isLoggedIn: nil)
 }
