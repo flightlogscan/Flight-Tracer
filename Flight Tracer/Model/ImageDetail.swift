@@ -14,7 +14,7 @@ public class ImageDetail: Identifiable, Equatable, ObservableObject {
     var validationResult: ErrorCode? = nil
     @Published var isImageValid: Bool? = nil
     var imageText: [String] // Basic image text from the simple image scanner
-    var recognizedText: [[String]] // Advanced image text from the heavy-duty image scanner
+    @Published var recognizedText: [[String]] // Advanced image text from the heavy-duty image scanner
     @Published var analyzeResult: AnalyzeResult?
     
     init() {

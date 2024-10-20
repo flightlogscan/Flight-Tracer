@@ -1,6 +1,17 @@
 import SwiftUI
 import FirebasePerformance
 
+var headers: [JsonLoader.Field] {
+       if let stringArray = JsonLoader.loadJSONFromFile(named: "JeppesenLogFormat") {
+           print("Loaded strings: \(stringArray)")
+           return stringArray
+       } else {
+           print("Failed to load strings.")
+           return []
+       }
+   }
+
+var expandedHeaders: [Result] = expandHeaders(headers)
 
 //When server is up
 let realEndpoint = "https://flightlogtracer.com"
@@ -78,6 +89,10 @@ struct FormRecognizer {
                         
                         print("Analyze Result: ")
                         print(analyzeResult)
+                        
+                        imageDetail.recognizedText = convertTo2DArray(analyzeResult: analyzeResult, headers: headers)
+                        processRecognizedTextForIntegers(imageDetail: imageDetail)
+                        
                         imageDetail.analyzeResult = analyzeResult
                     }
                 } else {
@@ -106,6 +121,8 @@ struct FormRecognizer {
                     // Convert string to data
                     if let fileData = fileContent.data(using: .utf8) {
                         let analyzeResult = try JSONDecoder().decode(AnalyzeResult.self, from: fileData)
+                        imageDetail.recognizedText = convertTo2DArray(analyzeResult: analyzeResult, headers: headers)
+                        processRecognizedTextForIntegers(imageDetail: imageDetail)
                         imageDetail.analyzeResult = analyzeResult
                     } else {
                         imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
@@ -128,3 +145,96 @@ struct FormRecognizer {
         }
     }
 }
+
+func convertTo2DArray(analyzeResult: AnalyzeResult, headers: [JsonLoader.Field]) -> [[String]] {
+    // Calculate total number of columns from headers
+    let columnCount = headers.reduce(0) { $0 + $1.columnCount }
+    
+    // Get the first and third tables, if available
+    let tables = analyzeResult.tables.indices.contains(2) ? [analyzeResult.tables[0], analyzeResult.tables[2]] : [analyzeResult.tables[0]]
+    
+    // Find the maximum row count across the selected tables
+    let maxRowCount = tables.reduce(0) { max($0, $1.rowCount) }
+    
+    // Initialize the result array
+    var resultArray = Array(repeating: Array(repeating: "", count: columnCount), count: maxRowCount + 1)
+    
+    // Initialize column offset to track column positions across the selected tables
+    var columnOffset = 0
+    // Iterate through the selected tables and merge rows
+    for table in tables {
+        for cell in table.cells {
+            let rowIndex = cell.rowIndex + 1
+            let columnIndex = columnOffset + cell.columnIndex
+            
+            // Ensure indices are within bounds
+            if rowIndex < resultArray.count && columnIndex < resultArray[rowIndex].count {
+                resultArray[rowIndex][columnIndex] = cell.content
+            }
+        }
+        columnOffset += table.columnCount
+    }
+    
+    return resultArray
+}
+
+func expandHeaders(_ headers: [JsonLoader.Field]) -> [Result] {
+    var results: [Result] = []
+    
+    for field in headers {
+        let result: Result = Result(value: field.fieldName, type: FieldType(from: field.type))
+        results.append(contentsOf: Array(repeating: result, count: field.columnCount))
+    }
+    
+    return results
+}
+
+struct Result {
+    var value: String
+    var type: FieldType
+}
+
+// New method to process recognizedText using expandedHeaders
+func processRecognizedTextForIntegers(imageDetail: ImageDetail) {
+    // Skip the first two rows because of headers
+    for rowIndex in 3..<imageDetail.recognizedText.count {
+        for columnIndex in 0..<imageDetail.recognizedText[rowIndex].count {
+            // Use expandedHeaders to check if the type is INTEGER
+            if columnIndex < expandedHeaders.count, expandedHeaders[columnIndex].type == .INTEGER {
+                // Replace characters for INTEGER fields
+                imageDetail.recognizedText[rowIndex][columnIndex] = replaceCharacters(in: imageDetail.recognizedText[rowIndex][columnIndex])
+            }
+        }
+    }
+}
+
+func replaceCharacters(in input: String) -> String {
+    print("Before replacement")
+    print(input)
+    
+    var result = input
+    
+    // Define a dictionary for replacements
+    let replacements: [Character: String] = [
+        "/": "1",
+        "\\": "1",
+        "o": "0",
+        "O": "0",
+        "l": "1", // lowercase L
+        "I": "1", // uppercase I
+        "S": "5",
+        "Z": "2",
+        "z": "2"
+    ]
+    
+    // Replace each character in the input string
+    for (key, value) in replacements {
+        result = result.replacingOccurrences(of: String(key), with: value)
+    }
+    
+    print("Replaced result: ")
+    print(result)
+    
+    return result
+}
+
