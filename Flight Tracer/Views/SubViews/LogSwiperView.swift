@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-var headers: [JsonLoader.Field] {
-       if let stringArray = JsonLoader.loadJSONFromFile(named: "JeppesenLogFormat") {
-           print("Loaded strings: \(stringArray)")
-           return stringArray
-       } else {
-           print("Failed to load strings.")
-           return []
-       }
-   }
-
-var expandedHeaders: [Result] = expandHeaders(headers)
-
 struct LogSwiperView: View {
     @State var tempdata = [[""]]
     @State var showAlert = false
@@ -29,7 +17,6 @@ struct LogSwiperView: View {
     @State var selectedScanType: Int
     @State var scanTypeSelected: Bool = false
     @Binding var user: User?
-    @State var imageText: [[String]] = [[]]
     
     var body: some View {
         NavigationStack {
@@ -39,7 +26,7 @@ struct LogSwiperView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 if isDataLoaded != nil && isDataLoaded == true {
-                    Logs(imageText: $imageText)
+                    Logs(imageText: $selectedImage.recognizedText)
 
                 } else {
                     ProgressView()
@@ -90,8 +77,7 @@ struct LogSwiperView: View {
             }
             .onReceive(selectedImage.$analyzeResult) {_ in
                 if (selectedImage.analyzeResult != nil) {
-                    imageText = convertTo2DArray(analyzeResult: selectedImage.analyzeResult!, headers: headers)
-                    let _ = print("image text loaded count \(imageText.count)")
+                    let _ = print("image text loaded count \(selectedImage.recognizedText.count)")
                     isDataLoaded = true
                 } else if (selectedImage.isImageValid == false) {
                     // Navigate back to the main view if there are errors
@@ -105,38 +91,6 @@ struct LogSwiperView: View {
         isDataLoaded = false
         contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: user, selectedScanType: selectedScanType)
     }
-    
-    func convertTo2DArray(analyzeResult: AnalyzeResult, headers: [JsonLoader.Field]) -> [[String]] {
-        // Calculate total number of columns from headers
-        let columnCount = headers.reduce(0) { $0 + $1.columnCount }
-        
-        // Get the first and third tables, if available
-        let tables = analyzeResult.tables.indices.contains(2) ? [analyzeResult.tables[0], analyzeResult.tables[2]] : [analyzeResult.tables[0]]
-        
-        // Find the maximum row count across the selected tables
-        let maxRowCount = tables.reduce(0) { max($0, $1.rowCount) }
-        
-        // Initialize the result array
-        var resultArray = Array(repeating: Array(repeating: "", count: columnCount), count: maxRowCount + 1)
-        
-        // Initialize column offset to track column positions across the selected tables
-        var columnOffset = 0
-        // Iterate through the selected tables and merge rows
-        for table in tables {
-            for cell in table.cells {
-                let rowIndex = cell.rowIndex + 1
-                let columnIndex = columnOffset + cell.columnIndex
-                
-                // Ensure indices are within bounds
-                if rowIndex < resultArray.count && columnIndex < resultArray[rowIndex].count {
-                    resultArray[rowIndex][columnIndex] = cell.content
-                }
-            }
-            columnOffset += table.columnCount
-        }
-        
-        return resultArray
-    }
 }
 
 struct Logs: View {
@@ -149,7 +103,7 @@ struct Logs: View {
             if ($imageText.count < 3) {
                 Text("yikes not enough rows")
             }
-            // Skip first 2 rows cause of headers
+            // Skip first 2 rows because of headers
             ForEach(3..<imageText.count, id: \.self) { rowIndex in
                 
                 if !isRowEmpty(imageText[rowIndex]) {
@@ -178,29 +132,15 @@ struct LogTab: View {
                         .font(.system(size: 14))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    let _ = print("Lance type")
-                    let _ = print(expandedHeaders[cellIndex].type)
-                    let _ = print(row[cellIndex])
-                    
                     if cellIndex < row.count {
                         // Bind the TextField to the original row value
                         TextField("", text: Binding(
                             get: {
-                                // If type is INTEGER, return the modified value
-                                if expandedHeaders[cellIndex].type == .INTEGER {
-                                    return replaceCharacters(in: row[cellIndex])
-                                } else {
                                     return row[cellIndex]
-                                }
                             },
                             set: { newValue in
                                 // Update the original row value
                                 row[cellIndex] = newValue
-
-                                // If type is INTEGER, update it to the modified value
-                                if expandedHeaders[cellIndex].type == .INTEGER {
-                                    row[cellIndex] = replaceCharacters(in: newValue)
-                                }
                             }
                         ))
                         .font(.system(size: 14))
@@ -213,44 +153,4 @@ struct LogTab: View {
             }
         }
     }
-}
-
-func expandHeaders(_ headers: [JsonLoader.Field]) -> [Result] {
-    var results: [Result] = []
-    
-    for field in headers {
-        let result: Result = Result(value: field.fieldName, type: FieldType(from: field.type))
-        results.append(contentsOf: Array(repeating: result, count: field.columnCount))
-    }
-    
-    return results
-}
-
-struct Result {
-    var value: String
-    var type: FieldType
-}
-
-func replaceCharacters(in input: String) -> String {
-    var result = input
-    
-    // Define a dictionary for replacements
-    let replacements: [Character: String] = [
-        "/": "1",
-        "\\": "1",
-        "o": "0",
-        "O": "0",
-        "l": "1", // lowercase L
-        "I": "1", // uppercase I
-        "S": "5",
-        "Z": "2",
-        "z": "2"
-    ]
-    
-    // Replace each character in the input string
-    for (key, value) in replacements {
-        result = result.replacingOccurrences(of: String(key), with: value)
-    }
-    
-    return result
 }
