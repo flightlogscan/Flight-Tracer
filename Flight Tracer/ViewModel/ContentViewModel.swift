@@ -6,7 +6,7 @@ class ContentViewModel: ObservableObject {
     
     func processImageText(selectedImage: ImageDetail?, realScan: Bool? = false, user: User?, selectedScanType: Int) {
         if (realScan!) {
-            formRecognizer.scanImage(image: selectedImage!, user: user, selectedScanType: selectedScanType)
+            formRecognizer.scanImage(imageDetail: selectedImage!, user: user, selectedScanType: selectedScanType)
         }
     }
 }

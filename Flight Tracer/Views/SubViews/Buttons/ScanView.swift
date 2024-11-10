@@ -5,7 +5,6 @@ struct ScanView: View {
     @State var buttonActive: Bool = false
     @Binding var allowScan: Bool
     @Binding var selectedImage: ImageDetail
-    @Binding var user: User?
     @ObservedObject var contentViewModel = ContentViewModel()
     
     var body: some View {
@@ -36,8 +35,4 @@ struct ScanView: View {
             }
         }
     }
-}
-
-#Preview {
-    UploadPageView(user: Binding.constant(nil))
 }

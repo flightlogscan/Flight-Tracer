@@ -9,7 +9,7 @@ struct LogSwiperView: View {
     @State var selectedImage: ImageDetail
     @State var selectedScanType: Int
     @State var scanTypeSelected: Bool = false
-    @Binding var user: User?
+    var user: User?
     
     var body: some View {
         NavigationStack {
@@ -114,12 +114,13 @@ struct Logs: View {
 
 struct LogTab: View {
     @Binding var row: [String]
+    let logFieldMetadata = LogMetadataLoader.getLogMetadata(named: "JeppesenLogFormat")
         
     var body: some View {
         List {
-            ForEach(0..<expandedHeaders.count, id: \.self) { cellIndex in
+            ForEach(0..<logFieldMetadata.count, id: \.self) { cellIndex in
                 HStack {
-                    Text(expandedHeaders[cellIndex].value)
+                    Text(logFieldMetadata[cellIndex].fieldName)
                         .bold()
                         .font(.system(size: 14))
                         .frame(maxWidth: .infinity, alignment: .leading)
