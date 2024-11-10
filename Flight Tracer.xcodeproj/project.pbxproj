@@ -40,6 +40,7 @@
 		D83C3CFC2B13B6F70094EEAE /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CFB2B13B6F70094EEAE /* FirebaseOAuthUI */; };
 		D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */; };
 		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
+		D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
 		D86B85B92C95EDC5002E8C13 /* Flight-Tracer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */; };
@@ -106,6 +107,7 @@
 		D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
+		D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		D879523D2AA3D49F0076E898 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */,
 				D8D458D92AACCFE500E29B83 /* ImageTaker.swift */,
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
 				D879523F2AA3D49F0076E898 /* ContentViewModel.swift */,
@@ -549,6 +552,7 @@
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
+				D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,

@@ -85,7 +85,3 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
-
-#Preview {
-    ContentView(user: nil, isLoggedIn: nil)
-}
