@@ -48,9 +48,7 @@ struct LoginView : UIViewControllerRepresentable {
         return authViewController!
     }
 
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<LoginView>)
-    {
-    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<LoginView>){}
 
     // Coordinator
     class Coordinator : NSObject, FUIAuthDelegate {
@@ -69,7 +67,7 @@ struct LoginView : UIViewControllerRepresentable {
                 authDataResult.user.getIDTokenForcingRefresh(true) { idToken, error in
                     if error != nil {
                         // Handle error
-                        print("user token retrieval error")
+                        print("user token retrieval error: \(String(describing: error))")
                         return;
                     }
 
