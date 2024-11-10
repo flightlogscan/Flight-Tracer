@@ -25,14 +25,12 @@ struct ContentView: View {
     }
     
     func checkLogIn() {
-        // Check if user has already logged in
         Auth.auth().addStateDidChangeListener { [self] (_, user) in
             if let user = user {
                 self.user = User(id: user.uid, email: user.email!)
                  
                 user.getIDTokenForcingRefresh(true) { idToken, error in
                     if error != nil {
-                        // Handle error
                         print("user token retrieval error")
                         isLoggedIn = false
                         return;

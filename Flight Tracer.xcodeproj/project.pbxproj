@@ -47,29 +47,23 @@
 		D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */; };
 		D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
-		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
 		D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* ImagePresentationView.swift */; };
 		D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* UploadPageView.swift */; };
 		D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */; };
 		D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* ContentViewModel.swift */; };
 		D87952662AA3D5690076E898 /* CsvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952412AA3D49F0076E898 /* CsvManager.swift */; };
-		D87952672AA3D5690076E898 /* Array+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952432AA3D49F0076E898 /* Array+Conversions.swift */; };
-		D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */; };
-		D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952462AA3D49F0076E898 /* FieldNameConverter.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
 		D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87952472AA3D49F0076E898 /* Assets.xcassets */; };
 		D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */; };
 		D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */; };
 		D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A22ABBE1E40080D5EB /* ScanView.swift */; };
 		D88DE8A52AC0AF7F0080D5EB /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A42AC0AF7F0080D5EB /* DownloadView.swift */; };
-		D88DE8A72AC0B86C0080D5EB /* Emptytest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A62AC0B86C0080D5EB /* Emptytest.swift */; };
 		D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */; };
 		D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* ImageTaker.swift */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
 		D8F756DB2C67D29100C68CBA /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* JsonLoader.swift */; };
-		D8FC8B532BB08D4300FA4DB8 /* LogTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC8B522BB08D4300FA4DB8 /* LogTableView.swift */; };
 		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
 		FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */; };
 		FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */; };
@@ -120,30 +114,24 @@
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
-		D87952432AA3D49F0076E898 /* Array+Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Conversions.swift"; sourceTree = "<group>"; };
-		D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTextProcessor.swift; sourceTree = "<group>"; };
-		D87952462AA3D49F0076E898 /* FieldNameConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldNameConverter.swift; sourceTree = "<group>"; };
 		D87952472AA3D49F0076E898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87952492AA3D49F0076E898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flight_Tracer.entitlements; sourceTree = "<group>"; };
 		D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExampleGetAnalyzeResultFormLayout.json; sourceTree = "<group>"; };
 		D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerApp.swift; sourceTree = "<group>"; };
 		D87952562AA3D49F0076E898 /* ImageHintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHintsView.swift; sourceTree = "<group>"; };
-		D87952572AA3D49F0076E898 /* EditableLogGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogGridView.swift; sourceTree = "<group>"; };
 		D87952582AA3D49F0076E898 /* ImagePresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentationView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* UploadPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageView.swift; sourceTree = "<group>"; };
 		D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselSkeleton.swift; sourceTree = "<group>"; };
 		D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
 		D88DE8A22ABBE1E40080D5EB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D88DE8A42AC0AF7F0080D5EB /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
-		D88DE8A62AC0B86C0080D5EB /* Emptytest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emptytest.swift; sourceTree = "<group>"; };
 		D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
 		D8D458D92AACCFE500E29B83 /* ImageTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaker.swift; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
 		D8F756DA2C67D29100C68CBA /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
-		D8FC8B522BB08D4300FA4DB8 /* LogTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableView.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerTests.swift; sourceTree = "<group>"; };
@@ -236,14 +224,6 @@
 			path = MainViews;
 			sourceTree = "<group>";
 		};
-		D85561F72AAC234000A3CA49 /* DevViews */ = {
-			isa = PBXGroup;
-			children = (
-				D88DE8A62AC0B86C0080D5EB /* Emptytest.swift */,
-			);
-			path = DevViews;
-			sourceTree = "<group>";
-		};
 		D85561F82AAC237600A3CA49 /* File */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,7 +242,6 @@
 				D87952532AA3D49F0076E898 /* Views */,
 				D81FA38B2B2287AC0082B178 /* ViewControllers */,
 				D879523D2AA3D49F0076E898 /* ViewModel */,
-				D87952442AA3D49F0076E898 /* Text */,
 				D87952402AA3D49F0076E898 /* Util */,
 				D8F756D32C67CCC900C68CBA /* LogFormats */,
 				D879524D2AA3D49F0076E898 /* Example Data */,
@@ -292,26 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				D85561F82AAC237600A3CA49 /* File */,
-				D87952422AA3D49F0076E898 /* Extensions */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		D87952422AA3D49F0076E898 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D87952432AA3D49F0076E898 /* Array+Conversions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D87952442AA3D49F0076E898 /* Text */ = {
-			isa = PBXGroup;
-			children = (
-				D87952452AA3D49F0076E898 /* RecognizedTextProcessor.swift */,
-				D87952462AA3D49F0076E898 /* FieldNameConverter.swift */,
-			);
-			path = Text;
 			sourceTree = "<group>";
 		};
 		D87952482AA3D49F0076E898 /* Preview Content */ = {
@@ -337,7 +298,6 @@
 			children = (
 				D85561F62AAC233400A3CA49 /* MainViews */,
 				D87952552AA3D49F0076E898 /* SubViews */,
-				D85561F72AAC234000A3CA49 /* DevViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,9 +309,7 @@
 				D88DE8A12ABBE1C30080D5EB /* Buttons */,
 				D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */,
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
-				D87952572AA3D49F0076E898 /* EditableLogGridView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
-				D8FC8B522BB08D4300FA4DB8 /* LogTableView.swift */,
 				9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */,
 				9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */,
 				9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */,
@@ -589,9 +547,7 @@
 				D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */,
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
-				D8FC8B532BB08D4300FA4DB8 /* LogTableView.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
-				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
@@ -608,12 +564,8 @@
 				9E4A08642BEFE79B00EC7C17 /* OptionsMenu.swift in Sources */,
 				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
-				D88DE8A72AC0B86C0080D5EB /* Emptytest.swift in Sources */,
-				D87952672AA3D5690076E898 /* Array+Conversions.swift in Sources */,
-				D87952682AA3D5690076E898 /* RecognizedTextProcessor.swift in Sources */,
 				D8F756DB2C67D29100C68CBA /* JsonLoader.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */,
-				D87952692AA3D5690076E898 /* FieldNameConverter.swift in Sources */,
 				D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */,
 				D836F9432B0153B6000FC988 /* User.swift in Sources */,
 				D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */,

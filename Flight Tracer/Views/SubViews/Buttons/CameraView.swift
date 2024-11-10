@@ -1,10 +1,3 @@
-//
-//  CameraView.swift
-//  Flight Tracer
-//
-//  Created by Wilbur 😎 on 9/11/23.
-//
-
 import SwiftUI
 import AVFoundation
 
@@ -38,7 +31,7 @@ struct CameraView: View {
             Button ("Cancel") {
             }
         } message: {
-            Text("Flight Tracer needs Camera access to take photos.")
+            Text("Flight Log Tracer needs Camera access to take photos.")
         }
         .cornerRadius(10)
         .aspectRatio(1, contentMode: .fit)

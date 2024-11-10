@@ -1,10 +1,3 @@
-//
-//  HelpfulHintsView.swift
-//  Flight Tracer
-//
-//  Created by William Janis on 7/29/23.
-//
-
 import SwiftUI
 
 struct ImageHintsView: View {
