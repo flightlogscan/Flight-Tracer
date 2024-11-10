@@ -65,13 +65,15 @@ struct LogSwiperView: View {
             .onAppear {
                 loadJSON()
             }
-            .onReceive(selectedImage.$analyzeResult) {_ in
-                if (selectedImage.analyzeResult != nil) {
-                    let _ = print("image text loaded count \(selectedImage.recognizedText.count)")
-                    isDataLoaded = true
-                } else if (selectedImage.isImageValid == false) {
-                    // Navigate back to the main view if there are errors
-                    self.presentationMode.wrappedValue.dismiss()
+            .onReceive(selectedImage.$analyzeResult) { _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    if let analyzeResult = selectedImage.analyzeResult {
+                        print("image text loaded count \(selectedImage.recognizedText.count)")
+                        isDataLoaded = true
+                    } else if selectedImage.isImageValid == false {
+                        // Navigate back to the main view if there are errors
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 }
             }
         }
