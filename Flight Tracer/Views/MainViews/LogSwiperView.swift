@@ -45,18 +45,15 @@ struct LogSwiperView: View {
                     } label: {
                         Label("", systemImage: "xmark")
                     }
-                    .alert("Are you sure?", isPresented: $showAlert) {
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Yes - delete my scan")
-                                .foregroundStyle(.red)
+                    .alert("Delete Log?", isPresented: $showAlert) {
+                        Button ("Cancel", role: .cancel) {
                         }
                         
-                        Button ("No - keep my scan") {
+                        Button("Delete", role: .destructive) {
+                            self.presentationMode.wrappedValue.dismiss()
                         }
                     } message: {
-                        Text("You will lose the log data from this scan.")
+                        Text("Deleting this log will delete its data, but any data stored in iCloud will not be deleted.")
                     }
                 }
                 

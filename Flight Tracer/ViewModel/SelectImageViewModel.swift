@@ -11,7 +11,6 @@ class SelectImageViewModel: ObservableObject {
         let formatter = ByteCountFormatter()
         formatter.allowedUnits = ByteCountFormatter.Units.useKB
         formatter.countStyle = ByteCountFormatter.CountStyle.file
-        let imageSizeKBString = formatter.string(fromByteCount: Int64(data.count))
         
         let trace = Performance.startTrace(name: "BasicImageValidation")
         

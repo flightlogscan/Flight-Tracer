@@ -22,7 +22,6 @@
 		9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */; };
 		9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */; };
 		9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */; };
-		9ECBCBB62BEFF5C1001E7C31 /* TableSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECBCBB52BEFF5C1001E7C31 /* TableSkeleton.swift */; };
 		D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */; };
 		D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */; };
 		D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */; };
@@ -45,6 +44,7 @@
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
 		D86B85B92C95EDC5002E8C13 /* Flight-Tracer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */; };
 		D86B85BC2C95EFC2002E8C13 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */; };
+		D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */; };
 		D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952572AA3D49F0076E898 /* EditableLogGridView.swift */; };
@@ -66,7 +66,6 @@
 		D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */; };
 		D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* ImageTaker.swift */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
-		D8DD98262AA81FC600F43034 /* TablePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD98252AA81FC600F43034 /* TablePageView.swift */; };
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
 		D8F756DB2C67D29100C68CBA /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* JsonLoader.swift */; };
@@ -99,7 +98,6 @@
 		9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleResultResponse.json; sourceTree = "<group>"; };
 		9E81E8532AB7EA2800524C29 /* FormRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecognizer.swift; sourceTree = "<group>"; };
 		9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsInstructionsView.swift; sourceTree = "<group>"; };
-		9ECBCBB52BEFF5C1001E7C31 /* TableSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSkeleton.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewModel.swift; sourceTree = "<group>"; };
 		D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmailEntryViewController.swift; sourceTree = "<group>"; };
 		D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordRecoveryViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +115,7 @@
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
+		D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
@@ -141,7 +140,6 @@
 		D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
 		D8D458D92AACCFE500E29B83 /* ImageTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaker.swift; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
-		D8DD98252AA81FC600F43034 /* TablePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePageView.swift; sourceTree = "<group>"; };
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
 		D8F756DA2C67D29100C68CBA /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
@@ -219,6 +217,7 @@
 		D84FF5CA2AB75461009B2ACB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */,
 				D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */,
 				D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */,
 				D836F9422B0153B6000FC988 /* User.swift */,
@@ -229,10 +228,10 @@
 		D85561F62AAC233400A3CA49 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				D8DD98252AA81FC600F43034 /* TablePageView.swift */,
 				D879525A2AA3D49F0076E898 /* UploadPageView.swift */,
 				D836F9402B01520F000FC988 /* ContentView.swift */,
 				D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */,
+				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -356,7 +355,6 @@
 				9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */,
 				9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */,
 				9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */,
-				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -365,7 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */,
-				9ECBCBB52BEFF5C1001E7C31 /* TableSkeleton.swift */,
 			);
 			path = SkeletonViews;
 			sourceTree = "<group>";
@@ -589,12 +586,12 @@
 				D88DE8A52AC0AF7F0080D5EB /* DownloadView.swift in Sources */,
 				D803E2322B26795E001B5100 /* Colors.swift in Sources */,
 				D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */,
+				D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */,
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
 				D8FC8B532BB08D4300FA4DB8 /* LogTableView.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
 				D879525D2AA3D5690076E898 /* EditableLogGridView.swift in Sources */,
-				D8DD98262AA81FC600F43034 /* TablePageView.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
@@ -623,7 +620,6 @@
 				D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */,
 				D836F9412B01520F000FC988 /* ContentView.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
-				9ECBCBB62BEFF5C1001E7C31 /* TableSkeleton.swift in Sources */,
 				D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
 				D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */,
