@@ -18,6 +18,7 @@ struct CarouselButtonView: View {
             Image(uiImage: thumbnailImage)
                 .resizable()
         }
+        .accessibilityIdentifier("carouselButton")
         .cornerRadius(10)
         .aspectRatio(1, contentMode: .fit)
     }

@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "730F8D2A-1A88-4352-95F3-B92F122631F5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Flight Tracer.xcodeproj",
+      "identifier" : "FDE097152A5643EA00102E96",
+      "name" : "Flight Tracer"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Flight Tracer.xcodeproj",
+        "identifier" : "FDE097262A5643F800102E96",
+        "name" : "Flight TracerTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Flight Tracer.xcodeproj",
+        "identifier" : "FDE097302A5643F800102E96",
+        "name" : "Flight TracerUITests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Flight Tracer.xcodeproj",
+        "identifier" : "FD74BAFB2A68CD6700E1C9EA",
+        "name" : "Flight TracerUnitTests"
+      }
+    }
+  ],
+  "version" : 1
+}
