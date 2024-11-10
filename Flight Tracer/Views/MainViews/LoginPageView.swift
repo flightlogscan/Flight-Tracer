@@ -106,7 +106,3 @@ struct LoginView : UIViewControllerRepresentable {
 
     }
 }
-
-#Preview {
-    ContentView(user: nil, isLoggedIn: nil)
-}

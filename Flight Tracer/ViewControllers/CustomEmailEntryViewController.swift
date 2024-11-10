@@ -61,10 +61,6 @@ class CustomEmailEntryViewController : FUIEmailEntryViewController {
     }
 }
 
-#Preview {
-    ContentView(user: nil, isLoggedIn: nil)
-}
-
  //Keeping in. Helpful for discovery of firebase auth ui views
 //extension UIView {
 //    func findViews<T: UIView>(subclassOf: T.Type) -> [T] {
