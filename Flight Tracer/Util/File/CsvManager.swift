@@ -1,10 +1,3 @@
-//
-//  CsvManager.swift
-//  Flight Tracer
-//
-//  Created by William Janis on 7/20/23.
-//
-
 import Foundation
 
 class CSVManager {

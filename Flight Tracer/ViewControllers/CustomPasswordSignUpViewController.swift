@@ -1,10 +1,3 @@
-//
-//  CustomPasswordSignUpViewController.swift
-//  Flight Tracer
-//
-//  Created by Wilbur 😎 on 12/10/23.
-//
-
 import SwiftUI
 import FirebaseEmailAuthUI
 

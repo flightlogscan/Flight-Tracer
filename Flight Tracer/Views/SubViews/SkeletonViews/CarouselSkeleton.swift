@@ -23,7 +23,7 @@ struct CarouselSkeleton: View {
             Button ("Cancel") {
             }
         } message: {
-            Text("Flight Tracer needs Camera Roll access to display preview photos.")
+            Text("Flight Log Tracer needs Camera Roll access to display preview photos.")
         }
     }
 }

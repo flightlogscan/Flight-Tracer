@@ -1,10 +1,3 @@
-//
-//  CustomFUIAuthPickerViewController.swift
-//  Flight Tracer
-//
-//  Created by Wilbur 😎 on 12/7/23.
-//
-
 import FirebaseAuthUI
 import SwiftUI
 

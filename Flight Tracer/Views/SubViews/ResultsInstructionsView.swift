@@ -1,10 +1,3 @@
-//
-//  HelpfulHintsView.swift
-//  Flight Tracer
-//
-//  Created by William Janis on 7/29/23.
-//
-
 import SwiftUI
 
 struct ResultsInstructionsView: View {
@@ -36,8 +29,4 @@ struct ResultsInstructionsView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding([.leading, .top])
     }
-}
-
-#Preview {
-    UploadPageView(user: Binding.constant(nil))
 }

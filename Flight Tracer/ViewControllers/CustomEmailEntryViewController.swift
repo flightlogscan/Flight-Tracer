@@ -1,10 +1,3 @@
-//
-//  CustomEmailEntryViewController.swift
-//  Flight Tracer
-//
-//  Created by Wilbur 😎 on 12/9/23.
-//
-
 import SwiftUI
 import FirebaseEmailAuthUI
 

@@ -1,10 +1,3 @@
-//
-//  CarouselButtonView.swift
-//  Flight Tracer
-//
-//  Created by Wilbur 😎 on 11/30/23.
-//
-
 import SwiftUI
 
 struct CarouselButtonView: View {

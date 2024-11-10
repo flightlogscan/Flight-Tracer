@@ -1,10 +1,3 @@
-//
-//  LogSwiperView.swift
-//  Flight Tracer
-//
-//  Created by Wilbur 😎 on 8/4/24.
-//
-
 import SwiftUI
 
 struct LogSwiperView: View {
