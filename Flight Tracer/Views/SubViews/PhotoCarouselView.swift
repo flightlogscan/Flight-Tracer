@@ -1,13 +1,73 @@
 import SwiftUI
 import PhotosUI
 
-let imageManager = PHImageManager.default()
-let fetchOptions = PHFetchOptions()
-let imageRequestOptions = PHImageRequestOptions()
+class PhotoPermissionsManager: NSObject, ObservableObject, PHPhotoLibraryChangeObserver {
+    @Published var hasPhotoPermissions = false
+    @Published var thumbnailImages: [UIImage] = []
+    
+    private let imageManager = PHImageManager.default()
+    private let fetchOptions: PHFetchOptions
+    private let imageRequestOptions: PHImageRequestOptions
+    
+    override init() {
+        fetchOptions = PHFetchOptions()
+        imageRequestOptions = PHImageRequestOptions()
+        
+        super.init()
+        
+        PHPhotoLibrary.shared().register(self) // Register for photo library changes
+        checkPhotoPermissions()
+        if hasPhotoPermissions {
+            getThumbnailPhotos()
+        }
+    }
+    
+    deinit {
+        PHPhotoLibrary.shared().unregisterChangeObserver(self) // Unregister when deinitialized
+    }
+    
+    func checkPhotoPermissions() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        hasPhotoPermissions = (status == .authorized || status == .limited)
+    }
+    
+    func getThumbnailPhotos() {
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        fetchOptions.fetchLimit = 10
+        imageRequestOptions.deliveryMode = .highQualityFormat
+        imageRequestOptions.isSynchronous = true
+        
+        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        thumbnailImages = []
+        
+        fetchResult.enumerateObjects { [weak self] (phAsset, _, _) in
+            self?.imageManager.requestImage(
+                for: phAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: self?.imageRequestOptions
+            ) { (uiImage, _) in
+                if let uiImage = uiImage {
+                    self?.thumbnailImages.append(uiImage)
+                }
+            }
+        }
+    }
+    
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        DispatchQueue.main.async {
+            let currentStatus = PHPhotoLibrary.authorizationStatus()
+            let permissionsGranted = (currentStatus == .authorized || currentStatus == .limited)
+            
+            if permissionsGranted && !self.hasPhotoPermissions {
+                self.hasPhotoPermissions = true
+                self.getThumbnailPhotos()
+            } else if !permissionsGranted {
+                self.hasPhotoPermissions = false
+            }
+        }
+    }
+}
 
 struct PhotoCarouselView: View {
-    @State var thumbnailImages:[UIImage] = []
-    @State var hasPhotoPermissions = true
+    @StateObject private var photoPermissionsManager = PhotoPermissionsManager()
     @Binding var selectedImage: ImageDetail
     @Binding var selectedItem: PhotosPickerItem?
     
@@ -16,11 +76,11 @@ struct PhotoCarouselView: View {
             LazyHGrid(rows: [GridItem()]) {
                 CameraView(selectedImage: $selectedImage)
                                 
-                ForEach(0..<thumbnailImages.count, id: \.self) { index in
-                    CarouselButtonView(thumbnailImage: thumbnailImages[index], hiResImage: getImage(index: index), selectedImage: $selectedImage)
+                ForEach(0..<photoPermissionsManager.thumbnailImages.count, id: \.self) { index in
+                    CarouselButtonView(thumbnailImage: photoPermissionsManager.thumbnailImages[index], hiResImage: getImage(index: index), selectedImage: $selectedImage)
                 }
                 
-                if !hasPhotoPermissions {
+                if !photoPermissionsManager.hasPhotoPermissions {
                     CarouselSkeleton()
                     CarouselSkeleton()
                     CarouselSkeleton()
@@ -31,65 +91,18 @@ struct PhotoCarouselView: View {
         }
         .frame(height: 75)
         .padding([.leading, .trailing])
-        .onAppear {
-            checkPhotoPermissions()
-            getThumbnailPhotos()
-        }
-        .onReceive(NotificationCenter.default.publisher(
-            for: UIScene.willEnterForegroundNotification)) { _ in
-                // Refresh photo carousel when app is back in focus in case anything changed
-                // Slow, but it works..
-                
-                getThumbnailPhotos()
-                
-            }
         .shadow(radius: 1)
-        
-    }
-    
-    func checkPhotoPermissions() {
-        let status = PHPhotoLibrary.authorizationStatus()
-        
-        if(status == .denied) {
-            hasPhotoPermissions = false
-        }
-    }
-    
-    func getThumbnailPhotos() {
-        //This code is gross and needs to be extracted to a different class
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        fetchOptions.fetchLimit = 10
-        
-        imageRequestOptions.deliveryMode = .highQualityFormat
-        imageRequestOptions.isSynchronous = true
-        
-        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-        thumbnailImages = []
-        
-        fetchResult.enumerateObjects { (phAsset, _, _) in
-            imageManager.requestImage(
-                for: phAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: imageRequestOptions
-            ) { (uiImage, _) in
-                thumbnailImages.append(uiImage!)
+        .onChange(of: photoPermissionsManager.hasPhotoPermissions) { newValue in
+            if newValue {
+                photoPermissionsManager.getThumbnailPhotos()
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIScene.willEnterForegroundNotification)) { _ in
+            photoPermissionsManager.getThumbnailPhotos()
+        }
     }
     
-    // This code is gross and needs to be extracted to a different class
-    // There is a bug where if a photo is added or deleted in the photos app, FLT won't
-    // know to update the index and thus show incorrect images.
-    func getImage(index: Int) -> UIImage {
-        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-        
-        let asset: PHAsset = fetchResult.object(at: index)
-        
-        var image: UIImage?
-        imageManager.requestImage(
-            for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: imageRequestOptions
-        ) { (uiImage, _) in
-            image = uiImage
-        }
-        
-      return image!
+    private func getImage(index: Int) -> UIImage {
+        photoPermissionsManager.thumbnailImages[index]
     }
 }
