@@ -27,10 +27,10 @@ struct UploadPageView: View {
                     
                     PhotoCarouselView(selectedImage: $selectedImage, selectedItem: $selectedItem)
                     
-                    ScanView(allowScan: $allowScan, selectedImage: $selectedImage, user: $user)
+                    ScanView(allowScan: $allowScan, selectedImage: $selectedImage)
                 }
                 .navigationDestination(isPresented: $allowScan) {
-                    LogSwiperView(selectedImage: selectedImage, selectedScanType: selectedOption, user: $user)
+                    LogSwiperView(selectedImage: selectedImage, selectedScanType: selectedOption, user: user)
                 }
                 
             }

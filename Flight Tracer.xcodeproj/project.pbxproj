@@ -42,6 +42,9 @@
 		D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */; };
 		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
 		D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */; };
+		D841CC302CE12FDD00A02B5D /* CharReplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */; };
+		D841CC342CE132BB00A02B5D /* LogFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC332CE132B000A02B5D /* LogFieldType.swift */; };
+		D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
 		D86B85B92C95EDC5002E8C13 /* Flight-Tracer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */; };
@@ -65,7 +68,7 @@
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
-		D8F756DB2C67D29100C68CBA /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* JsonLoader.swift */; };
+		D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */; };
 		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
 		FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */; };
 		FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */; };
@@ -111,6 +114,9 @@
 		D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
 		D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharReplacer.swift; sourceTree = "<group>"; };
+		D841CC332CE132B000A02B5D /* LogFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFieldType.swift; sourceTree = "<group>"; };
+		D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFieldMetadata.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
@@ -136,7 +142,7 @@
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
-		D8F756DA2C67D29100C68CBA /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
+		D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMetadataLoader.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerTests.swift; sourceTree = "<group>"; };
@@ -207,13 +213,31 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D841CC312CE1328E00A02B5D /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				D841CC332CE132B000A02B5D /* LogFieldType.swift */,
+				D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */,
+			);
+			path = enum;
+			sourceTree = "<group>";
+		};
+		D841CC322CE1329A00A02B5D /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		D84FF5CA2AB75461009B2ACB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */,
+				D841CC312CE1328E00A02B5D /* enum */,
 				D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */,
 				D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */,
 				D836F9422B0153B6000FC988 /* User.swift */,
+				D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				D87952412AA3D49F0076E898 /* CsvManager.swift */,
-				D8F756DA2C67D29100C68CBA /* JsonLoader.swift */,
+				D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -276,6 +300,7 @@
 		D87952402AA3D49F0076E898 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				D841CC322CE1329A00A02B5D /* Text */,
 				D85561F82AAC237600A3CA49 /* File */,
 			);
 			path = Util;
@@ -560,12 +585,14 @@
 				D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
+				D841CC302CE12FDD00A02B5D /* CharReplacer.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
+				D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
@@ -573,10 +600,11 @@
 				9E4A08642BEFE79B00EC7C17 /* OptionsMenu.swift in Sources */,
 				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
-				D8F756DB2C67D29100C68CBA /* JsonLoader.swift in Sources */,
+				D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */,
 				D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */,
 				D836F9432B0153B6000FC988 /* User.swift in Sources */,
+				D841CC342CE132BB00A02B5D /* LogFieldType.swift in Sources */,
 				D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */,
 				D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */,
 				D836F9412B01520F000FC988 /* ContentView.swift in Sources */,
