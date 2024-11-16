@@ -9,7 +9,6 @@ struct ScanView: View {
     
     var body: some View {
         VStack{
-            
             Button {
                 allowScan = buttonActive
             } label: {
@@ -26,6 +25,8 @@ struct ScanView: View {
             .shadow(color: buttonActive ? .gray : .clear, radius: buttonActive ? 5 : 0)
             .bold()
             .padding([.leading, .trailing, .bottom])
+            .accessibilityLabel(Text("Scan photo button"))
+            .accessibilityHint(Text(buttonActive ? "Tap to start scanning" : "Button is disabled"))
         }
         .onReceive(selectedImage.$isImageValid) {_ in
             if (selectedImage.isImageValid != nil) {

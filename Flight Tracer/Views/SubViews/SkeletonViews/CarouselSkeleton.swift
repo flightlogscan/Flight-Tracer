@@ -2,8 +2,6 @@ import SwiftUI
 
 struct CarouselSkeleton: View {
     
-    let color = Color.black.opacity(0.7)
-    
     @State private var showAlert = false
     
     var body: some View {
@@ -15,13 +13,9 @@ struct CarouselSkeleton: View {
         }
         .cornerRadius(10)
         .aspectRatio(1, contentMode: .fit)
-        .foregroundColor(color)
+        .foregroundColor(Color.black.opacity(0.7))
         .alert("Allow access?", isPresented: $showAlert) {
-            Button ("Open Settings") {
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            }
-            Button ("Cancel") {
-            }
+            SettingsAlert()
         } message: {
             Text("Flight Log Tracer needs Camera Roll access to display preview photos.")
         }

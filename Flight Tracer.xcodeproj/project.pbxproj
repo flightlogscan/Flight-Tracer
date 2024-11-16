@@ -30,6 +30,8 @@
 		D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */; };
 		D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */; };
 		D803E2322B26795E001B5100 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2312B26795E001B5100 /* Colors.swift */; };
+		D8110EDC2CE90D6000C76D7B /* SettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EDB2CE90D6000C76D7B /* SettingsAlert.swift */; };
+		D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */; };
 		D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */; };
 		D836F9412B01520F000FC988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* ContentView.swift */; };
 		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
@@ -106,8 +108,10 @@
 		D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignUpViewController.swift; sourceTree = "<group>"; };
 		D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordVerificationViewController.swift; sourceTree = "<group>"; };
 		D803E2312B26795E001B5100 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D8110EDB2CE90D6000C76D7B /* SettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAlert.swift; sourceTree = "<group>"; };
+		D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
 		D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
-		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D836F9402B01520F000FC988 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -200,6 +204,14 @@
 			path = Daos;
 			sourceTree = "<group>";
 		};
+		D8110EE02CE90E5600C76D7B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				D8F756D32C67CCC900C68CBA /* LogFormats */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		D81FA38B2B2287AC0082B178 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,15 +234,7 @@
 			path = enum;
 			sourceTree = "<group>";
 		};
-		D841CC322CE1329A00A02B5D /* Text */ = {
-			isa = PBXGroup;
-			children = (
-				D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */,
-			);
-			path = Text;
-			sourceTree = "<group>";
-		};
-		D84FF5CA2AB75461009B2ACB /* Model */ = {
+		D84FF5CA2AB75461009B2ACB /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D841CC312CE1328E00A02B5D /* enum */,
@@ -239,7 +243,7 @@
 				D836F9422B0153B6000FC988 /* User.swift */,
 				D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D85561F62AAC233400A3CA49 /* MainViews */ = {
@@ -253,26 +257,17 @@
 			path = MainViews;
 			sourceTree = "<group>";
 		};
-		D85561F82AAC237600A3CA49 /* File */ = {
-			isa = PBXGroup;
-			children = (
-				D87952412AA3D49F0076E898 /* CsvManager.swift */,
-				D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */,
-			);
-			path = File;
-			sourceTree = "<group>";
-		};
 		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
 			isa = PBXGroup;
 			children = (
 				D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */,
+				D8110EE02CE90E5600C76D7B /* Config */,
 				9E81E8522AB7E9B100524C29 /* Daos */,
-				D84FF5CA2AB75461009B2ACB /* Model */,
+				D84FF5CA2AB75461009B2ACB /* Models */,
 				D87952532AA3D49F0076E898 /* Views */,
 				D81FA38B2B2287AC0082B178 /* ViewControllers */,
-				D879523D2AA3D49F0076E898 /* ViewModel */,
+				D879523D2AA3D49F0076E898 /* ViewModels */,
 				D87952402AA3D49F0076E898 /* Util */,
-				D8F756D32C67CCC900C68CBA /* LogFormats */,
 				D879524D2AA3D49F0076E898 /* Example Data */,
 				D87952482AA3D49F0076E898 /* Preview Content */,
 				D87952472AA3D49F0076E898 /* Assets.xcassets */,
@@ -285,7 +280,7 @@
 			path = "Flight Tracer";
 			sourceTree = "<group>";
 		};
-		D879523D2AA3D49F0076E898 /* ViewModel */ = {
+		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */,
@@ -294,14 +289,16 @@
 				D879523F2AA3D49F0076E898 /* ContentViewModel.swift */,
 				D8028B362AAC1278004FFD02 /* SelectImageViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		D87952402AA3D49F0076E898 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D841CC322CE1329A00A02B5D /* Text */,
-				D85561F82AAC237600A3CA49 /* File */,
+				D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */,
+				D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */,
+				D87952412AA3D49F0076E898 /* CsvManager.swift */,
+				D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -339,6 +336,7 @@
 				D88ABFF52BDE9E5F001244B2 /* SkeletonViews */,
 				D88DE8A12ABBE1C30080D5EB /* Buttons */,
 				D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */,
+				D8110EDB2CE90D6000C76D7B /* SettingsAlert.swift */,
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
 				9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */,
@@ -583,12 +581,14 @@
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SelectImageViewModel.swift in Sources */,
 				D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */,
+				D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
 				D841CC302CE12FDD00A02B5D /* CharReplacer.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */,
+				D8110EDC2CE90D6000C76D7B /* SettingsAlert.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
