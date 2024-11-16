@@ -7,11 +7,11 @@ struct CameraView: View {
     @Binding var selectedImage: ImageDetail
     @State private var showCamera: Bool = false
     @State private var showAlert: Bool = false
-    @State private var hasPermission: Bool = false
+    @StateObject private var permissionManager = CameraPermissionManager()
     
     var body: some View {
         Button {
-            if (hasPermission) {
+            if permissionManager.hasPermission {
                 showCamera = true
             } else {
                 showAlert = true
@@ -25,11 +25,7 @@ struct CameraView: View {
                 .foregroundColor(.white)
         }
         .alert("Allow access?", isPresented: $showAlert) {
-            Button ("Open Settings") {
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            }
-            Button ("Cancel") {
-            }
+            SettingsAlert()
         } message: {
             Text("Flight Log Tracer needs Camera access to take photos.")
         }
@@ -37,7 +33,7 @@ struct CameraView: View {
         .aspectRatio(1, contentMode: .fit)
         .foregroundColor(color)
         .onAppear {
-            requestPermission()
+            permissionManager.requestPermission()
         }
         .fullScreenCover(isPresented: $showCamera) {
             ImageTaker(selectedImage: $selectedImage)
@@ -45,18 +41,4 @@ struct CameraView: View {
                 .background(.black)
         }
     }
-    
-    func requestPermission() {
-        AVCaptureDevice.requestAccess(for: .video, completionHandler: {accessGranted in
-            DispatchQueue.main.async {
-                hasPermission = accessGranted
-            }
-        })
-    }
-}
-
-
-
-#Preview {
-    UploadPageView(user: Binding.constant(nil))
 }

@@ -1,6 +1,4 @@
 func replaceCharacters(in input: String) -> String {
-    print("Before replacement")
-    print(input)
     
     var result = input
     
@@ -21,9 +19,6 @@ func replaceCharacters(in input: String) -> String {
     for (key, value) in replacements {
         result = result.replacingOccurrences(of: String(key), with: value)
     }
-    
-    print("Replaced result: ")
-    print(result)
     
     return result
 }

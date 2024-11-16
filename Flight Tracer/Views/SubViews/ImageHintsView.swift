@@ -32,7 +32,3 @@ struct ImageHintsView: View {
         .padding([.leading, .top])      
     }
 }
-
-#Preview {
-    UploadPageView(user: Binding.constant(nil))
-}
