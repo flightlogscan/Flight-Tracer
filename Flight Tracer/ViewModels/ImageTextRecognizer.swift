@@ -22,7 +22,6 @@ struct ImageTextRecognizer {
                     observation.topCandidates(1).first?.string
                 }
             } else {
-                // Handle the case where request.results is not [VNRecognizedTextObservation].
                 print("Failed to recognize text.")
             }
             
@@ -33,7 +32,6 @@ struct ImageTextRecognizer {
         request.usesLanguageCorrection = true
         
         do {
-            // Perform the text-recognition request.
             try requestHandler.perform([request])
         } catch {
             print("Unable to perform the requests: \(error).")

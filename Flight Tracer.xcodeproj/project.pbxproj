@@ -29,7 +29,6 @@
 		D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */; };
 		D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */; };
 		D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */; };
-		D803E2322B26795E001B5100 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2312B26795E001B5100 /* Colors.swift */; };
 		D8110EDC2CE90D6000C76D7B /* SettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EDB2CE90D6000C76D7B /* SettingsAlert.swift */; };
 		D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */; };
 		D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */; };
@@ -42,6 +41,7 @@
 		D83C3CFA2B13B6F70094EEAE /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CF92B13B6F70094EEAE /* FirebaseGoogleAuthUI */; };
 		D83C3CFC2B13B6F70094EEAE /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CFB2B13B6F70094EEAE /* FirebaseOAuthUI */; };
 		D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */; };
+		D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */; };
 		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
 		D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */; };
 		D841CC302CE12FDD00A02B5D /* CharReplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */; };
@@ -49,7 +49,6 @@
 		D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
-		D86B85B92C95EDC5002E8C13 /* Flight-Tracer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */; };
 		D86B85BC2C95EFC2002E8C13 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */; };
 		D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */; };
 		D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */; };
@@ -107,7 +106,6 @@
 		D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignInViewController.swift; sourceTree = "<group>"; };
 		D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignUpViewController.swift; sourceTree = "<group>"; };
 		D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordVerificationViewController.swift; sourceTree = "<group>"; };
-		D803E2312B26795E001B5100 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D8110EDB2CE90D6000C76D7B /* SettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAlert.swift; sourceTree = "<group>"; };
 		D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
 		D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +114,7 @@
 		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
+		D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
 		D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharReplacer.swift; sourceTree = "<group>"; };
@@ -225,6 +224,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D83C76652CEA4E2200DDAACD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D841CC312CE1328E00A02B5D /* enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,9 +256,9 @@
 		D85561F62AAC233400A3CA49 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				D879525A2AA3D49F0076E898 /* UploadPageView.swift */,
 				D836F9402B01520F000FC988 /* ContentView.swift */,
 				D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */,
+				D879525A2AA3D49F0076E898 /* UploadPageView.swift */,
 				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 			);
 			path = MainViews;
@@ -268,13 +275,13 @@
 				D81FA38B2B2287AC0082B178 /* ViewControllers */,
 				D879523D2AA3D49F0076E898 /* ViewModels */,
 				D87952402AA3D49F0076E898 /* Util */,
+				D83C76652CEA4E2200DDAACD /* Extensions */,
 				D879524D2AA3D49F0076E898 /* Example Data */,
 				D87952482AA3D49F0076E898 /* Preview Content */,
 				D87952472AA3D49F0076E898 /* Assets.xcassets */,
 				D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */,
 				D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */,
 				D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */,
-				D803E2312B26795E001B5100 /* Colors.swift */,
 				D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */,
 			);
 			path = "Flight Tracer";
@@ -489,7 +496,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					FDE097152A5643EA00102E96 = {
 						CreatedOnToolsVersion = 14.2;
@@ -539,7 +546,6 @@
 				9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */,
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
 				D86B85BC2C95EFC2002E8C13 /* Magnolia Script.otf in Resources */,
-				D86B85B92C95EDC5002E8C13 /* Flight-Tracer-Info.plist in Resources */,
 				D83C3CF32B13B34C0094EEAE /* GoogleService-Info.plist in Resources */,
 				D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */,
 			);
@@ -573,7 +579,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D88DE8A52AC0AF7F0080D5EB /* DownloadView.swift in Sources */,
-				D803E2322B26795E001B5100 /* Colors.swift in Sources */,
 				D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */,
 				D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */,
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
@@ -583,6 +588,7 @@
 				D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */,
 				D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
+				D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */,
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
 				D841CC302CE12FDD00A02B5D /* CharReplacer.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
@@ -876,7 +882,6 @@
 		FDE0973F2A5643F800102E96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -900,7 +905,6 @@
 		FDE097402A5643F800102E96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -924,7 +928,6 @@
 		FDE097422A5643F800102E96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -947,7 +950,6 @@
 		FDE097432A5643F800102E96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;

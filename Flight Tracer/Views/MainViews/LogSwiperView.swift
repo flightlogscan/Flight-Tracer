@@ -67,7 +67,7 @@ struct LogSwiperView: View {
             }
             .onReceive(selectedImage.$analyzeResult) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    if let analyzeResult = selectedImage.analyzeResult {
+                    if selectedImage.analyzeResult != nil {
                         print("image text loaded count \(selectedImage.recognizedText.count)")
                         isDataLoaded = true
                     } else if selectedImage.isImageValid == false {

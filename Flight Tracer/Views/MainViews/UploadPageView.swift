@@ -49,7 +49,7 @@ struct UploadPageView: View {
             }
             .tint(.white)
             .toolbarBackground(
-                Color(Colors.NAVY_BLUE!),
+                Color.navyBlue,
                 for: .navigationBar
             )
             .toolbarBackground(.visible, for: .navigationBar)
