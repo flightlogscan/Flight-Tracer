@@ -13,7 +13,7 @@ struct CarouselSkeleton: View {
         }
         .cornerRadius(10)
         .aspectRatio(1, contentMode: .fit)
-        .foregroundColor(Color.black.opacity(0.7))
+        .foregroundColor(.semiTransparentBlack)
         .alert("Allow access?", isPresented: $showAlert) {
             SettingsAlert()
         } message: {

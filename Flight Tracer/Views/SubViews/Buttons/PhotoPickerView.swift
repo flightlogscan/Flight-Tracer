@@ -3,7 +3,6 @@ import Photos
 import PhotosUI
 
 struct PhotoPickerView: View {
-    let color: Color = Color.black.opacity(0.7)
     @Binding var selectedImage: ImageDetail
     @State private var showImagePicker = false
     @State private var selectedAsset: PHAsset?
@@ -19,7 +18,7 @@ struct PhotoPickerView: View {
                 Rectangle()
                     .overlay(
                         Image(systemName: "photo.fill")
-                            .foregroundColor(color)
+                            .foregroundColor(.semiTransparentBlack)
                     )
                     .foregroundColor(.white)
             }

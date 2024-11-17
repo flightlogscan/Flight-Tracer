@@ -6,7 +6,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             if viewModel.user == nil && viewModel.isLoggedIn == nil {
-                Color(uiColor: Colors.NAVY_BLUE!).ignoresSafeArea()
+                Color.navyBlue.ignoresSafeArea()
             } else if viewModel.user == nil || viewModel.isLoggedIn == false {
                 LoginView(user: $viewModel.user)
                     .ignoresSafeArea()

@@ -12,7 +12,7 @@ class CustomEmailEntryViewController : FUIEmailEntryViewController {
         mainView.isScrollEnabled = false
         
         //Add gradient and logo here so they are only drawn once
-        gradient.colors = [Colors.NAVY_BLUE!.cgColor, UIColor.white]
+        gradient.colors = [UIColor(Color.navyBlue).cgColor, UIColor.white]
         gradient.startPoint = CGPoint.zero
         gradient.endPoint = CGPoint(x: 1, y: 1)
         

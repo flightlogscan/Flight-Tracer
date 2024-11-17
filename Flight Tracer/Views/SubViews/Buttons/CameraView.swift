@@ -3,7 +3,6 @@ import AVFoundation
 
 struct CameraView: View {
     
-    let color = Color.black.opacity(0.7)
     @Binding var selectedImage: ImageDetail
     @State private var showCamera: Bool = false
     @State private var showAlert: Bool = false
@@ -20,7 +19,7 @@ struct CameraView: View {
             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                 .overlay (
                     Image(systemName: "camera.fill")
-                        .foregroundColor(color)
+                        .foregroundColor(.semiTransparentBlack)
                 )
                 .foregroundColor(.white)
         }
@@ -31,7 +30,7 @@ struct CameraView: View {
         }
         .cornerRadius(10)
         .aspectRatio(1, contentMode: .fit)
-        .foregroundColor(color)
+        .foregroundColor(.semiTransparentBlack)
         .onAppear {
             permissionManager.requestPermission()
         }
