@@ -6,7 +6,6 @@ struct ImagePresentationView: View {
     @State var isValidated: Bool?
     @State var showAlert = false
     @Binding var selectedImage: ImageDetail
-    @Binding var selectedItem: PhotosPickerItem?
     @ObservedObject var selectImageViewModel = SelectImageViewModel()
     
     var body: some View {
@@ -29,7 +28,6 @@ struct ImagePresentationView: View {
                             .overlay(
                                 Button {
                                     selectedImage = ImageDetail()
-                                    selectedItem = nil
                                 }
                                 label: {
                                     Label("", systemImage: "xmark.circle.fill")
@@ -66,7 +64,6 @@ struct ImagePresentationView: View {
                             .overlay(
                                 Button {
                                     selectedImage = ImageDetail()
-                                    selectedItem = nil
                                 } label: {
                                     Label("", systemImage: "xmark.circle.fill")
                                         .foregroundStyle(.white, .black.opacity(0.7))

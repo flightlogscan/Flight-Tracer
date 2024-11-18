@@ -42,6 +42,8 @@
 		D83C3CFC2B13B6F70094EEAE /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CFB2B13B6F70094EEAE /* FirebaseOAuthUI */; };
 		D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */; };
 		D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */; };
+		D83C76692CEA679100DDAACD /* UploadPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */; };
+		D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */; };
 		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
 		D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */; };
 		D841CC302CE12FDD00A02B5D /* CharReplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */; };
@@ -115,6 +117,8 @@
 		D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageViewModel.swift; sourceTree = "<group>"; };
+		D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPermissionsManager.swift; sourceTree = "<group>"; };
 		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
 		D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharReplacer.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */,
 				D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */,
 				D8D458D92AACCFE500E29B83 /* ImageTaker.swift */,
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
@@ -302,6 +307,7 @@
 		D87952402AA3D49F0076E898 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */,
 				D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */,
 				D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */,
 				D87952412AA3D49F0076E898 /* CsvManager.swift */,
@@ -594,6 +600,7 @@
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */,
+				D83C76692CEA679100DDAACD /* UploadPageViewModel.swift in Sources */,
 				D8110EDC2CE90D6000C76D7B /* SettingsAlert.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */,
@@ -617,6 +624,7 @@
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
 				D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
+				D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */,
 				D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */,
 				D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */,
 			);

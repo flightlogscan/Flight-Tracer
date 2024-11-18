@@ -4,7 +4,8 @@ import FirebaseAuthUI
 struct OptionsMenu: View {
     @Binding var selectedOption: Int
     @Binding var user: User?
-    var authUI: FUIAuth?
+    let authUI = FUIAuth.defaultAuthUI()
+
 
     var body: some View {
         Menu {

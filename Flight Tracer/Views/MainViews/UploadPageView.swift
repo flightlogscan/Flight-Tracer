@@ -4,14 +4,10 @@ import PhotosUI
 
 struct UploadPageView: View {
     
-    @State var selectedImage: ImageDetail = ImageDetail()
-    @State var allowScan: Bool = false
-    @State var scanTypeSelected: Bool = false
-    @State var selectedItem: PhotosPickerItem?
+    @StateObject var viewModel = UploadPageViewModel()
+    @State var activeScanPressed: Bool = false
     @State var selectedOption: Int = 0 // TODO: Default to real API call instead of localhost
     @Binding var user: User?
-    @ObservedObject var contentViewModel = ContentViewModel()
-    let authUI = FUIAuth.defaultAuthUI()
          
     var body: some View {
         NavigationStack {
@@ -23,14 +19,14 @@ struct UploadPageView: View {
                 VStack {
                     ImageHintsView()
                                           
-                    ImagePresentationView(selectedImage: $selectedImage, selectedItem: $selectedItem)
+                    ImagePresentationView(selectedImage: $viewModel.selectedImage)
                     
-                    PhotoCarouselView(selectedImage: $selectedImage, selectedItem: $selectedItem)
+                    PhotoCarouselView(selectedImage: $viewModel.selectedImage)
                     
-                    ScanView(allowScan: $allowScan, selectedImage: $selectedImage)
+                    ScanView(activeScanPressed: $activeScanPressed, selectedImage: $viewModel.selectedImage)
                 }
-                .navigationDestination(isPresented: $allowScan) {
-                    LogSwiperView(selectedImage: selectedImage, selectedScanType: selectedOption, user: user)
+                .navigationDestination(isPresented: $activeScanPressed) {
+                    LogSwiperView(selectedImage: $viewModel.selectedImage, selectedScanType: selectedOption, user: user)
                 }
                 
             }
@@ -44,7 +40,7 @@ struct UploadPageView: View {
                         .foregroundStyle(.white)
                 }
                 ToolbarItem (placement: .primaryAction) {
-                    OptionsMenu(selectedOption: $selectedOption, user: $user, authUI: authUI)
+                    OptionsMenu(selectedOption: $selectedOption, user: $user)
                 }
             }
             .tint(.white)
@@ -54,12 +50,10 @@ struct UploadPageView: View {
             )
             .toolbarBackground(.visible, for: .navigationBar)
             .onAppear() {
-                selectedImage.analyzeResult = nil
+                viewModel.resetAnalyzeResult()
             }
         }
     }
-    
-    
 }
 
 
