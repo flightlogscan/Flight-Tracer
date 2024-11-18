@@ -6,9 +6,8 @@ struct LogSwiperView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isDataLoaded: Bool? = nil
     @ObservedObject var contentViewModel = ContentViewModel()
-    @State var selectedImage: ImageDetail
-    @State var selectedScanType: Int
-    @State var scanTypeSelected: Bool = false
+    @Binding var selectedImage: ImageDetail
+    var selectedScanType: Int
     var user: User?
     
     var body: some View {
