@@ -146,5 +146,5 @@ struct ImagePresentationView: View {
 }
 
 #Preview {
-    UploadPageView(user: Binding.constant(nil))
+    UploadPageView()
 }

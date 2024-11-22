@@ -12,9 +12,10 @@ struct ContentView: View {
                     .ignoresSafeArea()
                     .zIndex(1)
             } else if viewModel.user != nil && viewModel.isLoggedIn == true {
-                UploadPageView(user: $viewModel.user)
+                UploadPageView()
                     .zIndex(1)
             }
         }
+        .environmentObject(viewModel)
     }
 }

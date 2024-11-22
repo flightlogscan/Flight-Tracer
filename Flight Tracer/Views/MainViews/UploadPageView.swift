@@ -7,7 +7,6 @@ struct UploadPageView: View {
     @StateObject var viewModel = UploadPageViewModel()
     @State var activeScanPressed: Bool = false
     @State var selectedOption: Int = 0 // TODO: Default to real API call instead of localhost
-    @Binding var user: User?
          
     var body: some View {
         NavigationStack {
@@ -26,7 +25,7 @@ struct UploadPageView: View {
                     ScanView(activeScanPressed: $activeScanPressed, selectedImage: $viewModel.selectedImage)
                 }
                 .navigationDestination(isPresented: $activeScanPressed) {
-                    LogSwiperView(selectedImage: $viewModel.selectedImage, selectedScanType: selectedOption, user: user)
+                    LogSwiperView(selectedImage: $viewModel.selectedImage, selectedScanType: selectedOption)
                 }
                 
             }
@@ -40,7 +39,7 @@ struct UploadPageView: View {
                         .foregroundStyle(.white)
                 }
                 ToolbarItem (placement: .primaryAction) {
-                    OptionsMenu(selectedOption: $selectedOption, user: $user)
+                    OptionsMenu(selectedOption: $selectedOption)
                 }
             }
             .tint(.white)
@@ -58,5 +57,5 @@ struct UploadPageView: View {
 
 
 #Preview {
-    UploadPageView(user: Binding.constant(nil))
+    UploadPageView()
 }
