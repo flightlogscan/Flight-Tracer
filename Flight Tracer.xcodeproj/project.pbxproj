@@ -44,6 +44,8 @@
 		D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */; };
 		D83C76692CEA679100DDAACD /* UploadPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */; };
 		D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */; };
+		D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */; };
+		D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */; };
 		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
 		D841CC2C2CE1251400A02B5D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */; };
 		D841CC302CE12FDD00A02B5D /* CharReplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */; };
@@ -119,6 +121,8 @@
 		D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageViewModel.swift; sourceTree = "<group>"; };
 		D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPermissionsManager.swift; sourceTree = "<group>"; };
+		D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
 		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
 		D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D841CC2E2CE12FD700A02B5D /* CharReplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharReplacer.swift; sourceTree = "<group>"; };
@@ -218,12 +222,8 @@
 		D81FA38B2B2287AC0082B178 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */,
-				D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */,
-				D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */,
-				D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */,
-				D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */,
-				D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */,
+				D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */,
+				D83C766D2CEC36C700DDAACD /* Firebase */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -234,6 +234,19 @@
 				D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D83C766D2CEC36C700DDAACD /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */,
+				D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */,
+				D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */,
+				D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */,
+				D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */,
+				D803E2292B26784A001B5100 /* CustomPasswordRecoveryViewController.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		D841CC312CE1328E00A02B5D /* enum */ = {
@@ -294,6 +307,7 @@
 		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */,
 				D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */,
 				D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */,
 				D8D458D92AACCFE500E29B83 /* ImageTaker.swift */,
@@ -604,6 +618,7 @@
 				D8110EDC2CE90D6000C76D7B /* SettingsAlert.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* FormRecognizer.swift in Sources */,
 				9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */,
+				D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
 				D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
@@ -622,6 +637,7 @@
 				D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */,
 				D836F9412B01520F000FC988 /* ContentView.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
+				D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */,
 				D8D458DA2AACCFE500E29B83 /* ImageTaker.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
 				D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */,

@@ -1,14 +1,13 @@
 import SwiftUI
 
 struct LogSwiperView: View {
-    @State var tempdata = [[""]]
     @State var showAlert = false
     @Environment(\.presentationMode) var presentationMode
     @State var isDataLoaded: Bool? = nil
     @ObservedObject var contentViewModel = ContentViewModel()
     @Binding var selectedImage: ImageDetail
     var selectedScanType: Int
-    var user: User?
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,7 +18,6 @@ struct LogSwiperView: View {
                 
                 if isDataLoaded != nil && isDataLoaded == true {
                     Logs(imageText: $selectedImage.recognizedText)
-
                 } else {
                     ProgressView()
                         .tint(.white)
@@ -50,7 +48,7 @@ struct LogSwiperView: View {
                 }
                 
                 ToolbarItem (placement: .topBarTrailing) {
-                    DownloadView(data: $tempdata)
+                    DownloadView(data: selectedImage.recognizedText)
                 }
             })
             .tint(.white)
@@ -80,7 +78,7 @@ struct LogSwiperView: View {
     
     func loadJSON() {
         isDataLoaded = false
-        contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: user, selectedScanType: selectedScanType)
+        contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: authViewModel.user, selectedScanType: selectedScanType)
     }
 }
 
@@ -88,22 +86,21 @@ struct Logs: View {
     @Binding var imageText: [[String]]
 
     var body: some View {
-                TabView {
+        TabView {
             let _ = print("imagetext rows: \($imageText.count)")
             
             if ($imageText.count < 3) {
                 Text("yikes not enough rows")
             }
+            
             // Skip first 2 rows because of headers
             ForEach(3..<imageText.count, id: \.self) { rowIndex in
-                
                 if !isRowEmpty(imageText[rowIndex]) {
                     LogTab(row: $imageText[rowIndex])
                 }
             }
         }
         .tabViewStyle(PageTabViewStyle())
-        
     }
     
     private func isRowEmpty(_ row: [String]) -> Bool {
@@ -128,10 +125,9 @@ struct LogTab: View {
                         // Bind the TextField to the original row value
                         TextField("", text: Binding(
                             get: {
-                                    return row[cellIndex]
+                                return row[cellIndex]
                             },
                             set: { newValue in
-                                // Update the original row value
                                 row[cellIndex] = newValue
                             }
                         ))

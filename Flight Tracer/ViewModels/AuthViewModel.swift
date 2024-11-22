@@ -5,6 +5,7 @@ import Combine
 class AuthViewModel: ObservableObject {
     @Published var user: User?
     @Published var isLoggedIn: Bool? = nil
+    let authUI = FUIAuth.defaultAuthUI()
 
     init() {
         checkLogIn()
@@ -29,6 +30,15 @@ class AuthViewModel: ObservableObject {
             } else {
                 self.isLoggedIn = false
             }
+        }
+    }
+    
+    func signOut() {
+        self.user = nil
+        do {
+            try self.authUI?.signOut()
+        } catch let error {
+            print("error: \(error)")
         }
     }
 }

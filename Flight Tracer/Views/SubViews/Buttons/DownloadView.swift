@@ -3,7 +3,8 @@ import FirebasePerformance
 
 struct DownloadView: View {
     
-    @Binding var data: [[String]]
+    let data: [[String]]
+    
     var body: some View {
         Button {
             let trace = Performance.startTrace(name: "DownloadButton")
