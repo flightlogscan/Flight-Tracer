@@ -10,7 +10,7 @@ struct CarouselButtonView: View {
     var body: some View {
         Button {
             let image = Image(uiImage: hiResImage)
-            let imageDetail = ImageDetail(image: image, uiImage: hiResImage, isValidated: false)
+            let imageDetail = ImageDetail(image: image, uiImage: hiResImage)
             
             selectedImage = imageDetail
             

@@ -6,7 +6,7 @@ import FirebaseEmailAuthUI
 
 struct LoginView : UIViewControllerRepresentable {
     
-    @Binding var user: User?
+    @Binding var user: User
     
     func makeCoordinator() -> LoginView.Coordinator {
         Coordinator(self)
@@ -62,8 +62,6 @@ struct LoginView : UIViewControllerRepresentable {
         func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?){
             
             if let authDataResult {
-                parent.user = User(from: authDataResult)
-                
                 authDataResult.user.getIDTokenForcingRefresh(true) { idToken, error in
                     if error != nil {
                         // Handle error
@@ -71,8 +69,12 @@ struct LoginView : UIViewControllerRepresentable {
                         return;
                     }
 
-                    //print("id token \(String(describing: idToken))")
-                    self.parent.user?.token = idToken
+                    if (authDataResult.user.email != nil && idToken != nil) {
+                        self.parent.user = User(id: authDataResult.user.uid, email: authDataResult.user.email!, token: idToken!)
+                    } else {
+                        print("authDataResult missing email or token")
+                    }
+
                     print("user \(String(describing: self.parent.user))")
                 }
             } else {

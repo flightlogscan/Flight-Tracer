@@ -13,13 +13,13 @@ struct OptionsMenu: View {
                 Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
             }
             
-            if authViewModel.user?.email == "flightlogtracer@gmail.com" {
+            if authViewModel.isAdmin() {
                 Picker(selection: $selectedOption, label: Label("Options", systemImage: "gearshape")) {
                     Text("Localhost call").tag(0)
                     Text("Real API call").tag(1)
                     Text("Hardcoded data").tag(2)
-            }
-            .pickerStyle(MenuPickerStyle())
+                }
+                .pickerStyle(MenuPickerStyle())
             }
         } label: {
             Label("", systemImage: "gearshape")

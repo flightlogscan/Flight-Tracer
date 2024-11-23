@@ -15,7 +15,7 @@ struct FormRecognizer {
     //TODO: Hardcode to Jeppesen. Eventually needs to allow dynamic selection of log format.
     let logFieldMetadata = LogMetadataLoader.getLogMetadata(named: "JeppesenLogFormat")
     
-    func scanImage(imageDetail: ImageDetail, user: User?, selectedScanType: Int) {
+    func scanImage(imageDetail: ImageDetail, userToken: String, selectedScanType: Int) {
         let imageData = imageDetail.uiImage!.jpegData(compressionQuality: 0.9)!
         
         // Call localhost or real server
@@ -32,7 +32,7 @@ struct FormRecognizer {
                 return
             }
             
-            let bearerToken = "Bearer \(user!.token!)"
+            let bearerToken = "Bearer \(userToken)"
             
             var request = URLRequest(url: url)
             request.httpMethod = "POST"

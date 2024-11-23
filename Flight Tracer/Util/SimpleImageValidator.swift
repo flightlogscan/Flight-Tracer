@@ -19,6 +19,7 @@ class SimpleImageValidator: ObservableObject {
             trace?.stop()
             image.isImageValid = false
             image.validationError = ErrorCode.MAX_SIZE_EXCEEDED
+            image.hasValidationRun = true
             return
         }
         
@@ -32,8 +33,10 @@ class SimpleImageValidator: ObservableObject {
             } else {
                 trace?.incrementMetric("Success", by: 1)
             }
-            trace?.stop()
         }
+        
+        trace?.stop()
+        image.hasValidationRun = true
     }
             
     // Hardcoded to check for Jeppesen fields

@@ -72,7 +72,7 @@ class PhotoPickerViewModel: ObservableObject {
         ) { uiImage, _ in
             if let uiImage = uiImage {
                 let image = Image(uiImage: uiImage)
-                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: false)
+                let imageDetail = ImageDetail(image: image, uiImage: uiImage)
                 self.selectedImage = imageDetail
             } else {
                 self.alertMessage = "Failed to load the selected image. Please try again."
