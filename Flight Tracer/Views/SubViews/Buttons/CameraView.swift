@@ -35,7 +35,7 @@ struct CameraView: View {
             permissionManager.requestPermission()
         }
         .fullScreenCover(isPresented: $showCamera) {
-            ImageTaker(selectedImage: $selectedImage)
+            CameraViewController(selectedImage: $selectedImage)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.black)
         }

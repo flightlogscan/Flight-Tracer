@@ -50,7 +50,7 @@ struct FormRecognizer {
                     trace?.incrementMetric("Error", by: 1)
                     trace?.stop()
                     print("Error: \(error.localizedDescription)")
-                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
                     imageDetail.analyzeResult = nil
                     return
@@ -60,7 +60,7 @@ struct FormRecognizer {
                     print("Invalid response")
                     trace?.incrementMetric("InvalidResponse", by: 1)
                     trace?.stop()
-                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
                     imageDetail.analyzeResult = nil
                     return
@@ -86,7 +86,7 @@ struct FormRecognizer {
                     print("API request failed. Status code: \(httpResponse.statusCode)")
                     trace?.incrementMetric("UnhealthyResponse", by: 1)
                     trace?.stop()
-                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
                     imageDetail.analyzeResult = nil
                 }
@@ -112,19 +112,19 @@ struct FormRecognizer {
                         processRecognizedTextForIntegers(imageDetail: imageDetail, logFieldMetadata: logFieldMetadata)
                         imageDetail.analyzeResult = analyzeResult
                     } else {
-                        imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                        imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
                         imageDetail.isImageValid = false
                         imageDetail.analyzeResult = nil
                         print("Error converting string to data")
                     }
                 } catch {
-                    imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
                     imageDetail.isImageValid = false
                     imageDetail.analyzeResult = nil
                     print("Error reading file:", error.localizedDescription)
                 }
             } else {
-                imageDetail.validationResult = ErrorCode.TRANSIENT_FAILURE
+                imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
                 imageDetail.isImageValid = false
                 imageDetail.analyzeResult = nil
                 print("File not found. Make sure the file is included in the app bundle and the filename and extension are correct.")

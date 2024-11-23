@@ -23,8 +23,8 @@ struct PhotoPickerView: View {
                 viewModel.isSheetPresented = false
             }) {
                 PhotoPickerViewController(selectedAsset: $viewModel.selectedAsset, showAlert: $viewModel.showAlert, alertMessage: $viewModel.alertMessage)
-                    .onChange(of: viewModel.selectedAsset) { newAsset in
-                        viewModel.handleSelectedAsset(newAsset)
+                    .onChange(of: viewModel.selectedAsset) {
+                        viewModel.handleSelectedAsset(viewModel.selectedAsset)
                         selectedImage = viewModel.selectedImage!
                     }
             }

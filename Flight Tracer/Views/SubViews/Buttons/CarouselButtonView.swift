@@ -4,13 +4,13 @@ struct CarouselButtonView: View {
     
     var thumbnailImage: UIImage
     var hiResImage: UIImage
-    @ObservedObject var selectImageViewModel = SelectImageViewModel()
+    @ObservedObject var selectImageViewModel = SimpleImageValidator()
     @Binding var selectedImage: ImageDetail
     
     var body: some View {
         Button {
             let image = Image(uiImage: hiResImage)
-            let imageDetail = ImageDetail(image: image, uiImage: hiResImage, isValidated: true)
+            let imageDetail = ImageDetail(image: image, uiImage: hiResImage, isValidated: false)
             
             selectedImage = imageDetail
             

@@ -30,8 +30,8 @@ struct PhotoCarouselView: View {
         .frame(height: 75)
         .padding([.leading, .trailing])
         .shadow(radius: 1)
-        .onChange(of: photoPermissionsManager.hasPhotoPermissions) { newValue in
-            if newValue {
+        .onChange(of: photoPermissionsManager.hasPhotoPermissions) {
+            if photoPermissionsManager.hasPhotoPermissions {
                 photoPermissionsManager.getThumbnailPhotos()
             }
         }

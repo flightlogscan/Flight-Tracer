@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ImageTaker: UIViewControllerRepresentable {
+struct CameraViewController: UIViewControllerRepresentable {
     
     @Binding var selectedImage: ImageDetail
 
@@ -22,17 +22,17 @@ struct ImageTaker: UIViewControllerRepresentable {
     
     final public class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
-        var parent: ImageTaker
-        @ObservedObject var selectImageViewModel = SelectImageViewModel()
+        var parent: CameraViewController
+        @ObservedObject var selectImageViewModel = SimpleImageValidator()
         
-        init(_ parent: ImageTaker) {
+        init(_ parent: CameraViewController) {
             self.parent = parent
         }
         
         public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let uiImage = info[.originalImage] as? UIImage {
                 let image = Image(uiImage: uiImage)
-                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: true)
+                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: false)
 
                 parent.selectedImage = imageDetail
             }
