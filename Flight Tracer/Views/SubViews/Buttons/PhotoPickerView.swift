@@ -19,6 +19,9 @@ struct PhotoPickerView: View {
             }
             .cornerRadius(10)
             .aspectRatio(1, contentMode: .fit)
+            .accessibilityLabel("Select Image")
+            .accessibilityIdentifier("PhotoPickerButton")
+            .accessibilityAddTraits(.isButton)
             .sheet(isPresented: $viewModel.showImagePicker, onDismiss: {
                 viewModel.isSheetPresented = false
             }) {

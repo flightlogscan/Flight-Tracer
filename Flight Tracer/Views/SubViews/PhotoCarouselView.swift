@@ -14,6 +14,7 @@ struct PhotoCarouselView: View {
                     CarouselButtonView(
                         thumbnailImage: photoPermissionsManager.thumbnailImages[index],
                         hiResImage: photoPermissionsManager.thumbnailImages[index],
+                        carouselIndex: index,
                         selectedImage: $selectedImage
                     )
                 }

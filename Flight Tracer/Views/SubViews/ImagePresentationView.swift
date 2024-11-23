@@ -50,7 +50,9 @@ struct ImagePresentationView: View {
                                         .foregroundStyle(.white, .black.opacity(0.7))
                                         .font(.title)
                                         .offset(x: -15, y: 5)
-                                },
+                                }
+                                .accessibilityElement()
+                                .accessibilityIdentifier("ClearImageButton"),
                                 alignment: .topTrailing
                             )
                             .overlay(
