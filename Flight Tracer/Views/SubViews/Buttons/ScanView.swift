@@ -16,9 +16,6 @@ struct ScanView: View {
                     .font(.title2)
                     .padding()
             }
-            .onAppear() {
-                scanButtonActive = (selectedImage.isImageValid == true && selectedImage.isValidated == true)
-            }
             .buttonStyle(.borderedProminent)
             .tint(scanButtonActive ? .green : .gray.opacity(0.5))
             .shadow(color: scanButtonActive ? .gray : .clear, radius: scanButtonActive ? 5 : 0)
@@ -29,11 +26,7 @@ struct ScanView: View {
             .accessibilityHint(Text(scanButtonActive ? "Tap to start scanning" : "Button is disabled"))
         }
         .onReceive(selectedImage.$isImageValid) {_ in
-            if (selectedImage.isImageValid != nil) {
-                scanButtonActive = selectedImage.isImageValid! && selectedImage.isValidated == true
-            } else {
-                scanButtonActive = false
-            }
+            scanButtonActive = selectedImage.isImageValid
         }
     }
 }

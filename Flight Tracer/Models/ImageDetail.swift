@@ -10,19 +10,22 @@ public class ImageDetail: Identifiable, Equatable, ObservableObject {
     
     var image: Image?
     var uiImage: UIImage?
-    @Published var isValidated: Bool?
-    var validationError: ErrorCode?
-    @Published var isImageValid: Bool?
     var imageText: [String] = [] // Basic image text from the simple image scanner
+    var validationError: ErrorCode = ErrorCode.NO_ERROR
+    var hasError: Bool {
+        return validationError != ErrorCode.NO_ERROR
+    }
+    var isImageLoaded = false
+    @Published var hasValidationRun: Bool = false
+    @Published var isImageValid: Bool = false
     @Published var recognizedText: [[String]] = [[]] // Advanced image text from the heavy-duty image scanner
     @Published var analyzeResult: AnalyzeResult?
     
     init() {}
     
-    init (image: Image, uiImage: UIImage, isValidated: Bool, analyzeResult: AnalyzeResult? = nil) {
+    init (image: Image, uiImage: UIImage) {
         self.image = image
         self.uiImage = uiImage
-        self.isValidated = isValidated
-        self.analyzeResult = analyzeResult
+        self.isImageLoaded = true
     }
 }

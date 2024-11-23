@@ -60,7 +60,7 @@
 		D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* ImagePresentationView.swift */; };
 		D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* UploadPageView.swift */; };
 		D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */; };
-		D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* ContentViewModel.swift */; };
+		D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */; };
 		D87952662AA3D5690076E898 /* CsvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952412AA3D49F0076E898 /* CsvManager.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
 		D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87952472AA3D49F0076E898 /* Assets.xcassets */; };
@@ -132,7 +132,7 @@
 		D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
-		D879523F2AA3D49F0076E898 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperViewModel.swift; sourceTree = "<group>"; };
 		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
 		D87952472AA3D49F0076E898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87952492AA3D49F0076E898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 				D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */,
 				D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */,
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
-				D879523F2AA3D49F0076E898 /* ContentViewModel.swift */,
+				D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -612,7 +612,7 @@
 				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
 				9E4A08642BEFE79B00EC7C17 /* OptionsMenu.swift in Sources */,
-				D87952652AA3D5690076E898 /* ContentViewModel.swift in Sources */,
+				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
 				D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */,

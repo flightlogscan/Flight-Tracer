@@ -32,7 +32,7 @@ struct CameraViewController: UIViewControllerRepresentable {
         public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let uiImage = info[.originalImage] as? UIImage {
                 let image = Image(uiImage: uiImage)
-                let imageDetail = ImageDetail(image: image, uiImage: uiImage, isValidated: false)
+                let imageDetail = ImageDetail(image: image, uiImage: uiImage)
 
                 parent.selectedImage = imageDetail
             }

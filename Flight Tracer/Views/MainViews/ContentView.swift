@@ -5,13 +5,13 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            if viewModel.user == nil && viewModel.isLoggedIn == nil {
+            if !viewModel.finishedCheckingLoginStatus {
                 Color.navyBlue.ignoresSafeArea()
-            } else if viewModel.user == nil || viewModel.isLoggedIn == false {
+            } else if viewModel.isLoggedIn == false {
                 LoginView(user: $viewModel.user)
                     .ignoresSafeArea()
                     .zIndex(1)
-            } else if viewModel.user != nil && viewModel.isLoggedIn == true {
+            } else if viewModel.isLoggedIn == true {
                 UploadPageView()
                     .zIndex(1)
             }

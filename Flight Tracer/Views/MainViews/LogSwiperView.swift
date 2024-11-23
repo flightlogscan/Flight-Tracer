@@ -4,7 +4,7 @@ struct LogSwiperView: View {
     @State var showAlert = false
     @Environment(\.presentationMode) var presentationMode
     @State var isDataLoaded: Bool? = nil
-    @ObservedObject var contentViewModel = ContentViewModel()
+    @ObservedObject var logSwiperViewModel = LogSwiperViewModel()
     @Binding var selectedImage: ImageDetail
     var selectedScanType: Int
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -78,7 +78,7 @@ struct LogSwiperView: View {
     
     func loadJSON() {
         isDataLoaded = false
-        contentViewModel.processImageText(selectedImage: selectedImage, realScan: true, user: authViewModel.user, selectedScanType: selectedScanType)
+        logSwiperViewModel.processImageText(selectedImage: selectedImage, realScan: true, userToken: authViewModel.user.token, selectedScanType: selectedScanType)
     }
 }
 
