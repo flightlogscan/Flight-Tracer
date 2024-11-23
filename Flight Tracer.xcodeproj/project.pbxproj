@@ -75,9 +75,6 @@
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
 		D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */; };
-		FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */; };
-		FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */; };
-		FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,10 +155,7 @@
 		D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMetadataLoader.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerTests.swift; sourceTree = "<group>"; };
 		FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerUITests.swift; sourceTree = "<group>"; };
-		FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				D879523C2AA3D49F0076E898 /* Flight Tracer */,
-				FDE0972A2A5643F800102E96 /* Flight TracerTests */,
 				FDE097342A5643F800102E96 /* Flight TracerUITests */,
 				FDE097172A5643EA00102E96 /* Products */,
 				9E02220E2C7A513A0022B50E /* Frameworks */,
@@ -425,20 +418,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FDE0972A2A5643F800102E96 /* Flight TracerTests */ = {
-			isa = PBXGroup;
-			children = (
-				FDE0972B2A5643F800102E96 /* Flight_TracerTests.swift */,
-			);
-			path = "Flight TracerTests";
-			sourceTree = "<group>";
-		};
 		FDE097342A5643F800102E96 /* Flight TracerUITests */ = {
 			isa = PBXGroup;
 			children = (
 				9EC2454C2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift */,
-				FDE097352A5643F800102E96 /* Flight_TracerUITests.swift */,
-				FDE097372A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift */,
 				9EC2454B2CE12D770006269B /* Flight Tracer.xctestplan */,
 			);
 			path = "Flight TracerUITests";
@@ -654,7 +637,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE0972C2A5643F800102E96 /* Flight_TracerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,8 +644,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE097362A5643F800102E96 /* Flight_TracerUITests.swift in Sources */,
-				FDE097382A5643F800102E96 /* Flight_TracerUITestsLaunchTests.swift in Sources */,
 				9EC2454D2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

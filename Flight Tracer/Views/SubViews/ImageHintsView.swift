@@ -29,6 +29,7 @@ struct ImageHintsView: View {
                 .padding([.top])
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding([.leading, .top])      
+        .padding([.leading, .top])
+        .accessibilityIdentifier("ImageHintsView")
     }
 }

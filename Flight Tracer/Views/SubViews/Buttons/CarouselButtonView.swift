@@ -4,6 +4,7 @@ struct CarouselButtonView: View {
     
     var thumbnailImage: UIImage
     var hiResImage: UIImage
+    var carouselIndex: Int
     @ObservedObject var selectImageViewModel = SimpleImageValidator()
     @Binding var selectedImage: ImageDetail
     
@@ -18,7 +19,7 @@ struct CarouselButtonView: View {
             Image(uiImage: thumbnailImage)
                 .resizable()
         }
-        .accessibilityIdentifier("carouselButton")
+        .accessibilityIdentifier("carouselButton\(carouselIndex)")
         .cornerRadius(10)
         .aspectRatio(1, contentMode: .fit)
     }

@@ -1,70 +1,79 @@
 import XCTest
 
-final class UploadPageViewUITests: XCTestCase {
+// This is meant to be the single "end to end" test file across all core functionality
+// There is a bit of one-time setup here because interacting with system-level prompts via XCTest is tricky
+// 1. Log in
+// 2. Allow limited access to two photos, the first one valid and the second one invalid
+// 3. Rerun the tests
+// One last important note: XCTest is only able to verify what is directly in the viewport
+// This means if too many photos are present in the carousel, it won't be able to see the "photo library" options
+// Implementing scrolling is tricky but possible and may be worth adding later on
+final class Flight_TracerUITestsE2E: XCTestCase {
 
     let app = XCUIApplication()
-    
+
     override func setUpWithError() throws {
-        // Stop immediately when a failure occurs
         continueAfterFailure = false
         app.launch()
     }
 
-    func testImagePickerButton() {
-        // Assuming there's a button that opens the Photos Picker
-        let photoPickerButton = app.buttons["Select Image"]
+    func testNavigationToUploadPage() throws {
+        // Verify UploadPageView is loaded
+        let uploadPageView = app.otherElements["Background"]
+        XCTAssertTrue(uploadPageView.waitForExistence(timeout: 5), "UploadPageView should load successfully")
+    }
+
+    func testImageHintsViewExists() throws {
+        // Ensure ImageHintsView is displayed
+        let imageHintsView = app.descendants(matching: .any)["ImageHintsView"]
+        XCTAssertTrue(imageHintsView.waitForExistence(timeout: 10), "ImageHintsView should exist on UploadPageView")
+    }
+
+    func testImagePresentationAndSelection() throws {
+        // Verify ImagePresentationView exists
+        let imagePresentationView = app.descendants(matching: .any)["ImagePresentationView"]
+        XCTAssertTrue(imagePresentationView.waitForExistence(timeout: 5), "ImagePresentationView should be visible")
         
-        // Assert the button exists
+        // Verify PhotoCarouselView exists
+        let photoCarouselView = app.descendants(matching: .any)["PhotoCarouselView"]
+        XCTAssertTrue(photoCarouselView.exists, "PhotoCarouselView should exist on the UploadPageView")
+        
+        // Verify photo picker button exists
+        let photoPickerButton = app.buttons["PhotoPickerButton"]
         XCTAssertTrue(photoPickerButton.exists, "Photo picker button should exist")
         
-        // Tap the button
-        photoPickerButton.tap()
+        let carouselValidImage = app.buttons["carouselButton0"]
+        XCTAssertTrue(carouselValidImage.exists, "carouselButton should exist on the UploadPageView")
+        carouselValidImage.tap()
         
-        // Assert that PhotosPicker opens (this may depend on your implementation)
-        let photosPickerView = app.otherElements["PhotosPicker"]
-        XCTAssertTrue(photosPickerView.waitForExistence(timeout: 5), "PhotosPicker should appear after tapping the button")
-    }
-    
-    func testOptionsMenuAndScanButton() {
-        // Assuming there's an options menu button and a scan button
-        let optionsMenuButton = app.buttons["Options"]
+        // Verify the selected image is displayed in ImagePresentationView
+        let displayedImage = imagePresentationView.images.firstMatch
+        XCTAssertTrue(displayedImage.waitForExistence(timeout: 5), "Selected image should be displayed in ImagePresentationView")
         
-        // Assert the options menu button exists and tap it
-        XCTAssertTrue(optionsMenuButton.exists, "Options menu button should exist")
-        optionsMenuButton.tap()
-        
-        // Select a specific option if needed
-        let apiOptionButton = app.buttons["API Option"] // Replace with actual option name
-        XCTAssertTrue(apiOptionButton.exists, "API option should exist in the options menu")
-        apiOptionButton.tap()
-        
-        // Assert the option was selected or a relevant change was made
-        let scanButton = app.buttons["Start Scan"]
-        XCTAssertTrue(scanButton.exists, "Scan button should exist after selecting an option")
+        sleep(2)
+        // Verify ScanView is present
+        let scanButton = app.buttons["ScanView"]
+        XCTAssertTrue(scanButton.exists, "Scan button should exist in ScanView")
         
         // Simulate tapping the scan button
         scanButton.tap()
         
-        // Assert that scan navigation happens
-        let logSwiperView = app.otherElements["LogSwiperView"]
-        XCTAssertTrue(logSwiperView.waitForExistence(timeout: 5), "LogSwiperView should appear after tapping Start Scan")
+        // Verify navigation to LogSwiperView
+        let logSwiperView = app.descendants(matching: .any)["LogSwiperView"]
+        XCTAssertTrue(logSwiperView.waitForExistence(timeout: 10), "LogSwiperView should appear after scanning")
     }
-    
-    func testNavigationToLogSwiperView() {
-        // Enable the condition for navigation
-        let scanToggle = app.switches["AllowScanToggle"]
-        
-        // Assert that toggle exists and enable it
-        XCTAssertTrue(scanToggle.exists, "Allow Scan toggle should exist")
-        scanToggle.tap()
-        
-        // Tap on the scan button to trigger navigation
-        let scanButton = app.buttons["Start Scan"]
-        XCTAssertTrue(scanButton.exists, "Start Scan button should exist")
-        scanButton.tap()
-        
-        // Verify that we navigated to LogSwiperView
-        let logSwiperView = app.otherElements["LogSwiperView"]
-        XCTAssertTrue(logSwiperView.waitForExistence(timeout: 5), "Navigating to LogSwiperView should succeed")
+
+    func testOptionsMenuAccessibility() throws {
+        // Verify OptionsMenu is accessible
+        let optionsMenu = app.buttons["OptionsMenu"]
+        XCTAssertTrue(optionsMenu.exists, "OptionsMenu should be present in the toolbar")
+        optionsMenu.tap()
+    }
+
+    func testToolbarTitleDisplayed() throws {
+        // Verify toolbar title
+        let toolbarTitle = app.staticTexts["ToolbarTitle"]
+        XCTAssertTrue(toolbarTitle.exists, "ToolbarTitle should be visible")
+        XCTAssertEqual(toolbarTitle.label, "Flight Log Tracer", "Toolbar title should match 'Flight Log Tracer'")
     }
 }
