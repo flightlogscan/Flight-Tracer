@@ -56,7 +56,7 @@ struct UploadPageView: View {
             )
             .toolbarBackground(.visible, for: .navigationBar)
             .onAppear {
-                viewModel.resetAnalyzeResult()
+                viewModel.resetImage()
             }
         }
     }

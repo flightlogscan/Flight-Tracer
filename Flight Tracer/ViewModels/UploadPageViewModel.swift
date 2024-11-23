@@ -3,7 +3,7 @@ import SwiftUI
 class UploadPageViewModel: ObservableObject {
     @Published var selectedImage: ImageDetail = ImageDetail()
     
-    func resetAnalyzeResult() {
+    func resetImage() {
         selectedImage = ImageDetail()
     }
 }

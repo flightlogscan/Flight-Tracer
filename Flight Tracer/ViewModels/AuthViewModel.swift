@@ -3,8 +3,9 @@ import FirebaseAuthUI
 import Combine
 
 class AuthViewModel: ObservableObject {
-    @Published var user: User?
-    @Published var isLoggedIn: Bool? = nil
+    @Published var finishedCheckingLoginStatus = false
+    @Published var user: User = User(id: "unknown", email: "unknown@example.com", token: "no-token")
+    @Published var isLoggedIn: Bool = false
     let authUI = FUIAuth.defaultAuthUI()
 
     init() {
@@ -15,30 +16,36 @@ class AuthViewModel: ObservableObject {
         Auth.auth().addStateDidChangeListener { [weak self] (_, firebaseUser) in
             guard let self = self else { return }
             if let firebaseUser = firebaseUser {
-                self.user = User(id: firebaseUser.uid, email: firebaseUser.email!)
-                 
                 firebaseUser.getIDTokenForcingRefresh(true) { idToken, error in
                     if error != nil {
                         print("User token retrieval error")
-                        self.isLoggedIn = false
                         return
                     }
-                    self.user?.token = idToken
+                    self.user = User(id: firebaseUser.uid, email: firebaseUser.email!, token: idToken!)
+                    self.isLoggedIn = true
+                    self.finishedCheckingLoginStatus = true
                 }
-                self.isLoggedIn = true
                 print("Already logged in user: \(String(describing: firebaseUser.email))")
-            } else {
-                self.isLoggedIn = false
             }
         }
     }
     
     func signOut() {
-        self.user = nil
         do {
+            self.resetUser()
             try self.authUI?.signOut()
         } catch let error {
             print("error: \(error)")
         }
+    }
+    
+    func resetUser() {
+        self.isLoggedIn = false
+        self.finishedCheckingLoginStatus = true
+        self.user = User(id: "unknown", email: "unknown@example.com", token: "no-token")
+    }
+    
+    func isAdmin() -> Bool {
+        return user.email == "flightlogtracer@gmail.com"
     }
 }

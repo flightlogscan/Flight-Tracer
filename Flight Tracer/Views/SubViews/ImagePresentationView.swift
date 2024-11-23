@@ -10,7 +10,7 @@ struct ImagePresentationView: View {
     @ObservedObject var simpleImageValidator = SimpleImageValidator()
     
     var body: some View {
-        if selectedImage.image != nil {
+        if selectedImage.isImageLoaded {
             VStack {
                 if (validationInProgress) {
                     ZStack {
@@ -32,7 +32,7 @@ struct ImagePresentationView: View {
                             .zIndex(1)
                     }
                 }
-             else {
+                else {
                     ZStack {
                         // Invisible rectangle underneath photo to keep spacing
                         Rectangle()
@@ -57,7 +57,7 @@ struct ImagePresentationView: View {
                             )
                             .overlay(
                                 Group {
-                                    if selectedImage.validationError != nil {
+                                    if selectedImage.hasError {
                                         Button {
                                             showAlert = true
                                         } label: {
@@ -70,29 +70,22 @@ struct ImagePresentationView: View {
                                 },
                                 alignment: .topLeading
                             )
-
                     }
                     .alert("Error detected:", isPresented: $showAlert) {
                         Button ("Close") {
                         }
                     } message: {
-                        Text(selectedImage.validationError?.rawValue ?? ErrorCode.TRANSIENT_FAILURE.rawValue)
+                        Text(selectedImage.validationError.message)
                             .foregroundColor(Color.secondary)
                     }
                 }
             }
-            .onReceive(selectedImage.$isImageValid) {_ in
-                 if (selectedImage.isImageValid != nil) {
-                     if (selectedImage.isValidated == true && selectedImage.validationError != nil &&
-                         selectedImage.validationError == ErrorCode.TRANSIENT_FAILURE) {
-                         validationInProgress = false
-                     }
-                     if (selectedImage.isValidated == true && selectedImage.isImageValid == false){
-                         showAlert = true
-                     }
+            .onReceive(selectedImage.$hasValidationRun) {_ in
+                if (selectedImage.hasValidationRun && !selectedImage.isImageValid) {
+                     showAlert = true
                      validationInProgress = false
                 }
-                else {
+                else if (!selectedImage.hasValidationRun && selectedImage.isImageLoaded){
                     validationInProgress = true
                     validateImage()
                 }
@@ -116,7 +109,6 @@ struct ImagePresentationView: View {
     func validateImage() {
         Task {
             simpleImageValidator.simpleValidateImage(image: selectedImage)
-            selectedImage.isValidated = true
             validationInProgress = false
         }
     }
