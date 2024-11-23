@@ -11,7 +11,7 @@ public class ImageDetail: Identifiable, Equatable, ObservableObject {
     var image: Image?
     var uiImage: UIImage?
     @Published var isValidated: Bool?
-    var validationResult: ErrorCode?
+    var validationError: ErrorCode?
     @Published var isImageValid: Bool?
     var imageText: [String] = [] // Basic image text from the simple image scanner
     @Published var recognizedText: [[String]] = [[]] // Advanced image text from the heavy-duty image scanner

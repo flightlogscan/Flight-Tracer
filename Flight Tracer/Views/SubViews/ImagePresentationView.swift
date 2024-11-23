@@ -4,14 +4,15 @@ import _PhotosUI_SwiftUI
 struct ImagePresentationView: View {
     
     @State var isValidated: Bool?
+    @State var validationInProgress = false
     @State var showAlert = false
     @Binding var selectedImage: ImageDetail
-    @ObservedObject var selectImageViewModel = SelectImageViewModel()
+    @ObservedObject var simpleImageValidator = SimpleImageValidator()
     
     var body: some View {
         if selectedImage.image != nil {
             VStack {
-                if (isValidated == nil || !isValidated!) {
+                if (validationInProgress) {
                     ZStack {
                         // Invisible rectangle underneath photo to keep spacing
                         Rectangle()
@@ -20,23 +21,7 @@ struct ImagePresentationView: View {
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
                         
                         selectedImage.image!
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                            .padding([.leading, .trailing])
-                            .overlay(
-                                Button {
-                                    selectedImage = ImageDetail()
-                                }
-                                label: {
-                                    Label("", systemImage: "xmark.circle.fill")
-                                        .foregroundStyle(.white, .black.opacity(0.7))
-                                        .font(.title)
-                                        .offset(x: -15, y: 5)
-                                },
-                                alignment: .topTrailing
-                            )
+                            .logImageStyle()
                         
                         ProgressView()
                             .foregroundColor(.white)
@@ -56,11 +41,7 @@ struct ImagePresentationView: View {
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
                         
                         selectedImage.image!
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                            .padding([.leading, .trailing])
+                            .logImageStyle()
                             .overlay(
                                 Button {
                                     selectedImage = ImageDetail()
@@ -74,7 +55,7 @@ struct ImagePresentationView: View {
                             )
                             .overlay(
                                 Group {
-                                    if selectedImage.validationResult != nil {
+                                    if selectedImage.validationError != nil {
                                         Button {
                                             showAlert = true
                                         } label: {
@@ -93,28 +74,24 @@ struct ImagePresentationView: View {
                         Button ("Close") {
                         }
                     } message: {
-                        Text(selectedImage.validationResult?.rawValue ?? "")
+                        Text(selectedImage.validationError?.rawValue ?? ErrorCode.TRANSIENT_FAILURE.rawValue)
                             .foregroundColor(Color.secondary)
                     }
                 }
             }
-            .onAppear {
-                if (isValidated != true) {
-                    validateImage()
-                }
-            }
             .onReceive(selectedImage.$isImageValid) {_ in
                  if (selectedImage.isImageValid != nil) {
-                     if (selectedImage.isValidated == true && selectedImage.validationResult != nil &&
-                         selectedImage.validationResult == ErrorCode.TRANSIENT_FAILURE) {
-                         isValidated = nil // Reset to force refresh of the view
+                     if (selectedImage.isValidated == true && selectedImage.validationError != nil &&
+                         selectedImage.validationError == ErrorCode.TRANSIENT_FAILURE) {
+                         validationInProgress = false
                      }
                      if (selectedImage.isValidated == true && selectedImage.isImageValid == false){
                          showAlert = true
                      }
-                     isValidated = true
+                     validationInProgress = false
                 }
                 else {
+                    validationInProgress = true
                     validateImage()
                 }
             }
@@ -129,18 +106,16 @@ struct ImagePresentationView: View {
                 
                 Text("Please select a photo")
                     .font(.title3)
-                    .foregroundColor(.black.opacity(0.7))
+                    .foregroundColor(.semiTransparentBlack)
             }
         }
     }
     
     func validateImage() {
-        isValidated = false
-        selectedImage.isValidated = false
         Task {
-            selectImageViewModel.simpleValidateImage(image: selectedImage)
+            simpleImageValidator.simpleValidateImage(image: selectedImage)
             selectedImage.isValidated = true
-            isValidated = true
+            validationInProgress = false
         }
     }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import FirebasePerformance
 
-class SelectImageViewModel: ObservableObject {
+class SimpleImageValidator: ObservableObject {
     
     let imageTextRecognizer = ImageTextRecognizer()
     @Published var recognizedText: [[String]] = [["image data empty"]]
@@ -18,7 +18,7 @@ class SelectImageViewModel: ObservableObject {
             trace?.incrementMetric("InvalidSize", by: 1)
             trace?.stop()
             image.isImageValid = false
-            image.validationResult = ErrorCode.MAX_SIZE_EXCEEDED
+            image.validationError = ErrorCode.MAX_SIZE_EXCEEDED
             return
         }
         
@@ -28,7 +28,7 @@ class SelectImageViewModel: ObservableObject {
             image.isImageValid = isImageValid
             if (isImageValid == false) {
                 trace?.incrementMetric("NoRecognizedText", by: 1)
-                image.validationResult = ErrorCode.NO_RECOGNIZED_TEXT
+                image.validationError = ErrorCode.NO_RECOGNIZED_TEXT
             } else {
                 trace?.incrementMetric("Success", by: 1)
             }
@@ -36,11 +36,15 @@ class SelectImageViewModel: ObservableObject {
         }
     }
             
+    // Hardcoded to check for Jeppesen fields
     private func checkBasicFlightLogText(imageText: [String]) -> Bool {
+        
+        //DATE is on the left page of the Jeppesen log
         let containsDate = imageText.contains { text in
             return text.contains("DATE")
         }
         
+        //CONDITIONS is on the right page of the Jeppesen log
         let containsConditions = imageText.contains { text in
             return text.contains("CONDITIONS")
         }
