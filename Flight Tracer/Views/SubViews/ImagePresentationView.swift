@@ -3,26 +3,54 @@ import _PhotosUI_SwiftUI
 
 struct ImagePresentationView: View {
     
-    @State var isValidated: Bool?
-    @State var validationInProgress = false
-    @State var showAlert = false
-    @Binding var selectedImage: ImageDetail
-    @ObservedObject var simpleImageValidator = SimpleImageValidator()
+    @ObservedObject var parentViewModel: UploadPageViewModel
     
     var body: some View {
-        if selectedImage.isImageLoaded {
+        if parentViewModel.selectedImage.isImageLoaded {
             VStack {
-                if (validationInProgress) {
-                    ZStack {
-                        // Invisible rectangle underneath photo to keep spacing
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .padding([.leading, .trailing])
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
-                        
-                        selectedImage.image!
-                            .logImageStyle()
-                        
+                ZStack {
+                    // Invisible rectangle underneath photo to keep spacing
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .padding([.leading, .trailing])
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+                    
+                    parentViewModel.selectedImage.image!
+                        .logImageStyle()
+                        .overlay(
+                            Group {
+                                if !parentViewModel.validationInProgress {
+                                    Button {
+                                        parentViewModel.resetImage()
+                                    } label: {
+                                        Label("", systemImage: "xmark.circle.fill")
+                                            .foregroundStyle(.white, .black.opacity(0.7))
+                                            .font(.title)
+                                            .offset(x: -15, y: 5)
+                                    }
+                                    .accessibilityElement()
+                                    .accessibilityIdentifier("ClearImageButton")
+                                }
+                            },
+                            alignment: .topTrailing
+                        )
+                        .overlay(
+                            Group {
+                                if parentViewModel.selectedImage.hasError && !parentViewModel.validationInProgress {
+                                    Button {
+                                        parentViewModel.showAlert = true
+                                    } label: {
+                                        Label("", systemImage: "exclamationmark.circle.fill")
+                                            .foregroundStyle(.white, .red)
+                                            .font(.title)
+                                            .offset(x: 25, y: 5)
+                                    }
+                                }
+                            },
+                            alignment: .topLeading
+                        )
+                    
+                    if parentViewModel.validationInProgress {
                         ProgressView()
                             .foregroundColor(.white)
                             .tint(.white)
@@ -32,65 +60,26 @@ struct ImagePresentationView: View {
                             .zIndex(1)
                     }
                 }
-                else {
-                    ZStack {
-                        // Invisible rectangle underneath photo to keep spacing
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .padding([.leading, .trailing])
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
-                        
-                        selectedImage.image!
-                            .logImageStyle()
-                            .overlay(
-                                Button {
-                                    selectedImage = ImageDetail()
-                                } label: {
-                                    Label("", systemImage: "xmark.circle.fill")
-                                        .foregroundStyle(.white, .black.opacity(0.7))
-                                        .font(.title)
-                                        .offset(x: -15, y: 5)
-                                }
-                                .accessibilityElement()
-                                .accessibilityIdentifier("ClearImageButton"),
-                                alignment: .topTrailing
-                            )
-                            .overlay(
-                                Group {
-                                    if selectedImage.hasError {
-                                        Button {
-                                            showAlert = true
-                                        } label: {
-                                            Label("", systemImage: "exclamationmark.circle.fill")
-                                                .foregroundStyle(.white, .red)
-                                                .font(.title)
-                                                .offset(x: 25, y: 5)
-                                        }
-                                    }
-                                },
-                                alignment: .topLeading
-                            )
+                .alert("Error detected:", isPresented: $parentViewModel.showAlert) {
+                    Button ("Close") {
                     }
-                    .alert("Error detected:", isPresented: $showAlert) {
-                        Button ("Close") {
+                } message: {
+                    Text(parentViewModel.alertMessage)
+                        .foregroundColor(Color.secondary)
+                }
+                // Runs when selected image changes
+                .onReceive(parentViewModel.$selectedImage) { _ in
+                    Task {
+                        if (parentViewModel.selectedImage.isImageLoaded) {
+                            await parentViewModel.simpleValidateImage()
                         }
-                    } message: {
-                        Text(selectedImage.validationError.message)
-                            .foregroundColor(Color.secondary)
                     }
                 }
-            }
-            .onReceive(selectedImage.$hasValidationRun) {_ in
-                if (selectedImage.hasValidationRun && !selectedImage.isImageValid) {
-                     showAlert = true
-                     validationInProgress = false
-                }
-                else if (!selectedImage.hasValidationRun && selectedImage.isImageLoaded){
-                    validationInProgress = true
-                    validateImage()
+                // Runs when dismissed back to this view from another view
+                .onDisappear() {
+                    parentViewModel.resetImage()
                 }
             }
-    
         } else {
             ZStack {
                 Rectangle()
@@ -103,13 +92,6 @@ struct ImagePresentationView: View {
                     .font(.title3)
                     .foregroundColor(.semiTransparentBlack)
             }
-        }
-    }
-    
-    func validateImage() {
-        Task {
-            simpleImageValidator.simpleValidateImage(image: selectedImage)
-            validationInProgress = false
         }
     }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import FirebaseAuthUI
 
 struct OptionsMenu: View {
-    @Binding var selectedOption: Int
+    @Binding var selectedScanType: Int
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
@@ -14,7 +14,7 @@ struct OptionsMenu: View {
             }
             
             if authViewModel.isAdmin() {
-                Picker(selection: $selectedOption, label: Label("Options", systemImage: "gearshape")) {
+                Picker(selection: $selectedScanType, label: Label("Options", systemImage: "gearshape")) {
                     Text("Localhost call").tag(0)
                     Text("Real API call").tag(1)
                     Text("Hardcoded data").tag(2)

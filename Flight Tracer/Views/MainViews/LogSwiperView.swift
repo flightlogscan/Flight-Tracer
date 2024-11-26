@@ -3,7 +3,7 @@ import SwiftUI
 struct LogSwiperView: View {
     @State var showAlert = false
     @Environment(\.presentationMode) var presentationMode
-    @State var isDataLoaded: Bool? = nil
+    @State var isDataLoaded: Bool = false
     @ObservedObject var logSwiperViewModel = LogSwiperViewModel()
     @Binding var selectedImage: ImageDetail
     var selectedScanType: Int
@@ -16,7 +16,7 @@ struct LogSwiperView: View {
                     .fill(Color(.systemGray6))
                     .edgesIgnoringSafeArea(.all)
                 
-                if isDataLoaded != nil && isDataLoaded == true {
+                if isDataLoaded {
                     Logs(imageText: $selectedImage.recognizedText)
                 } else {
                     ProgressView()
@@ -60,7 +60,7 @@ struct LogSwiperView: View {
             .navigationBarBackButtonHidden()
             .toolbarBackground(.visible, for: .navigationBar)
             .onAppear {
-                loadJSON()
+                logSwiperViewModel.processImageText(selectedImage: selectedImage, userToken: authViewModel.user.token, selectedScanType: selectedScanType)
             }
             .onReceive(selectedImage.$analyzeResult) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -74,11 +74,6 @@ struct LogSwiperView: View {
                 }
             }
         }
-    }
-    
-    func loadJSON() {
-        isDataLoaded = false
-        logSwiperViewModel.processImageText(selectedImage: selectedImage, realScan: true, userToken: authViewModel.user.token, selectedScanType: selectedScanType)
     }
 }
 

@@ -6,7 +6,7 @@ struct UploadPageView: View {
     
     @StateObject var viewModel = UploadPageViewModel()
     @State var activeScanPressed: Bool = false
-    @State var selectedOption: Int = 0 // TODO: Default to real API call instead of localhost
+    @State var selectedScanType: Int = 0 // TODO: Default to real API call instead of localhost
          
     var body: some View {
         NavigationStack {
@@ -20,17 +20,17 @@ struct UploadPageView: View {
                     ImageHintsView()
                         .accessibilityIdentifier("ImageHintsView")
 
-                    ImagePresentationView(selectedImage: $viewModel.selectedImage)
+                    ImagePresentationView(parentViewModel: viewModel)
                         .accessibilityIdentifier("ImagePresentationView")
                     
                     PhotoCarouselView(selectedImage: $viewModel.selectedImage)
                         .accessibilityIdentifier("PhotoCarouselView")
                     
-                    ScanView(activeScanPressed: $activeScanPressed, selectedImage: $viewModel.selectedImage)
+                    ScanView(activeScanPressed: $activeScanPressed, isImageValid: $viewModel.isImageValid)
                         .accessibilityIdentifier("ScanView")
                 }
                 .navigationDestination(isPresented: $activeScanPressed) {
-                    LogSwiperView(selectedImage: $viewModel.selectedImage, selectedScanType: selectedOption)
+                    LogSwiperView(selectedImage: $viewModel.selectedImage, selectedScanType: selectedScanType)
                         .accessibilityIdentifier("LogSwiperView")
                 }
             }
@@ -45,7 +45,7 @@ struct UploadPageView: View {
                         .accessibilityIdentifier("ToolbarTitle")
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    OptionsMenu(selectedOption: $selectedOption)
+                    OptionsMenu(selectedScanType: $selectedScanType)
                         .accessibilityIdentifier("OptionsMenu")
                 }
             }
@@ -55,9 +55,6 @@ struct UploadPageView: View {
                 for: .navigationBar
             )
             .toolbarBackground(.visible, for: .navigationBar)
-            .onAppear {
-                viewModel.resetImage()
-            }
         }
     }
 }

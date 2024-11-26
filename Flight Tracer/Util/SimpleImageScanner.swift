@@ -1,12 +1,11 @@
 import SwiftUI
 import FirebasePerformance
 
-class SimpleImageValidator: ObservableObject {
+class SimpleImageScanner {
     
     let imageTextRecognizer = ImageTextRecognizer()
-    @Published var recognizedText: [[String]] = [["image data empty"]]
     
-    func simpleValidateImage(image: ImageDetail) {
+    func simpleImageScan(image: ImageDetail) -> SimpleImageScanResult {
         let data = image.uiImage!.jpegData(compressionQuality: 1.0)!
         let formatter = ByteCountFormatter()
         formatter.allowedUnits = ByteCountFormatter.Units.useKB
@@ -17,26 +16,24 @@ class SimpleImageValidator: ObservableObject {
         if (data.count/1000 > 10000) {
             trace?.incrementMetric("InvalidSize", by: 1)
             trace?.stop()
-            image.isImageValid = false
-            image.validationError = ErrorCode.MAX_SIZE_EXCEEDED
-            image.hasValidationRun = true
-            return
+            return SimpleImageScanResult(isImageValid: false, validationError: ErrorCode.MAX_SIZE_EXCEEDED)
         }
         
+        var simpleImageScanResult: SimpleImageScanResult!
+        
         imageTextRecognizer.scanImageForText(image: image.uiImage!) { recognizedStrings in
-            image.imageText = recognizedStrings
             let isImageValid = self.checkBasicFlightLogText(imageText: recognizedStrings)
-            image.isImageValid = isImageValid
-            if (isImageValid == false) {
+            if (!isImageValid) {
                 trace?.incrementMetric("NoRecognizedText", by: 1)
-                image.validationError = ErrorCode.NO_RECOGNIZED_TEXT
+                simpleImageScanResult = SimpleImageScanResult(isImageValid: false, validationError: ErrorCode.NO_RECOGNIZED_TEXT)
             } else {
                 trace?.incrementMetric("Success", by: 1)
+                simpleImageScanResult = SimpleImageScanResult(isImageValid: true, validationError: ErrorCode.NO_ERROR, imageText: recognizedStrings)
             }
         }
         
         trace?.stop()
-        image.hasValidationRun = true
+        return simpleImageScanResult
     }
             
     // Hardcoded to check for Jeppesen fields

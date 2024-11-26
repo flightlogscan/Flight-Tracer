@@ -20,12 +20,10 @@ struct FormRecognizer {
         
         // Call localhost or real server
         if (selectedScanType == 0 || selectedScanType == 1) {
-            print("Scan type selected: ")
-            print(selectedScanType)
+            print("Scan type selected: \(selectedScanType)")
             
             let urlString = selectedScanType == 0 ?"\(localEndpoint)/api/analyze/dummy" : "\(realEndpoint)/api/analyze"
-            print("Using urlString: ")
-            print(urlString)
+            print("Using urlString: \(urlString)")
 
             guard let url = URL(string: urlString) else {
                 print("Invalid URL")
@@ -50,9 +48,7 @@ struct FormRecognizer {
                     trace?.incrementMetric("Error", by: 1)
                     trace?.stop()
                     print("Error: \(error.localizedDescription)")
-                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
-                    imageDetail.isImageValid = false
-                    imageDetail.analyzeResult = nil
+                    setTransientError(imageDetail: imageDetail)
                     return
                 }
                 
@@ -60,9 +56,7 @@ struct FormRecognizer {
                     print("Invalid response")
                     trace?.incrementMetric("InvalidResponse", by: 1)
                     trace?.stop()
-                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
-                    imageDetail.isImageValid = false
-                    imageDetail.analyzeResult = nil
+                    setTransientError(imageDetail: imageDetail)
                     return
                 }
                 
@@ -77,7 +71,7 @@ struct FormRecognizer {
                         print("Analyze Result: ")
                         print(analyzeResult)
                         
-                        imageDetail.recognizedText = buildLogScanArray(analyzeResult: analyzeResult, logFieldMetadata: logFieldMetadata)
+                        imageDetail.recognizedText = convertToArray(analyzeResult: analyzeResult, logFieldMetadata: logFieldMetadata)
                         processRecognizedTextForIntegers(imageDetail: imageDetail, logFieldMetadata: logFieldMetadata)
                         
                         imageDetail.analyzeResult = analyzeResult
@@ -86,9 +80,7 @@ struct FormRecognizer {
                     print("API request failed. Status code: \(httpResponse.statusCode)")
                     trace?.incrementMetric("UnhealthyResponse", by: 1)
                     trace?.stop()
-                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
-                    imageDetail.isImageValid = false
-                    imageDetail.analyzeResult = nil
+                    setTransientError(imageDetail: imageDetail)
                 }
             }
             
@@ -108,72 +100,40 @@ struct FormRecognizer {
                     // Convert string to data
                     if let fileData = fileContent.data(using: .utf8) {
                         let analyzeResult = try JSONDecoder().decode(AnalyzeResult.self, from: fileData)
-                        imageDetail.recognizedText = buildLogScanArray(analyzeResult: analyzeResult, logFieldMetadata: logFieldMetadata)
+                        imageDetail.recognizedText = convertToArray(analyzeResult: analyzeResult, logFieldMetadata: logFieldMetadata)
                         processRecognizedTextForIntegers(imageDetail: imageDetail, logFieldMetadata: logFieldMetadata)
                         imageDetail.analyzeResult = analyzeResult
                     } else {
-                        imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
-                        imageDetail.isImageValid = false
-                        imageDetail.analyzeResult = nil
+                        setTransientError(imageDetail: imageDetail)
                         print("Error converting string to data")
                     }
                 } catch {
-                    imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
-                    imageDetail.isImageValid = false
-                    imageDetail.analyzeResult = nil
+                    setTransientError(imageDetail: imageDetail)
                     print("Error reading file:", error.localizedDescription)
                 }
             } else {
-                imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
-                imageDetail.isImageValid = false
-                imageDetail.analyzeResult = nil
+                setTransientError(imageDetail: imageDetail)
+                
                 print("File not found. Make sure the file is included in the app bundle and the filename and extension are correct.")
             }
         }
     }
-}
-
-func buildLogScanArray(analyzeResult: (AnalyzeResult), logFieldMetadata: [LogFieldMetadata]) -> [[String]] {
     
-    // Calculate total number of columns from headers
-    let columnCount = logFieldMetadata.reduce(0) { $0 + $1.columnCount }
-    
-    // Get the first and third tables, if available
-    let tables = analyzeResult.tables.indices.contains(2) ? [analyzeResult.tables[0], analyzeResult.tables[2]] : [analyzeResult.tables[0]]
-    
-    // Find the maximum row count across the selected tables
-    let maxRowCount = tables.reduce(0) { max($0, $1.rowCount) }
-    
-    // Initialize the result array
-    var resultArray = Array(repeating: Array(repeating: "", count: columnCount), count: maxRowCount + 1)
-    
-    // Initialize column offset to track column positions across the selected tables
-    var columnOffset = 0
-    // Iterate through the selected tables and merge rows
-    for table in tables {
-        for cell in table.cells {
-            let rowIndex = cell.rowIndex + 1
-            let columnIndex = columnOffset + cell.columnIndex
-            
-            // Ensure indices are within bounds
-            if rowIndex < resultArray.count && columnIndex < resultArray[rowIndex].count {
-                resultArray[rowIndex][columnIndex] = cell.content
-            }
-        }
-        columnOffset += table.columnCount
+    private func setTransientError(imageDetail: ImageDetail) {
+        imageDetail.validationError = ErrorCode.TRANSIENT_FAILURE
+        imageDetail.isImageValid = false
+        imageDetail.analyzeResult = nil
     }
-    
-    return resultArray
 }
 
-// New method to process recognizedText using expandedHeaders
 func processRecognizedTextForIntegers(imageDetail: ImageDetail, logFieldMetadata: [LogFieldMetadata]) {
+    
     // Skip the first two rows because of headers
     for rowIndex in 3..<imageDetail.recognizedText.count {
         for columnIndex in 0..<imageDetail.recognizedText[rowIndex].count {
-            // Use expandedHeaders to check if the type is INTEGER
             if columnIndex < logFieldMetadata.count, logFieldMetadata[columnIndex].type == .INTEGER {
-                // Replace characters for INTEGER fields
+                
+                // Sometimes the model gets numbers wrong and detects alphabetical characters instead of numbers
                 imageDetail.recognizedText[rowIndex][columnIndex] = replaceCharacters(in: imageDetail.recognizedText[rowIndex][columnIndex])
             }
         }

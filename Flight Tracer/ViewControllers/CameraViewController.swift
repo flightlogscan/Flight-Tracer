@@ -3,7 +3,7 @@ import SwiftUI
 struct CameraViewController: UIViewControllerRepresentable {
     
     @Binding var selectedImage: ImageDetail
-
+    
     @Environment(\.presentationMode) private var presentationMode
 
     public func makeUIViewController(context: Context) -> UIImagePickerController {
@@ -23,7 +23,7 @@ struct CameraViewController: UIViewControllerRepresentable {
     final public class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         var parent: CameraViewController
-        @ObservedObject var selectImageViewModel = SimpleImageValidator()
+        let selectImageViewModel = SimpleImageScanner()
         
         init(_ parent: CameraViewController) {
             self.parent = parent

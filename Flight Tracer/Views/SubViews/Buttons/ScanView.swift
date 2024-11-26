@@ -4,7 +4,7 @@ struct ScanView: View {
 
     @State var scanButtonActive: Bool = false
     @Binding var activeScanPressed: Bool
-    @Binding var selectedImage: ImageDetail
+    @Binding var isImageValid: Bool
     
     var body: some View {
         VStack{
@@ -25,8 +25,8 @@ struct ScanView: View {
             .accessibilityLabel(Text("Scan photo button"))
             .accessibilityHint(Text(scanButtonActive ? "Tap to start scanning" : "Button is disabled"))
         }
-        .onReceive(selectedImage.$isImageValid) {_ in
-            scanButtonActive = selectedImage.isImageValid
+        .onChange(of: isImageValid) {
+            scanButtonActive = isImageValid
         }
     }
 }

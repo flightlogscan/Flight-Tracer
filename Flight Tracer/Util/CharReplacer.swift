@@ -1,8 +1,7 @@
 func replaceCharacters(in input: String) -> String {
-    
     var result = input
     
-    // Define a dictionary for replacements
+    // Common character / number replacements
     let replacements: [Character: String] = [
         "/": "1",
         "\\": "1",
