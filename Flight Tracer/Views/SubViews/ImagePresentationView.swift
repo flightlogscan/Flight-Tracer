@@ -75,10 +75,6 @@ struct ImagePresentationView: View {
                         }
                     }
                 }
-                // Runs when dismissed back to this view from another view
-                .onDisappear() {
-                    parentViewModel.resetImage()
-                }
             }
         } else {
             ZStack {
