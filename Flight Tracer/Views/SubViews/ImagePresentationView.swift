@@ -67,6 +67,7 @@ struct ImagePresentationView: View {
                     Text(parentViewModel.alertMessage)
                         .foregroundColor(Color.secondary)
                 }
+                .accessibilityIdentifier("ErrorDetectedAlert") // Added identifier for the alert
                 // Runs when selected image changes
                 .onReceive(parentViewModel.$selectedImage) { _ in
                     Task {
