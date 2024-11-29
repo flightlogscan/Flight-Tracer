@@ -37,7 +37,7 @@ struct LoginView : UIViewControllerRepresentable {
             googleAuth,
             //https://firebase.google.com/docs/auth/ios/apple
             //TODO: Apple sign-in requires enrollment: https://developer.apple.com/programs/enroll/
-            //FUIOAuth.appleAuthProvider()
+            FUIOAuth.appleAuthProvider()
         ]
 
         authUI?.providers = providers
