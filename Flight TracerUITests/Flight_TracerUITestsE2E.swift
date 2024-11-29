@@ -50,6 +50,13 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         let displayedImage = imagePresentationView.images.firstMatch
         XCTAssertTrue(displayedImage.waitForExistence(timeout: 5), "Selected image should be displayed in ImagePresentationView")
         
+        // Cancel button
+//        sleep(5)
+//        let cancelButton = app.buttons["ImagePresentationView"]
+//        XCTAssertTrue(cancelButton.exists, "Cancel button should exist")
+//        
+//        cancelButton.tap()
+        
         sleep(2)
         // Verify ScanView is present
         let scanButton = app.buttons["ScanView"]
@@ -59,12 +66,20 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         scanButton.tap()
         
         // Verify navigation to LogSwiperView
+        // TODO: Check some of the actual data here?
         let logSwiperView = app.descendants(matching: .any)["LogSwiperView"]
         XCTAssertTrue(logSwiperView.waitForExistence(timeout: 10), "LogSwiperView should appear after scanning")
     }
+    
+    // Select invalid image test case
+    
+    // Press cancel button
+    
+    // Log out and back in
 
     func testOptionsMenuAccessibility() throws {
         // Verify OptionsMenu is accessible
+        sleep(5)
         let optionsMenu = app.buttons["OptionsMenu"]
         XCTAssertTrue(optionsMenu.exists, "OptionsMenu should be present in the toolbar")
         optionsMenu.tap()
