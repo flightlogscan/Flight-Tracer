@@ -29,17 +29,17 @@ struct LogSwiperView: View {
                         .zIndex(1)
                 }
             }
+            .accessibilityIdentifier("LogSwiperView") // Added identifier for LogSwiperView
             .toolbar(content: {
-                ToolbarItem (placement: .topBarLeading){
+                ToolbarItem (placement: .topBarLeading) {
                     Button {
                         showAlert = true
                     } label: {
                         Label("", systemImage: "xmark")
                     }
+                    .accessibilityIdentifier("xmark") // Added identifier for the xmark button
                     .alert("Delete Log?", isPresented: $showAlert) {
-                        Button ("Cancel", role: .cancel) {
-                        }
-                        
+                        Button("Cancel", role: .cancel) {}
                         Button("Delete", role: .destructive) {
                             self.presentationMode.wrappedValue.dismiss()
                         }
@@ -50,6 +50,7 @@ struct LogSwiperView: View {
                 
                 ToolbarItem (placement: .topBarTrailing) {
                     DownloadView(data: viewModel.logText)
+                        .accessibilityIdentifier("DownloadView") // Added identifier for Download CSV button
                 }
             })
             .tint(.white)
@@ -61,7 +62,7 @@ struct LogSwiperView: View {
             .navigationBarBackButtonHidden()
             .toolbarBackground(.visible, for: .navigationBar)
             .alert("Error detected:", isPresented: $viewModel.showAlert) {
-                Button ("Back") {
+                Button("Back") {
                     // Navigate back to the main view if there are errors
                     self.presentationMode.wrappedValue.dismiss()
                 }
@@ -87,6 +88,7 @@ struct LogSwiperView: View {
         }
     }
 }
+
 
 struct Logs: View {
     @Binding var logText: [[String]]

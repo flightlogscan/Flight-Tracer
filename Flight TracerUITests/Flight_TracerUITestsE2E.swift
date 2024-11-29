@@ -17,19 +17,25 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         app.launch()
     }
 
-    func testNavigationToUploadPage() throws {
+    func testImagePresentationAndSelection() throws {
         // Verify UploadPageView is loaded
         let uploadPageView = app.otherElements["Background"]
         XCTAssertTrue(uploadPageView.waitForExistence(timeout: 5), "UploadPageView should load successfully")
-    }
-
-    func testImageHintsViewExists() throws {
+        
         // Ensure ImageHintsView is displayed
         let imageHintsView = app.descendants(matching: .any)["ImageHintsView"]
         XCTAssertTrue(imageHintsView.waitForExistence(timeout: 10), "ImageHintsView should exist on UploadPageView")
-    }
-
-    func testImagePresentationAndSelection() throws {
+        
+        // Verify OptionsMenu is accessible
+        let optionsMenu = app.buttons["OptionsMenu"]
+        XCTAssertTrue(optionsMenu.waitForExistence(timeout: 5), "OptionsMenu should be present in the toolbar")
+        // optionsMenu.tap()
+        
+        // Verify toolbar title
+        let toolbarTitle = app.staticTexts["ToolbarTitle"]
+        XCTAssertTrue(toolbarTitle.waitForExistence(timeout: 5), "ToolbarTitle should be visible")
+        XCTAssertEqual(toolbarTitle.label, "Flight Log Tracer", "Toolbar title should match 'Flight Log Tracer'")
+        
         // Verify ImagePresentationView exists
         let imagePresentationView = app.descendants(matching: .any)["ImagePresentationView"]
         XCTAssertTrue(imagePresentationView.waitForExistence(timeout: 5), "ImagePresentationView should be visible")
@@ -48,7 +54,7 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         
         // Verify the selected image is displayed in ImagePresentationView
         let displayedImage = imagePresentationView.images.firstMatch
-        XCTAssertTrue(displayedImage.waitForExistence(timeout: 5), "Selected image should be displayed in ImagePresentationView")
+        XCTAssertTrue(displayedImage.waitForExistence(timeout: 10), "Selected image should be displayed in ImagePresentationView")
         
         // Cancel button
 //        sleep(5)
@@ -57,10 +63,9 @@ final class Flight_TracerUITestsE2E: XCTestCase {
 //        
 //        cancelButton.tap()
         
-        sleep(2)
         // Verify ScanView is present
         let scanButton = app.buttons["ScanView"]
-        XCTAssertTrue(scanButton.exists, "Scan button should exist in ScanView")
+        XCTAssertTrue(scanButton.waitForExistence(timeout: 5), "Scan button should exist in ScanView")
         
         // Simulate tapping the scan button
         scanButton.tap()
@@ -69,6 +74,40 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         // TODO: Check some of the actual data here?
         let logSwiperView = app.descendants(matching: .any)["LogSwiperView"]
         XCTAssertTrue(logSwiperView.waitForExistence(timeout: 10), "LogSwiperView should appear after scanning")
+        
+        // Verify "Download CSV" button exists
+        let downloadCSVButton = app.buttons["DownloadView"]
+        XCTAssertTrue(downloadCSVButton.exists, "Download CSV button should exist")
+
+        // Verify "xmark" button exists and interact with it
+        let xmarkButton = app.buttons["xmark"]
+        XCTAssertTrue(xmarkButton.exists, "xmark button should exist in the toolbar")
+        
+        // Step 1: Tap the "xmark" button and verify "Delete Log?" alert
+        xmarkButton.tap()
+        let deleteLogAlert = app.alerts["Delete Log?"]
+        XCTAssertTrue(deleteLogAlert.waitForExistence(timeout: 5), "Delete Log? alert should appear after tapping xmark")
+        
+        // Verify the alert has both "Cancel" and "Delete" options
+        XCTAssertTrue(deleteLogAlert.buttons["Cancel"].exists, "Cancel option should exist in the Delete Log alert")
+        XCTAssertTrue(deleteLogAlert.buttons["Delete"].exists, "Delete option should exist in the Delete Log alert")
+
+        // Step 2: Tap "Cancel" and verify the alert disappears
+        deleteLogAlert.buttons["Cancel"].tap()
+        XCTAssertFalse(deleteLogAlert.exists, "Delete Log? alert should disappear after tapping Cancel")
+        
+        // Step 3: Repeat and tap "Delete"
+        xmarkButton.tap()
+        XCTAssertTrue(deleteLogAlert.waitForExistence(timeout: 5), "Delete Log? alert should reappear after tapping xmark again")
+        deleteLogAlert.buttons["Delete"].tap()
+        
+        sleep(5)
+
+        // Verify navigation back after deleting the log
+        XCTAssertFalse(logSwiperView.exists, "LogSwiperView should no longer exist after deleting the log")
+        
+        // Verify ImagePresentationView exists
+        XCTAssertTrue(imagePresentationView.waitForExistence(timeout: 5), "ImagePresentationView should be visible")
     }
     
     // Select invalid image test case
@@ -76,20 +115,4 @@ final class Flight_TracerUITestsE2E: XCTestCase {
     // Press cancel button
     
     // Log out and back in
-
-    func testOptionsMenuAccessibility() throws {
-        // Verify OptionsMenu is accessible
-        sleep(5) // Gives time for the simulator to start up
-        let optionsMenu = app.buttons["OptionsMenu"]
-        XCTAssertTrue(optionsMenu.exists, "OptionsMenu should be present in the toolbar")
-        optionsMenu.tap()
-    }
-
-    func testToolbarTitleDisplayed() throws {
-        // Verify toolbar title
-        sleep(5) // Gives time for the simulator to start up
-        let toolbarTitle = app.staticTexts["ToolbarTitle"]
-        XCTAssertTrue(toolbarTitle.exists, "ToolbarTitle should be visible")
-        XCTAssertEqual(toolbarTitle.label, "Flight Log Tracer", "Toolbar title should match 'Flight Log Tracer'")
-    }
 }
