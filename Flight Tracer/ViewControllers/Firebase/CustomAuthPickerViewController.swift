@@ -29,13 +29,22 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
         buttonTray.backgroundColor = .black
         buttonTray.layer.cornerRadius = 40.0
         
+        
         // Only top left and right corners of view are rounded
         buttonTray.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         let buttonContainerView = buttonTray.subviews[0]
+        let screenHeight = UIScreen.main.bounds.height
+
+        // Check if the device is an iPhone SE (1st, 2nd, or 3rd generation)
+        if screenHeight <= 667 { // iPhone SE (1st Gen: 568, 2nd/3rd Gen: 667)
+            buttonContainerView.frame.size = CGSize(width: 300, height: 100)
+        } else {
+            buttonContainerView.frame.size = CGSize(width: 300, height: 150)
+        }
         for each in buttonContainerView.subviews {
             if let providerButton = each as? UIButton {
-                providerButton.frame.origin.x -= 50
+                providerButton.frame.origin.x -= 9
                 providerButton.frame.size = CGSizeMake(320.0, 45.0)
                 providerButton.layer.cornerRadius = 10.0
                 providerButton.layer.backgroundColor = UIColor.darkGray.cgColor
@@ -84,4 +93,8 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
         // Keep Navigation bar on sign up page
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+}
+
+#Preview {
+    ContentView()
 }
