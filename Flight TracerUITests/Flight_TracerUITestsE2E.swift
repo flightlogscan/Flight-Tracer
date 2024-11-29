@@ -79,7 +79,7 @@ final class Flight_TracerUITestsE2E: XCTestCase {
 
     func testOptionsMenuAccessibility() throws {
         // Verify OptionsMenu is accessible
-        sleep(5)
+        sleep(5) // Gives time for the simulator to start up
         let optionsMenu = app.buttons["OptionsMenu"]
         XCTAssertTrue(optionsMenu.exists, "OptionsMenu should be present in the toolbar")
         optionsMenu.tap()
@@ -87,6 +87,7 @@ final class Flight_TracerUITestsE2E: XCTestCase {
 
     func testToolbarTitleDisplayed() throws {
         // Verify toolbar title
+        sleep(5) // Gives time for the simulator to start up
         let toolbarTitle = app.staticTexts["ToolbarTitle"]
         XCTAssertTrue(toolbarTitle.exists, "ToolbarTitle should be visible")
         XCTAssertEqual(toolbarTitle.label, "Flight Log Tracer", "Toolbar title should match 'Flight Log Tracer'")
