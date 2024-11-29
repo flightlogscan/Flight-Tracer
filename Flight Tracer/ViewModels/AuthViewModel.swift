@@ -26,6 +26,8 @@ class AuthViewModel: ObservableObject {
                     self.finishedCheckingLoginStatus = true
                 }
                 print("Already logged in user: \(String(describing: firebaseUser.email))")
+            } else {
+                resetUser()
             }
         }
     }
