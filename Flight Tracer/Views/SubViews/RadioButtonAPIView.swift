@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RadioButtonAPIView: View {
-    @Binding var selectedOption: Int // 0: Real API call, 1: Localhost call, 2: Hardcoded data call
+    @Binding var selectedOption: Int
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {

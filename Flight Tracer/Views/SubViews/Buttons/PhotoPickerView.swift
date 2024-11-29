@@ -2,7 +2,9 @@ import SwiftUI
 import Photos
 
 struct PhotoPickerView: View {
+    
     @StateObject private var viewModel = PhotoPickerViewModel()
+    
     @Binding var selectedImage: ImageDetail
 
     var body: some View {

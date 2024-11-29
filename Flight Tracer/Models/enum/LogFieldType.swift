@@ -1,7 +1,7 @@
 enum LogFieldType: String, Codable {
     case STRING
     case INTEGER
-    case unknown // to handle invalid input
+    case unknown
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()

@@ -6,7 +6,7 @@ struct UploadPageView: View {
     
     @StateObject var viewModel = UploadPageViewModel()
     @State var activeScanPressed: Bool = false
-    @State var selectedScanType: Int = 0 // TODO: Default to real API call instead of localhost
+    @State var selectedScanType: ScanType = .localhost // TODO: Default to real API call instead of localhost
          
     var body: some View {
         NavigationStack {
@@ -30,8 +30,10 @@ struct UploadPageView: View {
                         .accessibilityIdentifier("ScanView")
                 }
                 .navigationDestination(isPresented: $activeScanPressed) {
-                    LogSwiperView(selectedImage: $viewModel.selectedImage, selectedScanType: selectedScanType)
-                        .accessibilityIdentifier("LogSwiperView")
+                    if let uiImage = viewModel.selectedImage.uiImage {
+                        LogSwiperView(uiImage: uiImage, selectedScanType: selectedScanType)
+                            .accessibilityIdentifier("LogSwiperView")
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

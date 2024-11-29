@@ -1,6 +1,7 @@
 import SwiftUI
 
 class UploadPageViewModel: ObservableObject {
+    
     @Published var selectedImage: ImageDetail = ImageDetail()
     @Published var isImageValid: Bool = false
     @Published var alertMessage = ErrorCode.NO_ERROR.message
@@ -25,36 +26,26 @@ class UploadPageViewModel: ObservableObject {
         }
 
         do {
-            let scanResult = try await validateImageAsync(imageDetail: selectedImage)
+            let simpleScanResult = try await simpleImageValidator.simpleImageScan(image: self.selectedImage.uiImage!)
             
             await MainActor.run {
-                isImageValid = scanResult.isImageValid
-                alertMessage = scanResult.validationError.message
+                isImageValid = simpleScanResult.isImageValid
+                alertMessage = simpleScanResult.errorCode.message
                 
-                if let text = scanResult.imageText {
+                if let text = simpleScanResult.imageText {
                     selectedImage.imageText = text
                 }
                 
-                selectedImage.validationError = scanResult.validationError
+                selectedImage.validationError = simpleScanResult.errorCode
                 validationInProgress = false
                 showAlert = alertMessage != ErrorCode.NO_ERROR.message
             }
         } catch {
             await MainActor.run {
-                alertMessage = ErrorCode.TRANSIENT_FAILURE.message
+                alertMessage = ErrorCode.SERVER_ERROR.message
                 isImageValid = false
                 validationInProgress = false
                 showAlert = true
-            }
-        }
-    }
-    
-    /// Converts the synchronous scanner logic to asynchronous
-    private func validateImageAsync(imageDetail: ImageDetail) async throws -> SimpleImageScanResult {
-        return try await withCheckedThrowingContinuation { continuation in
-            DispatchQueue.global(qos: .userInitiated).async {
-                let result = self.simpleImageValidator.simpleImageScan(image: imageDetail)
-                continuation.resume(returning: result)
             }
         }
     }
