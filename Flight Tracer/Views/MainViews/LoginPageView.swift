@@ -36,7 +36,7 @@ struct LoginView : UIViewControllerRepresentable {
             emailAuth,
             googleAuth,
             //https://firebase.google.com/docs/auth/ios/apple
-            //Apple requires enrollment which seems like a pain so do later: https://developer.apple.com/programs/enroll/
+            //TODO: Apple sign-in requires enrollment: https://developer.apple.com/programs/enroll/
             //FUIOAuth.appleAuthProvider()
         ]
 
@@ -50,7 +50,6 @@ struct LoginView : UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<LoginView>){}
 
-    // Coordinator
     class Coordinator : NSObject, FUIAuthDelegate {
         
         var parent : LoginView
@@ -59,6 +58,7 @@ struct LoginView : UIViewControllerRepresentable {
             self.parent = parent
         }
         
+        //TODO: Do we need all these prints?
         func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?){
             
             if let authDataResult {
@@ -105,6 +105,5 @@ struct LoginView : UIViewControllerRepresentable {
         func passwordRecoveryViewController(forAuthUI authUI: FUIAuth, email: String?) -> FUIPasswordRecoveryViewController {
             return CustomPasswordRecoveryViewController(authUI: authUI, email: email)
         }
-
     }
 }

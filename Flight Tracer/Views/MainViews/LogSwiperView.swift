@@ -1,13 +1,15 @@
 import SwiftUI
 
 struct LogSwiperView: View {
-    @State var showAlert = false
     @Environment(\.presentationMode) var presentationMode
-    @State var isDataLoaded: Bool = false
-    @ObservedObject var logSwiperViewModel = LogSwiperViewModel()
-    @Binding var selectedImage: ImageDetail
-    var selectedScanType: Int
     @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @State var showAlert = false
+    @State var isDataLoaded: Bool = false
+    @ObservedObject var viewModel = LogSwiperViewModel()
+    
+    let uiImage: UIImage
+    let selectedScanType: ScanType
     
     var body: some View {
         NavigationStack {
@@ -17,7 +19,7 @@ struct LogSwiperView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 if isDataLoaded {
-                    Logs(imageText: $selectedImage.recognizedText)
+                    Logs(logText: $viewModel.logText)
                 } else {
                     ProgressView()
                         .tint(.white)
@@ -31,7 +33,6 @@ struct LogSwiperView: View {
                 ToolbarItem (placement: .topBarLeading){
                     Button {
                         showAlert = true
-                        
                     } label: {
                         Label("", systemImage: "xmark")
                     }
@@ -48,7 +49,7 @@ struct LogSwiperView: View {
                 }
                 
                 ToolbarItem (placement: .topBarTrailing) {
-                    DownloadView(data: selectedImage.recognizedText)
+                    DownloadView(data: viewModel.logText)
                 }
             })
             .tint(.white)
@@ -59,17 +60,27 @@ struct LogSwiperView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
             .toolbarBackground(.visible, for: .navigationBar)
-            .onAppear {
-                logSwiperViewModel.processImageText(selectedImage: selectedImage, userToken: authViewModel.user.token, selectedScanType: selectedScanType)
+            .alert("Error detected:", isPresented: $viewModel.showAlert) {
+                Button ("Back") {
+                    // Navigate back to the main view if there are errors
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            } message: {
+                Text(viewModel.alertMessage)
+                    .foregroundColor(Color.secondary)
             }
-            .onReceive(selectedImage.$analyzeResult) { _ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    if selectedImage.analyzeResult != nil {
-                        print("image text loaded count \(selectedImage.recognizedText.count)")
+            .onAppear {
+                viewModel.scanImageForLogText(uiImage: uiImage, userToken: authViewModel.user.token, selectedScanType: selectedScanType)
+            }
+            .onReceive(viewModel.$logText) { _ in
+                Task {
+                    if !viewModel.logText.isEmpty {
+                        print("image text loaded count \($viewModel.logText.count)")
+                        print("logText:")
+                        for (rowIndex, row) in viewModel.logText.enumerated() {
+                            print("Row \(rowIndex): \(row)")
+                        }
                         isDataLoaded = true
-                    } else if selectedImage.isImageValid == false {
-                        // Navigate back to the main view if there are errors
-                        self.presentationMode.wrappedValue.dismiss()
                     }
                 }
             }
@@ -78,20 +89,16 @@ struct LogSwiperView: View {
 }
 
 struct Logs: View {
-    @Binding var imageText: [[String]]
+    @Binding var logText: [[String]]
 
     var body: some View {
         TabView {
-            let _ = print("imagetext rows: \($imageText.count)")
-            
-            if ($imageText.count < 3) {
-                Text("yikes not enough rows")
-            }
-            
-            // Skip first 2 rows because of headers
-            ForEach(3..<imageText.count, id: \.self) { rowIndex in
-                if !isRowEmpty(imageText[rowIndex]) {
-                    LogTab(row: $imageText[rowIndex])
+            if ($logText.count > 2) {
+                // Skip first 2 rows because of headers
+                ForEach(3..<logText.count, id: \.self) { rowIndex in
+                    if !isRowEmpty(logText[rowIndex]) {
+                        LogTab(row: $logText[rowIndex])
+                    }
                 }
             }
         }
@@ -117,7 +124,7 @@ struct LogTab: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     if cellIndex < row.count {
-                        // Bind the TextField to the original row value
+                        // TODO: Refactor
                         TextField("", text: Binding(
                             get: {
                                 return row[cellIndex]
@@ -130,7 +137,7 @@ struct LogTab: View {
                         .multilineTextAlignment(.trailing)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                     } else {
-                        Text(">")
+                        Text("Error: more field detected than log fields")
                     }
                 }
             }

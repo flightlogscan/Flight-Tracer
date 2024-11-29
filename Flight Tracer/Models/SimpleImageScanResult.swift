@@ -1,5 +1,5 @@
 struct SimpleImageScanResult {
     let isImageValid: Bool
-    let validationError: ErrorCode
+    let errorCode: ErrorCode
     var imageText: [String]? = nil
 }

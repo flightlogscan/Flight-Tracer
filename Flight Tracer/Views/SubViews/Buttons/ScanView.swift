@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct ScanView: View {
-
+    
     @State var scanButtonActive: Bool = false
+    
     @Binding var activeScanPressed: Bool
     @Binding var isImageValid: Bool
     

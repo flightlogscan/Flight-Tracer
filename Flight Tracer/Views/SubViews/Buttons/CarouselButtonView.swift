@@ -2,11 +2,11 @@ import SwiftUI
 
 struct CarouselButtonView: View {
     
+    @Binding var selectedImage: ImageDetail
+    
     var thumbnailImage: UIImage
     var hiResImage: UIImage
     var carouselIndex: Int
-    let selectImageViewModel = SimpleImageScanner()
-    @Binding var selectedImage: ImageDetail
     
     var body: some View {
         Button {

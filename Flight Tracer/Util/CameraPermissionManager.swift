@@ -1,6 +1,7 @@
 import AVFoundation
 
 class CameraPermissionManager: ObservableObject {
+    
     @Published var hasPermission: Bool = false
 
     func requestPermission() {

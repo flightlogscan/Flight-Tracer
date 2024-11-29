@@ -2,7 +2,9 @@ import SwiftUI
 import PhotosUI
 
 struct PhotoCarouselView: View {
+    
     @StateObject private var photoPermissionsManager = PhotoPermissionsManager()
+    
     @Binding var selectedImage: ImageDetail
     
     var body: some View {
@@ -12,10 +14,10 @@ struct PhotoCarouselView: View {
                                 
                 ForEach(0..<photoPermissionsManager.thumbnailImages.count, id: \.self) { index in
                     CarouselButtonView(
+                        selectedImage: $selectedImage,
                         thumbnailImage: photoPermissionsManager.thumbnailImages[index],
                         hiResImage: photoPermissionsManager.thumbnailImages[index],
-                        carouselIndex: index,
-                        selectedImage: $selectedImage
+                        carouselIndex: index
                     )
                 }
                 

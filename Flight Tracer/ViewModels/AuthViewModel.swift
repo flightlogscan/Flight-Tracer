@@ -3,9 +3,11 @@ import FirebaseAuthUI
 import Combine
 
 class AuthViewModel: ObservableObject {
+    
     @Published var finishedCheckingLoginStatus = false
     @Published var user: User = User(id: "unknown", email: "unknown@example.com", token: "no-token")
     @Published var isLoggedIn: Bool = false
+    
     let authUI = FUIAuth.defaultAuthUI()
 
     init() {
@@ -48,6 +50,6 @@ class AuthViewModel: ObservableObject {
     }
     
     func isAdmin() -> Bool {
-        return user.email == "flightlogtracer@gmail.com"
+        return user.email == "will.janis@gmail.com" || user.email == "flightlogtracer@gmail.com"
     }
 }

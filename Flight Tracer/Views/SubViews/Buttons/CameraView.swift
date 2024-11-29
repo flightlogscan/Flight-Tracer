@@ -2,11 +2,10 @@ import SwiftUI
 import AVFoundation
 
 struct CameraView: View {
-    
-    @StateObject private var permissionManager = CameraPermissionManager()
-    
+        
     @State private var showCamera: Bool = false
     @State private var showAlert: Bool = false
+    @StateObject private var permissionManager = CameraPermissionManager()
     
     @Binding var selectedImage: ImageDetail
     
