@@ -29,7 +29,7 @@ struct LogSwiperView: View {
                         .zIndex(1)
                 }
             }
-            .accessibilityIdentifier("LogSwiperView") // Added identifier for LogSwiperView
+            .accessibilityIdentifier("LogSwiperView")
             .toolbar(content: {
                 ToolbarItem (placement: .topBarLeading) {
                     Button {
@@ -37,7 +37,7 @@ struct LogSwiperView: View {
                     } label: {
                         Label("", systemImage: "xmark")
                     }
-                    .accessibilityIdentifier("xmark") // Added identifier for the xmark button
+                    .accessibilityIdentifier("xmark")
                     .alert("Delete Log?", isPresented: $showAlert) {
                         Button("Cancel", role: .cancel) {}
                         Button("Delete", role: .destructive) {
@@ -50,7 +50,7 @@ struct LogSwiperView: View {
                 
                 ToolbarItem (placement: .topBarTrailing) {
                     DownloadView(data: viewModel.logText)
-                        .accessibilityIdentifier("DownloadView") // Added identifier for Download CSV button
+                        .accessibilityIdentifier("DownloadView")
                 }
             })
             .tint(.white)

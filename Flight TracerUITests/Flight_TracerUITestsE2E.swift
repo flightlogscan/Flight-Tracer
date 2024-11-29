@@ -56,12 +56,21 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         let displayedImage = imagePresentationView.images.firstMatch
         XCTAssertTrue(displayedImage.waitForExistence(timeout: 10), "Selected image should be displayed in ImagePresentationView")
         
-        // Cancel button
-//        sleep(5)
+//        // Cancel button
 //        let cancelButton = app.buttons["ImagePresentationView"]
-//        XCTAssertTrue(cancelButton.exists, "Cancel button should exist")
-//        
-//        cancelButton.tap()
+//        XCTAssertTrue(cancelButton.waitForExistence(timeout: 10), "Cancel button should exist")
+        
+        // Verify ImagePresentationView is dismissed when the X button is tapped
+        let imagePresentationViewCancel = app.descendants(matching: .any).matching(identifier: "ImagePresentationView").element(boundBy: 1)
+        XCTAssertTrue(imagePresentationViewCancel.exists, "The second ImagePresentationView should be visible")
+        imagePresentationViewCancel.tap()
+        sleep(2)
+        XCTAssertFalse(displayedImage.exists, "Image should no longer be displayed")
+        
+        carouselValidImage.tap()
+        
+        // Verify the selected image is displayed in ImagePresentationView
+        XCTAssertTrue(displayedImage.waitForExistence(timeout: 10), "Selected image should be displayed again in ImagePresentationView")
         
         // Verify ScanView is present
         let scanButton = app.buttons["ScanView"]
@@ -108,9 +117,22 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         
         // Verify ImagePresentationView exists
         XCTAssertTrue(imagePresentationView.waitForExistence(timeout: 5), "ImagePresentationView should be visible")
+        
+        let carouselInvalidImage = app.buttons["carouselButton1"]
+        XCTAssertTrue(carouselInvalidImage.exists, "carouselButton should exist on the UploadPageView")
+        carouselInvalidImage.tap()
+        
+        // Verify the "Error detected" alert appears
+        let errorAlert = app.alerts["Error detected:"]
+        XCTAssertTrue(errorAlert.waitForExistence(timeout: 10), "Error detected alert should appear")
+        
+        // Verify "Close" button exists in the alert
+        XCTAssertTrue(errorAlert.buttons["Close"].exists, "Close button should exist in the Error detected alert")
+        
+        // Tap the "Close" button and verify the alert disappears
+        errorAlert.buttons["Close"].tap()
+        XCTAssertFalse(errorAlert.exists, "Error detected alert should disappear after tapping Close")
     }
-    
-    // Select invalid image test case
     
     // Press cancel button
     
