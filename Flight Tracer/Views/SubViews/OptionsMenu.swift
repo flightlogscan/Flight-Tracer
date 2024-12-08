@@ -12,6 +12,7 @@ struct OptionsMenu: View {
             } label: {
                 Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
             }
+            .accessibilityIdentifier("Logout")
             
             if authViewModel.isAdmin() {
                 Picker(selection: $selectedScanType, label: Label("Options", systemImage: "gearshape")) {
@@ -24,5 +25,6 @@ struct OptionsMenu: View {
         } label: {
             Label("", systemImage: "gearshape")
         }
+        .accessibilityIdentifier("OptionsMenuButton")
     }
 }

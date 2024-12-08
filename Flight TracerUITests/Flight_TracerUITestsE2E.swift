@@ -16,6 +16,60 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         continueAfterFailure = false
         app.launch()
     }
+    
+    func testLogoutAndLoginFlow() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // Ensure we are logged in
+        let optionsMenuButton = app.buttons["OptionsMenu"]
+        XCTAssertTrue(optionsMenuButton.waitForExistence(timeout: 5), "Options menu button should be present")
+        
+        // Access the OptionsMenu
+        optionsMenuButton.tap()
+        
+        // Tap on "Logout"
+        let logoutButton = app.buttons["Logout"]
+        XCTAssertTrue(logoutButton.waitForExistence(timeout: 5), "Logout button should be present in OptionsMenu")
+        logoutButton.tap()
+        
+        // Verify we are on the login screen
+        let loginView = app.otherElements["LoginView"]
+        XCTAssertTrue(loginView.exists, "LoginView should appear after logging out")
+        
+        let loginWithEmailButton = app.buttons["Sign in with email"]
+        
+        XCTAssertTrue(loginWithEmailButton.exists, "Login button should be present on LoginView")
+        loginWithEmailButton.tap()
+        
+        // Perform login
+        let emailField = app.textFields["Enter your email"]
+        XCTAssertTrue(emailField.waitForExistence(timeout: 5), "Email field should be present on LoginView")
+        
+        // Input credentials (replace with your test credentials)
+        emailField.tap()
+        emailField.typeText("lancedesi@msn.com")
+        
+        
+        let nextButton = app.buttons["Next"]
+        
+        XCTAssertTrue(nextButton.exists, "Next button should be present on LoginView")
+        nextButton.tap()
+        
+        let passwordField = app.secureTextFields["Enter your password"]
+        XCTAssertTrue(passwordField.waitForExistence(timeout: 5), "Password field should be present on LoginView")
+        
+        passwordField.tap()
+        passwordField.typeText("Integtests1!")
+        
+        let signInButton = app.buttons["Sign in"]
+        
+        XCTAssertTrue(signInButton.exists, "Sign in button should be present on LoginView")
+        signInButton.tap()
+        
+        let uploadPageView = app.otherElements["Background"]
+        XCTAssertTrue(uploadPageView.waitForExistence(timeout: 5), "UploadPageView should load successfully")
+    }
 
     func testImagePresentationAndSelection() throws {
         // Verify UploadPageView is loaded
@@ -55,10 +109,6 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         // Verify the selected image is displayed in ImagePresentationView
         let displayedImage = imagePresentationView.images.firstMatch
         XCTAssertTrue(displayedImage.waitForExistence(timeout: 10), "Selected image should be displayed in ImagePresentationView")
-        
-//        // Cancel button
-//        let cancelButton = app.buttons["ImagePresentationView"]
-//        XCTAssertTrue(cancelButton.waitForExistence(timeout: 10), "Cancel button should exist")
         
         // Verify ImagePresentationView is dismissed when the X button is tapped
         let imagePresentationViewCancel = app.descendants(matching: .any).matching(identifier: "ImagePresentationView").element(boundBy: 1)
@@ -133,8 +183,4 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         errorAlert.buttons["Close"].tap()
         XCTAssertFalse(errorAlert.exists, "Error detected alert should disappear after tapping Close")
     }
-    
-    // Press cancel button
-    
-    // Log out and back in
 }

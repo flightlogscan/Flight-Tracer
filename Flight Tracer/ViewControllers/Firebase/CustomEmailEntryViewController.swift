@@ -21,6 +21,8 @@ class CustomEmailEntryViewController : FUIEmailEntryViewController {
         
         mainView.backgroundView = backgroundView
         
+        mainView.accessibilityIdentifier = "CustomEmail"
+        
         //Keeping in. Helpful for discovery of firebase auth ui views
 //        let foundViews: [UIScrollView] = self.view.findViews(subclassOf: UIScrollView.self)
 //        print(foundViews.count)
