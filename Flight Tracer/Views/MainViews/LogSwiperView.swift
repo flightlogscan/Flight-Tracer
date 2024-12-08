@@ -19,7 +19,7 @@ struct LogSwiperView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 if isDataLoaded {
-                    Logs(logText: $viewModel.logText)
+                    Logs(viewModel: viewModel)
                 } else {
                     ProgressView()
                         .tint(.white)
@@ -49,7 +49,7 @@ struct LogSwiperView: View {
                 }
                 
                 ToolbarItem (placement: .topBarTrailing) {
-                    DownloadView(data: viewModel.logText)
+                    DownloadView(data: viewModel.logTextArray)
                         .accessibilityIdentifier("DownloadView")
                 }
             })
@@ -73,14 +73,9 @@ struct LogSwiperView: View {
             .onAppear {
                 viewModel.scanImageForLogText(uiImage: uiImage, userToken: authViewModel.user.token, selectedScanType: selectedScanType)
             }
-            .onReceive(viewModel.$logText) { _ in
+            .onReceive(viewModel.$rowViewModels) { _ in
                 Task {
-                    if !viewModel.logText.isEmpty {
-                        print("image text loaded count \($viewModel.logText.count)")
-                        print("logText:")
-                        for (rowIndex, row) in viewModel.logText.enumerated() {
-                            print("Row \(rowIndex): \(row)")
-                        }
+                    if !viewModel.rowViewModels.isEmpty {
                         isDataLoaded = true
                     }
                 }
@@ -89,31 +84,31 @@ struct LogSwiperView: View {
     }
 }
 
-
 struct Logs: View {
-    @Binding var logText: [[String]]
+    @ObservedObject var viewModel: LogSwiperViewModel
 
     var body: some View {
         TabView {
-            if ($logText.count > 2) {
-                // Skip first 2 rows because of headers
-                ForEach(3..<logText.count, id: \.self) { rowIndex in
-                    if !isRowEmpty(logText[rowIndex]) {
-                        LogTab(row: $logText[rowIndex])
-                    }
+            if viewModel.rowViewModels.count > 0 {
+                ForEach(viewModel.rowViewModels.indices, id: \.self) { rowIndex in
+                    LogTab(rowViewModel: viewModel.rowViewModels[rowIndex])
                 }
+            } else {
+                ProgressView()
+                    .foregroundColor(.white)
+                    .tint(.white)
+                    .padding()
+                    .background(.black)
+                    .cornerRadius(10)
+                    .zIndex(1)
             }
         }
         .tabViewStyle(PageTabViewStyle())
     }
-    
-    private func isRowEmpty(_ row: [String]) -> Bool {
-        return row.allSatisfy { $0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-    }
 }
 
 struct LogTab: View {
-    @Binding var row: [String]
+    @ObservedObject var rowViewModel: LogRowViewModel
     let logFieldMetadata = LogMetadataLoader.getLogMetadata(named: "JeppesenLogFormat")
         
     var body: some View {
@@ -125,21 +120,14 @@ struct LogTab: View {
                         .font(.system(size: 14))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    if cellIndex < row.count {
-                        // TODO: Refactor
-                        TextField("", text: Binding(
-                            get: {
-                                return row[cellIndex]
-                            },
-                            set: { newValue in
-                                row[cellIndex] = newValue
-                            }
-                        ))
-                        .font(.system(size: 14))
-                        .multilineTextAlignment(.trailing)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                    if cellIndex < rowViewModel.fields.count {
+                        TextField("", text: $rowViewModel.fields[cellIndex])
+                            .font(.system(size: 14))
+                            .multilineTextAlignment(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                     } else {
-                        Text("Error: more field detected than log fields")
+                        Text("Error: more fields detected than log fields")
+                            .foregroundColor(.red)
                     }
                 }
             }
