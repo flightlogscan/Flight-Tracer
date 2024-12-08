@@ -56,7 +56,7 @@ struct LoginView : UIViewControllerRepresentable {
             self.parent = parent
         }
         
-        //TODO: Do we need all these prints?
+        // TODO: Do we need all these prints? Great question! Yes we do.
         func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?){
             
             if let authDataResult {
