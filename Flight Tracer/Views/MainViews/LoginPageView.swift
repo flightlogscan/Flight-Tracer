@@ -27,17 +27,15 @@ struct LoginView : UIViewControllerRepresentable {
           requireDisplayName: false,
           actionCodeSetting: settings
         )
-        emailAuth.buttonAlignment = .center
-        
         let googleAuth = FUIGoogleAuth(authUI: authUI!)
-        googleAuth.buttonAlignment = .center
+        let appleAuth = FUIOAuth.appleAuthProvider(withAuthUI: authUI!, userInterfaceStyle: .dark)
 
         let providers : [FUIAuthProvider] = [
-            emailAuth,
-            googleAuth,
             //https://firebase.google.com/docs/auth/ios/apple
             //TODO: Apple sign-in requires enrollment: https://developer.apple.com/programs/enroll/
-            FUIOAuth.appleAuthProvider()
+            appleAuth,
+            emailAuth,
+            googleAuth,
         ]
 
         authUI?.providers = providers
@@ -106,4 +104,8 @@ struct LoginView : UIViewControllerRepresentable {
             return CustomPasswordRecoveryViewController(authUI: authUI, email: email)
         }
     }
+}
+
+#Preview {
+    ContentView()
 }

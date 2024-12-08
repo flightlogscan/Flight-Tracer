@@ -53,7 +53,13 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
                 providerButton.titleLabel?.textAlignment = .center
                 
                 var configuration = UIButton.Configuration.filled()
-                configuration.baseBackgroundColor = .darkGray
+                
+                if (providerButton.titleLabel?.text == "Sign in with Apple") {
+                    configuration.baseBackgroundColor = .white
+                    providerButton.setTitleColor(.black, for: .normal)
+                } else {
+                    configuration.baseBackgroundColor = .darkGray
+                }
 
                 providerButton.configuration = configuration
                 providerButton.contentHorizontalAlignment = .center
