@@ -2,10 +2,11 @@ import SwiftUI
 
 class LogSwiperViewModel: ObservableObject {
     
-    @Published var logText: [[String]] = []
     @Published var isImageValid: Bool = false
     @Published var alertMessage = ErrorCode.NO_ERROR.message
     @Published var showAlert: Bool = false
+    @Published var rowViewModels: [LogRowViewModel] = []
+    @Published var logTextArray: [[String]] = []
     
     let advancedImageScanner = AdvancedImageScanner()
     let logTextRefiner = LogTextRefiner()
@@ -17,7 +18,8 @@ class LogSwiperViewModel: ObservableObject {
             
             //Reset validation before new scan
             await MainActor.run {
-                logText = []
+                rowViewModels = []
+                logTextArray = []
                 isImageValid = false
                 alertMessage = ErrorCode.NO_ERROR.message
                 showAlert = false
@@ -27,27 +29,25 @@ class LogSwiperViewModel: ObservableObject {
                 let advancedImageScanResult = try await advancedImageScanner.analyzeImageAsync(uiImage: uiImage, userToken: userToken, selectedScanType: selectedScanType)
             
                 await MainActor.run {
-                    self.isImageValid = advancedImageScanResult.isImageValid
-                    self.alertMessage = advancedImageScanResult.errorCode.message
+                    isImageValid = advancedImageScanResult.isImageValid
+                    alertMessage = advancedImageScanResult.errorCode.message
                     
                     if let result = advancedImageScanResult.analyzeResult {
-                        let unrefinedTextArray = convertToArray(analyzeResult: result, logFieldMetadata: self.logFieldMetadata)
+                        let unrefinedTextArray = convertToArray(analyzeResult: result, logFieldMetadata: logFieldMetadata)
                         
-                        let refinedTextArray = self.logTextRefiner.refineLogText(
+                        logTextArray = logTextRefiner.refineLogText(
                             unrefinedLogText: unrefinedTextArray,
-                            logFieldMetadata: self.logFieldMetadata
+                            logFieldMetadata: logFieldMetadata
                         )
-                        
-                        self.logText = refinedTextArray
+                                                
+                        rowViewModels = logTextArray.map { LogRowViewModel(fields: $0) }
                     }
-                    
-                    
                 }
             } catch {
                 await MainActor.run {
-                    self.isImageValid = false
-                    self.alertMessage = ErrorCode.SERVER_ERROR.message
-                    self.showAlert = true
+                    isImageValid = false
+                    alertMessage = ErrorCode.SERVER_ERROR.message
+                    showAlert = true
                 }
             }
         }
