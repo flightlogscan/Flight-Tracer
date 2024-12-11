@@ -53,7 +53,6 @@
 		D836F9412B01520F000FC988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* ContentView.swift */; };
 		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
 		D83C3CEF2B13ACF80094EEAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CEE2B13ACF80094EEAE /* FirebaseAuth */; };
-		D83C3CF32B13B34C0094EEAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */; };
 		D83C3CF62B13B6F70094EEAE /* FirebaseAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CF52B13B6F70094EEAE /* FirebaseAuthUI */; };
 		D83C3CF82B13B6F70094EEAE /* FirebaseEmailAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CF72B13B6F70094EEAE /* FirebaseEmailAuthUI */; };
 		D83C3CFA2B13B6F70094EEAE /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CF92B13B6F70094EEAE /* FirebaseGoogleAuthUI */; };
@@ -95,6 +94,7 @@
 		D896A0F82CF116FB003AA2F8 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896A0F72CF116F7003AA2F8 /* Image+Extensions.swift */; };
 		D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */; };
 		D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraViewController.swift */; };
+		D8D599752D09399900EA88D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8D599742D09399900EA88D8 /* GoogleService-Info.plist */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8EA04E82CF29E0600FE8EA5 /* AnalyzeResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA04E72CF29DF200FE8EA5 /* AnalyzeResultConverter.swift */; };
 		D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */; };
@@ -140,7 +140,6 @@
 		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D836F9402B01520F000FC988 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +178,8 @@
 		D896A0F72CF116F7003AA2F8 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
 		D8D458D92AACCFE500E29B83 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		D8D599712D091B9400EA88D8 /* Flight TracerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Flight TracerRelease.entitlements"; sourceTree = "<group>"; };
+		D8D599742D09399900EA88D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8EA04E72CF29DF200FE8EA5 /* AnalyzeResultConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultConverter.swift; sourceTree = "<group>"; };
 		D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageScanResult.swift; sourceTree = "<group>"; };
@@ -318,6 +319,7 @@
 		D879523C2AA3D49F0076E898 /* Flight Tracer */ = {
 			isa = PBXGroup;
 			children = (
+				D8D599712D091B9400EA88D8 /* Flight TracerRelease.entitlements */,
 				D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */,
 				D8110EE02CE90E5600C76D7B /* Config */,
 				9E81E8522AB7E9B100524C29 /* Daos */,
@@ -330,7 +332,7 @@
 				D879524D2AA3D49F0076E898 /* Hardcoded */,
 				D87952482AA3D49F0076E898 /* Preview Content */,
 				D87952472AA3D49F0076E898 /* Assets.xcassets */,
-				D83C3CF22B13B34C0094EEAE /* GoogleService-Info.plist */,
+				D8D599742D09399900EA88D8 /* GoogleService-Info.plist */,
 				D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */,
 				D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */,
 				D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */,
@@ -587,11 +589,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D599752D09399900EA88D8 /* GoogleService-Info.plist in Resources */,
 				D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */,
 				9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */,
 				D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */,
 				D86B85BC2C95EFC2002E8C13 /* Magnolia Script.otf in Resources */,
-				D83C3CF32B13B34C0094EEAE /* GoogleService-Info.plist in Resources */,
 				D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,7 +864,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
-				DEVELOPMENT_TEAM = FCQ8S8M7W8;
+				DEVELOPMENT_TEAM = NHB5BVN6YR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -891,7 +893,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willance.flightlogscan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -908,13 +910,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = willicon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight TracerRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
-				DEVELOPMENT_TEAM = QY2C59Y3V4;
+				DEVELOPMENT_TEAM = NHB5BVN6YR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -943,7 +945,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-Tracer1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willance.flightlogscan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -959,16 +961,18 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 82G935W95D;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willance.flightlogscan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -984,6 +988,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -992,8 +997,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willance.flightlogscan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1009,12 +1015,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 82G935W95D;
+				DEVELOPMENT_TEAM = NHB5BVN6YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willance.flightlogscan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1031,12 +1037,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 82G935W95D;
+				DEVELOPMENT_TEAM = NHB5BVN6YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "wilburenterprises.Flight-TracerUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willance.flightlogscan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
