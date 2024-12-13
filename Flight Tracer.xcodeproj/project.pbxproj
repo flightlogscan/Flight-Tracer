@@ -870,7 +870,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = FlightLogTracer;
+				INFOPLIST_KEY_CFBundleDisplayName = FlightLogScan;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used to access flight logs in your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -922,7 +922,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = FlightLogTracer;
+				INFOPLIST_KEY_CFBundleDisplayName = FlightLogScan;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used to access flight logs in your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

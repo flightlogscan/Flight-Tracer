@@ -39,7 +39,7 @@ struct UploadPageView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Flight Log Tracer")
+                    Text("Flight Log Scan")
                         .font(.custom(
                             "Magnolia Script",
                             fixedSize: 20))
