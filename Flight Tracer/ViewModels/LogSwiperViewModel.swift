@@ -6,7 +6,6 @@ class LogSwiperViewModel: ObservableObject {
     @Published var alertMessage = ErrorCode.NO_ERROR.message
     @Published var showAlert: Bool = false
     @Published var rowViewModels: [LogRowViewModel] = []
-    @Published var logTextArray: [[String]] = []
     
     let advancedImageScanner = AdvancedImageScanner()
     let logTextRefiner = LogTextRefiner()
@@ -19,7 +18,6 @@ class LogSwiperViewModel: ObservableObject {
             //Reset validation before new scan
             await MainActor.run {
                 rowViewModels = []
-                logTextArray = []
                 isImageValid = false
                 alertMessage = ErrorCode.NO_ERROR.message
                 showAlert = false
@@ -35,7 +33,7 @@ class LogSwiperViewModel: ObservableObject {
                     if let result = advancedImageScanResult.analyzeResult {
                         let unrefinedTextArray = convertToArray(analyzeResult: result, logFieldMetadata: logFieldMetadata)
                         
-                        logTextArray = logTextRefiner.refineLogText(
+                        let logTextArray = logTextRefiner.refineLogText(
                             unrefinedLogText: unrefinedTextArray,
                             logFieldMetadata: logFieldMetadata
                         )

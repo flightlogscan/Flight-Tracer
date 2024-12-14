@@ -49,7 +49,7 @@ struct LogSwiperView: View {
                 }
                 
                 ToolbarItem (placement: .topBarTrailing) {
-                    DownloadView(data: viewModel.logTextArray)
+                    DownloadView(rowViewModels: viewModel.rowViewModels)
                         .accessibilityIdentifier("DownloadView")
                 }
             })
