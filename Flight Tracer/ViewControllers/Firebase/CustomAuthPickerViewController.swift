@@ -29,7 +29,6 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
         buttonTray.backgroundColor = .black
         buttonTray.layer.cornerRadius = 40.0
         
-        
         // Only top left and right corners of view are rounded
         buttonTray.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
@@ -38,10 +37,11 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
 
         // Check if the device is an iPhone SE (1st, 2nd, or 3rd generation)
         if screenHeight <= 667 { // iPhone SE (1st Gen: 568, 2nd/3rd Gen: 667)
-            buttonContainerView.frame.size = CGSize(width: 300, height: 100)
+            buttonContainerView.frame.size = CGSize(width: 300, height: 50)
         } else {
-            buttonContainerView.frame.size = CGSize(width: 300, height: 150)
+            buttonContainerView.frame.size = CGSize(width: 300, height: 115)
         }
+        
         for each in buttonContainerView.subviews {
             if let providerButton = each as? UIButton {
                 providerButton.frame.origin.x -= 9
@@ -79,7 +79,7 @@ class CustomAuthPickerViewController : FUIAuthPickerViewController {
     }
     
     private func createLogoText() {
-        logoLabel.text = "Flight Log Tracer"
+        logoLabel.text = "Flight Log Scan"
         logoLabel.textColor = .white
         logoLabel.font = UIFont(name: "Magnolia Script", size: 40)
         logoLabel.sizeToFit()

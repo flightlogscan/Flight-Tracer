@@ -31,13 +31,13 @@ struct LoginView : UIViewControllerRepresentable {
         let appleAuth = FUIOAuth.appleAuthProvider(withAuthUI: authUI!, userInterfaceStyle: .dark)
 
         let providers : [FUIAuthProvider] = [
-            //https://firebase.google.com/docs/auth/ios/apple
             appleAuth,
             googleAuth,
-            emailAuth,
+            //TODO: This email sign up is an ugly UI. Might be unnecessary. We can add it back if users request.
+            // emailAuth,
         ]
 
-        authUI?.providers = providers
+        authUI?.providers = providers 
         authUI?.delegate = context.coordinator
 
         let authViewController = authUI?.authViewController()
