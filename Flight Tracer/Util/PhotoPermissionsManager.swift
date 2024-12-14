@@ -36,6 +36,7 @@ class PhotoPermissionsManager: NSObject, ObservableObject, PHPhotoLibraryChangeO
         fetchOptions.fetchLimit = 10
         imageRequestOptions.deliveryMode = .highQualityFormat
         imageRequestOptions.isSynchronous = true
+        imageRequestOptions.isNetworkAccessAllowed = isICloudAvailable()
         
         let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         thumbnailImages = []
@@ -64,4 +65,9 @@ class PhotoPermissionsManager: NSObject, ObservableObject, PHPhotoLibraryChangeO
             }
         }
     }
+    
+    func isICloudAvailable() -> Bool {
+           // Check if iCloud is available using the FileManager ubiquity container
+           return FileManager.default.ubiquityIdentityToken != nil
+       }
 }

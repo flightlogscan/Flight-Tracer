@@ -2,8 +2,8 @@ import SwiftUI
 import FirebasePerformance
 
 struct DownloadView: View {
-    
     let rowViewModels: [LogRowViewModel]
+    @State private var isICloudEnabled: Bool = false
 
     var body: some View {
         Button {
@@ -18,19 +18,15 @@ struct DownloadView: View {
                 trace?.stop()
             }
         } label: {
-            Text("Download CSV")
+            Label("", systemImage: isICloudEnabled ? "icloud.and.arrow.down" : "tray.and.arrow.down")
+        }
+        .accessibilityIdentifier("DownloadMenuButton")
+        .onAppear {
+            checkICloudStatus()
         }
     }
-    
-    private func toArray(rowViewModels: [LogRowViewModel]) -> [[String]] {
-        let logMetadata = LogMetadataLoader.getLogMetadata(named: "JeppesenLogFormat")
-        
-        let fieldNamesRow = logMetadata.flatMap { Array(repeating: $0.fieldName, count: $0.columnCount) }
-        
-        let logRows = rowViewModels.map { $0.fields }
-        
-        print("logRows: \(logRows)")
-        
-        return [fieldNamesRow] + logRows
+
+    private func checkICloudStatus() {
+        isICloudEnabled = FileManager.default.ubiquityIdentityToken != nil
     }
 }
