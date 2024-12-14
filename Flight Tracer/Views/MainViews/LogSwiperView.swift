@@ -110,12 +110,16 @@ struct Logs: View {
 struct LogTab: View {
     @ObservedObject var rowViewModel: LogRowViewModel
     let logFieldMetadata = LogMetadataLoader.getLogMetadata(named: "JeppesenLogFormat")
+    
+    var flattenedMetadata: [LogFieldMetadata] {
+        logFieldMetadata.flatMap { Array(repeating: $0, count: $0.columnCount) }
+    }
         
     var body: some View {
         List {
-            ForEach(0..<logFieldMetadata.count, id: \.self) { cellIndex in
+            ForEach(0..<flattenedMetadata.count, id: \.self) { cellIndex in
                 HStack {
-                    Text(logFieldMetadata[cellIndex].fieldName)
+                    Text(flattenedMetadata[cellIndex].fieldName)
                         .bold()
                         .font(.system(size: 14))
                         .frame(maxWidth: .infinity, alignment: .leading)

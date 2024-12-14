@@ -24,5 +24,6 @@ func convertToArray(analyzeResult: AnalyzeResult, logFieldMetadata: [LogFieldMet
         columnOffset += table.columnCount
     }
     
+    print("analyze result converted array: \(resultArray)")
     return resultArray
 }
