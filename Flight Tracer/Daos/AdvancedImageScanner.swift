@@ -4,7 +4,7 @@ import FirebasePerformance
 struct AdvancedImageScanner {
     
     //When server is up
-    let realEndpoint = "https://flightlogtracer.com"
+    let realEndpoint = "https://api.flightlogtracer.com"
 
     //local
     let localEndpoint = "http://localhost"

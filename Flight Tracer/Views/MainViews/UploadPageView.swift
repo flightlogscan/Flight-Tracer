@@ -6,7 +6,7 @@ struct UploadPageView: View {
     
     @StateObject var viewModel = UploadPageViewModel()
     @State var activeScanPressed: Bool = false
-    @State var selectedScanType: ScanType = .localhost // TODO: Default to real API call instead of localhost
+    @State var selectedScanType: ScanType = .api
          
     var body: some View {
         NavigationStack {
