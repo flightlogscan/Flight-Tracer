@@ -5,6 +5,4 @@ class LogRowViewModel: ObservableObject, Identifiable {
     init(fields: [String]) {
         self.fields = fields
     }
-    
-    
 }

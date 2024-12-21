@@ -36,7 +36,7 @@
 		9E4A08602BEFE48B00EC7C17 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		9E4A08612BEFE48B00EC7C17 /* ExampleGetAnalyzeResultFormLayout.json in Resources */ = {isa = PBXBuildFile; fileRef = D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */; };
 		9E4A08622BEFE48B00EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
-		9E4A08642BEFE79B00EC7C17 /* OptionsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */; };
+		9E4A08642BEFE79B00EC7C17 /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A08632BEFE79B00EC7C17 /* SettingsMenu.swift */; };
 		9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */; };
 		9E81E8542AB7EA2800524C29 /* AdvancedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */; };
 		9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */; };
@@ -93,6 +93,11 @@
 		D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A22ABBE1E40080D5EB /* ScanView.swift */; };
 		D88DE8A52AC0AF7F0080D5EB /* DownloadMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A42AC0AF7F0080D5EB /* DownloadMenu.swift */; };
 		D896A0F82CF116FB003AA2F8 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896A0F72CF116F7003AA2F8 /* Image+Extensions.swift */; };
+		D8A521FB2D175C49003825CF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A521FA2D175C45003825CF /* SettingsViewModel.swift */; };
+		D8A521FD2D175EBB003825CF /* SettingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A521FC2D175EB7003825CF /* SettingSheet.swift */; };
+		D8A521FF2D1760BE003825CF /* AdminSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */; };
+		D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */; };
+		D8A522012D1760BE003825CF /* AdminSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */; };
 		D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */; };
 		D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraViewController.swift */; };
 		D8D599752D09399900EA88D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8D599742D09399900EA88D8 /* GoogleService-Info.plist */; };
@@ -122,7 +127,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsMenu.swift; sourceTree = "<group>"; };
+		9E4A08632BEFE79B00EC7C17 /* SettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
 		9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonAPIView.swift; sourceTree = "<group>"; };
 		9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleResultResponse.json; sourceTree = "<group>"; };
 		9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedImageScanner.swift; sourceTree = "<group>"; };
@@ -178,6 +183,9 @@
 		D88DE8A22ABBE1E40080D5EB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D88DE8A42AC0AF7F0080D5EB /* DownloadMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadMenu.swift; sourceTree = "<group>"; };
 		D896A0F72CF116F7003AA2F8 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
+		D8A521FA2D175C45003825CF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D8A521FC2D175EB7003825CF /* SettingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSheet.swift; sourceTree = "<group>"; };
+		D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingsSection.swift; sourceTree = "<group>"; };
 		D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
 		D8D458D92AACCFE500E29B83 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D8D599712D091B9400EA88D8 /* Flight TracerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Flight TracerRelease.entitlements"; sourceTree = "<group>"; };
@@ -331,7 +339,7 @@
 				D879523D2AA3D49F0076E898 /* ViewModels */,
 				D87952402AA3D49F0076E898 /* Util */,
 				D83C76652CEA4E2200DDAACD /* Extensions */,
-				D879524D2AA3D49F0076E898 /* Hardcoded */,
+				D879524D2AA3D49F0076E898 /* Admin */,
 				D87952482AA3D49F0076E898 /* Preview Content */,
 				D87952472AA3D49F0076E898 /* Assets.xcassets */,
 				D8D599742D09399900EA88D8 /* GoogleService-Info.plist */,
@@ -345,6 +353,7 @@
 		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D8A521FA2D175C45003825CF /* SettingsViewModel.swift */,
 				D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */,
 				D841CC2B2CE1251100A02B5D /* AuthViewModel.swift */,
 				D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */,
@@ -377,15 +386,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D879524D2AA3D49F0076E898 /* Hardcoded */ = {
+		D879524D2AA3D49F0076E898 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */,
 				D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */,
 				D8DD98232AA81F4100F43034 /* custom-layout.json */,
 				D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */,
 				9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */,
 			);
-			path = Hardcoded;
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		D87952532AA3D49F0076E898 /* Views */ = {
@@ -404,7 +414,8 @@
 				D88ABFF52BDE9E5F001244B2 /* SkeletonViews */,
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
-				9E4A08632BEFE79B00EC7C17 /* OptionsMenu.swift */,
+				9E4A08632BEFE79B00EC7C17 /* SettingsMenu.swift */,
+				D8A521FC2D175EB7003825CF /* SettingSheet.swift */,
 				D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */,
 				9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */,
 				9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */,
@@ -648,6 +659,7 @@
 				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
+				D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */,
 				D83C76692CEA679100DDAACD /* UploadPageViewModel.swift in Sources */,
@@ -657,12 +669,13 @@
 				D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
 				D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */,
+				D8A521FD2D175EBB003825CF /* SettingSheet.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
 				D8442AC92CF6987A0087450B /* ScanType.swift in Sources */,
-				9E4A08642BEFE79B00EC7C17 /* OptionsMenu.swift in Sources */,
+				9E4A08642BEFE79B00EC7C17 /* SettingsMenu.swift in Sources */,
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
 				D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */,
@@ -681,6 +694,7 @@
 				D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */,
 				D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */,
 				D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */,
+				D8A521FB2D175C49003825CF /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +705,7 @@
 				9E1ED63A2CFA31EB002584A4 /* LogFieldMetadata.swift in Sources */,
 				9E1ED63C2CFA31F0002584A4 /* SimpleImageScanResult.swift in Sources */,
 				9E1ED6322CFA31D5002584A4 /* ScanType.swift in Sources */,
+				D8A522012D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				9E1ED6362CFA31E2002584A4 /* AnalyzeResult.swift in Sources */,
 				9E1ED6342CFA31DB002584A4 /* LogFieldType.swift in Sources */,
 				D8442AD42CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
@@ -709,6 +724,7 @@
 				9E1ED62F2CFA31A2002584A4 /* AdvancedImageScanResult.swift in Sources */,
 				9E1ED6372CFA31E2002584A4 /* AnalyzeResult.swift in Sources */,
 				9E1ED6392CFA31E7002584A4 /* ImageDetail.swift in Sources */,
+				D8A521FF2D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				9E1ED6332CFA31D5002584A4 /* ScanType.swift in Sources */,
 				9EC2454D2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift in Sources */,
 				D8442AD32CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
