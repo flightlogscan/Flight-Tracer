@@ -42,12 +42,12 @@ struct UploadPageView: View {
                     Text("Flight Log Scan")
                         .font(.custom(
                             "Magnolia Script",
-                            fixedSize: 20))
+                            fixedSize: 24))
                         .foregroundStyle(.white)
                         .accessibilityIdentifier("ToolbarTitle")
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    OptionsMenu(selectedScanType: $selectedScanType)
+                    SettingsMenu(selectedScanType: $selectedScanType)
                         .accessibilityIdentifier("OptionsMenu")
                 }
             }

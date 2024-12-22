@@ -12,14 +12,13 @@ struct ScanView: View {
             Button {
                 activeScanPressed = scanButtonActive
             } label: {
-                Label("Scan photo", systemImage: "doc.viewfinder.fill")
+                Label("Scan log", systemImage: "doc.viewfinder.fill")
                     .frame(maxWidth: .infinity)
                     .font(.title2)
                     .padding()
             }
             .buttonStyle(.borderedProminent)
             .tint(scanButtonActive ? .green : .gray.opacity(0.5))
-            .shadow(color: scanButtonActive ? .gray : .clear, radius: scanButtonActive ? 5 : 0)
             .bold()
             .padding([.leading, .trailing, .bottom])
             .accessibilityIdentifier("ScanPhotoButton")
