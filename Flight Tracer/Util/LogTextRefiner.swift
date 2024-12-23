@@ -10,12 +10,16 @@ struct LogTextRefiner {
         refinedLogText = refinedLogText.filter { !isRowWhitespaceOrEmpty($0) }
         
         // Replace commonly mistaken characters in fields we know should be numbers, e.g. o and 0
-        for rowIndex in 0..<refinedLogText.count {
-            for columnIndex in 0..<refinedLogText[rowIndex].count {
-                if columnIndex < logFieldMetadata.count, logFieldMetadata[columnIndex].type == .INTEGER {
-                    refinedLogText[rowIndex][columnIndex] = replaceCharacters(in: refinedLogText[rowIndex][columnIndex])
+        var columnStartIndex = 0
+        for metadata in logFieldMetadata {
+            for columnIndex in columnStartIndex..<(columnStartIndex + metadata.columnCount) {
+                for rowIndex in 0..<refinedLogText.count {
+                    if metadata.type == .INTEGER { // (new)
+                        refinedLogText[rowIndex][columnIndex] = replaceCharacters(in: refinedLogText[rowIndex][columnIndex])
+                    }
                 }
             }
+            columnStartIndex += metadata.columnCount
         }
         
         return refinedLogText
