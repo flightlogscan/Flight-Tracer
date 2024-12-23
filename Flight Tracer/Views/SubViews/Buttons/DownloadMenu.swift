@@ -18,7 +18,7 @@ struct DownloadView: View {
                 trace?.stop()
             }
         } label: {
-            Label("", systemImage: isICloudEnabled ? "icloud.and.arrow.down" : "tray.and.arrow.down")
+            Label("", systemImage: isICloudEnabled ? "icloud.and.arrow.up" : "arrow.down.to.line")
         }
         .accessibilityIdentifier("DownloadMenuButton")
         .onAppear {
