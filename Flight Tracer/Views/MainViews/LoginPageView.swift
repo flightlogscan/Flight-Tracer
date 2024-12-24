@@ -17,16 +17,17 @@ struct LoginView : UIViewControllerRepresentable {
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.shouldHideCancelButton = true
         
-        let settings = ActionCodeSettings()
+       // let settings = ActionCodeSettings()
 
-        let emailAuth = FUIEmailAuth(
-          authAuthUI: authUI!,
-          signInMethod: EmailPasswordAuthSignInMethod,
-          forceSameDevice: false,
-          allowNewEmailAccounts: true,
-          requireDisplayName: false,
-          actionCodeSetting: settings
-        )
+//        let emailAuth = FUIEmailAuth(
+//          authAuthUI: authUI!,
+//          signInMethod: EmailPasswordAuthSignInMethod,
+//          forceSameDevice: false,
+//          allowNewEmailAccounts: true,
+//          requireDisplayName: false,
+//          actionCodeSetting: settings
+//        )
+        
         let googleAuth = FUIGoogleAuth(authUI: authUI!)
         let appleAuth = FUIOAuth.appleAuthProvider(withAuthUI: authUI!, userInterfaceStyle: .dark)
 

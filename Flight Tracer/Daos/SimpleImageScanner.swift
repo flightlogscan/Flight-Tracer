@@ -6,14 +6,18 @@ class SimpleImageScanner {
     let imageTextRecognizer = ImageTextRecognizer()
     
     func simpleImageScan(image: UIImage) async throws -> SimpleImageScanResult {
-        let data = image.jpegData(compressionQuality: 1.0)!
+        let data = image.jpegData(compressionQuality: 0.8)!
         let formatter = ByteCountFormatter()
         formatter.allowedUnits = ByteCountFormatter.Units.useKB
         formatter.countStyle = ByteCountFormatter.CountStyle.file
         
         let trace = Performance.startTrace(name: "BasicImageValidation")
         
-        if (data.count/1000 > 10000) {
+        let imageSizeKB = Double(data.count) / 1024.0
+        print("imagesizekb = \(imageSizeKB)")
+
+        if (imageSizeKB > 4096) {
+            
             trace?.incrementMetric("InvalidSize", by: 1)
             trace?.stop()
             return SimpleImageScanResult(isImageValid: false, errorCode: ErrorCode.MAX_SIZE_EXCEEDED)

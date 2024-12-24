@@ -8,6 +8,7 @@ struct LogTextRefiner {
         
         // Remove blank rows
         refinedLogText = refinedLogText.filter { !isRowWhitespaceOrEmpty($0) }
+        refinedLogText = refinedLogText.filter { !containsUnwantedStrings($0) }
         
         // Replace commonly mistaken characters in fields we know should be numbers, e.g. o and 0
         var columnStartIndex = 0
@@ -28,6 +29,16 @@ struct LogTextRefiner {
     private func isRowWhitespaceOrEmpty(_ row: [String]) -> Bool {
         return row.allSatisfy { $0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     }
+    
+    // New private function to remove rows containing specific strings
+        private func containsUnwantedStrings(_ row: [String]) -> Bool {
+            let unwantedStrings = ["I certify that", "TOTALS", "AMT. FORWARDED"]
+            return row.contains { cell in
+                unwantedStrings.contains { unwanted in
+                    cell.localizedCaseInsensitiveContains(unwanted)
+                }
+            }
+        }
     
     private func replaceCharacters(in input: String) -> String {
         var result = input
