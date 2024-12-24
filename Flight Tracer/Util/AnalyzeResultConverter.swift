@@ -4,7 +4,18 @@ func convertToArray(analyzeResult: AnalyzeResult, logFieldMetadata: [LogFieldMet
     
     // Tables 1 and 3 because there is a "Totals" table on the log that we don't use
     // TODO: Is this unique to Jeppesen or do other logs have this too?
-    let originalTables = analyzeResult.tables.indices.contains(2) ? [analyzeResult.tables[0], analyzeResult.tables[2]] : [analyzeResult.tables[0]]
+    let originalTables: [Table]
+    
+    switch analyzeResult.tables.count {
+    case 3: // If there are 3 tables (indices 0, 1, 2)
+        originalTables = [analyzeResult.tables[0], analyzeResult.tables[2]]
+    case 2: // If there are 2 tables (indices 0, 1)
+        originalTables = [analyzeResult.tables[0], analyzeResult.tables[1]]
+    case 1: // If there is only 1 table (index 0)
+        originalTables = [analyzeResult.tables[0]]
+    default: // Fallback for unexpected cases
+        originalTables = []
+    }
     
     // form recognizer sometimes views the edge of the page as an empty first column
     // if it does, remove it
