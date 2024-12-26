@@ -14,19 +14,20 @@ struct SettingsSheet: View {
             ZStack {
                 Text("Settings")
                     .font(.system(size: 20, weight: .semibold))
+                    .frame(maxWidth: .infinity, alignment: .center) // Center the text within the ZStack
                 
                 HStack {
+                    Spacer()
                     Button(action: {
                         withAnimation {
                             isSheetPresented = false
                         }
                     }) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.primary)
-                            .frame(width: 24, height: 24)
-                            .padding(.leading)
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(.gray, .gray.opacity(0.2))
+                            .imageScale(.medium) // Makes the SF Symbol larger
+                            .font(.system(size: 28)) // Adjust size as needed
                     }
-                    Spacer()
                 }
             }
             .frame(height: 44)
@@ -88,11 +89,10 @@ struct AccountSection: View {
                 HStack {
                     Spacer()
                     Text("Sign Out")
-                        .foregroundColor(Color.red)
+                        .tint(.red)
                     Spacer()
                 }
             }
-            .buttonStyle(PlainButtonStyle())
             .accessibilityIdentifier("SignOutButton")
         }
     }
@@ -111,12 +111,12 @@ struct SettingsButton: View {
                     .foregroundColor(.navyBlue)
                     .frame(width: 24, height: 24)
                 Text(title)
+                    .tint(.black)
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundColor(.gray)
             }
         }
-        .buttonStyle(PlainButtonStyle())
         .accessibilityIdentifier(accessibilityIdentifier ?? "")
     }
 }

@@ -52,7 +52,9 @@ struct LogTextRefiner {
             "S": "5",
             "s": "5",
             "Z": "2",
-            "z": "2"
+            "z": "2",
+            "b": "6",
+            "B": "8"
         ]
         
         for (key, value) in replacements {
