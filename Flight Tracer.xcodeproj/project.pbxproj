@@ -88,6 +88,9 @@
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
 		D8831E122CFBA7EE00F7ADFF /* LogRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */; };
 		D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87952472AA3D49F0076E898 /* Assets.xcassets */; };
+		D88804EE2D29F00200EB0A56 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = D88804ED2D29F00200EB0A56 /* Mantis */; };
+		D88804F02D29F24D00EB0A56 /* CropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88804EF2D29F24B00EB0A56 /* CropperViewController.swift */; };
+		D88804F22D29F36600EB0A56 /* CropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88804F12D29F36300EB0A56 /* CropperView.swift */; };
 		D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */; };
 		D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */; };
 		D88DE8A32ABBE1E40080D5EB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A22ABBE1E40080D5EB /* ScanView.swift */; };
@@ -178,6 +181,8 @@
 		D87952582AA3D49F0076E898 /* ImagePresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentationView.swift; sourceTree = "<group>"; };
 		D879525A2AA3D49F0076E898 /* UploadPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageView.swift; sourceTree = "<group>"; };
 		D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRowViewModel.swift; sourceTree = "<group>"; };
+		D88804EF2D29F24B00EB0A56 /* CropperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropperViewController.swift; sourceTree = "<group>"; };
+		D88804F12D29F36300EB0A56 /* CropperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropperView.swift; sourceTree = "<group>"; };
 		D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselSkeleton.swift; sourceTree = "<group>"; };
 		D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
 		D88DE8A22ABBE1E40080D5EB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88804EE2D29F00200EB0A56 /* Mantis in Frameworks */,
 				D83C3CFA2B13B6F70094EEAE /* FirebaseGoogleAuthUI in Frameworks */,
 				9E181E7E2C71296C00ED6150 /* CoreMetrics in Frameworks */,
 				9E0222102C7A513A0022B50E /* FirebasePerformance in Frameworks */,
@@ -265,6 +271,7 @@
 			children = (
 				D83C766D2CEC36C700DDAACD /* Firebase */,
 				D8D458D92AACCFE500E29B83 /* CameraViewController.swift */,
+				D88804EF2D29F24B00EB0A56 /* CropperViewController.swift */,
 				D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */,
 			);
 			path = ViewControllers;
@@ -438,6 +445,7 @@
 			children = (
 				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
 				D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */,
+				D88804F12D29F36300EB0A56 /* CropperView.swift */,
 				D88DE8A42AC0AF7F0080D5EB /* DownloadMenu.swift */,
 				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
 				D88DE8A22ABBE1E40080D5EB /* ScanView.swift */,
@@ -509,6 +517,7 @@
 				9E181E7F2C71296C00ED6150 /* Metrics */,
 				9E181E842C712A7800ED6150 /* Prometheus */,
 				9E02220F2C7A513A0022B50E /* FirebasePerformance */,
+				D88804ED2D29F00200EB0A56 /* Mantis */,
 			);
 			productName = "Flight Tracer";
 			productReference = FDE097162A5643EA00102E96 /* Flight Tracer.app */;
@@ -588,6 +597,7 @@
 				D83C3CF42B13B6F70094EEAE /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
 				9E181E7C2C71296C00ED6150 /* XCRemoteSwiftPackageReference "swift-metrics" */,
 				9E181E832C712A7800ED6150 /* XCRemoteSwiftPackageReference "swift-prometheus" */,
+				D88804EC2D29F00200EB0A56 /* XCRemoteSwiftPackageReference "Mantis" */,
 			);
 			productRefGroup = FDE097172A5643EA00102E96 /* Products */;
 			projectDirPath = "";
@@ -648,6 +658,7 @@
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
+				D88804F02D29F24D00EB0A56 /* CropperViewController.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SimpleImageScanner.swift in Sources */,
 				D8442AD22CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
 				D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */,
@@ -692,6 +703,7 @@
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
 				D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */,
 				D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */,
+				D88804F22D29F36600EB0A56 /* CropperView.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
 				D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */,
 				D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */,
@@ -1150,6 +1162,14 @@
 				minimumVersion = 12.0.0;
 			};
 		};
+		D88804EC2D29F00200EB0A56 /* XCRemoteSwiftPackageReference "Mantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guoyingtao/Mantis.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.23.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1197,6 +1217,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D83C3CF42B13B6F70094EEAE /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
 			productName = FirebaseOAuthUI;
+		};
+		D88804ED2D29F00200EB0A56 /* Mantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D88804EC2D29F00200EB0A56 /* XCRemoteSwiftPackageReference "Mantis" */;
+			productName = Mantis;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
