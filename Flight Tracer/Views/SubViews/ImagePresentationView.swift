@@ -45,6 +45,8 @@ struct ImagePresentationView: View {
                                             .font(.title)
                                             .offset(x: 25, y: 5)
                                     }
+                                } else if !parentViewModel.validationInProgress {
+                                    CropperView(selectedImage: $parentViewModel.selectedImage)
                                 }
                             },
                             alignment: .topLeading
