@@ -51,6 +51,7 @@
 		D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */; };
 		D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */; };
 		D830B5B02D0DF54900A93018 /* LogRowConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830B5AF2D0DF54300A93018 /* LogRowConverter.swift */; };
+		D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */; };
 		D836F9412B01520F000FC988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* ContentView.swift */; };
 		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
 		D83C3CEF2B13ACF80094EEAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CEE2B13ACF80094EEAE /* FirebaseAuth */; };
@@ -147,6 +148,7 @@
 		D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
 		D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		D830B5AF2D0DF54300A93018 /* LogRowConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRowConverter.swift; sourceTree = "<group>"; };
+		D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
 		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D836F9402B01520F000FC988 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				D88DE8A12ABBE1C30080D5EB /* Buttons */,
 				D88ABFF52BDE9E5F001244B2 /* SkeletonViews */,
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
+				D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
 				9E4A08632BEFE79B00EC7C17 /* SettingsMenu.swift */,
 				D8A521FC2D175EB7003825CF /* SettingSheet.swift */,
@@ -675,6 +678,7 @@
 				D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* UploadPageView.swift in Sources */,
+				D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */,
 				D83C76692CEA679100DDAACD /* UploadPageViewModel.swift in Sources */,
 				D8110EDC2CE90D6000C76D7B /* SettingsAlert.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* AdvancedImageScanner.swift in Sources */,
