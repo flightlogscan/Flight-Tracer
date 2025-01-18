@@ -37,13 +37,16 @@ struct ImagePresentationView: View {
                         .overlay(
                             Group {
                                 if parentViewModel.selectedImage.hasError && !parentViewModel.validationInProgress {
-                                    Button {
-                                        parentViewModel.showAlert = true
-                                    } label: {
-                                        Label("", systemImage: "exclamationmark.circle.fill")
-                                            .foregroundStyle(.white, .red)
-                                            .font(.title)
-                                            .offset(x: 25, y: 5)
+                                    HStack (spacing: 0) {
+                                        Button {
+                                            parentViewModel.showAlert = true
+                                        } label: {
+                                            Label("", systemImage: "exclamationmark.circle.fill")
+                                                .foregroundStyle(.white, .red)
+                                                .font(.title)
+                                                .offset(x: 25, y: 5)
+                                        }
+                                        CropperView(selectedImage: $parentViewModel.selectedImage)
                                     }
                                 } else if !parentViewModel.validationInProgress {
                                     CropperView(selectedImage: $parentViewModel.selectedImage)
@@ -80,17 +83,7 @@ struct ImagePresentationView: View {
                 }
             }
         } else {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .padding([.leading, .trailing])
-                    .shadow(radius: 5)
-                
-                Text("Please select a photo")
-                    .font(.title3)
-                    .foregroundColor(.semiTransparentBlack)
-            }
+            ImagePlaceholderView()
         }
     }
 }
