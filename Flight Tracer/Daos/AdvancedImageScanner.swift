@@ -7,7 +7,7 @@ struct AdvancedImageScanner {
     let realEndpoint = "https://api.flightlogtracer.com"
 
     //local
-    let localEndpoint = "http://localhost"
+    let localEndpoint = "http://localhost:8080"
 
     //test device (e.g. iphone) needs to use IP
     //let endpoint = "(insert IP here)"
@@ -53,13 +53,23 @@ struct AdvancedImageScanner {
                 // sleep (5)
                 trace?.incrementMetric("Success", by: 1)
                 trace?.stop()
-                let analyzeResult = try! JSONDecoder().decode(AnalyzeResult.self, from: data)
                 
-                print("Analyze Result: ")
-                print(analyzeResult)
-                                        
-                return AdvancedImageScanResult(isImageValid: true, errorCode: ErrorCode.NO_ERROR, analyzeResult: analyzeResult)
-            } else {
+                let analyzeImageResponse = try JSONDecoder().decode(AnalyzeImageResponse.self, from: data)
+                print("Analyze Image Response: \(analyzeImageResponse)")
+
+                var finalAnalyzeResult: AnalyzeResult?
+
+                if let rawResults = analyzeImageResponse.rawResults,
+                   let rawResultsData = rawResults.data(using: .utf8) {
+                    finalAnalyzeResult = try JSONDecoder().decode(AnalyzeResult.self, from: rawResultsData)
+                }
+
+                return AdvancedImageScanResult(
+                    isImageValid: true,
+                    errorCode: ErrorCode.NO_ERROR,
+                    analyzeResult: finalAnalyzeResult ?? AnalyzeResult(content: "", tables: [])
+                )
+             } else {
                 print("API request failed. Status code: \(httpResponse.statusCode)")
                 trace?.incrementMetric("UnhealthyResponse", by: 1)
                 trace?.stop()
