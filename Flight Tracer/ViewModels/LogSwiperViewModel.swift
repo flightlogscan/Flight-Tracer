@@ -12,33 +12,50 @@ class LogSwiperViewModel: ObservableObject {
     //TODO: Eventually needs to allow dynamic selection of log format. Hardcoded to Jeppesen currently.
     let logFieldMetadata = LogMetadataLoader.getLogMetadata(named: "JeppesenLogFormat")
     
+    @Published var debugRowCount: Int = 0
+    
     func scanImageForLogText(uiImage: UIImage, userToken: String, selectedScanType: ScanType) {
         Task {
-            
-            //Reset validation before new scan
             await MainActor.run {
                 rowViewModels = []
                 isImageValid = false
                 alertMessage = ErrorCode.NO_ERROR.message
                 showAlert = false
+                debugRowCount = 0 // Reset counter
             }
             
             do {
                 let advancedImageScanResult = try await advancedImageScanner.analyzeImageAsync(uiImage: uiImage, userToken: userToken, selectedScanType: selectedScanType)
-            
+                
                 await MainActor.run {
                     isImageValid = advancedImageScanResult.isImageValid
                     alertMessage = advancedImageScanResult.errorCode.message
                     
                     if let result = advancedImageScanResult.analyzeResult {
-                        let unrefinedTextArray = convertToArray(analyzeResult: result, logFieldMetadata: logFieldMetadata)
+                        let unrefinedTextArray = convertToArray(
+                            analyzeResult: result,
+                            logFieldMetadata: logFieldMetadata,
+                            tables: advancedImageScanResult.tables!
+                        )
+                        print("unrefined text array: ")
+                        print(unrefinedTextArray)
+                        debugRowCount = unrefinedTextArray.count
                         
                         let logTextArray = logTextRefiner.refineLogText(
                             unrefinedLogText: unrefinedTextArray,
                             logFieldMetadata: logFieldMetadata
                         )
-                                                
-                        rowViewModels = logTextArray.map { LogRowViewModel(fields: $0) }
+                        
+                        print("logTextArray: ")
+                        print(logTextArray)
+                        print("Row count after refinement: \(logTextArray.count)")
+                        
+                        rowViewModels = logTextArray.enumerated().map { index, fields in
+                            let vm = LogRowViewModel(fields: fields)
+                            print("Created ViewModel for row \(index): \(fields.count) fields")
+                            return vm
+                        }
+                        print("Final rowViewModels count: \(rowViewModels.count)")
                     }
                 }
             } catch {

@@ -23,7 +23,7 @@ struct AdvancedImageScanner {
 
             guard let url = URL(string: urlString) else {
                 print("Invalid URL")
-                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.INVALID_REQUEST)
+                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.INVALID_REQUEST, tables: [])
             }
             
             let bearerToken = "Bearer \(userToken)"
@@ -45,7 +45,7 @@ struct AdvancedImageScanner {
                 print("Invalid response")
                 trace?.incrementMetric("InvalidResponse", by: 1)
                 trace?.stop()
-                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR)
+                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR, tables: [])
             }
             
             if (200...299).contains(httpResponse.statusCode) {
@@ -55,7 +55,7 @@ struct AdvancedImageScanner {
                 trace?.stop()
                 
                 let analyzeImageResponse = try JSONDecoder().decode(AnalyzeImageResponse.self, from: data)
-                print("Analyze Image Response: \(analyzeImageResponse)")
+                //print("Analyze Image Response: \(analyzeImageResponse)")
 
                 var finalAnalyzeResult: AnalyzeResult?
 
@@ -63,17 +63,20 @@ struct AdvancedImageScanner {
                    let rawResultsData = rawResults.data(using: .utf8) {
                     finalAnalyzeResult = try JSONDecoder().decode(AnalyzeResult.self, from: rawResultsData)
                 }
+                
+                print("Tables from response: \(analyzeImageResponse.tables)")
 
                 return AdvancedImageScanResult(
                     isImageValid: true,
                     errorCode: ErrorCode.NO_ERROR,
-                    analyzeResult: finalAnalyzeResult ?? AnalyzeResult(content: "", tables: [])
+                    analyzeResult: finalAnalyzeResult ?? AnalyzeResult(content: "", tables: []),
+                    tables: analyzeImageResponse.tables
                 )
              } else {
                 print("API request failed. Status code: \(httpResponse.statusCode)")
                 trace?.incrementMetric("UnhealthyResponse", by: 1)
                 trace?.stop()
-                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR)
+                 return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR, tables: [])
             }
         } else {
             return hardCodedImageScan()
