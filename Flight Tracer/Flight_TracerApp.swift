@@ -31,16 +31,15 @@ class AppDelegate: NSObject, UIApplicationDelegate, FUIAuthDelegate {
 
 @main
 struct Flight_TracerApp: App {
-
-  // register app delegate for Firebase setup
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
-  var body: some Scene {
-    WindowGroup {
-      NavigationView {
-        ContentView()
-      }
+    // register app delegate for Firebase setup
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    var body: some Scene {
+        WindowGroup {
+          NavigationView {
+            AppCoordinator()
+          }
+        }
     }
-  }
 }
 

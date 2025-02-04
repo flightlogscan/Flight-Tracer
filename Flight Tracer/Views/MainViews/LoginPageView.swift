@@ -107,5 +107,5 @@ struct LoginView : UIViewControllerRepresentable {
 }
 
 #Preview {
-    ContentView()
+    AppCoordinator()
 }

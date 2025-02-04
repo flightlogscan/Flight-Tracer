@@ -89,5 +89,5 @@ struct ImagePresentationView: View {
 }
 
 #Preview {
-    UploadPageView()
+    AuthenticatedView()
 }

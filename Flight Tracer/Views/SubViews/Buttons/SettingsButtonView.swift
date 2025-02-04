@@ -1,7 +1,7 @@
 import SwiftUI
 import FirebaseAuthUI
 
-struct SettingsMenu: View {
+struct SettingsButtonView: View {
     @Binding var selectedScanType: ScanType
     @State var isSheetPresented: Bool = false
 

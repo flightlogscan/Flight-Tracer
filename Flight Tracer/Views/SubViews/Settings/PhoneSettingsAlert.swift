@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SettingsAlert: View {
+struct PhoneSettingsAlert: View {
     var body: some View {
         Button ("Cancel", role: .cancel) {
         }

@@ -25,7 +25,7 @@ struct CameraView: View {
                 .foregroundColor(.white)
         }
         .alert("Allow access?", isPresented: $showAlert) {
-            SettingsAlert()
+            PhoneSettingsAlert()
         } message: {
             Text("Flight Log Tracer needs Camera access to take photos.")
         }

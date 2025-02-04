@@ -2,7 +2,7 @@ import SwiftUI
 import FirebaseAuthUI
 import Combine
 
-class AuthViewModel: ObservableObject {
+class AuthManager: ObservableObject {
     
     @Published var finishedCheckingLoginStatus = false
     @Published var user: User = User(id: "unknown", email: "unknown@example.com", token: "no-token")

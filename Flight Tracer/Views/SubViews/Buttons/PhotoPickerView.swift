@@ -34,7 +34,7 @@ struct PhotoPickerView: View {
                     }
             }
             .alert("Photo Access Issue", isPresented: $viewModel.showAlert) {
-                SettingsAlert()
+                PhoneSettingsAlert()
             } message: {
                 Text(viewModel.alertMessage)
             }

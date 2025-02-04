@@ -42,7 +42,3 @@ class CustomPasswordSignUpViewController: FUIPasswordSignUpViewController {
        super.init(coder: aDecoder)
      }
 }
-
-#Preview {
-    ContentView()
-}

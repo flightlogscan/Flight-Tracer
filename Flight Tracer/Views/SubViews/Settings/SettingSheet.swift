@@ -1,7 +1,8 @@
 import SwiftUI
+import StoreKit
 
 struct SettingsSheet: View {
-    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var authManager: AuthManager
 
     @Binding var isSheetPresented: Bool
     @Binding var selectedScanType: ScanType
@@ -25,8 +26,8 @@ struct SettingsSheet: View {
                     }) {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundStyle(.gray, .gray.opacity(0.2))
-                            .imageScale(.medium) // Makes the SF Symbol larger
-                            .font(.system(size: 28)) // Adjust size as needed
+                            .imageScale(.medium)
+                            .font(.system(size: 28))
                     }
                 }
             }
@@ -36,12 +37,29 @@ struct SettingsSheet: View {
             .background(Color(.systemGroupedBackground))
 
             List {
+                AccountSection()
                 SupportSection(parentViewModel: viewModel)
-                AccountSection(selectedScanType: $selectedScanType)
-                if authViewModel.isAdmin() {
+                SignOutSection(selectedScanType: $selectedScanType)
+                if authManager.isAdmin() {
                     AdminSettingsSection(selectedScanType: $selectedScanType)
                 }
             }
+        }
+    }
+}
+
+struct AccountSection: View {
+    @State private var showSubscription = false
+    
+    var body: some View {
+        SettingsSheetButton(
+            title: "Subscription",
+            iconName: "creditcard",
+            action: { showSubscription = true },
+            accessibilityIdentifier: "SubscriptionButton"
+        )
+        .sheet(isPresented: $showSubscription) {
+            CustomSubscriptionStoreView()
         }
     }
 }
@@ -51,25 +69,25 @@ struct SupportSection: View {
 
     var body: some View {
         Section("Support") {
-            SettingsButton(
+            SettingsSheetButton(
                 title: "FAQ",
                 iconName: "questionmark.circle",
                 action: { parentViewModel.openWebsite("https://www.flightlogtracer.com/faq") },
                 accessibilityIdentifier: "FAQWebsite"
             )
-            SettingsButton(
+            SettingsSheetButton(
                 title: "Contact",
                 iconName: "envelope",
                 action: { parentViewModel.sendEmail() },
                 accessibilityIdentifier: "ContactButton"
             )
-            SettingsButton(
+            SettingsSheetButton(
                 title: "Privacy",
                 iconName: "lock.shield",
                 action: { parentViewModel.openWebsite("https://www.flightlogtracer.com/privacy") },
                 accessibilityIdentifier: "PrivacyWebsite"
             )
-            SettingsButton(
+            SettingsSheetButton(
                 title: "Terms of Use",
                 iconName: "scroll",
                 action: { parentViewModel.openWebsite("https://www.flightlogtracer.com/terms") },
@@ -79,13 +97,13 @@ struct SupportSection: View {
     }
 }
 
-struct AccountSection: View {
-    @EnvironmentObject var authViewModel: AuthViewModel
+struct SignOutSection: View {
+    @EnvironmentObject var authManager: AuthManager
     @Binding var selectedScanType: ScanType
 
     var body: some View {
         Section {
-            Button(action: authViewModel.signOut) {
+            Button(action: authManager.signOut) {
                 HStack {
                     Spacer()
                     Text("Sign Out")
@@ -98,7 +116,7 @@ struct AccountSection: View {
     }
 }
 
-struct SettingsButton: View {
+struct SettingsSheetButton: View {
     let title: String
     let iconName: String
     let action: () -> Void
