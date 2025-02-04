@@ -2,7 +2,7 @@ import SwiftUI
 
 struct LogSwiperView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var authManager: AuthManager
     
     @State var showAlert = false
     @State var isDataLoaded: Bool = false
@@ -71,7 +71,7 @@ struct LogSwiperView: View {
                     .foregroundColor(Color.secondary)
             }
             .onAppear {
-                viewModel.scanImageForLogText(uiImage: uiImage, userToken: authViewModel.user.token, selectedScanType: selectedScanType)
+                viewModel.scanImageForLogText(uiImage: uiImage, userToken: authManager.user.token, selectedScanType: selectedScanType)
             }
             .onReceive(viewModel.$rowViewModels) { _ in
                 Task {

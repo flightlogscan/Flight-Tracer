@@ -89,6 +89,9 @@
             ReferencedContainer = "container:Flight Tracer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../Flight Tracer/StoreKitManager.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

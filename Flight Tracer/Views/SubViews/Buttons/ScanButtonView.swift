@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ScanView: View {
+struct ScanButtonView: View {
     
     @State var scanButtonActive: Bool = false
     

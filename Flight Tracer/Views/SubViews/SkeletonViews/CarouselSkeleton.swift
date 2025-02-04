@@ -15,7 +15,7 @@ struct CarouselSkeleton: View {
         .aspectRatio(1, contentMode: .fit)
         .foregroundColor(.semiTransparentBlack)
         .alert("Allow access?", isPresented: $showAlert) {
-            SettingsAlert()
+            PhoneSettingsAlert()
         } message: {
             Text("Flight Log Tracer needs Camera Roll access to display preview photos.")
         }
