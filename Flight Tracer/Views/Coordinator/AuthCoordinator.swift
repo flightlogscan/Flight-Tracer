@@ -8,7 +8,7 @@ struct AuthCoordinator: View {
             if !authManager.finishedCheckingLoginStatus {
                 Color.navyBlue.ignoresSafeArea()
             } else if !authManager.isLoggedIn {
-                LoginView(user: $authManager.user)
+                LoginPageView(user: $authManager.user)
                     .ignoresSafeArea()
                     .zIndex(1)
                     .accessibilityIdentifier("LoginView")

@@ -1,6 +1,6 @@
 import SwiftUI
 
-class UploadPageViewModel: ObservableObject {
+class ScanViewModel: ObservableObject {
     
     @Published var selectedImage: ImageDetail = ImageDetail()
     @Published var isImageValid: Bool = false

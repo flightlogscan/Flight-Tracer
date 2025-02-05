@@ -10,7 +10,7 @@ struct CropperView: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(Color.black.opacity(0.7))
+                    .fill(Color.semiTransparentBlack)
                     .frame(width: 30, height: 30)
                
                Image(systemName: "crop.rotate")

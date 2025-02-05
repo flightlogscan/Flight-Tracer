@@ -7,7 +7,7 @@ struct SettingsSheet: View {
     @Binding var isSheetPresented: Bool
     @Binding var selectedScanType: ScanType
     
-    @ObservedObject var viewModel = SettingsViewModel()
+    @ObservedObject var settingsViewModel = SettingsViewModel()
 
     var body: some View {
         VStack (spacing: 0) {
@@ -38,7 +38,7 @@ struct SettingsSheet: View {
 
             List {
                 AccountSection()
-                SupportSection(parentViewModel: viewModel)
+                SupportSection(parentViewModel: settingsViewModel)
                 SignOutSection(selectedScanType: $selectedScanType)
                 if authManager.isAdmin() {
                     AdminSettingsSection(selectedScanType: $selectedScanType)

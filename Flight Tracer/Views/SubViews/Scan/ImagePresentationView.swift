@@ -3,7 +3,7 @@ import _PhotosUI_SwiftUI
 
 struct ImagePresentationView: View {
     
-    @ObservedObject var parentViewModel: UploadPageViewModel
+    @ObservedObject var parentViewModel: ScanViewModel
     
     var body: some View {
         if parentViewModel.selectedImage.isImageLoaded {
@@ -24,7 +24,7 @@ struct ImagePresentationView: View {
                                         parentViewModel.resetImage()
                                     } label: {
                                         Label("", systemImage: "xmark.circle.fill")
-                                            .foregroundStyle(.white, .black.opacity(0.7))
+                                            .foregroundStyle(.white, Color.semiTransparentBlack)
                                             .font(.title)
                                             .offset(x: -15, y: 5)
                                     }

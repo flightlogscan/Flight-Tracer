@@ -37,9 +37,7 @@
 		9E4A08612BEFE48B00EC7C17 /* ExampleGetAnalyzeResultFormLayout.json in Resources */ = {isa = PBXBuildFile; fileRef = D879524E2AA3D49F0076E898 /* ExampleGetAnalyzeResultFormLayout.json */; };
 		9E4A08622BEFE48B00EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
 		9E4A08642BEFE79B00EC7C17 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */; };
-		9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */; };
 		9E81E8542AB7EA2800524C29 /* AdvancedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */; };
-		9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */; };
 		9EC2454D2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2454C2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift */; };
 		D8028B372AAC1278004FFD02 /* SimpleImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SimpleImageScanner.swift */; };
 		D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */; };
@@ -61,7 +59,7 @@
 		D83C3CFC2B13B6F70094EEAE /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = D83C3CFB2B13B6F70094EEAE /* FirebaseOAuthUI */; };
 		D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */; };
 		D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */; };
-		D83C76692CEA679100DDAACD /* UploadPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */; };
+		D83C76692CEA679100DDAACD /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76682CEA678D00DDAACD /* ScanViewModel.swift */; };
 		D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */; };
 		D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */; };
 		D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */; };
@@ -85,7 +83,7 @@
 		D87952602AA3D5690076E898 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* AuthenticatedView.swift */; };
 		D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */; };
 		D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */; };
-		D87952662AA3D5690076E898 /* CsvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952412AA3D49F0076E898 /* CsvManager.swift */; };
+		D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952412AA3D49F0076E898 /* CsvCreator.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
 		D8831E122CFBA7EE00F7ADFF /* LogRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */; };
 		D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87952472AA3D49F0076E898 /* Assets.xcassets */; };
@@ -141,10 +139,8 @@
 
 /* Begin PBXFileReference section */
 		9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
-		9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonAPIView.swift; sourceTree = "<group>"; };
 		9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleResultResponse.json; sourceTree = "<group>"; };
 		9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedImageScanner.swift; sourceTree = "<group>"; };
-		9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsInstructionsView.swift; sourceTree = "<group>"; };
 		9EC2454B2CE12D770006269B /* Flight Tracer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Flight Tracer.xctestplan"; sourceTree = SOURCE_ROOT; };
 		9EC2454C2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerUITestsE2E.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SimpleImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageScanner.swift; sourceTree = "<group>"; };
@@ -163,7 +159,7 @@
 		D836F9422B0153B6000FC988 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPageViewModel.swift; sourceTree = "<group>"; };
+		D83C76682CEA678D00DDAACD /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPermissionsManager.swift; sourceTree = "<group>"; };
 		D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
@@ -182,7 +178,7 @@
 		D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperView.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperViewModel.swift; sourceTree = "<group>"; };
-		D87952412AA3D49F0076E898 /* CsvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvManager.swift; sourceTree = "<group>"; };
+		D87952412AA3D49F0076E898 /* CsvCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvCreator.swift; sourceTree = "<group>"; };
 		D87952472AA3D49F0076E898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87952492AA3D49F0076E898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flight_Tracer.entitlements; sourceTree = "<group>"; };
@@ -280,6 +276,17 @@
 			path = Daos;
 			sourceTree = "<group>";
 		};
+		D8032D6F2D53023000A9D0AC /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
+				D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */,
+				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
+				D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
 		D8110EE02CE90E5600C76D7B /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +358,8 @@
 				D879525A2AA3D49F0076E898 /* AuthenticatedView.swift */,
 				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 				D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */,
+				D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */,
+				D8AD8FCD2D4C89E600BF84DA /* SubscriptionPopup.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -384,12 +393,11 @@
 		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				D841CC2B2CE1251100A02B5D /* AuthManager.swift */,
 				D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */,
 				D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */,
 				D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */,
 				D8A521FA2D175C45003825CF /* SettingsViewModel.swift */,
-				D83C76682CEA678D00DDAACD /* UploadPageViewModel.swift */,
+				D83C76682CEA678D00DDAACD /* ScanViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -400,7 +408,7 @@
 				D830B5AF2D0DF54300A93018 /* LogRowConverter.swift */,
 				D8442ACC2CF6BDE40087450B /* LogTextRefiner.swift */,
 				D8EA04E72CF29DF200FE8EA5 /* AnalyzeResultConverter.swift */,
-				D87952412AA3D49F0076E898 /* CsvManager.swift */,
+				D87952412AA3D49F0076E898 /* CsvCreator.swift */,
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
 				D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */,
 			);
@@ -441,27 +449,12 @@
 			isa = PBXGroup;
 			children = (
 				D88DE8A12ABBE1C30080D5EB /* Buttons */,
+				D8032D6F2D53023000A9D0AC /* Scan */,
 				D8AD8FDC2D5052EC00BF84DA /* Settings */,
-				D88ABFF52BDE9E5F001244B2 /* SkeletonViews */,
+				D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */,
 				D8AD8FDD2D51A91200BF84DA /* CustomSubscriptionStoreView.swift */,
-				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
-				D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */,
-				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
-				D8AD8FCD2D4C89E600BF84DA /* SubscriptionPopup.swift */,
-				D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */,
-				9E82FBDC2BCC4A9800417A6B /* ResultsInstructionsView.swift */,
-				9E5A6EEB2BD4411B00FEF9A1 /* RadioButtonAPIView.swift */,
-				D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */,
 			);
 			path = SubViews;
-			sourceTree = "<group>";
-		};
-		D88ABFF52BDE9E5F001244B2 /* SkeletonViews */ = {
-			isa = PBXGroup;
-			children = (
-				D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */,
-			);
-			path = SkeletonViews;
 			sourceTree = "<group>";
 		};
 		D88DE8A12ABBE1C30080D5EB /* Buttons */ = {
@@ -473,7 +466,6 @@
 				D88DE8A42AC0AF7F0080D5EB /* DownloadMenu.swift */,
 				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
 				D88DE8A22ABBE1E40080D5EB /* ScanButtonView.swift */,
-				9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -493,6 +485,7 @@
 			children = (
 				D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */,
 				D8A521FC2D175EB7003825CF /* SettingSheet.swift */,
+				9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */,
 				D8AD8FC32D454E9500BF84DA /* SubscriptionView.swift */,
 			);
 			path = Settings;
@@ -501,6 +494,7 @@
 		D8AD8FE22D51D12E00BF84DA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D841CC2B2CE1251100A02B5D /* AuthManager.swift */,
 				D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */,
 				D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */,
 				D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */,
@@ -726,19 +720,17 @@
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */,
 				D8442ACD2CF6BDEC0087450B /* LogTextRefiner.swift in Sources */,
-				9E5A6EEC2BD4411C00FEF9A1 /* RadioButtonAPIView.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
 				D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* AuthenticatedView.swift in Sources */,
 				D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */,
-				D83C76692CEA679100DDAACD /* UploadPageViewModel.swift in Sources */,
+				D83C76692CEA679100DDAACD /* ScanViewModel.swift in Sources */,
 				D8AD8FD92D504CD300BF84DA /* SubscriptionCoordinator.swift in Sources */,
 				D8110EDC2CE90D6000C76D7B /* PhoneSettingsAlert.swift in Sources */,
 				D8AD8FD72D504CCA00BF84DA /* AuthCoordinator.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* AdvancedImageScanner.swift in Sources */,
-				9E82FBDD2BCC4A9800417A6B /* ResultsInstructionsView.swift in Sources */,
 				D8AD8FE12D51B36C00BF84DA /* StoreKitManager.swift in Sources */,
 				D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
@@ -752,7 +744,7 @@
 				D8442AC92CF6987A0087450B /* ScanType.swift in Sources */,
 				9E4A08642BEFE79B00EC7C17 /* SettingsButtonView.swift in Sources */,
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
-				D87952662AA3D5690076E898 /* CsvManager.swift in Sources */,
+				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
 				D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */,
 				D8AD8FDE2D51A91800BF84DA /* CustomSubscriptionStoreView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanButtonView.swift in Sources */,

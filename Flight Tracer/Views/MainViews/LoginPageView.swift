@@ -4,11 +4,11 @@ import FirebaseAuthUI
 import FirebaseGoogleAuthUI
 import FirebaseEmailAuthUI
 
-struct LoginView : UIViewControllerRepresentable {
+struct LoginPageView : UIViewControllerRepresentable {
     
     @Binding var user: User
     
-    func makeCoordinator() -> LoginView.Coordinator {
+    func makeCoordinator() -> LoginPageView.Coordinator {
         Coordinator(self)
     }
 
@@ -46,13 +46,13 @@ struct LoginView : UIViewControllerRepresentable {
         return authViewController!
     }
 
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<LoginView>){}
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<LoginPageView>){}
 
     class Coordinator : NSObject, FUIAuthDelegate {
         
-        var parent : LoginView
+        var parent : LoginPageView
         
-        init(_ parent : LoginView) {
+        init(_ parent : LoginPageView) {
             self.parent = parent
         }
         

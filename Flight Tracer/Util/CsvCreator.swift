@@ -1,6 +1,6 @@
 import Foundation
 
-class CSVManager {
+class CSVCreator {
     static func createCSVFile<T>(_ array: [[T]], filename: String) -> URL? {
         let csvString = array.map { row in row.map { String(describing: $0) }.joined(separator: ",") }.joined(separator: "\n")
         

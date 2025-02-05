@@ -6,7 +6,7 @@ struct LogSwiperView: View {
     
     @State var showAlert = false
     @State var isDataLoaded: Bool = false
-    @ObservedObject var viewModel = LogSwiperViewModel()
+    @ObservedObject var logSwiperViewModel = LogSwiperViewModel()
     
     let uiImage: UIImage
     let selectedScanType: ScanType
@@ -19,7 +19,7 @@ struct LogSwiperView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 if isDataLoaded {
-                    Logs(viewModel: viewModel)
+                    Logs(logSwiperViewModel: logSwiperViewModel)
                 } else {
                     ProgressView()
                         .tint(.white)
@@ -49,7 +49,7 @@ struct LogSwiperView: View {
                 }
                 
                 ToolbarItem (placement: .topBarTrailing) {
-                    DownloadView(rowViewModels: viewModel.rowViewModels)
+                    DownloadView(rowViewModels: logSwiperViewModel.rowViewModels)
                         .accessibilityIdentifier("DownloadView")
                 }
             })
@@ -61,21 +61,21 @@ struct LogSwiperView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
             .toolbarBackground(.visible, for: .navigationBar)
-            .alert("Error detected:", isPresented: $viewModel.showAlert) {
+            .alert("Error detected:", isPresented: $logSwiperViewModel.showAlert) {
                 Button("Back") {
                     // Navigate back to the main view if there are errors
                     self.presentationMode.wrappedValue.dismiss()
                 }
             } message: {
-                Text(viewModel.alertMessage)
+                Text(logSwiperViewModel.alertMessage)
                     .foregroundColor(Color.secondary)
             }
             .onAppear {
-                viewModel.scanImageForLogText(uiImage: uiImage, userToken: authManager.user.token, selectedScanType: selectedScanType)
+                logSwiperViewModel.scanImageForLogText(uiImage: uiImage, userToken: authManager.user.token, selectedScanType: selectedScanType)
             }
-            .onReceive(viewModel.$rowViewModels) { _ in
+            .onReceive(logSwiperViewModel.$rowViewModels) { _ in
                 Task {
-                    if !viewModel.rowViewModels.isEmpty {
+                    if !logSwiperViewModel.rowViewModels.isEmpty {
                         isDataLoaded = true
                     }
                 }
@@ -85,13 +85,13 @@ struct LogSwiperView: View {
 }
 
 struct Logs: View {
-    @ObservedObject var viewModel: LogSwiperViewModel
+    @ObservedObject var logSwiperViewModel: LogSwiperViewModel
 
     var body: some View {
         TabView {
-            if viewModel.rowViewModels.count > 0 {
-                ForEach(viewModel.rowViewModels.indices, id: \.self) { rowIndex in
-                    LogTab(rowViewModel: viewModel.rowViewModels[rowIndex])
+            if logSwiperViewModel.rowViewModels.count > 0 {
+                ForEach(logSwiperViewModel.rowViewModels.indices, id: \.self) { rowIndex in
+                    LogTab(rowViewModel: logSwiperViewModel.rowViewModels[rowIndex])
                 }
             } else {
                 ProgressView()
