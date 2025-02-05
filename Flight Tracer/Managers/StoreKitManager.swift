@@ -18,15 +18,12 @@ final class StoreKitManager: ObservableObject {
     }
     
     func isSubscribed() -> Bool {
-        print("purchasedProductIDs: \(purchasedProductIDs)")
         return !purchasedProductIDs.isDisjoint(with: productIDs)
     }
     
     private func listenForTransactions() async {
         // Check current entitlements
-        print("checking current entitlements")
         for await verification in StoreKit.Transaction.currentEntitlements {
-            print("Verification result: \(verification)")
             guard case .verified(let transaction) = verification,
                   productIDs.contains(transaction.productID) else {
                 continue
@@ -36,7 +33,6 @@ final class StoreKitManager: ObservableObject {
         
         finishedCheckingSubscriptionStatus = true
 
-        print("checking for updated entitlements")
         for await verification in StoreKit.Transaction.updates {
             guard case .verified(let transaction) = verification,
                   productIDs.contains(transaction.productID) else {

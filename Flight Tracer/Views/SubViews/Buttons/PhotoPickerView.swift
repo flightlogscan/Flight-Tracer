@@ -3,14 +3,14 @@ import Photos
 
 struct PhotoPickerView: View {
     
-    @StateObject private var viewModel = PhotoPickerViewModel()
+    @StateObject private var photoPickerViewModel = PhotoPickerViewModel()
     
     @Binding var selectedImage: ImageDetail
 
     var body: some View {
         VStack {
             Button(action: {
-                viewModel.checkPermissionsAndShowPicker()
+                photoPickerViewModel.checkPermissionsAndShowPicker()
             }) {
                 Rectangle()
                     .overlay(
@@ -24,19 +24,19 @@ struct PhotoPickerView: View {
             .accessibilityLabel("Select Image")
             .accessibilityIdentifier("PhotoPickerButton")
             .accessibilityAddTraits(.isButton)
-            .sheet(isPresented: $viewModel.showImagePicker, onDismiss: {
-                viewModel.isSheetPresented = false
+            .sheet(isPresented: $photoPickerViewModel.showImagePicker, onDismiss: {
+                photoPickerViewModel.isSheetPresented = false
             }) {
-                PhotoPickerViewController(selectedAsset: $viewModel.selectedAsset, showAlert: $viewModel.showAlert, alertMessage: $viewModel.alertMessage)
-                    .onChange(of: viewModel.selectedAsset) {
-                        viewModel.handleSelectedAsset(viewModel.selectedAsset)
-                        selectedImage = viewModel.selectedImage!
+                PhotoPickerViewController(selectedAsset: $photoPickerViewModel.selectedAsset, showAlert: $photoPickerViewModel.showAlert, alertMessage: $photoPickerViewModel.alertMessage)
+                    .onChange(of: photoPickerViewModel.selectedAsset) {
+                        photoPickerViewModel.handleSelectedAsset(photoPickerViewModel.selectedAsset)
+                        selectedImage = photoPickerViewModel.selectedImage!
                     }
             }
-            .alert("Photo Access Issue", isPresented: $viewModel.showAlert) {
+            .alert("Photo Access Issue", isPresented: $photoPickerViewModel.showAlert) {
                 PhoneSettingsAlert()
             } message: {
-                Text(viewModel.alertMessage)
+                Text(photoPickerViewModel.alertMessage)
             }
         }
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ScanView: View {
-    @StateObject var viewModel = UploadPageViewModel()
+    @StateObject var scanViewModel = ScanViewModel()
     @State var activeScanPressed: Bool = false
     @Binding var selectedScanType: ScanType
 
@@ -15,17 +15,17 @@ struct ScanView: View {
                 ImageHintsView()
                     .accessibilityIdentifier("ImageHintsView")
                 
-                ImagePresentationView(parentViewModel: viewModel)
+                ImagePresentationView(parentViewModel: scanViewModel)
                     .accessibilityIdentifier("ImagePresentationView")
                 
-                PhotoCarouselView(selectedImage: $viewModel.selectedImage)
+                PhotoCarouselView(selectedImage: $scanViewModel.selectedImage)
                     .accessibilityIdentifier("PhotoCarouselView")
                 
-                ScanButtonView(activeScanPressed: $activeScanPressed, isImageValid: $viewModel.isImageValid)
+                ScanButtonView(activeScanPressed: $activeScanPressed, isImageValid: $scanViewModel.isImageValid)
                     .accessibilityIdentifier("ScanView")
             }
             .navigationDestination(isPresented: $activeScanPressed) {
-                if let uiImage = viewModel.selectedImage.uiImage {
+                if let uiImage = scanViewModel.selectedImage.uiImage {
                     LogSwiperView(uiImage: uiImage, selectedScanType: selectedScanType)
                         .accessibilityIdentifier("LogSwiperView")
                 }
