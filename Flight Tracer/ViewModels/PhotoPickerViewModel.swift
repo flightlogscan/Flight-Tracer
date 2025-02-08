@@ -66,19 +66,23 @@ class PhotoPickerViewModel: ObservableObject {
         let imageRequestOptions = PHImageRequestOptions()
         imageRequestOptions.deliveryMode = .highQualityFormat
         imageRequestOptions.isSynchronous = true
-
+        
         imageManager.requestImage(
             for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: imageRequestOptions
-        ) { uiImage, _ in
+        ) { uiImage, info in
+                    
+            if let error = info?[PHImageErrorKey] as? Error {
+                self.alertMessage = error.localizedDescription
+                if !isSheetPresented {
+                    showAlert = true
+                }
+                return
+            }
+            
             if let uiImage = uiImage {
                 let image = Image(uiImage: uiImage)
                 let imageDetail = ImageDetail(image: image, uiImage: uiImage)
                 self.selectedImage = imageDetail
-            } else {
-                self.alertMessage = "Failed to load the selected image. Please try again."
-                if !self.isSheetPresented {
-                    self.showAlert = true
-                }
             }
         }
     }
