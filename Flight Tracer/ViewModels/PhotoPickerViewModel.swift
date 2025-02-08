@@ -73,8 +73,8 @@ class PhotoPickerViewModel: ObservableObject {
                     
             if let error = info?[PHImageErrorKey] as? Error {
                 self.alertMessage = error.localizedDescription
-                if !isSheetPresented {
-                    showAlert = true
+                if !self.isSheetPresented {
+                    self.showAlert = true
                 }
                 return
             }
