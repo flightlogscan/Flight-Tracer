@@ -1,3 +1,8 @@
+//
+//  LogSwiperView.swift
+//  Flight Tracer
+//
+
 import SwiftUI
 
 struct LogSwiperView: View {
@@ -6,7 +11,7 @@ struct LogSwiperView: View {
     
     @State var showAlert = false
     @State var isDataLoaded: Bool = false
-    @ObservedObject var logSwiperViewModel = LogSwiperViewModel()
+    @StateObject var logSwiperViewModel = LogSwiperViewModel()
     
     let uiImage: UIImage
     let selectedScanType: ScanType
@@ -30,8 +35,8 @@ struct LogSwiperView: View {
                 }
             }
             .accessibilityIdentifier("LogSwiperView")
-            .toolbar(content: {
-                ToolbarItem (placement: .topBarLeading) {
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
                         showAlert = true
                     } label: {
@@ -48,11 +53,12 @@ struct LogSwiperView: View {
                     }
                 }
                 
-                ToolbarItem (placement: .topBarTrailing) {
-                    DownloadView(rowViewModels: logSwiperViewModel.rowViewModels)
-                        .accessibilityIdentifier("DownloadView")
+                ToolbarItem(placement: .topBarTrailing) {
+                    // TODO: Re-enable download view
+//                    DownloadView(rows: logSwiperViewModel.rows)
+//                        .accessibilityIdentifier("DownloadView")
                 }
-            })
+            }
             .tint(.white)
             .toolbarBackground(
                 Color(red: 0.0, green: 0.2, blue: 0.5),
@@ -63,7 +69,6 @@ struct LogSwiperView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .alert("Error detected:", isPresented: $logSwiperViewModel.showAlert) {
                 Button("Back") {
-                    // Navigate back to the main view if there are errors
                     self.presentationMode.wrappedValue.dismiss()
                 }
             } message: {
@@ -71,14 +76,14 @@ struct LogSwiperView: View {
                     .foregroundColor(Color.secondary)
             }
             .onAppear {
-                logSwiperViewModel.scanImageForLogText(uiImage: uiImage, userToken: authManager.user.token, selectedScanType: selectedScanType)
+                logSwiperViewModel.scanImageForLogText(
+                    uiImage: uiImage,
+                    userToken: authManager.user.token,
+                    selectedScanType: selectedScanType
+                )
             }
-            .onReceive(logSwiperViewModel.$rowViewModels) { _ in
-                Task {
-                    if !logSwiperViewModel.rowViewModels.isEmpty {
-                        isDataLoaded = true
-                    }
-                }
+            .onReceive(logSwiperViewModel.$rows) { rows in
+                isDataLoaded = !rows.isEmpty
             }
         }
     }
@@ -86,12 +91,19 @@ struct LogSwiperView: View {
 
 struct Logs: View {
     @ObservedObject var logSwiperViewModel: LogSwiperViewModel
+    
+    // Group rows by rowIndex
+    var groupedRows: [Int: [RowDTO]] {
+        Dictionary(grouping: logSwiperViewModel.rows.filter { !$0.header }) { $0.rowIndex }
+    }
 
     var body: some View {
         TabView {
-            if logSwiperViewModel.rowViewModels.count > 0 {
-                ForEach(logSwiperViewModel.rowViewModels.indices, id: \.self) { rowIndex in
-                    LogTab(rowViewModel: logSwiperViewModel.rowViewModels[rowIndex])
+            if !groupedRows.isEmpty {
+                ForEach(Array(groupedRows.keys).sorted(), id: \.self) { rowIndex in
+                    if let rows = groupedRows[rowIndex] {
+                        LogTab(rows: rows)
+                    }
                 }
             } else {
                 ProgressView()
@@ -108,30 +120,69 @@ struct Logs: View {
 }
 
 struct LogTab: View {
-    @ObservedObject var rowViewModel: LogRowViewModel
-    let logFieldMetadata = LogMetadataLoader.getLogMetadata(named: "JeppesenLogFormat")
+    let rows: [RowDTO]
     
-    var flattenedMetadata: [LogFieldMetadata] {
-        logFieldMetadata.flatMap { Array(repeating: $0, count: $0.columnCount) }
+    // Combine content from all rows
+    var combinedContent: [String: String] {
+        var combined: [String: String] = [:]
+        for row in rows {
+            combined.merge(row.content) { current, _ in current }
+        }
+        return combined
     }
-        
+    
+    // Define field mappings (we'll only show fields that have data)
+    private let fieldNames: [String: String] = [
+        "0": "DATE",
+        "1": "AIRCRAFT TYPE",
+        "2": "AIRCRAFT IDENT",
+        "3": "FROM",
+        "4": "TO",
+        "5": "NR INST. APP",
+        "6": "REMARKS AND ENDORSEMENTS",
+        "7": "NR T/O",
+        "8": "NR LDG",
+        "9": "SINGLE-ENGINE LAND",
+        "10": "SINGLE-ENGINE LAND (NIGHT)",
+        "11": "MULTI-ENGINE LAND",
+        "12": "MULTI-ENGINE LAND (NIGHT)",
+        "13": "INT APR",
+        "14": "INT APR (CONT)",
+        "15": "INST APR",
+        "16": "INST APR (CONT)",
+        "17": "NIGHT",
+        "18": "NIGHT (CONT)",
+        "19": "ACTUAL INSTRUMENT",
+        "20": "ACTUAL INSTRUMENT (CONT)",
+        "21": "SIMULATED INSTRUMENT",
+        "22": "SIMULATED INSTRUMENT (CONT)",
+        "23": "FLIGHT SIMULATOR",
+        "24": "FLIGHT SIMULATOR (CONT)",
+        "25": "CROSS COUNTRY",
+        "26": "CROSS COUNTRY (CONT)",
+        "27": "AS FLIGHT INSTRUCTOR",
+        "28": "AS FLIGHT INSTRUCTOR (CONT)",
+        "29": "DUAL RECEIVED",
+        "30": "DUAL RECEIVED (CONT)",
+        "31": "PILOT IN COMMAND",
+        "32": "PILOT IN COMMAND (CONT)",
+        "33": "TOTAL DURATION",
+        "34": "TOTAL DURATION (CONT)"
+    ]
+    
     var body: some View {
         List {
-            ForEach(0..<flattenedMetadata.count, id: \.self) { cellIndex in
-                HStack {
-                    Text(flattenedMetadata[cellIndex].fieldName)
-                        .bold()
-                        .font(.system(size: 14))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    if cellIndex < rowViewModel.fields.count {
-                        TextField("", text: $rowViewModel.fields[cellIndex])
+            ForEach(Array(combinedContent.sorted { $0.key < $1.key }), id: \.key) { key, value in
+                if let fieldName = fieldNames[key] {
+                    HStack {
+                        Text(fieldName)
+                            .bold()
                             .font(.system(size: 14))
-                            .multilineTextAlignment(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text(value)
+                            .font(.system(size: 14))
                             .frame(maxWidth: .infinity, alignment: .trailing)
-                    } else {
-                        Text("Error: more fields detected than log fields")
-                            .foregroundColor(.red)
                     }
                 }
             }
