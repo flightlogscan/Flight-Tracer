@@ -38,6 +38,9 @@
 		9E4A08622BEFE48B00EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
 		9E4A08642BEFE79B00EC7C17 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */; };
 		9E81E8542AB7EA2800524C29 /* AdvancedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */; };
+		9EB795DC2D6260FA008B351C /* LogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB795DB2D6260FA008B351C /* LogData.swift */; };
+		9EB795DD2D6260FA008B351C /* LogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB795DB2D6260FA008B351C /* LogData.swift */; };
+		9EB795DE2D6260FA008B351C /* LogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB795DB2D6260FA008B351C /* LogData.swift */; };
 		9EC2454D2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2454C2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift */; };
 		D8028B372AAC1278004FFD02 /* SimpleImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8028B362AAC1278004FFD02 /* SimpleImageScanner.swift */; };
 		D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E2272B24C8CF001B5100 /* CustomEmailEntryViewController.swift */; };
@@ -141,6 +144,7 @@
 		9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleResultResponse.json; sourceTree = "<group>"; };
 		9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedImageScanner.swift; sourceTree = "<group>"; };
+		9EB795DB2D6260FA008B351C /* LogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogData.swift; sourceTree = "<group>"; };
 		9EC2454B2CE12D770006269B /* Flight Tracer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Flight Tracer.xctestplan"; sourceTree = SOURCE_ROOT; };
 		9EC2454C2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerUITestsE2E.swift; sourceTree = "<group>"; };
 		D8028B362AAC1278004FFD02 /* SimpleImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageScanner.swift; sourceTree = "<group>"; };
@@ -345,6 +349,7 @@
 				D8442ACA2CF69CB60087450B /* AdvancedImageScanResult.swift */,
 				D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */,
 				D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */,
+				9EB795DB2D6260FA008B351C /* LogData.swift */,
 				D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */,
 				D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */,
 				D836F9422B0153B6000FC988 /* User.swift */,
@@ -743,6 +748,7 @@
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
 				D8442AC92CF6987A0087450B /* ScanType.swift in Sources */,
 				9E4A08642BEFE79B00EC7C17 /* SettingsButtonView.swift in Sources */,
+				9EB795DC2D6260FA008B351C /* LogData.swift in Sources */,
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
 				D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */,
@@ -773,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E1ED63A2CFA31EB002584A4 /* LogFieldMetadata.swift in Sources */,
+				9EB795DD2D6260FA008B351C /* LogData.swift in Sources */,
 				9E1ED63C2CFA31F0002584A4 /* SimpleImageScanResult.swift in Sources */,
 				9E1ED6322CFA31D5002584A4 /* ScanType.swift in Sources */,
 				D8A522012D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
@@ -793,6 +800,7 @@
 				9E1ED63B2CFA31EB002584A4 /* LogFieldMetadata.swift in Sources */,
 				9E1ED62F2CFA31A2002584A4 /* AdvancedImageScanResult.swift in Sources */,
 				9E1ED6372CFA31E2002584A4 /* AnalyzeResult.swift in Sources */,
+				9EB795DE2D6260FA008B351C /* LogData.swift in Sources */,
 				9E1ED6392CFA31E7002584A4 /* ImageDetail.swift in Sources */,
 				D8A521FF2D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				9E1ED6332CFA31D5002584A4 /* ScanType.swift in Sources */,
