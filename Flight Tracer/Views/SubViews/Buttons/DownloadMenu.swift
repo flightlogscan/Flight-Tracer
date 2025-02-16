@@ -2,13 +2,13 @@ import SwiftUI
 import FirebasePerformance
 
 struct DownloadView: View {
-    let rowViewModels: [LogRowViewModel]
+    let rows: [RowDTO]
     @State private var isICloudEnabled: Bool = false
 
     var body: some View {
         Button {
             let trace = Performance.startTrace(name: "DownloadButton")
-            if let fileURL = CSVCreator.createCSVFile(toArray(rowViewModels: rowViewModels), filename: "flight_log.csv") {
+            if let fileURL = CSVCreator.createCSVFile(rows, filename: "flight_log.csv") {
                 let documentPicker = UIDocumentPickerViewController(forExporting: [fileURL])
                 let scenes = UIApplication.shared.connectedScenes
                 let windowScene = scenes.first as? UIWindowScene

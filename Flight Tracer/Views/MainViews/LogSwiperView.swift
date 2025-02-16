@@ -54,9 +54,8 @@ struct LogSwiperView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    // TODO: Re-enable download view
-//                    DownloadView(rows: logSwiperViewModel.rows)
-//                        .accessibilityIdentifier("DownloadView")
+                    DownloadView(rows: logSwiperViewModel.rows)
+                        .accessibilityIdentifier("DownloadView")
                 }
             }
             .tint(.white)
@@ -92,9 +91,21 @@ struct LogSwiperView: View {
 struct Logs: View {
     @ObservedObject var logSwiperViewModel: LogSwiperViewModel
     
-    // Group rows by rowIndex
+    // Group all rows by rowIndex, including header
     var groupedRows: [Int: [RowDTO]] {
-        Dictionary(grouping: logSwiperViewModel.rows.filter { !$0.header }) { $0.rowIndex }
+        let headerRow = logSwiperViewModel.rows.first(where: { $0.header })
+        let dataRows = Dictionary(grouping: logSwiperViewModel.rows.filter { !$0.header }) { $0.rowIndex }
+        
+        // Add header row to each group
+        var result: [Int: [RowDTO]] = [:]
+        for (index, rows) in dataRows {
+            if let header = headerRow {
+                result[index] = [header] + rows
+            } else {
+                result[index] = rows
+            }
+        }
+        return result
     }
 
     var body: some View {
@@ -122,70 +133,40 @@ struct Logs: View {
 struct LogTab: View {
     let rows: [RowDTO]
     
-    // Combine content from all rows
-    var combinedContent: [String: String] {
+    // Get field names from the header row
+    var fieldNames: [String: String] {
+        let headerRow = rows.first(where: { $0.header })
+        return headerRow?.content ?? [:]
+    }
+    
+    // Get content from non-header rows by combining them
+    var rowContent: [String: String] {
         var combined: [String: String] = [:]
-        for row in rows {
+        // Merge content from all non-header rows with the same rowIndex
+        rows.filter({ !$0.header }).forEach { row in
             combined.merge(row.content) { current, _ in current }
         }
         return combined
     }
     
-    // Define field mappings (we'll only show fields that have data)
-    private let fieldNames: [String: String] = [
-        "0": "DATE",
-        "1": "AIRCRAFT TYPE",
-        "2": "AIRCRAFT IDENT",
-        "3": "FROM",
-        "4": "TO",
-        "5": "NR INST. APP",
-        "6": "REMARKS AND ENDORSEMENTS",
-        "7": "NR T/O",
-        "8": "NR LDG",
-        "9": "SINGLE-ENGINE LAND",
-        "10": "SINGLE-ENGINE LAND (NIGHT)",
-        "11": "MULTI-ENGINE LAND",
-        "12": "MULTI-ENGINE LAND (NIGHT)",
-        "13": "INT APR",
-        "14": "INT APR (CONT)",
-        "15": "INST APR",
-        "16": "INST APR (CONT)",
-        "17": "NIGHT",
-        "18": "NIGHT (CONT)",
-        "19": "ACTUAL INSTRUMENT",
-        "20": "ACTUAL INSTRUMENT (CONT)",
-        "21": "SIMULATED INSTRUMENT",
-        "22": "SIMULATED INSTRUMENT (CONT)",
-        "23": "FLIGHT SIMULATOR",
-        "24": "FLIGHT SIMULATOR (CONT)",
-        "25": "CROSS COUNTRY",
-        "26": "CROSS COUNTRY (CONT)",
-        "27": "AS FLIGHT INSTRUCTOR",
-        "28": "AS FLIGHT INSTRUCTOR (CONT)",
-        "29": "DUAL RECEIVED",
-        "30": "DUAL RECEIVED (CONT)",
-        "31": "PILOT IN COMMAND",
-        "32": "PILOT IN COMMAND (CONT)",
-        "33": "TOTAL DURATION",
-        "34": "TOTAL DURATION (CONT)"
-    ]
-    
     var body: some View {
         List {
-            ForEach(Array(combinedContent.sorted { $0.key < $1.key }), id: \.key) { key, value in
-                if let fieldName = fieldNames[key] {
-                    HStack {
-                        Text(fieldName)
-                            .bold()
-                            .font(.system(size: 14))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Text(value)
-                            .font(.system(size: 14))
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                    }
+            ForEach(Array(fieldNames.sorted { Int($0.key) ?? 0 < Int($1.key) ?? 0 }), id: \.key) { key, fieldName in
+                HStack {
+                    Text(fieldName)
+                        .bold()
+                        .font(.system(size: 14))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(rowContent[key] ?? "")
+                        .font(.system(size: 14))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
+        }
+        .onAppear {
+            print("Field names:", fieldNames)
+            print("Row content:", rowContent)
         }
     }
 }
