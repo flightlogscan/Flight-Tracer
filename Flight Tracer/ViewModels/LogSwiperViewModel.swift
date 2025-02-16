@@ -48,10 +48,32 @@ class LogSwiperViewModel: ObservableObject {
         // Get header row
         let headerRow = rows.first(where: { $0.header })?.content ?? [:]
         
-        // Group and merge data rows
-        let dataRows = Dictionary(grouping: rows.filter { !$0.header }) { $0.rowIndex }
+        // Find all data keys that need header duplication
+        let allDataKeys = Set(rows.filter { !$0.header }.flatMap { $0.content.keys })
         
-        // Merge rows with same index into MergedLogRow objects
+        // Create expanded headers by duplicating headers for keys without direct mapping
+        var expandedHeaders: [String: String] = [:]
+        for key in allDataKeys.sorted(by: { (Int($0) ?? 0) < (Int($1) ?? 0) }) {
+            if headerRow[key] != nil {
+                // If key has a direct header mapping, use it
+                expandedHeaders[key] = headerRow[key]
+            } else {
+                // Find the previous header and duplicate it
+                let keyNum = Int(key) ?? 0
+                let previousHeaderKey = headerRow.keys
+                    .compactMap { Int($0) }
+                    .filter { $0 < keyNum }
+                    .max()
+                    .map { String($0) }
+                
+                if let prevKey = previousHeaderKey {
+                    expandedHeaders[key] = headerRow[prevKey]
+                }
+            }
+        }
+        
+        // Process data rows
+        let dataRows = Dictionary(grouping: rows.filter { !$0.header }) { $0.rowIndex }
         let mergedRows = dataRows.map { (_, rowGroup) -> MergedLogRow in
             var mergedContent: [String: String] = [:]
             rowGroup.forEach { row in
@@ -60,6 +82,6 @@ class LogSwiperViewModel: ObservableObject {
             return MergedLogRow(fieldValues: mergedContent)
         }
         
-        return LogData(headers: headerRow, rows: mergedRows)
+        return LogData(headers: expandedHeaders, rows: mergedRows)
     }
 }
