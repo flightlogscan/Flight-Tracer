@@ -133,16 +133,41 @@ struct Logs: View {
 struct LogTab: View {
     let rows: [RowDTO]
     
-    // Get field names from the header row
+    // Get all header and data keys
+    var allKeys: [String] {
+        let headerKeys = Set(rows.first(where: { $0.header })?.content.keys ?? [String: String]().keys)
+        let dataKeys = Set(rows.filter { !$0.header }.flatMap { $0.content.keys })
+        return Array(headerKeys.union(dataKeys)).sorted { (Int($0) ?? 0) < (Int($1) ?? 0) }
+    }
+    
+    // Get field names with duplicated headers for unmapped keys
     var fieldNames: [String: String] {
-        let headerRow = rows.first(where: { $0.header })
-        return headerRow?.content ?? [:]
+        let headerRow = rows.first(where: { $0.header })?.content ?? [:]
+        var expandedHeaders: [String: String] = [:]
+        
+        for key in allKeys {
+            if headerRow[key] != nil {
+                // If key has a direct header mapping, use it
+                expandedHeaders[key] = headerRow[key]
+            } else {
+                // Find the previous header and duplicate it
+                let keyNum = Int(key) ?? 0
+                let previousHeaderKey = headerRow.keys
+                    .sorted { (Int($0) ?? 0) < (Int($1) ?? 0) }
+                    .filter { Int($0) ?? 0 < keyNum }
+                    .last
+                
+                if let prevKey = previousHeaderKey {
+                    expandedHeaders[key] = headerRow[prevKey]
+                }
+            }
+        }
+        return expandedHeaders
     }
     
     // Get content from non-header rows by combining them
     var rowContent: [String: String] {
         var combined: [String: String] = [:]
-        // Merge content from all non-header rows with the same rowIndex
         rows.filter({ !$0.header }).forEach { row in
             combined.merge(row.content) { current, _ in current }
         }
@@ -151,16 +176,18 @@ struct LogTab: View {
     
     var body: some View {
         List {
-            ForEach(Array(fieldNames.sorted { Int($0.key) ?? 0 < Int($1.key) ?? 0 }), id: \.key) { key, fieldName in
-                HStack {
-                    Text(fieldName)
-                        .bold()
-                        .font(.system(size: 14))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text(rowContent[key] ?? "")
-                        .font(.system(size: 14))
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+            ForEach(allKeys, id: \.self) { key in
+                if let fieldName = fieldNames[key] {
+                    HStack {
+                        Text(fieldName)
+                            .bold()
+                            .font(.system(size: 14))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text(rowContent[key] ?? "")
+                            .font(.system(size: 14))
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
                 }
             }
         }

@@ -7,7 +7,7 @@ class CSVCreator {
             (Int($0) ?? 0) < (Int($1) ?? 0)
         }
         
-        // Create header line, replacing newlines with spaces
+        // Create header line
         let headerLine = sortedKeys.map {
             logData.headers[$0]?
                 .replacingOccurrences(of: ",", with: "")
