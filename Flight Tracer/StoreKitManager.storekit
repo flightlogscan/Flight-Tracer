@@ -20,7 +20,7 @@
     "_applicationInternalID" : "6739791303",
     "_developerTeamID" : "NHB5BVN6YR",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 760335638.17404795,
+    "_lastSynchronizedDate" : 760811544.12555599,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -91,7 +91,7 @@
           "groupNumber" : 2,
           "internalID" : "6740945644",
           "introductoryOffer" : {
-            "internalID" : "2D11890A",
+            "internalID" : "21D69011",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
@@ -124,7 +124,7 @@
           "groupNumber" : 1,
           "internalID" : "6740945762",
           "introductoryOffer" : {
-            "internalID" : "BCF5E9BC",
+            "internalID" : "244CF480",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
