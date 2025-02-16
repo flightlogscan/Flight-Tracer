@@ -34,7 +34,7 @@ class LogSwiperViewModel: ObservableObject {
                     alertMessage = scanResult.errorCode.message
                     
                     if scanResult.isImageValid, let tables = scanResult.tables {
-                        rows = tables.filter { !$0.header } // Only keep data rows
+                        rows = tables
                     } else {
                         showAlert = true
                     }
