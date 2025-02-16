@@ -39,20 +39,13 @@ class SimpleImageScanner {
         trace?.stop()
         return simpleImageScanResult
     }
-            
-    // TODO: Expand to accept support other log types. Currently hardcoded to check for Jeppesen fields.
+    
+    // Filter out non-logbooks before allowing scan.
+    // Most logbooks contain these words, if we find some that don't, we can update it.
     private func checkBasicFlightLogText(imageText: [String]) -> Bool {
-        
-        //DATE is on the left page of the Jeppesen log
-        let containsDate = imageText.contains { text in
-            return text.contains("DATE")
+        return imageText.contains { text in
+            let lowercasedText = text.lowercased()
+            return lowercasedText.contains("flight") || lowercasedText.contains("aircraft")
         }
-        
-        //CONDITIONS is on the right page of the Jeppesen log
-        let containsConditions = imageText.contains { text in
-            return text.contains("CONDITIONS")
-        }
-
-        return containsDate && containsConditions
     }
 }
