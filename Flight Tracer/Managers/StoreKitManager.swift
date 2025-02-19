@@ -2,7 +2,7 @@ import StoreKit
 import SwiftUI
 
 @MainActor
-final class StoreKitManager: ObservableObject {
+class StoreKitManager: ObservableObject {
     @Published private(set) var purchasedProductIDs: Set<String> = []
     @Published var finishedCheckingSubscriptionStatus = false
 

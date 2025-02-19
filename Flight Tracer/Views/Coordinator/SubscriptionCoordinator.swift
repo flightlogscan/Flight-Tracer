@@ -7,39 +7,10 @@ struct SubscriptionCoordinator: View {
     @Binding var selectedScanTye: ScanType
 
     var body: some View {
-        if !storeKitManager.finishedCheckingSubscriptionStatus {
-            ZStack {
-                Color.black
-                    .opacity(0.5)
-                    .ignoresSafeArea()
-                    .zIndex(1)
-                
-                ProgressView()
-                    .tint(.white)
-                    .padding()
-                    .background(.black)
-                    .cornerRadius(10)
-                    .zIndex(1)
-                
-                ScanView(selectedScanType: $selectedScanTye)
-                    .allowsHitTesting(false)
-            }
-        } else if storeKitManager.isSubscribed() {
+        ZStack {
             ScanView(selectedScanType: $selectedScanTye)
                 .zIndex(1)
-        } else if !storeKitManager.isSubscribed() {
-            ZStack {
-                Color.black
-                    .opacity(0.5)
-                    .ignoresSafeArea()
-                    .zIndex(1)
-                
-                SubscriptionPopup()
-                    .zIndex(1)
-                
-                ScanView(selectedScanType: $selectedScanTye)
-                    .allowsHitTesting(false)
-            }
         }
+        .environmentObject(storeKitManager)
     }
 }

@@ -4,6 +4,7 @@ struct ScanView: View {
     @StateObject var scanViewModel = ScanViewModel()
     @State var activeScanPressed: Bool = false
     @Binding var selectedScanType: ScanType
+    @EnvironmentObject var storeKitManager: StoreKitManager
 
     var body: some View {
         Rectangle()
@@ -27,6 +28,7 @@ struct ScanView: View {
             .navigationDestination(isPresented: $activeScanPressed) {
                 if let uiImage = scanViewModel.selectedImage.uiImage {
                     LogSwiperView(uiImage: uiImage, selectedScanType: selectedScanType)
+                        .environmentObject(storeKitManager)
                         .accessibilityIdentifier("LogSwiperView")
                 }
             }

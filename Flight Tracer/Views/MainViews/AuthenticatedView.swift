@@ -20,12 +20,11 @@ struct AuthenticatedView: View {
                         .foregroundStyle(.white)
                         .accessibilityIdentifier("ToolbarTitle")
                 }
-                ToolbarItem(placement: .primaryAction) {
+                ToolbarItem(placement: .topBarTrailing) {
                     SettingsButtonView(selectedScanType: $selectedScanType)
-                        .accessibilityIdentifier("OptionsMenu")
+                        .accessibilityIdentifier("SettingsButton")
                 }
             }
-            .tint(.white)
             .toolbarBackground(
                 Color.navyBlue,
                 for: .navigationBar
