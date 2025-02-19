@@ -53,8 +53,9 @@ struct AccountSection: View {
     
     var body: some View {
         SettingsSheetButton(
-            title: "Subscription",
-            iconName: "creditcard",
+            title: "Premium",
+            iconName: "crown.fill",
+            color: Color.gold,
             action: { showSubscription = true },
             accessibilityIdentifier: "SubscriptionButton"
         )
@@ -131,6 +132,7 @@ struct SignOutSection: View {
 struct SettingsSheetButton: View {
     let title: String
     let iconName: String
+    var color: Color?
     let action: () -> Void
     var accessibilityIdentifier: String?
 
@@ -138,7 +140,7 @@ struct SettingsSheetButton: View {
         Button(action: action) {
             HStack {
                 Image(systemName: iconName)
-                    .foregroundColor(.navyBlue)
+                    .foregroundColor(color ?? .navyBlue)
                     .frame(width: 24, height: 24)
                 Text(title)
                     .tint(.black)

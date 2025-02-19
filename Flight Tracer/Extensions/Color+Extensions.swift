@@ -7,4 +7,5 @@ extension Color {
         
     /// A navy blue color defined in the asset catalog.
     static let navyBlue = Color("NAVY_BLUE")
+    static let gold = Color(red: 1.0, green: 0.84, blue: 0.0)
 }
