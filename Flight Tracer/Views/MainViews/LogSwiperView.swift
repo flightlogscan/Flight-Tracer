@@ -1,8 +1,3 @@
-//
-//  LogSwiperView.swift
-//  Flight Tracer
-//
-
 import SwiftUI
 
 struct LogSwiperView: View {
@@ -60,7 +55,7 @@ struct LogSwiperView: View {
             }
             .tint(.white)
             .toolbarBackground(
-                Color(red: 0.0, green: 0.2, blue: 0.5),
+                Color.navyBlue,
                 for: .navigationBar
             )
             .navigationBarTitleDisplayMode(.inline)

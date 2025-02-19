@@ -9,7 +9,8 @@ struct SettingsButtonView: View {
         Button {
             isSheetPresented = true
         } label: {
-            Label("", systemImage: "gearshape")
+            Image(systemName: "gearshape")
+                .foregroundStyle(.white)
         }
         .sheet(isPresented: $isSheetPresented) {
             SettingsSheet(isSheetPresented: $isSheetPresented, selectedScanType: $selectedScanType)
