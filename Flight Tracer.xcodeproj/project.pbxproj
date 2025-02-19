@@ -121,6 +121,7 @@
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
 		D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */; };
+		D8FA4C432D658E4200EDD99F /* PremiumToolbarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA4C422D658E3600EDD99F /* PremiumToolbarButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +223,7 @@
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
 		D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMetadataLoader.swift; sourceTree = "<group>"; };
+		D8FA4C422D658E3600EDD99F /* PremiumToolbarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumToolbarButtonView.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -465,6 +467,7 @@
 		D88DE8A12ABBE1C30080D5EB /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D8FA4C422D658E3600EDD99F /* PremiumToolbarButtonView.swift */,
 				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
 				D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */,
 				D88804F12D29F36300EB0A56 /* CropperView.swift */,
@@ -724,6 +727,7 @@
 				D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */,
+				D8FA4C432D658E4200EDD99F /* PremiumToolbarButtonView.swift in Sources */,
 				D8442ACD2CF6BDEC0087450B /* LogTextRefiner.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,

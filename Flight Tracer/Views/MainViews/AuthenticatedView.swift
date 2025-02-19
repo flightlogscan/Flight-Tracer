@@ -12,6 +12,10 @@ struct AuthenticatedView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    PremiumToolbarButtonView()
+                }
+                    
                 ToolbarItem(placement: .principal) {
                     Text("Flight Log Scan")
                         .font(.custom(
@@ -20,6 +24,7 @@ struct AuthenticatedView: View {
                         .foregroundStyle(.white)
                         .accessibilityIdentifier("ToolbarTitle")
                 }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     SettingsButtonView(selectedScanType: $selectedScanType)
                         .accessibilityIdentifier("SettingsButton")
