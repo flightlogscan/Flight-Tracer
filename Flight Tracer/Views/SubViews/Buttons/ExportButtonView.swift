@@ -12,8 +12,8 @@ struct ExportButtonView: View {
                 ShareLink(
                     item: logSwiperViewModel.convertLogRowsToCSV(),
                     preview: SharePreview(
-                        "Flight Log",
-                        image: "flight_log.csv"
+                        "flight_log.csv",
+                        image: Image("logoicon")
                     )
                 ) {
                     Label("", systemImage: "square.and.arrow.up")

@@ -18,9 +18,10 @@ struct ScanButtonView: View {
                     .padding()
             }
             .buttonStyle(.borderedProminent)
-            .tint(scanButtonActive ? .green : .gray.opacity(0.5))
+            .tint(.green)
             .bold()
             .padding([.leading, .trailing, .bottom])
+            .disabled(!scanButtonActive)
             .accessibilityIdentifier("ScanPhotoButton")
             .accessibilityLabel(Text("Scan photo button"))
             .accessibilityHint(Text(scanButtonActive ? "Tap to start scanning" : "Button is disabled"))
