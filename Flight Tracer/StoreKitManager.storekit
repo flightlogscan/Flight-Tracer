@@ -20,7 +20,7 @@
     "_applicationInternalID" : "6739791303",
     "_developerTeamID" : "NHB5BVN6YR",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 761716256.10204804,
+    "_lastSynchronizedDate" : 761716872.55190003,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -91,14 +91,14 @@
           "groupNumber" : 2,
           "internalID" : "6740945644",
           "introductoryOffer" : {
-            "internalID" : "F6130212",
+            "internalID" : "B0DF0AE2",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
           },
           "localizations" : [
             {
-              "description" : "Unlock log scanning",
+              "description" : "Unlock log scan exporting",
               "displayName" : "Monthly Subscription",
               "locale" : "en_US"
             }
@@ -124,7 +124,7 @@
           "groupNumber" : 1,
           "internalID" : "6740945762",
           "introductoryOffer" : {
-            "internalID" : "328D66E3",
+            "internalID" : "EEC80D4D",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
