@@ -44,7 +44,16 @@ class LogSwiperViewModel: ObservableObject {
         }
     }
     
-    func processRows() -> LogData {
+    func convertLogRowsToCSV() -> URL {
+        let logData = processRows()
+        if let fileURL = CSVCreator.createCSVFile(logData, filename: "flight_log.csv") {
+            return fileURL
+        }
+        // Return a default URL in case of failure
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("flight_log.csv")
+    }
+    
+    private func processRows() -> LogData {
         // Get header row
         let headerRow = rows.first(where: { $0.header })?.content ?? [:]
         

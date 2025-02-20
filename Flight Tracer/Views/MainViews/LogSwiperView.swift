@@ -49,7 +49,7 @@ struct LogSwiperView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    DownloadView(logSwiperViewModel: logSwiperViewModel)
+                    ExportButtonView(logSwiperViewModel: logSwiperViewModel)
                         .accessibilityIdentifier("DownloadView")
                 }
             }
