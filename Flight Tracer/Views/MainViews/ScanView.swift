@@ -34,3 +34,7 @@ struct ScanView: View {
             }
     }
 }
+
+#Preview {
+    AuthenticatedView()
+}

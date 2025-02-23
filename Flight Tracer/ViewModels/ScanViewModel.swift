@@ -7,7 +7,7 @@ class ScanViewModel: ObservableObject {
     @Published var alertMessage = ErrorCode.NO_ERROR.message
     @Published var validationInProgress: Bool = false
     @Published var showAlert: Bool = false
-    
+        
     let simpleImageValidator = SimpleImageScanner()
 
     func resetImage() {
