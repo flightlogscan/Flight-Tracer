@@ -33,3 +33,7 @@ struct ImageHintsView: View {
         .accessibilityIdentifier("ImageHintsView")
     }
 }
+
+#Preview {
+    AuthenticatedView()
+}

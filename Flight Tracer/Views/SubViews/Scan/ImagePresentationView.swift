@@ -88,6 +88,4 @@ struct ImagePresentationView: View {
     }
 }
 
-#Preview {
-    AuthenticatedView()
-}
+ 

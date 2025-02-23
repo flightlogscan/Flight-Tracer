@@ -3,21 +3,37 @@ import FirebasePerformance
 
 class SimpleImageScanner {
     
+    // API requires images <= 4MB
+    let MAX_SIZE_IN_BYTES = Int(4.0 * 1024 * 1024)
+    
+    // Arbitrarily decided minimum quality (can adjust in future if needed)
+    let MIN_QUALITY = 0.8
+    
     let imageTextRecognizer = ImageTextRecognizer()
     
     func simpleImageScan(image: UIImage) async throws -> SimpleImageScanResult {
-        let data = image.jpegData(compressionQuality: 0.8)!
-        let formatter = ByteCountFormatter()
-        formatter.allowedUnits = ByteCountFormatter.Units.useKB
-        formatter.countStyle = ByteCountFormatter.CountStyle.file
-        
         let trace = Performance.startTrace(name: "BasicImageValidation")
-        
-        let imageSizeKB = Double(data.count) / 1024.0
-        print("imagesizekb = \(imageSizeKB)")
 
-        if (imageSizeKB > 4096) {
-            
+        var compressionQuality = 1.0
+        var originalImageData = image.jpegData(compressionQuality: compressionQuality)!
+        var newImageData = originalImageData
+
+        print ("initial image size: \(Double(newImageData.count) / 1024 / 1024)")
+        while newImageData.count > MAX_SIZE_IN_BYTES && compressionQuality >= MIN_QUALITY {
+
+            compressionQuality -= 0.05
+
+            newImageData = image.jpegData(compressionQuality: compressionQuality)!
+
+            print("Compressed to quality: \(compressionQuality), size: \(Double(newImageData.count) / 1024 / 1024)MB")
+        }
+        
+        originalImageData = newImageData
+        
+        print ("Final compressionQuality: \(compressionQuality)")
+        
+        // If we compress and are still too big, error.
+        if (originalImageData.count > MAX_SIZE_IN_BYTES) {
             trace?.incrementMetric("InvalidSize", by: 1)
             trace?.stop()
             return SimpleImageScanResult(isImageValid: false, errorCode: ErrorCode.MAX_SIZE_EXCEEDED)
