@@ -18,7 +18,7 @@ struct AdvancedImageScanner {
         if (selectedScanType == .localhost || selectedScanType == .api) {
             print("Scan type selected: \(selectedScanType)")
             
-            let urlString = selectedScanType == .localhost ? "\(localEndpoint)/api/analyze/dummy" : "\(realEndpoint)/api/analyze"
+            let urlString = selectedScanType == .localhost ? "\(localEndpoint)/api/analyze" : "\(realEndpoint)/api/analyze"
             print("Using urlString: \(urlString)")
 
             guard let url = URL(string: urlString) else {
