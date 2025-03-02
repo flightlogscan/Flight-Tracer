@@ -5,7 +5,7 @@ extension Image {
         self
             .resizable()
             .scaledToFit()
-            .cornerRadius(10)
+            .cornerRadius(20)
             .shadow(radius: 5)
             .padding([.leading, .trailing])
     }

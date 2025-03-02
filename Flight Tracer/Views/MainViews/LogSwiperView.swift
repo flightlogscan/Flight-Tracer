@@ -4,7 +4,6 @@ struct LogSwiperView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var authManager: AuthManager
     
-    @State var showAlert = false
     @State var isDataLoaded: Bool = false
     @StateObject var logSwiperViewModel = LogSwiperViewModel()
     
@@ -12,74 +11,62 @@ struct LogSwiperView: View {
     let selectedScanType: ScanType
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Rectangle()
-                    .fill(Color(.systemGray6))
-                    .edgesIgnoringSafeArea(.all)
-                
-                if isDataLoaded {
-                    Logs(logSwiperViewModel: logSwiperViewModel)
-                } else {
-                    ProgressView()
-                        .tint(.white)
-                        .padding()
-                        .background(.black)
-                        .cornerRadius(10)
-                        .zIndex(1)
-                }
-            }
-            .accessibilityIdentifier("LogSwiperView")
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        showAlert = true
-                    } label: {
-                        Label("", systemImage: "xmark")
-                    }
-                    .accessibilityIdentifier("xmark")
-                    .alert("Delete Log?", isPresented: $showAlert) {
-                        Button("Cancel", role: .cancel) {}
-                        Button("Delete", role: .destructive) {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    } message: {
-                        Text("Deleting this log will delete its data, but any data stored in iCloud will not be deleted.")
+        ZStack {
+            Rectangle()
+                .fill(LinearGradient(
+                    gradient: Gradient(colors: [.navyBlue, .black, .black]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                ))
+                .edgesIgnoringSafeArea(.all)
+                .accessibilityIdentifier("LogSwiperBackground")
+            
+            NavigationStack {
+                ZStack {
+                    if isDataLoaded {
+                        Logs(logSwiperViewModel: logSwiperViewModel)
+                    } else {
+                        ProgressView()
+                            .tint(.white)
+                            .padding()
+                            .background(.black)
+                            .cornerRadius(10)
+                            .zIndex(1)
                     }
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    ExportButtonView(logSwiperViewModel: logSwiperViewModel)
-                        .accessibilityIdentifier("DownloadView")
+                .accessibilityIdentifier("LogSwiperView")
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        DeleteLogButtonView()
+                    }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        ExportButtonView(logSwiperViewModel: logSwiperViewModel)
+                    }
                 }
-            }
-            .tint(.white)
-            .toolbarBackground(
-                Color.navyBlue,
-                for: .navigationBar
-            )
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden()
-            .toolbarBackground(.visible, for: .navigationBar)
-            .alert("Error detected:", isPresented: $logSwiperViewModel.showAlert) {
-                Button("Back") {
-                    self.presentationMode.wrappedValue.dismiss()
+                .toolbarBackground(.hidden, for: .navigationBar)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden()
+                .alert("Error detected:", isPresented: $logSwiperViewModel.showAlert) {
+                    Button("Back") {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                } message: {
+                    Text(logSwiperViewModel.alertMessage)
                 }
-            } message: {
-                Text(logSwiperViewModel.alertMessage)
-                    .foregroundColor(Color.secondary)
-            }
-            .onAppear {
-                logSwiperViewModel.scanImageForLogText(
-                    uiImage: uiImage,
-                    userToken: authManager.user.token,
-                    selectedScanType: selectedScanType
-                )
-            }
-            .onReceive(logSwiperViewModel.$rows) { rows in
-                isDataLoaded = !rows.isEmpty
+                .onAppear {
+                    logSwiperViewModel.scanImageForLogText(
+                        uiImage: uiImage,
+                        userToken: authManager.user.token,
+                        selectedScanType: selectedScanType
+                    )
+                }
+                .onReceive(logSwiperViewModel.$rows) { rows in
+                    isDataLoaded = !rows.isEmpty
+                }
             }
         }
+        .background(Color.clear)
     }
 }
 
@@ -114,7 +101,6 @@ struct Logs: View {
             } else {
                 ProgressView()
                     .foregroundColor(.white)
-                    .tint(.white)
                     .padding()
                     .background(.black)
                     .cornerRadius(10)
@@ -158,9 +144,6 @@ struct LogTab: View {
                 }
             }
         }
-        .onAppear {
-            print("Field names:", fieldNames)
-            print("Row content:", rowContent)
-        }
+        .scrollContentBackground(.hidden)
     }
 }

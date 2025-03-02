@@ -5,29 +5,28 @@ struct ScanButtonView: View {
     @State var scanButtonActive: Bool = false
     
     @Binding var activeScanPressed: Bool
-    @Binding var isImageValid: Bool
-    
+
     var body: some View {
         VStack{
             Button {
-                activeScanPressed = scanButtonActive
+                activeScanPressed = true
             } label: {
-                Label("Scan log", systemImage: "doc.viewfinder.fill")
-                    .frame(maxWidth: .infinity)
-                    .font(.title2)
-                    .padding()
+                Text("Scan")
+                    .font(.headline)
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 7.5)
+                    .foregroundColor(.white)
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.green)
-            .bold()
-            .padding([.leading, .trailing, .bottom])
-            .disabled(!scanButtonActive)
+            .background(.green)
+            .clipShape(Capsule())
+            .offset(x: -25, y: 5)
             .accessibilityIdentifier("ScanPhotoButton")
             .accessibilityLabel(Text("Scan photo button"))
             .accessibilityHint(Text(scanButtonActive ? "Tap to start scanning" : "Button is disabled"))
         }
-        .onChange(of: isImageValid) {
-            scanButtonActive = isImageValid
-        }
     }
+}
+
+#Preview {
+    AuthenticatedView()
 }

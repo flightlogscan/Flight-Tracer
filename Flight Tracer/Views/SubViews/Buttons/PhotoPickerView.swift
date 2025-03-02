@@ -6,21 +6,26 @@ struct PhotoPickerView: View {
     @StateObject private var photoPickerViewModel = PhotoPickerViewModel()
     
     @Binding var selectedImage: ImageDetail
+    
+    private enum Constants {
+        static let iconSize: CGFloat = 18
+        static let iconWeight: Font.Weight = .medium
+        static let horizontalPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 12
+    }
+
 
     var body: some View {
         VStack {
             Button(action: {
                 photoPickerViewModel.checkPermissionsAndShowPicker()
             }) {
-                Rectangle()
-                    .overlay(
-                        Image(systemName: "photo.fill")
-                            .foregroundColor(.semiTransparentBlack)
-                    )
-                    .foregroundColor(.white)
+                Image(systemName: "photo.on.rectangle")
+                    .font(.system(size: Constants.iconSize, weight: Constants.iconWeight))
+                    .foregroundColor(.semiTransparentBlack)
+                    .padding(.horizontal, Constants.horizontalPadding)
+                    .padding(.vertical, Constants.verticalPadding)
             }
-            .cornerRadius(10)
-            .aspectRatio(1, contentMode: .fit)
             .accessibilityLabel("Select Image")
             .accessibilityIdentifier("PhotoPickerButton")
             .accessibilityAddTraits(.isButton)
@@ -40,4 +45,8 @@ struct PhotoPickerView: View {
             }
         }
     }
+}
+
+#Preview {
+    AuthenticatedView()
 }

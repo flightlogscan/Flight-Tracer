@@ -7,31 +7,34 @@ struct ScanView: View {
     @EnvironmentObject var storeKitManager: StoreKitManager
 
     var body: some View {
-        Rectangle()
-            .fill(Color(.systemGray6))
-            .edgesIgnoringSafeArea(.all)
-            .accessibilityIdentifier("Background")
-
+        ZStack (alignment: .bottom) {
+            Rectangle()
+                .fill(LinearGradient(
+                    gradient: Gradient(colors: [.navyBlue, .black, .black]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                ))
+                .edgesIgnoringSafeArea(.all)
+                .accessibilityIdentifier("ScanBackground")
+            
             VStack {
                 ImageHintsView()
-                    .accessibilityIdentifier("ImageHintsView")
                 
-                ImagePresentationView(parentViewModel: scanViewModel)
+                ImagePresentationView(parentViewModel: scanViewModel, activeScanPressed: $activeScanPressed)
                     .accessibilityIdentifier("ImagePresentationView")
-                
-                PhotoCarouselView(selectedImage: $scanViewModel.selectedImage)
-                    .accessibilityIdentifier("PhotoCarouselView")
-                
-                ScanButtonView(activeScanPressed: $activeScanPressed, isImageValid: $scanViewModel.isImageValid)
-                    .accessibilityIdentifier("ScanView")
+                    .overlay (
+                        PillButtonView(selectedImage: $scanViewModel.selectedImage)
+                            .padding(.bottom),
+                        alignment: .bottom
+                    )
             }
-            .navigationDestination(isPresented: $activeScanPressed) {
-                if let uiImage = scanViewModel.selectedImage.uiImage {
-                    LogSwiperView(uiImage: uiImage, selectedScanType: selectedScanType)
-                        .environmentObject(storeKitManager)
-                        .accessibilityIdentifier("LogSwiperView")
-                }
+        }
+        .navigationDestination(isPresented: $activeScanPressed) {
+            if let uiImage = scanViewModel.selectedImage.uiImage {
+                LogSwiperView(uiImage: uiImage, selectedScanType: selectedScanType)
+                    .environmentObject(storeKitManager)
             }
+        }
     }
 }
 
