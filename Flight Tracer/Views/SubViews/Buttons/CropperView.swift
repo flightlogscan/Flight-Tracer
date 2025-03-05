@@ -9,12 +9,12 @@ struct CropperView: View {
             showCropper = true
         } label: {
             ZStack {
-                Circle()
-                    .fill(Color.semiTransparentBlack)
-                    .frame(width: 30, height: 30)
-               
-               Image(systemName: "crop.rotate")
-                   .foregroundColor(.white)
+                Image(systemName: "circle.fill")
+                    .font(.title)
+                    .foregroundStyle(.regularMaterial)
+
+                Image(systemName: "crop.rotate")
+                    .foregroundColor(.white)
             }
             .offset(x: 25, y: 5)
         }

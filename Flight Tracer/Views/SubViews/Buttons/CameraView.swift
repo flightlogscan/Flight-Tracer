@@ -2,7 +2,14 @@ import SwiftUI
 import AVFoundation
 
 struct CameraView: View {
-        
+    
+    private enum Constants {
+        static let iconSize: CGFloat = 18
+        static let iconWeight: Font.Weight = .medium
+        static let horizontalPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 12
+    }
+    
     @State private var showCamera: Bool = false
     @State private var showAlert: Bool = false
     @StateObject private var permissionManager = CameraPermissionManager()
@@ -10,28 +17,24 @@ struct CameraView: View {
     @Binding var selectedImage: ImageDetail
     
     var body: some View {
-        Button {
+        Button(action: {
             if permissionManager.hasPermission {
                 showCamera = true
             } else {
                 showAlert = true
             }
-        } label: {
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                .overlay (
-                    Image(systemName: "camera.fill")
-                        .foregroundColor(.semiTransparentBlack)
-                )
-                .foregroundColor(.white)
+        }) {
+            Image(systemName: "camera")
+                .font(.system(size: Constants.iconSize, weight: Constants.iconWeight))
+                .foregroundColor(.semiTransparentBlack)
+                .padding(.horizontal, Constants.horizontalPadding)
+                .padding(.vertical, Constants.verticalPadding)
         }
         .alert("Allow access?", isPresented: $showAlert) {
             PhoneSettingsAlert()
         } message: {
             Text("Flight Log Tracer needs Camera access to take photos.")
         }
-        .cornerRadius(10)
-        .aspectRatio(1, contentMode: .fit)
-        .foregroundColor(.semiTransparentBlack)
         .onAppear {
             permissionManager.requestPermission()
         }
@@ -41,4 +44,8 @@ struct CameraView: View {
                 .background(.black)
         }
     }
+}
+
+#Preview {
+    AuthenticatedView()
 }

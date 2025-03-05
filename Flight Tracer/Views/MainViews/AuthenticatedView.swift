@@ -3,7 +3,7 @@ import FirebaseAuthUI
 import PhotosUI
 
 struct AuthenticatedView: View {
-    @State var selectedScanType: ScanType = .api
+    @State var selectedScanType: ScanType = .hardcoded
          
     var body: some View {
         NavigationStack {
@@ -13,28 +13,27 @@ struct AuthenticatedView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    PremiumToolbarButtonView()
-                }
-                    
-                ToolbarItem(placement: .principal) {
-                    Text("Flight Log Scan")
+                    Text("Scan")
                         .font(.custom(
                             "Magnolia Script",
-                            fixedSize: 24))
+                            fixedSize: 36))
                         .foregroundStyle(.white)
                         .accessibilityIdentifier("ToolbarTitle")
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    SettingsButtonView(selectedScanType: $selectedScanType)
-                        .accessibilityIdentifier("SettingsButton")
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    HStack(spacing: 4) {
+                        PremiumButton()
+                        
+                        SettingsButtonView(selectedScanType: $selectedScanType)
+                    }
                 }
             }
-            .toolbarBackground(
-                Color.navyBlue,
-                for: .navigationBar
-            )
-            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.hidden, for: .navigationBar)
         }
     }
+}
+
+#Preview {
+    AuthenticatedView()
 }

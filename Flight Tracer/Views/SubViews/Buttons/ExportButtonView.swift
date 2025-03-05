@@ -16,14 +16,28 @@ struct ExportButtonView: View {
                         image: Image("logoicon")
                     )
                 ) {
-                    Label("", systemImage: "square.and.arrow.up")
+                    Text("Export")
+                        .font(.headline)
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 7.5)
+                        .foregroundColor(.black)
+                        .background(.thinMaterial)
+                        .environment(\.colorScheme, .light)
+                        .clipShape(Capsule())
                 }
                 .accessibilityIdentifier("ExportButton")
             } else {
                 Button {
                     showSubscription = true
                 } label: {
-                    Label("", systemImage: "square.and.arrow.up")
+                    Image(systemName: "square.and.arrow.up")
+                        .frame( width: 36, height: 36)
+                        .foregroundColor(.semiTransparentBlack)
+                        .background(
+                            Circle()
+                                .fill(.thickMaterial)
+                                .environment(\.colorScheme, .light)
+                        )
                 }
                 .accessibilityIdentifier("UnsubscribedExportButton")
             }

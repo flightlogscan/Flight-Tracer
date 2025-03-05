@@ -43,3 +43,7 @@ struct PhotoCarouselView: View {
         }
     }
 }
+
+#Preview {
+    AuthenticatedView()
+}

@@ -20,8 +20,10 @@ struct AdminSettingsSection: View {
                     Spacer()
                     Text(selectedScanType.displayName)
                         .foregroundColor(.secondary)
+                        .font(.subheadline)
                     Image(systemName: "chevron.right")
                         .foregroundColor(.gray)
+                        .font(.caption2)
                 }
                 .contentShape(Rectangle())
             }

@@ -11,30 +11,25 @@ struct SettingsSheet: View {
 
     var body: some View {
         VStack (spacing: 0) {
-
             ZStack {
                 Text("Settings")
-                    .font(.system(size: 20, weight: .semibold))
+                    .font(.title3)
+                    .fontWeight(.medium)
                     .frame(maxWidth: .infinity, alignment: .center) // Center the text within the ZStack
                 
                 HStack {
                     Spacer()
-                    Button(action: {
+                    Button("Done", action: {
                         withAnimation {
                             isSheetPresented = false
                         }
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundStyle(.gray, .gray.opacity(0.2))
-                            .imageScale(.medium)
-                            .font(.system(size: 28))
-                    }
+                    })
+                    .foregroundStyle(.primary)
                 }
             }
             .frame(height: 44)
             .padding([.horizontal])
             .padding(.top, 8)
-            .background(Color(.systemGroupedBackground))
 
             List {
                 AccountSection()
@@ -71,7 +66,7 @@ struct SupportSection: View {
     var body: some View {
         Section("Support") {
             SettingsSheetButton(
-                title: "FAQ",
+                title: "Help",
                 iconName: "questionmark.circle",
                 action: { parentViewModel.openWebsite("https://www.flightlogtracer.com/faq") },
                 accessibilityIdentifier: "FAQWebsite"
@@ -89,7 +84,7 @@ struct SupportSection: View {
                 accessibilityIdentifier: "PrivacyWebsite"
             )
             SettingsSheetButton(
-                title: "Terms of Use",
+                title: "Terms & Conditions",
                 iconName: "scroll",
                 action: { parentViewModel.openWebsite("https://www.flightlogtracer.com/terms") },
                 accessibilityIdentifier: "TermsWebsite"
@@ -112,9 +107,11 @@ struct SignOutSection: View {
                     Spacer()
                     Text("Sign Out")
                         .foregroundColor(.red)
+                        .fontWeight(.semibold)
                     Spacer()
                 }
             }
+            .listRowBackground(Color.gray.opacity(0.2))
             .alert("Sign Out?", isPresented: $showAlert) {
                 Button("Cancel", role: .cancel) { }
                 
@@ -140,13 +137,14 @@ struct SettingsSheetButton: View {
         Button(action: action) {
             HStack {
                 Image(systemName: iconName)
-                    .foregroundColor(color ?? .navyBlue)
+                    .foregroundColor(color ?? .primary)
                     .frame(width: 24, height: 24)
                 Text(title)
-                    .tint(.black)
+                    .foregroundColor(.primary)
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
+                    .font(.caption2)
             }
         }
         .accessibilityIdentifier(accessibilityIdentifier ?? "")

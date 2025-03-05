@@ -106,13 +106,14 @@
 		D8AD8FC22D45479C00BF84DA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD8FC12D45479C00BF84DA /* StoreKit.framework */; };
 		D8AD8FC42D454E9900BF84DA /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FC32D454E9500BF84DA /* SubscriptionView.swift */; };
 		D8AD8FC82D455B2600BF84DA /* StoreKitManager.storekit in Resources */ = {isa = PBXBuildFile; fileRef = D8AD8FC72D455B2600BF84DA /* StoreKitManager.storekit */; };
-		D8AD8FCE2D4C89FF00BF84DA /* SubscriptionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FCD2D4C89E600BF84DA /* SubscriptionPopup.swift */; };
 		D8AD8FD72D504CCA00BF84DA /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FD62D504CC600BF84DA /* AuthCoordinator.swift */; };
 		D8AD8FD92D504CD300BF84DA /* SubscriptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FD82D504CCE00BF84DA /* SubscriptionCoordinator.swift */; };
 		D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */; };
 		D8AD8FDE2D51A91800BF84DA /* CustomSubscriptionStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDD2D51A91200BF84DA /* CustomSubscriptionStoreView.swift */; };
 		D8AD8FE12D51B36C00BF84DA /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */; };
 		D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */; };
+		D8CF7E512D7384F800C7229A /* PillButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E502D7384F700C7229A /* PillButtonView.swift */; };
+		D8CF7E532D767ACF00C7229A /* DeleteLogButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */; };
 		D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraViewController.swift */; };
 		D8D599752D09399900EA88D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8D599742D09399900EA88D8 /* GoogleService-Info.plist */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
@@ -121,7 +122,7 @@
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
 		D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */; };
-		D8FA4C432D658E4200EDD99F /* PremiumToolbarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA4C422D658E3600EDD99F /* PremiumToolbarButtonView.swift */; };
+		D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,13 +207,14 @@
 		D8AD8FC12D45479C00BF84DA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		D8AD8FC32D454E9500BF84DA /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		D8AD8FC72D455B2600BF84DA /* StoreKitManager.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = StoreKitManager.storekit; path = "Flight Tracer/StoreKitManager.storekit"; sourceTree = SOURCE_ROOT; };
-		D8AD8FCD2D4C89E600BF84DA /* SubscriptionPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPopup.swift; sourceTree = "<group>"; };
 		D8AD8FD62D504CC600BF84DA /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		D8AD8FD82D504CCE00BF84DA /* SubscriptionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCoordinator.swift; sourceTree = "<group>"; };
 		D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D8AD8FDD2D51A91200BF84DA /* CustomSubscriptionStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionStoreView.swift; sourceTree = "<group>"; };
 		D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
 		D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
+		D8CF7E502D7384F700C7229A /* PillButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButtonView.swift; sourceTree = "<group>"; };
+		D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLogButtonView.swift; sourceTree = "<group>"; };
 		D8D458D92AACCFE500E29B83 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D8D599712D091B9400EA88D8 /* Flight TracerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Flight TracerRelease.entitlements"; sourceTree = "<group>"; };
 		D8D599742D09399900EA88D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -223,7 +225,7 @@
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
 		D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMetadataLoader.swift; sourceTree = "<group>"; };
-		D8FA4C422D658E3600EDD99F /* PremiumToolbarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumToolbarButtonView.swift; sourceTree = "<group>"; };
+		D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,7 +368,6 @@
 				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 				D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */,
 				D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */,
-				D8AD8FCD2D4C89E600BF84DA /* SubscriptionPopup.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -467,12 +468,14 @@
 		D88DE8A12ABBE1C30080D5EB /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				D8FA4C422D658E3600EDD99F /* PremiumToolbarButtonView.swift */,
 				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
 				D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */,
 				D88804F12D29F36300EB0A56 /* CropperView.swift */,
+				D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */,
 				D88DE8A42AC0AF7F0080D5EB /* ExportButtonView.swift */,
 				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
+				D8CF7E502D7384F700C7229A /* PillButtonView.swift */,
+				D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */,
 				D88DE8A22ABBE1E40080D5EB /* ScanButtonView.swift */,
 			);
 			path = Buttons;
@@ -720,14 +723,14 @@
 				D8028B372AAC1278004FFD02 /* SimpleImageScanner.swift in Sources */,
 				D8442AD22CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
 				D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */,
-				D8AD8FCE2D4C89FF00BF84DA /* SubscriptionPopup.swift in Sources */,
 				D8EA04E82CF29E0600FE8EA5 /* AnalyzeResultConverter.swift in Sources */,
 				D8831E122CFBA7EE00F7ADFF /* LogRowViewModel.swift in Sources */,
 				D841CC2C2CE1251400A02B5D /* AuthManager.swift in Sources */,
 				D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */,
+				D8CF7E532D767ACF00C7229A /* DeleteLogButtonView.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */,
-				D8FA4C432D658E4200EDD99F /* PremiumToolbarButtonView.swift in Sources */,
+				D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */,
 				D8442ACD2CF6BDEC0087450B /* LogTextRefiner.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
 				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
@@ -751,6 +754,7 @@
 				D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
 				D8442AC92CF6987A0087450B /* ScanType.swift in Sources */,
+				D8CF7E512D7384F800C7229A /* PillButtonView.swift in Sources */,
 				9E4A08642BEFE79B00EC7C17 /* SettingsButtonView.swift in Sources */,
 				9EB795DC2D6260FA008B351C /* LogData.swift in Sources */,
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
@@ -989,7 +993,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -1041,7 +1045,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
