@@ -3,7 +3,7 @@ import FirebaseAuthUI
 import PhotosUI
 
 struct AuthenticatedView: View {
-    @State var selectedScanType: ScanType = .hardcoded
+    @State var selectedScanType: ScanType = .api
          
     var body: some View {
         NavigationStack {
