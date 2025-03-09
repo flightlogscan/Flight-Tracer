@@ -5,6 +5,7 @@ class LogSwiperViewModel: ObservableObject {
     @Published var alertMessage = ErrorCode.NO_ERROR.message
     @Published var showAlert: Bool = false
     @Published var rows: [RowDTO] = []
+    @Published var editableLogData: EditableLogData?
     
     let advancedImageScanner = AdvancedImageScanner()
     
@@ -15,6 +16,7 @@ class LogSwiperViewModel: ObservableObject {
                 isImageValid = false
                 alertMessage = ErrorCode.NO_ERROR.message
                 showAlert = false
+                editableLogData = nil
             }
             
             do {
@@ -30,6 +32,7 @@ class LogSwiperViewModel: ObservableObject {
                     
                     if scanResult.isImageValid, let tables = scanResult.tables {
                         rows = tables
+                        editableLogData = EditableLogData(rows: tables)
                     } else {
                         showAlert = true
                     }
@@ -44,20 +47,45 @@ class LogSwiperViewModel: ObservableObject {
         }
     }
     
+    func updateField(rowIndex: Int, fieldKey: String, newValue: String) {
+        editableLogData?.updateValue(rowIndex: rowIndex, key: fieldKey, newValue: newValue)
+    }
+    
+    func updateFieldName(oldKey: String, newName: String) {
+        editableLogData?.updateFieldName(oldKey: oldKey, newName: newName)
+    }
+    
     func convertLogRowsToCSV() -> URL {
-        let logData = processRows()
-        if let fileURL = CSVCreator.createCSVFile(logData, filename: "flight_log.csv") {
-            return fileURL
+        // Apply edits before generating CSV
+        if let editableData = editableLogData {
+            let editedRows = editableData.getEditedRows()
+            
+            // Use edited rows for CSV generation
+            let headerRow = editedRows.first(where: { $0.header })?.content ?? [:]
+            let dataRows = editedRows.filter { !$0.header }.map { row in
+                MergedLogRow(fieldValues: row.content)
+            }
+            
+            let logData = LogData(headers: headerRow, rows: dataRows)
+            
+            if let fileURL = CSVCreator.createCSVFile(logData, filename: "flight_log.csv") {
+                return fileURL
+            }
+        } else {
+            // Fall back to original logic if no editable data
+            let logData = processRows()
+            if let fileURL = CSVCreator.createCSVFile(logData, filename: "flight_log.csv") {
+                return fileURL
+            }
         }
+        
         // Return a default URL in case of failure
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("flight_log.csv")
     }
     
     private func processRows() -> LogData {
-        // Get header row
         let headerRow = rows.first(where: { $0.header })?.content ?? [:]
         
-        // Get data rows
         let dataRows = rows.filter { !$0.header }.map { row in
             MergedLogRow(fieldValues: row.content)
         }
