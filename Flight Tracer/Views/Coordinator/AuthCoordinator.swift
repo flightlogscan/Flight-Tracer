@@ -2,6 +2,9 @@ import SwiftUI
 
 struct AuthCoordinator: View {
     @StateObject private var authManager = AuthManager()
+    
+    // Listen for subscription transactions at startup
+    @StateObject private var storeKitManager = StoreKitManager()
 
     var body: some View {
         ZStack {
@@ -14,6 +17,7 @@ struct AuthCoordinator: View {
                     .accessibilityIdentifier("LoginView")
             } else if authManager.isLoggedIn {
                 AuthenticatedView()
+                    .environmentObject(storeKitManager)
                     .zIndex(1)
             }
         }

@@ -2,11 +2,11 @@ import SwiftUI
 
 struct SettingsButtonView: View {
     @Binding var selectedScanType: ScanType
-    @State var isSheetPresented: Bool = false
+    @State var showSettingsSheet: Bool = false
 
     var body: some View {
         Button {
-            isSheetPresented = true
+            showSettingsSheet = true
         } label: {
             Image(systemName: "gearshape.fill")
                 .frame( width: 36, height: 36)
@@ -16,10 +16,9 @@ struct SettingsButtonView: View {
                         .fill(.thickMaterial)
                         .environment(\.colorScheme, .light)
                 )
-            
         }
-        .sheet(isPresented: $isSheetPresented) {
-            SettingsSheet(isSheetPresented: $isSheetPresented, selectedScanType: $selectedScanType)
+        .sheet(isPresented: $showSettingsSheet) {
+            SettingsSheet(showSettingsSheet: $showSettingsSheet, selectedScanType: $selectedScanType)
         }
         .accessibilityIdentifier("SettingsMenuButton")
     }

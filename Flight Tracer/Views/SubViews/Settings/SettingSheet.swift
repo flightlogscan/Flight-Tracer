@@ -3,40 +3,50 @@ import StoreKit
 
 struct SettingsSheet: View {
     @EnvironmentObject var authManager: AuthManager
+    
+    @State var showStore = false
 
-    @Binding var isSheetPresented: Bool
+    @Binding var showSettingsSheet: Bool
     @Binding var selectedScanType: ScanType
     
     @ObservedObject var settingsViewModel = SettingsViewModel()
 
     var body: some View {
-        VStack (spacing: 0) {
-            ZStack {
-                Text("Settings")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .frame(maxWidth: .infinity, alignment: .center) // Center the text within the ZStack
-                
-                HStack {
-                    Spacer()
-                    Button("Done", action: {
-                        withAnimation {
-                            isSheetPresented = false
-                        }
-                    })
-                    .foregroundStyle(.primary)
-                }
+        ZStack {
+            if (showStore) {
+                Color.semiTransparentBlack
+                    .ignoresSafeArea(.all)
+                    .zIndex(1)
             }
-            .frame(height: 44)
-            .padding([.horizontal])
-            .padding(.top, 8)
-
-            List {
-                AccountSection()
-                SupportSection(parentViewModel: settingsViewModel)
-                SignOutSection(selectedScanType: $selectedScanType)
-                if authManager.isAdmin() {
-                    AdminSettingsSection(selectedScanType: $selectedScanType)
+            
+            VStack (spacing: 0) {
+                ZStack {
+                    Text("Settings")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    HStack {
+                        Spacer()
+                        Button("Done", action: {
+                            withAnimation {
+                                showSettingsSheet = false
+                            }
+                        })
+                        .foregroundStyle(.primary)
+                    }
+                }
+                .frame(height: 44)
+                .padding([.horizontal])
+                .padding(.top, 8)
+                
+                List {
+                    AccountSection(showStore: $showStore)
+                    SupportSection(parentViewModel: settingsViewModel)
+                    SignOutSection(selectedScanType: $selectedScanType)
+                    if authManager.isAdmin() {
+                        AdminSettingsSection(selectedScanType: $selectedScanType)
+                    }
                 }
             }
         }
@@ -44,18 +54,34 @@ struct SettingsSheet: View {
 }
 
 struct AccountSection: View {
-    @State private var showSubscription = false
+    @EnvironmentObject var storeKitManager: StoreKitManager
+
+    @Binding var showStore: Bool
     
     var body: some View {
-        SettingsSheetButton(
-            title: "Premium",
-            iconName: "crown.fill",
-            color: Color.gold,
-            action: { showSubscription = true },
-            accessibilityIdentifier: "SubscriptionButton"
-        )
-        .sheet(isPresented: $showSubscription) {
-            CustomSubscriptionStoreView()
+        if(!storeKitManager.isSubscribed()) {
+            SettingsSheetButton(
+                title: "Premium",
+                iconName: "crown.fill",
+                color: Color.gold,
+                action: { showStore = true },
+                accessibilityIdentifier: "SubscriptionButton"
+            )
+            .premiumSheet(isPresented: $showStore) {
+                FLSStoreView() 
+            }
+        } else {
+            SettingsSheetButton(
+                title: "Subscription",
+                iconName: "crown.fill",
+                color: Color.gold,
+                action: {
+                    Task {
+                        await storeKitManager.manageSubscription()
+                    }
+                 },
+                accessibilityIdentifier: "SubscriptionButton"
+            )
         }
     }
 }
