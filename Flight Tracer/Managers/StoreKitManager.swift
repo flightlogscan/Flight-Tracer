@@ -7,8 +7,8 @@ class StoreKitManager: ObservableObject {
     @Published var finishedCheckingSubscriptionStatus = false
 
     private let productIDs = [
-        "com.flightlogscan.subscription.monthly",
-        "com.flightlogscan.subscription.yearly"
+        "com.flightlogscan.premium",
+        "com.flightlogscan.subscription.monthly.nonrenewing"
     ]
         
     nonisolated init() {
@@ -21,7 +21,7 @@ class StoreKitManager: ObservableObject {
         return !purchasedProductIDs.isDisjoint(with: productIDs)
     }
     
-    private func listenForTransactions() async {
+    public func listenForTransactions() async {
         // Check current entitlements
         for await verification in StoreKit.Transaction.currentEntitlements {
             guard case .verified(let transaction) = verification,
@@ -53,5 +53,17 @@ class StoreKitManager: ObservableObject {
         } else {
             purchasedProductIDs.remove(transaction.productID)
         }
+    }
+    
+    func manageSubscription() async {
+       if #available(iOS 15.0, *) {
+           if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+               try? await AppStore.showManageSubscriptions(in: windowScene)
+           }
+       } else {
+           if let url = URL(string: "itms-apps://apps.apple.com/account/subscriptions") {
+               await UIApplication.shared.open(url)
+           }
+       }
     }
 }

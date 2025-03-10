@@ -11,16 +11,44 @@
   },
   "identifier" : "67461AB6",
   "nonRenewingSubscriptions" : [
-
+    {
+      "displayPrice" : "29.99",
+      "familyShareable" : false,
+      "internalID" : "6743055889",
+      "localizations" : [
+        {
+          "description" : "Unlock scanning and exporting for one month",
+          "displayName" : "One Month Only",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.flightlogscan.subscription.monthly.nonrenewing",
+      "referenceName" : "FlightLogScan Monthly Non-Renewing Subscription",
+      "type" : "NonRenewingSubscription"
+    }
   ],
   "products" : [
-
+    {
+      "displayPrice" : "99.99",
+      "familyShareable" : false,
+      "internalID" : "6743055961",
+      "localizations" : [
+        {
+          "description" : "Unlimited log scanning and exporting!",
+          "displayName" : "One-Time Purchase",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.flightlogscan.premium",
+      "referenceName" : "FlightLogScan Premium One-time Purchase",
+      "type" : "NonConsumable"
+    }
   ],
   "settings" : {
     "_applicationInternalID" : "6739791303",
     "_developerTeamID" : "NHB5BVN6YR",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 761716872.55190003,
+    "_lastSynchronizedDate" : 763246114.58760798,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -86,16 +114,11 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "4.99",
+          "displayPrice" : "29.99",
           "familyShareable" : false,
           "groupNumber" : 2,
           "internalID" : "6740945644",
-          "introductoryOffer" : {
-            "internalID" : "B0DF0AE2",
-            "numberOfPeriods" : 1,
-            "paymentMode" : "free",
-            "subscriptionPeriod" : "P1W"
-          },
+          "introductoryOffer" : null,
           "localizations" : [
             {
               "description" : "Unlock log scan exporting",
@@ -124,7 +147,7 @@
           "groupNumber" : 1,
           "internalID" : "6740945762",
           "introductoryOffer" : {
-            "internalID" : "EEC80D4D",
+            "internalID" : "C3AC2C6A",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"

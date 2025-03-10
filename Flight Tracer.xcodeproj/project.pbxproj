@@ -112,11 +112,12 @@
 		D8AD8FD72D504CCA00BF84DA /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FD62D504CC600BF84DA /* AuthCoordinator.swift */; };
 		D8AD8FD92D504CD300BF84DA /* SubscriptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FD82D504CCE00BF84DA /* SubscriptionCoordinator.swift */; };
 		D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */; };
-		D8AD8FDE2D51A91800BF84DA /* CustomSubscriptionStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDD2D51A91200BF84DA /* CustomSubscriptionStoreView.swift */; };
+		D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */; };
 		D8AD8FE12D51B36C00BF84DA /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */; };
 		D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */; };
 		D8CF7E512D7384F800C7229A /* PillButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E502D7384F700C7229A /* PillButtonView.swift */; };
 		D8CF7E532D767ACF00C7229A /* DeleteLogButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */; };
+		D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E542D7E085C00C7229A /* View+Extensions.swift */; };
 		D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraViewController.swift */; };
 		D8D599752D09399900EA88D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8D599742D09399900EA88D8 /* GoogleService-Info.plist */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
@@ -216,11 +217,12 @@
 		D8AD8FD62D504CC600BF84DA /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		D8AD8FD82D504CCE00BF84DA /* SubscriptionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCoordinator.swift; sourceTree = "<group>"; };
 		D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
-		D8AD8FDD2D51A91200BF84DA /* CustomSubscriptionStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriptionStoreView.swift; sourceTree = "<group>"; };
+		D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLSStoreView.swift; sourceTree = "<group>"; };
 		D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
 		D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
 		D8CF7E502D7384F700C7229A /* PillButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButtonView.swift; sourceTree = "<group>"; };
 		D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLogButtonView.swift; sourceTree = "<group>"; };
+		D8CF7E542D7E085C00C7229A /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		D8D458D92AACCFE500E29B83 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D8D599712D091B9400EA88D8 /* Flight TracerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Flight TracerRelease.entitlements"; sourceTree = "<group>"; };
 		D8D599742D09399900EA88D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 		D83C76652CEA4E2200DDAACD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D8CF7E542D7E085C00C7229A /* View+Extensions.swift */,
 				D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */,
 				D896A0F72CF116F7003AA2F8 /* Image+Extensions.swift */,
 			);
@@ -469,7 +472,7 @@
 				D8032D6F2D53023000A9D0AC /* Scan */,
 				D8AD8FDC2D5052EC00BF84DA /* Settings */,
 				D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */,
-				D8AD8FDD2D51A91200BF84DA /* CustomSubscriptionStoreView.swift */,
+				D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				9E25DF552D7E11840012983B /* EditableLogData.swift in Sources */,
 				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
 				D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */,
+				D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
 				D8442AC92CF6987A0087450B /* ScanType.swift in Sources */,
 				D8CF7E512D7384F800C7229A /* PillButtonView.swift in Sources */,
@@ -772,7 +776,7 @@
 				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
 				9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */,
 				D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */,
-				D8AD8FDE2D51A91800BF84DA /* CustomSubscriptionStoreView.swift in Sources */,
+				D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanButtonView.swift in Sources */,
 				D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */,
 				D836F9432B0153B6000FC988 /* User.swift in Sources */,

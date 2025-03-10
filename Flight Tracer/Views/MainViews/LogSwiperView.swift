@@ -5,6 +5,7 @@ struct LogSwiperView: View {
     @EnvironmentObject var authManager: AuthManager
     
     @State var isDataLoaded: Bool = false
+    @State var showStore: Bool = false
     @StateObject var logSwiperViewModel = LogSwiperViewModel()
     
     let uiImage: UIImage
@@ -12,6 +13,12 @@ struct LogSwiperView: View {
     
     var body: some View {
         ZStack {
+            if (showStore) {
+                Color.semiTransparentBlack
+                    .ignoresSafeArea(.all)
+                    .zIndex(2)
+            }
+            
             Rectangle()
                 .fill(LinearGradient(
                     gradient: Gradient(colors: [.navyBlue, .black, .black]),
@@ -36,12 +43,14 @@ struct LogSwiperView: View {
                 }
                 .accessibilityIdentifier("LogSwiperView")
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        DeleteLogButtonView()
-                    }
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        ExportButtonView(logSwiperViewModel: logSwiperViewModel)
+                    if !showStore {
+                        ToolbarItem(placement: .topBarLeading) {
+                            DeleteLogButtonView()
+                        }
+                        
+                        ToolbarItem(placement: .topBarTrailing) {
+                            ExportButtonView(logSwiperViewModel: logSwiperViewModel, showStore: $showStore)
+                        }
                     }
                 }
                 .toolbarBackground(.hidden, for: .navigationBar)
@@ -67,5 +76,8 @@ struct LogSwiperView: View {
             }
         }
         .background(Color.clear)
+        .premiumSheet(isPresented: $showStore) {
+            FLSStoreView()
+        }
     }
 }
