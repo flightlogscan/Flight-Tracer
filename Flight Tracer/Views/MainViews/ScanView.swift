@@ -14,7 +14,7 @@ struct ScanView: View {
                     startPoint: .top,
                     endPoint: .bottom
                 ))
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea(.all)
                 .accessibilityIdentifier("ScanBackground")
             
             VStack {

@@ -54,7 +54,6 @@
 		D8110EDC2CE90D6000C76D7B /* PhoneSettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */; };
 		D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */; };
 		D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */; };
-		D830B5B02D0DF54900A93018 /* LogRowConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830B5AF2D0DF54300A93018 /* LogRowConverter.swift */; };
 		D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */; };
 		D836F9412B01520F000FC988 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* AppCoordinator.swift */; };
 		D836F9432B0153B6000FC988 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
@@ -75,7 +74,6 @@
 		D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */; };
 		D8442AC92CF6987A0087450B /* ScanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442AC82CF698740087450B /* ScanType.swift */; };
 		D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442ACA2CF69CB60087450B /* AdvancedImageScanResult.swift */; };
-		D8442ACD2CF6BDEC0087450B /* LogTextRefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442ACC2CF6BDE40087450B /* LogTextRefiner.swift */; };
 		D8442AD22CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */; };
 		D8442AD32CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */; };
 		D8442AD42CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */; };
@@ -96,7 +94,6 @@
 		D88804EE2D29F00200EB0A56 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = D88804ED2D29F00200EB0A56 /* Mantis */; };
 		D88804F02D29F24D00EB0A56 /* CropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88804EF2D29F24B00EB0A56 /* CropperViewController.swift */; };
 		D88804F22D29F36600EB0A56 /* CropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88804F12D29F36300EB0A56 /* CropperView.swift */; };
-		D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */; };
 		D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */; };
 		D88DE8A32ABBE1E40080D5EB /* ScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A22ABBE1E40080D5EB /* ScanButtonView.swift */; };
 		D88DE8A52AC0AF7F0080D5EB /* ExportButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DE8A42AC0AF7F0080D5EB /* ExportButtonView.swift */; };
@@ -107,25 +104,20 @@
 		D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */; };
 		D8A522012D1760BE003825CF /* AdminSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */; };
 		D8AD8FC22D45479C00BF84DA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD8FC12D45479C00BF84DA /* StoreKit.framework */; };
-		D8AD8FC42D454E9900BF84DA /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FC32D454E9500BF84DA /* SubscriptionView.swift */; };
 		D8AD8FC82D455B2600BF84DA /* StoreKitManager.storekit in Resources */ = {isa = PBXBuildFile; fileRef = D8AD8FC72D455B2600BF84DA /* StoreKitManager.storekit */; };
 		D8AD8FD72D504CCA00BF84DA /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FD62D504CC600BF84DA /* AuthCoordinator.swift */; };
-		D8AD8FD92D504CD300BF84DA /* SubscriptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FD82D504CCE00BF84DA /* SubscriptionCoordinator.swift */; };
 		D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */; };
 		D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */; };
 		D8AD8FE12D51B36C00BF84DA /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */; };
-		D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */; };
 		D8CF7E512D7384F800C7229A /* PillButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E502D7384F700C7229A /* PillButtonView.swift */; };
 		D8CF7E532D767ACF00C7229A /* DeleteLogButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */; };
 		D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E542D7E085C00C7229A /* View+Extensions.swift */; };
 		D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraViewController.swift */; };
 		D8D599752D09399900EA88D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8D599742D09399900EA88D8 /* GoogleService-Info.plist */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
-		D8EA04E82CF29E0600FE8EA5 /* AnalyzeResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA04E72CF29DF200FE8EA5 /* AnalyzeResultConverter.swift */; };
 		D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */; };
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
-		D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */; };
 		D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -165,7 +157,6 @@
 		D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSettingsAlert.swift; sourceTree = "<group>"; };
 		D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
 		D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
-		D830B5AF2D0DF54300A93018 /* LogRowConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRowConverter.swift; sourceTree = "<group>"; };
 		D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
 		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D836F9402B01520F000FC988 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -182,7 +173,6 @@
 		D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFieldMetadata.swift; sourceTree = "<group>"; };
 		D8442AC82CF698740087450B /* ScanType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanType.swift; sourceTree = "<group>"; };
 		D8442ACA2CF69CB60087450B /* AdvancedImageScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedImageScanResult.swift; sourceTree = "<group>"; };
-		D8442ACC2CF6BDE40087450B /* LogTextRefiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTextRefiner.swift; sourceTree = "<group>"; };
 		D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedImageScanner.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
@@ -203,7 +193,6 @@
 		D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRowViewModel.swift; sourceTree = "<group>"; };
 		D88804EF2D29F24B00EB0A56 /* CropperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropperViewController.swift; sourceTree = "<group>"; };
 		D88804F12D29F36300EB0A56 /* CropperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropperView.swift; sourceTree = "<group>"; };
-		D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselSkeleton.swift; sourceTree = "<group>"; };
 		D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
 		D88DE8A22ABBE1E40080D5EB /* ScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButtonView.swift; sourceTree = "<group>"; };
 		D88DE8A42AC0AF7F0080D5EB /* ExportButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButtonView.swift; sourceTree = "<group>"; };
@@ -212,14 +201,11 @@
 		D8A521FC2D175EB7003825CF /* SettingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSheet.swift; sourceTree = "<group>"; };
 		D8A521FE2D1760B9003825CF /* AdminSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingsSection.swift; sourceTree = "<group>"; };
 		D8AD8FC12D45479C00BF84DA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		D8AD8FC32D454E9500BF84DA /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		D8AD8FC72D455B2600BF84DA /* StoreKitManager.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = StoreKitManager.storekit; path = "Flight Tracer/StoreKitManager.storekit"; sourceTree = SOURCE_ROOT; };
 		D8AD8FD62D504CC600BF84DA /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
-		D8AD8FD82D504CCE00BF84DA /* SubscriptionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCoordinator.swift; sourceTree = "<group>"; };
 		D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLSStoreView.swift; sourceTree = "<group>"; };
 		D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
-		D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCarouselView.swift; sourceTree = "<group>"; };
 		D8CF7E502D7384F700C7229A /* PillButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButtonView.swift; sourceTree = "<group>"; };
 		D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLogButtonView.swift; sourceTree = "<group>"; };
 		D8CF7E542D7E085C00C7229A /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -228,11 +214,9 @@
 		D8D599742D09399900EA88D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8E75E242D221A9800E5BE12 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D8EA04E72CF29DF200FE8EA5 /* AnalyzeResultConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultConverter.swift; sourceTree = "<group>"; };
 		D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageScanResult.swift; sourceTree = "<group>"; };
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
-		D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMetadataLoader.swift; sourceTree = "<group>"; };
 		D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,7 +282,6 @@
 				D87952562AA3D49F0076E898 /* ImageHintsView.swift */,
 				D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */,
 				D87952582AA3D49F0076E898 /* ImagePresentationView.swift */,
-				D8C9D0A52B19221100854F41 /* PhotoCarouselView.swift */,
 			);
 			path = Scan;
 			sourceTree = "<group>";
@@ -425,12 +408,8 @@
 		D87952402AA3D49F0076E898 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D830B5AF2D0DF54300A93018 /* LogRowConverter.swift */,
-				D8442ACC2CF6BDE40087450B /* LogTextRefiner.swift */,
-				D8EA04E72CF29DF200FE8EA5 /* AnalyzeResultConverter.swift */,
 				D87952412AA3D49F0076E898 /* CsvCreator.swift */,
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
-				D8F756DA2C67D29100C68CBA /* LogMetadataLoader.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -471,7 +450,6 @@
 				D88DE8A12ABBE1C30080D5EB /* Buttons */,
 				D8032D6F2D53023000A9D0AC /* Scan */,
 				D8AD8FDC2D5052EC00BF84DA /* Settings */,
-				D88ABFFA2BDE9F09001244B2 /* CarouselSkeleton.swift */,
 				D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */,
 			);
 			path = SubViews;
@@ -498,7 +476,6 @@
 			children = (
 				D836F9402B01520F000FC988 /* AppCoordinator.swift */,
 				D8AD8FD62D504CC600BF84DA /* AuthCoordinator.swift */,
-				D8AD8FD82D504CCE00BF84DA /* SubscriptionCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -509,7 +486,6 @@
 				D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */,
 				D8A521FC2D175EB7003825CF /* SettingSheet.swift */,
 				9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */,
-				D8AD8FC32D454E9500BF84DA /* SubscriptionView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -727,7 +703,6 @@
 				D88DE8A52AC0AF7F0080D5EB /* ExportButtonView.swift in Sources */,
 				D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */,
 				D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */,
-				D830B5B02D0DF54900A93018 /* LogRowConverter.swift in Sources */,
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
@@ -736,7 +711,6 @@
 				D8442AD22CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
 				9E25DF572D7E11B70012983B /* LogsView.swift in Sources */,
 				D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */,
-				D8EA04E82CF29E0600FE8EA5 /* AnalyzeResultConverter.swift in Sources */,
 				D8831E122CFBA7EE00F7ADFF /* LogRowViewModel.swift in Sources */,
 				D841CC2C2CE1251400A02B5D /* AuthManager.swift in Sources */,
 				D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */,
@@ -744,15 +718,12 @@
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */,
 				D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */,
-				D8442ACD2CF6BDEC0087450B /* LogTextRefiner.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
-				D88ABFFB2BDE9F09001244B2 /* CarouselSkeleton.swift in Sources */,
 				D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* AuthenticatedView.swift in Sources */,
 				D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */,
 				D83C76692CEA679100DDAACD /* ScanViewModel.swift in Sources */,
-				D8AD8FD92D504CD300BF84DA /* SubscriptionCoordinator.swift in Sources */,
 				D8110EDC2CE90D6000C76D7B /* PhoneSettingsAlert.swift in Sources */,
 				D8AD8FD72D504CCA00BF84DA /* AuthCoordinator.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* AdvancedImageScanner.swift in Sources */,
@@ -775,10 +746,8 @@
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
 				9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */,
-				D8F756DB2C67D29100C68CBA /* LogMetadataLoader.swift in Sources */,
 				D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanButtonView.swift in Sources */,
-				D8C9D0A62B19221100854F41 /* PhotoCarouselView.swift in Sources */,
 				D836F9432B0153B6000FC988 /* User.swift in Sources */,
 				D841CC342CE132BB00A02B5D /* LogFieldType.swift in Sources */,
 				D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */,
@@ -788,7 +757,6 @@
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
 				D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */,
 				D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */,
-				D8AD8FC42D454E9900BF84DA /* SubscriptionView.swift in Sources */,
 				D88804F22D29F36600EB0A56 /* CropperView.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
 				D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */,

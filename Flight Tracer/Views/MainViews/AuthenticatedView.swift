@@ -18,7 +18,8 @@ struct AuthenticatedView: View {
             
             NavigationStack {
                 ZStack {
-                    SubscriptionCoordinator(selectedScanTye: $selectedScanType)
+                    ScanView(selectedScanType: $selectedScanType)
+                        .zIndex(1)
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -33,7 +34,7 @@ struct AuthenticatedView: View {
                     
                     ToolbarItemGroup(placement: .topBarTrailing) {
                         HStack(spacing: 4) {
-                            if (!storeKitManager.isSubscribed()) {
+                            if (!storeKitManager.isPremium()) {
                                 PremiumButton(showStore: $showStore)
                             }
                             
