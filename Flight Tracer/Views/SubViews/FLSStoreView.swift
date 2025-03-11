@@ -56,23 +56,23 @@ struct FLSStoreView: View {
                                 )
                         )
                         .onInAppPurchaseCompletion { product, result in
-                            await storeKitManager.listenForTransactions()
                             dismiss()
+                            await storeKitManager.listenForTransactions()
                         }
                     
                     ProductView(id: "com.flightlogscan.subscription.monthly.nonrenewing")
                         .productViewStyle(.compact)
                         .tint(Color.primary)
                         .onInAppPurchaseCompletion { product, result in
-                            await storeKitManager.listenForTransactions()
                             dismiss()
+                            await storeKitManager.listenForTransactions()
                         }
                         .padding(7)
                 }
                 .padding()
             }
             
-            Text(.init("By clicking \"Purchase\" you agree to the [Terms of Service](https://www.flightlogtracer.com/terms) and [Privacy Policy](https://www.flightlogtracer.com/privacy)."))
+            Text(.init("By clicking \"Purchase\" or \"Subscribe\" you agree to the [Terms of Service](https://www.flightlogtracer.com/terms) and [Privacy Policy](https://www.flightlogtracer.com/privacy)."))
                 .foregroundColor(.secondary)
                 .font(.footnote)
                 .tint(.blue)

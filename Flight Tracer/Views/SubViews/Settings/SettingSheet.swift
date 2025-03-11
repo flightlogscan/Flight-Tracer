@@ -59,7 +59,7 @@ struct AccountSection: View {
     @Binding var showStore: Bool
     
     var body: some View {
-        if(!storeKitManager.isSubscribed()) {
+        if(!storeKitManager.isPremium()) {
             SettingsSheetButton(
                 title: "Premium",
                 iconName: "crown.fill",
@@ -68,9 +68,9 @@ struct AccountSection: View {
                 accessibilityIdentifier: "SubscriptionButton"
             )
             .premiumSheet(isPresented: $showStore) {
-                FLSStoreView() 
+                FLSStoreView()
             }
-        } else {
+        } else if (storeKitManager.isSubscribed()){
             SettingsSheetButton(
                 title: "Subscription",
                 iconName: "crown.fill",

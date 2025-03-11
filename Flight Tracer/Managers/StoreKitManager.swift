@@ -17,11 +17,15 @@ class StoreKitManager: ObservableObject {
         }
     }
     
-    func isSubscribed() -> Bool {
+    func isPremium() -> Bool {
         return !purchasedProductIDs.isDisjoint(with: productIDs)
     }
     
-    public func listenForTransactions() async {
+    func isSubscribed() -> Bool {
+        return purchasedProductIDs.contains("com.flightlogscan.subscription.monthly.nonrenewing")
+    }
+    
+    func listenForTransactions() async {
         // Check current entitlements
         for await verification in StoreKit.Transaction.currentEntitlements {
             guard case .verified(let transaction) = verification,
@@ -56,14 +60,8 @@ class StoreKitManager: ObservableObject {
     }
     
     func manageSubscription() async {
-       if #available(iOS 15.0, *) {
-           if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-               try? await AppStore.showManageSubscriptions(in: windowScene)
-           }
-       } else {
-           if let url = URL(string: "itms-apps://apps.apple.com/account/subscriptions") {
-               await UIApplication.shared.open(url)
-           }
-       }
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            try? await AppStore.showManageSubscriptions(in: windowScene)
+        }
     }
 }

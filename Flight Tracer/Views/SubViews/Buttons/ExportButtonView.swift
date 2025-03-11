@@ -8,7 +8,7 @@ struct ExportButtonView: View {
 
     var body: some View {
         Group {
-            if storeKitManager.isSubscribed() {
+            if storeKitManager.isPremium() {
                 ShareLink(
                     item: logSwiperViewModel.convertLogRowsToCSV(),
                     preview: SharePreview(

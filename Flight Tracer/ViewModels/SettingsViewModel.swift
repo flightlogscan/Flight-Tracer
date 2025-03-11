@@ -18,7 +18,6 @@ class SettingsViewModel: ObservableObject {
             }
         } else {
             print("Unable to send email. Please configure your mail app.")
-
         }
     }
 }

@@ -13,14 +13,16 @@ struct AuthCoordinator: View {
             } else if !authManager.isLoggedIn {
                 LoginPageView(user: $authManager.user)
                     .ignoresSafeArea()
-                    .zIndex(1)
                     .accessibilityIdentifier("LoginView")
             } else if authManager.isLoggedIn {
                 AuthenticatedView()
                     .environmentObject(storeKitManager)
-                    .zIndex(1)
             }
         }
         .environmentObject(authManager)
     }
+}
+
+#Preview {
+    AuthCoordinator()
 }
