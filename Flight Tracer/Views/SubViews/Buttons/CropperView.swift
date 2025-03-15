@@ -16,7 +16,6 @@ struct CropperView: View {
                 Image(systemName: "crop.rotate")
                     .foregroundColor(.white)
             }
-            .offset(x: 25, y: 5)
         }
         .fullScreenCover(isPresented: $showCropper) {
             CropperViewController(selectedImage: $selectedImage)

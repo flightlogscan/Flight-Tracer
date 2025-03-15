@@ -33,7 +33,6 @@ struct ImagePresentationView: View {
                                             Image(systemName: "xmark.circle.fill")
                                                 .font(.title)
                                                 .foregroundStyle(Color.primary, .regularMaterial)
-                                                .offset(x: 25, y: 5)
                                         }
                                         .accessibilityElement()
                                         .accessibilityIdentifier("ClearImageButton")
@@ -44,9 +43,9 @@ struct ImagePresentationView: View {
                                             Image(systemName: "exclamationmark.circle.fill")
                                                 .foregroundStyle(.white, .red)
                                                 .font(.title)
-                                                .offset(x: 25, y: 5)                                            
                                         }
                                     }
+                                    .offset(x: 25, y: 5)
                                 } else if !parentViewModel.validationInProgress {
                                     HStack (spacing: 0) {
                                         Button {
@@ -55,13 +54,14 @@ struct ImagePresentationView: View {
                                             Image(systemName: "xmark.circle.fill")
                                                 .font(.title)
                                                 .foregroundStyle(Color.primary, .regularMaterial)
-                                                .offset(x: 25, y: 5)
                                         }
                                         .accessibilityElement()
                                         .accessibilityIdentifier("ClearImageButton")
                                         
                                         CropperView(selectedImage: $parentViewModel.selectedImage)
                                     }
+                                    .offset(x: 25, y: 5)
+
                                 }
                             }
                         }
