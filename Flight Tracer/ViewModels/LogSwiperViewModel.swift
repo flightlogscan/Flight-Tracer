@@ -6,6 +6,7 @@ class LogSwiperViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var rows: [RowDTO] = []
     @Published var editableLogData: EditableLogData?
+    @Published var editCounter: Int = 0 // To track when edits occur
     
     let advancedImageScanner = AdvancedImageScanner()
     
@@ -17,6 +18,7 @@ class LogSwiperViewModel: ObservableObject {
                 alertMessage = ErrorCode.NO_ERROR.message
                 showAlert = false
                 editableLogData = nil
+                editCounter = 0
             }
             
             do {
@@ -49,10 +51,12 @@ class LogSwiperViewModel: ObservableObject {
     
     func updateField(rowIndex: Int, fieldKey: String, newValue: String) {
         editableLogData?.updateValue(rowIndex: rowIndex, key: fieldKey, newValue: newValue)
+        editCounter += 1 // Increment the edit counter
     }
     
     func updateFieldName(oldKey: String, newName: String) {
         editableLogData?.updateFieldName(oldKey: oldKey, newName: newName)
+        editCounter += 1 // Increment the edit counter
     }
     
     func convertLogRowsToCSV() -> URL {
@@ -62,17 +66,17 @@ class LogSwiperViewModel: ObservableObject {
             
             // Use edited rows for CSV generation
             let headerRow = editedRows.first(where: { $0.header })?.content ?? [:]
-            let dataRows = editedRows.filter { !$0.header }.map { row in
+            let dataRows = editedRows.filter { !$0.header }.sorted(by: { $0.rowIndex < $1.rowIndex }).map { row in
                 MergedLogRow(fieldValues: row.content)
             }
             
             let logData = LogData(headers: headerRow, rows: dataRows)
             
             if let fileURL = CSVCreator.createCSVFile(logData, filename: "flight_log.csv") {
+                print("CSV created at: \(fileURL.path)")
                 return fileURL
             }
         } else {
-            // Fall back to original logic if no editable data
             let logData = processRows()
             if let fileURL = CSVCreator.createCSVFile(logData, filename: "flight_log.csv") {
                 return fileURL
@@ -80,6 +84,7 @@ class LogSwiperViewModel: ObservableObject {
         }
         
         // Return a default URL in case of failure
+        print("Failed to create CSV, returning default URL")
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("flight_log.csv")
     }
     
