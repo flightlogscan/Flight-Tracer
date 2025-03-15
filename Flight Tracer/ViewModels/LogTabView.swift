@@ -7,6 +7,7 @@ struct LogTabView: View {
     
     @State private var fieldNameValues: [String: String] = [:]
     @State private var fieldContentValues: [String: String] = [:]
+    @FocusState private var focusedField: String?
     
     var fieldNames: [String: String] {
         let headerRow = rows.first(where: { $0.header })?.content ?? [:]
@@ -29,7 +30,6 @@ struct LogTabView: View {
                         get: { fieldNameValues[key] ?? "" },
                         set: { newValue in
                             fieldNameValues[key] = newValue
-                            // Update the model immediately when text changes
                             logSwiperViewModel.updateFieldName(oldKey: key, newName: newValue)
                         }
                     ))
@@ -37,12 +37,12 @@ struct LogTabView: View {
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
+                    .focused($focusedField, equals: "name_\(key)")
                     
                     TextField("Value", text: Binding(
                         get: { fieldContentValues[key] ?? "" },
                         set: { newValue in
                             fieldContentValues[key] = newValue
-                            // Update the model immediately when text changes
                             logSwiperViewModel.updateField(rowIndex: rowIndex, fieldKey: key, newValue: newValue)
                         }
                     ))
@@ -50,6 +50,7 @@ struct LogTabView: View {
                     .multilineTextAlignment(.trailing)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .foregroundColor(.white)
+                    .focused($focusedField, equals: "value_\(key)")
                 }
                 .padding(.vertical, 4)
             }
@@ -57,6 +58,17 @@ struct LogTabView: View {
         .scrollContentBackground(.hidden)
         .onAppear {
             initializeLocalState()
+        }
+        .onTapGesture {
+            focusedField = nil
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    focusedField = nil
+                }
+            }
         }
     }
     
@@ -80,5 +92,11 @@ struct LogTabView: View {
             }
             fieldContentValues[key] = value
         }
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

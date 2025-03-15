@@ -6,7 +6,7 @@ class LogSwiperViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var rows: [RowDTO] = []
     @Published var editableLogData: EditableLogData?
-    @Published var editCounter: Int = 0 // To track when edits occur
+    @Published var exportURL: URL? // Store the export URL as a @Published property
     
     let advancedImageScanner = AdvancedImageScanner()
     
@@ -18,7 +18,7 @@ class LogSwiperViewModel: ObservableObject {
                 alertMessage = ErrorCode.NO_ERROR.message
                 showAlert = false
                 editableLogData = nil
-                editCounter = 0
+                exportURL = nil
             }
             
             do {
@@ -35,6 +35,8 @@ class LogSwiperViewModel: ObservableObject {
                     if scanResult.isImageValid, let tables = scanResult.tables {
                         rows = tables
                         editableLogData = EditableLogData(rows: tables)
+                        // Generate initial export URL
+                        regenerateExportURL()
                     } else {
                         showAlert = true
                     }
@@ -50,18 +52,37 @@ class LogSwiperViewModel: ObservableObject {
     }
     
     func updateField(rowIndex: Int, fieldKey: String, newValue: String) {
+        print("LogSwiperViewModel.updateField called")
+        print("Row: \(rowIndex), Field: \(fieldKey), New Value: \(newValue)")
+        
         editableLogData?.updateValue(rowIndex: rowIndex, key: fieldKey, newValue: newValue)
-        editCounter += 1 // Increment the edit counter
+        // Regenerate the export URL whenever an edit occurs
+        regenerateExportURL()
     }
     
     func updateFieldName(oldKey: String, newName: String) {
+        print("LogSwiperViewModel.updateFieldName called")
+        print("Old Key: \(oldKey), New Name: \(newName)")
+        
         editableLogData?.updateFieldName(oldKey: oldKey, newName: newName)
-        editCounter += 1 // Increment the edit counter
+        // Regenerate the export URL whenever an edit occurs
+        regenerateExportURL()
+    }
+    
+    func regenerateExportURL() {
+        print("Regenerating export URL")
+        exportURL = convertLogRowsToCSV()
     }
     
     func convertLogRowsToCSV() -> URL {
+        print("LogSwiperViewModel.convertLogRowsToCSV called")
+        
         // Apply edits before generating CSV
         if let editableData = editableLogData {
+            print("Using editableData to generate CSV")
+            print("Content edits count: \(editableData.edits.contentEdits.count)")
+            print("Header edits count: \(editableData.edits.headerEdits.count)")
+            
             let editedRows = editableData.getEditedRows()
             
             // Use edited rows for CSV generation
@@ -77,6 +98,8 @@ class LogSwiperViewModel: ObservableObject {
                 return fileURL
             }
         } else {
+            // Fall back to original logic if no editable data
+            print("No editable data available, using original rows")
             let logData = processRows()
             if let fileURL = CSVCreator.createCSVFile(logData, filename: "flight_log.csv") {
                 return fileURL
