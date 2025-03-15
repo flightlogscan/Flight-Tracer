@@ -19,11 +19,11 @@ struct ScanButtonView: View {
             }
             .background(.green)
             .clipShape(Capsule())
-            .offset(x: -25, y: 5)
             .accessibilityIdentifier("ScanPhotoButton")
             .accessibilityLabel(Text("Scan photo button"))
             .accessibilityHint(Text(scanButtonActive ? "Tap to start scanning" : "Button is disabled"))
         }
+        .offset(x: -25, y: 5)
     }
 }
 

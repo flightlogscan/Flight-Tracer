@@ -32,8 +32,7 @@ struct PhotoPickerViewController: UIViewControllerRepresentable {
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             guard let result = results.first else {
-                parent.alertMessage = "No photo was selected. Please try again."
-                parent.showAlert = true
+                picker.dismiss(animated: true)
                 return
             }
 

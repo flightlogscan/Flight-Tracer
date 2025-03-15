@@ -14,7 +14,6 @@ struct PhotoPickerView: View {
         static let verticalPadding: CGFloat = 12
     }
 
-
     var body: some View {
         VStack {
             Button(action: {
