@@ -27,31 +27,29 @@ struct LogTabView: View {
                 HStack(spacing: 12) {
                     TextField("Field", text: Binding(
                         get: { fieldNameValues[key] ?? "" },
-                        set: { fieldNameValues[key] = $0 }
+                        set: { newValue in
+                            fieldNameValues[key] = newValue
+                            // Update the model immediately when text changes
+                            logSwiperViewModel.updateFieldName(oldKey: key, newName: newValue)
+                        }
                     ))
                     .font(.system(size: 14))
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
-                    .onSubmit {
-                        if let value = fieldNameValues[key] {
-                            logSwiperViewModel.updateFieldName(oldKey: key, newName: value)
-                        }
-                    }
                     
                     TextField("Value", text: Binding(
                         get: { fieldContentValues[key] ?? "" },
-                        set: { fieldContentValues[key] = $0 }
+                        set: { newValue in
+                            fieldContentValues[key] = newValue
+                            // Update the model immediately when text changes
+                            logSwiperViewModel.updateField(rowIndex: rowIndex, fieldKey: key, newValue: newValue)
+                        }
                     ))
                     .font(.system(size: 14))
                     .multilineTextAlignment(.trailing)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .foregroundColor(.white)
-                    .onSubmit {
-                        if let value = fieldContentValues[key] {
-                            logSwiperViewModel.updateField(rowIndex: rowIndex, fieldKey: key, newValue: value)
-                        }
-                    }
                 }
                 .padding(.vertical, 4)
             }

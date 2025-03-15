@@ -25,14 +25,37 @@ class EditableLogData: ObservableObject {
     }
     
     func updateFieldName(oldKey: String, newName: String) {
-        headerEdits[oldKey] = newName
+        // Only update if the name is actually different
+        let currentName = getFieldName(key: oldKey)
+        if currentName != newName {
+            headerEdits[oldKey] = newName
+            objectWillChange.send()
+        }
     }
     
     func updateValue(rowIndex: Int, key: String, newValue: String) {
-        if contentEdits[rowIndex] == nil {
-            contentEdits[rowIndex] = [:]
+        // Get the original value for comparison
+        let originalValue = originalRows.first(where: { $0.rowIndex == rowIndex && !$0.header })?.content[key] ?? ""
+        
+        // Only update if the value has actually changed from the original
+        if originalValue != newValue {
+            if contentEdits[rowIndex] == nil {
+                contentEdits[rowIndex] = [:]
+            }
+            contentEdits[rowIndex]?[key] = newValue
+            objectWillChange.send()
+        } else {
+            // If setting back to original value, remove the edit
+            if contentEdits[rowIndex]?[key] != nil {
+                contentEdits[rowIndex]?[key] = nil
+                
+                // Clean up empty dictionaries
+                if contentEdits[rowIndex]?.isEmpty ?? true {
+                    contentEdits.removeValue(forKey: rowIndex)
+                }
+                objectWillChange.send()
+            }
         }
-        contentEdits[rowIndex]?[key] = newValue
     }
     
     func getEditedRows() -> [RowDTO] {
