@@ -68,7 +68,6 @@
 		D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */; };
 		D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */; };
 		D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */; };
-		D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */; };
 		D841CC2C2CE1251400A02B5D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC2B2CE1251100A02B5D /* AuthManager.swift */; };
 		D841CC342CE132BB00A02B5D /* LogFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC332CE132B000A02B5D /* LogFieldType.swift */; };
 		D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */; };
@@ -167,7 +166,6 @@
 		D83C766A2CEAB6F300DDAACD /* PhotoPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPermissionsManager.swift; sourceTree = "<group>"; };
 		D83C766E2CEC36D900DDAACD /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		D83C76702CEC412400DDAACD /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
-		D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButtonView.swift; sourceTree = "<group>"; };
 		D841CC2B2CE1251100A02B5D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		D841CC332CE132B000A02B5D /* LogFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFieldType.swift; sourceTree = "<group>"; };
 		D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFieldMetadata.swift; sourceTree = "<group>"; };
@@ -357,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				D879525A2AA3D49F0076E898 /* AuthenticatedView.swift */,
+				D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */,
 				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 				D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */,
 				D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */,
@@ -393,8 +392,6 @@
 		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9E25DF582D7E11C90012983B /* LogTabView.swift */,
-				9E25DF562D7E11B70012983B /* LogsView.swift */,
 				9E25DF542D7E11840012983B /* EditableLogData.swift */,
 				D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */,
 				D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */,
@@ -448,9 +445,9 @@
 			isa = PBXGroup;
 			children = (
 				D88DE8A12ABBE1C30080D5EB /* Buttons */,
+				D8F1CD622D872A5600B29BD6 /* Log */,
 				D8032D6F2D53023000A9D0AC /* Scan */,
 				D8AD8FDC2D5052EC00BF84DA /* Settings */,
-				D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
-				D83F9EE42B197302005B31A3 /* CarouselButtonView.swift */,
 				D88804F12D29F36300EB0A56 /* CropperView.swift */,
 				D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */,
 				D88DE8A42AC0AF7F0080D5EB /* ExportButtonView.swift */,
@@ -499,6 +495,15 @@
 				D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D8F1CD622D872A5600B29BD6 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				9E25DF582D7E11C90012983B /* LogTabView.swift */,
+				9E25DF562D7E11B70012983B /* LogsView.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		D8F756D32C67CCC900C68CBA /* LogFormats */ = {
@@ -735,7 +740,6 @@
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				9E25DF552D7E11840012983B /* EditableLogData.swift in Sources */,
-				D83F9EE52B197302005B31A3 /* CarouselButtonView.swift in Sources */,
 				D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */,
 				D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,

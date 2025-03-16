@@ -61,7 +61,6 @@ struct ImagePresentationView: View {
                                         CropperView(selectedImage: $parentViewModel.selectedImage)
                                     }
                                     .offset(x: 25, y: 5)
-
                                 }
                             }
                         }
