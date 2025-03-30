@@ -21,7 +21,7 @@ struct ImagePresentationView: View {
                         .logImageStyle()
                         .overlay (alignment: .topTrailing) {
                             if (!parentViewModel.selectedImage.hasError && !parentViewModel.validationInProgress) {
-                                ScanButtonView(scanPressed: $activeScanPressed, showStore: $showStore)
+                                ScanButtonView(scanPressed: $activeScanPressed)
                             }
                         }
                         .overlay (alignment: .topLeading) {
