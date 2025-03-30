@@ -50,6 +50,6 @@ class AuthManager: ObservableObject {
     }
     
     func isAdmin() -> Bool {
-        return user.email == "will.janis@gmail.com" || user.email == "flightlogtracer@gmail.com"
+        return user.email == "will.janis@gmail.com" || user.email == "flightlogtracer@gmail.com" || user.email == "lancedesi@gmail.com"
     }
 }

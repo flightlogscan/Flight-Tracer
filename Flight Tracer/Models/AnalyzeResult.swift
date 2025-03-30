@@ -8,6 +8,7 @@ struct RowDTO: Codable {
    let rowIndex: Int
    let content: [String: String]
    let header: Bool
+   var parentHeaders: [String: String]?
 }
 
 struct AnalyzeResult: Codable {
