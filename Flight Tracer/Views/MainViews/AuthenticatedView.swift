@@ -6,7 +6,7 @@ struct AuthenticatedView: View {
     @EnvironmentObject var storeKitManager: StoreKitManager
 
     @State var selectedScanType: ScanType = .api
-    @State private var showStore = false
+    @State var showStore = false
 
     var body: some View {
         ZStack {
@@ -18,7 +18,7 @@ struct AuthenticatedView: View {
             
             NavigationStack {
                 ZStack {
-                    ScanView(selectedScanType: $selectedScanType)
+                    ScanView(selectedScanType: $selectedScanType, showStore: $showStore)
                         .zIndex(1)
                 }
                 .navigationBarTitleDisplayMode(.inline)
