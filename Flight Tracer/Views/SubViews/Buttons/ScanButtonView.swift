@@ -7,9 +7,8 @@ struct ScanButtonView: View {
     // "freeScansRemaining" is the key used in UserDefaults.
     // The value 10 is the default *only if* no value exists yet for the key.
     // Any changes to 'counter' are automatically saved to UserDefaults.
-    @AppStorage("freeScansRemaining") var counter: Int = 0
+    @AppStorage("freeScansRemaining") var counter: Int = 10
     @Binding var scanPressed: Bool
-    @Binding var showStore: Bool
     
     // Internal state to manage presentation
     @State private var internalShowStore = false
