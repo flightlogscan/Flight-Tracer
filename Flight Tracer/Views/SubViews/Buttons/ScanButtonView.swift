@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ScanButtonView: View {
-    
     @EnvironmentObject var storeKitManager: StoreKitManager
     
     // @AppStorage links this variable directly to UserDefaults.
@@ -9,9 +8,11 @@ struct ScanButtonView: View {
     // The value 10 is the default *only if* no value exists yet for the key.
     // Any changes to 'counter' are automatically saved to UserDefaults.
     @AppStorage("freeScansRemaining") var counter: Int = 0
-        
     @Binding var scanPressed: Bool
     @Binding var showStore: Bool
+    
+    // Internal state to manage presentation
+    @State private var internalShowStore = false
 
     var body: some View {
         VStack{
@@ -21,7 +22,7 @@ struct ScanButtonView: View {
                     scanPressed = true
                 } else {
                     scanPressed = false
-                    showStore = true
+                    internalShowStore = true
                 }
             } label: {
                 Text("Scan")
@@ -36,8 +37,10 @@ struct ScanButtonView: View {
             .accessibilityLabel(Text("Scan photo button"))
         }
         .offset(x: -25, y: 5)
-        .premiumSheet(isPresented: $showStore) {
+        .sheet(isPresented: $internalShowStore) {
             FLSStoreView()
+                .presentationDetents([.fraction(0.5)])
+                .presentationCornerRadius(25)
         }
     }
     
@@ -47,7 +50,6 @@ struct ScanButtonView: View {
             print("Counter decremented. New value: \(counter)")
         } else {
             scanPressed = false
-            
             print("Counter is already at 0.")
         }
     }
