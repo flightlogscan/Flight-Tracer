@@ -4,6 +4,7 @@ struct ScanView: View {
     @StateObject var scanViewModel = ScanViewModel()
     @State var activeScanPressed: Bool = false
     @Binding var selectedScanType: ScanType
+    @Binding var showStore: Bool
     @EnvironmentObject var storeKitManager: StoreKitManager
 
     var body: some View {
@@ -20,7 +21,7 @@ struct ScanView: View {
             VStack {
                 ImageHintsView()
                 
-                ImagePresentationView(parentViewModel: scanViewModel, activeScanPressed: $activeScanPressed)
+                ImagePresentationView(parentViewModel: scanViewModel, activeScanPressed: $activeScanPressed, showStore: $showStore)
                     .accessibilityIdentifier("ImagePresentationView")
                     .overlay (
                         PillButtonView(selectedImage: $scanViewModel.selectedImage)

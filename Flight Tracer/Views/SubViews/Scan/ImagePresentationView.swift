@@ -5,6 +5,7 @@ struct ImagePresentationView: View {
     
     @ObservedObject var parentViewModel: ScanViewModel
     @Binding var activeScanPressed: Bool
+    @Binding var showStore: Bool
     
     var body: some View {
         if parentViewModel.selectedImage.isImageLoaded {
@@ -20,7 +21,7 @@ struct ImagePresentationView: View {
                         .logImageStyle()
                         .overlay (alignment: .topTrailing) {
                             if (!parentViewModel.selectedImage.hasError && !parentViewModel.validationInProgress) {
-                                ScanButtonView(activeScanPressed: $activeScanPressed)
+                                ScanButtonView(scanPressed: $activeScanPressed, showStore: $showStore)
                             }
                         }
                         .overlay (alignment: .topLeading) {

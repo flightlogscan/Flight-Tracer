@@ -6,6 +6,7 @@ struct SettingsButtonView: View {
 
     var body: some View {
         Button {
+            let _ = print("SettingsButtonPressed willy")
             showSettingsSheet = true
         } label: {
             Image(systemName: "gearshape.fill")
