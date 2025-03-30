@@ -10,7 +10,7 @@ struct SettingsButtonView: View {
             showSettingsSheet = true
         } label: {
             Image(systemName: "gearshape.fill")
-                .frame( width: 36, height: 36)
+                .frame(width: 36, height: 36)
                 .foregroundColor(.semiTransparentBlack)
                 .background(
                     Circle()
