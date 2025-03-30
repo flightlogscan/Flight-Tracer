@@ -72,7 +72,7 @@ struct FLSStoreView: View {
                 .padding()
             }
             
-            Text(.init("By clicking \"Purchase\" or \"Subscribe\" you agree to the [Terms of Service](https://www.flightlogtracer.com/terms) and [Privacy Policy](https://www.flightlogtracer.com/privacy)."))
+            Text(.init("By clicking \"Purchase\" or \"Subscribe\" you agree to the [Terms of Service](https://www.flightlogscan.com/terms) and [Privacy Policy](https://www.flightlogscan.com/privacy)."))
                 .foregroundColor(.secondary)
                 .font(.footnote)
                 .tint(.blue)

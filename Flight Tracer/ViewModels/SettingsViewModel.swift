@@ -1,7 +1,7 @@
 import SwiftUI
 
 class SettingsViewModel: ObservableObject {
-    let CONTACT_EMAIL = "support@flightlogtracer.com"
+    let CONTACT_EMAIL = "support@flightlogscan.com"
     
     func openWebsite(_ urlString: String) {
         if let url = URL(string: urlString) {
