@@ -20,6 +20,9 @@ struct AuthCoordinator: View {
             }
         }
         .environmentObject(authManager)
+        .task {
+            await storeKitManager.listenForTransactions()
+        }
     }
 }
 
