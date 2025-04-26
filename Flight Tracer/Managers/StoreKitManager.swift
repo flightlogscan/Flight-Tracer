@@ -61,7 +61,7 @@ class StoreKitManager: ObservableObject {
                 }
             }
             restoreResultMessage = didRestore
-                ? "Purchases successfully restored! 🎉"
+                ? "Purchases successfully restored."
                 : "No previous purchases found."
         } catch {
             print("Failed to restore purchases: \(error.localizedDescription)")

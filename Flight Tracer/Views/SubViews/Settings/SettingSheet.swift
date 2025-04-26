@@ -53,7 +53,6 @@ struct SettingsSheet: View {
     }
 }
 
-// Needed once globally (can put in a shared file if you want)
 extension String: Identifiable {
     public var id: String { self }
 }
