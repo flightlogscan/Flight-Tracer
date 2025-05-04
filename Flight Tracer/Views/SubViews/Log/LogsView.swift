@@ -4,16 +4,15 @@ struct LogsView: View {
     @ObservedObject var logSwiperViewModel: LogSwiperViewModel
     
     var groupedRows: [Int: [RowDTO]] {
-        let headerRow = logSwiperViewModel.rows.first(where: { $0.header })
+        guard let headerRow = logSwiperViewModel.rows.first(where: { $0.header }) else {
+            return Dictionary(grouping: logSwiperViewModel.rows.filter { !$0.header }) { $0.rowIndex }
+        }
+
         let dataRows = Dictionary(grouping: logSwiperViewModel.rows.filter { !$0.header }) { $0.rowIndex }
-        
+
         var result: [Int: [RowDTO]] = [:]
         for (index, rows) in dataRows {
-            if let header = headerRow {
-                result[index] = [header] + rows
-            } else {
-                result[index] = rows
-            }
+            result[index] = [headerRow] + rows
         }
         return result
     }
