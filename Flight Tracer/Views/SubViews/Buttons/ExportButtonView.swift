@@ -8,7 +8,7 @@ struct ExportButtonView: View {
 
     var body: some View {
         Group {
-            if storeKitManager.isPremium() {
+            if storeKitManager.isSubscribed() {
                 ShareLink(
                     item: logSwiperViewModel.exportURL ?? URL(string: "about:blank")!,
                     preview: SharePreview(

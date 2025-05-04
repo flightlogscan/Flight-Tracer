@@ -64,7 +64,7 @@ struct AdvancedImageScanner {
                     finalAnalyzeResult = try JSONDecoder().decode(AnalyzeResult.self, from: rawResultsData)
                 }
                 
-                print("Tables from response: \(analyzeImageResponse.tables)")
+                print("Tables from response: \(String(describing: analyzeImageResponse.tables))")
 
                 return AdvancedImageScanResult(
                     isImageValid: true,

@@ -3,11 +3,6 @@ import SwiftUI
 struct ScanButtonView: View {
     @EnvironmentObject var storeKitManager: StoreKitManager
     
-    // @AppStorage links this variable directly to UserDefaults.
-    // "freeScansRemaining" is the key used in UserDefaults.
-    // The value 10 is the default *only if* no value exists yet for the key.
-    // Any changes to 'counter' are automatically saved to UserDefaults.
-    @AppStorage("freeScansRemaining") var counter: Int = 10
     @Binding var scanPressed: Bool
     
     // Internal state to manage presentation
@@ -16,8 +11,7 @@ struct ScanButtonView: View {
     var body: some View {
         VStack{
             Button {
-                if storeKitManager.isPremium() || counter > 0 {
-                    decrementCounter()
+                if storeKitManager.isSubscribed() {
                     scanPressed = true
                 } else {
                     scanPressed = false
@@ -40,16 +34,6 @@ struct ScanButtonView: View {
             FLSStoreView()
                 .presentationDetents([.fraction(0.5)])
                 .presentationCornerRadius(25)
-        }
-    }
-    
-    private func decrementCounter() {
-        if counter > 0 {
-            counter -= 1
-            print("Counter decremented. New value: \(counter)")
-        } else {
-            scanPressed = false
-            print("Counter is already at 0.")
         }
     }
 }
