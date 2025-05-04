@@ -34,7 +34,7 @@ struct AuthenticatedView: View {
                     
                     ToolbarItemGroup(placement: .topBarTrailing) {
                         HStack(spacing: 4) {
-                            if (!storeKitManager.isPremium()) {
+                            if storeKitManager.subscriptionStatusIsKnownAndNotSubscribed {
                                 PremiumButton(showStore: $showStore)
                             }
                             

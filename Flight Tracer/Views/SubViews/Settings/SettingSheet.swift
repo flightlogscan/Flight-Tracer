@@ -53,7 +53,7 @@ struct SettingsSheet: View {
     }
 }
 
-extension String: Identifiable {
+extension String: @retroactive Identifiable {
     public var id: String { self }
 }
 
@@ -63,7 +63,7 @@ struct AccountSection: View {
 
     var body: some View {
         Section("Account") {
-            if !storeKitManager.isPremium() {
+            if !storeKitManager.isSubscribed() {
                 // User hasn't purchased anything
                 SettingsSheetButton(
                     title: "Premium",
@@ -101,7 +101,7 @@ struct AccountSection: View {
                 .accessibilityIdentifier("RestorePurchasesButton")
             } else {
                 SettingsSheetButton(
-                    title: storeKitManager.isSubscribed() ? "Manage Subscription" : "Manage Premium",
+                    title: "Manage Subscription",
                     iconName: "crown.fill",
                     color: Color.gold,
                     action: {

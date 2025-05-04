@@ -33,7 +33,7 @@ struct FLSStoreView: View {
             
             ScrollView {
                 VStack(spacing: 16) {
-                    ProductView(id: "com.flightlogscan.premium")
+                    ProductView(id: "com.flightlogscan.subscription.yearly")
                         .productViewStyle(.compact)
                         .tint(Color.primary)
                         .fontWeight(.bold)
@@ -60,7 +60,7 @@ struct FLSStoreView: View {
                             await storeKitManager.listenForTransactions()
                         }
                     
-                    ProductView(id: "com.flightlogscan.subscription.monthly.nonrenewing")
+                    ProductView(id: "com.flightlogscan.subscription.monthly")
                         .productViewStyle(.compact)
                         .tint(Color.primary)
                         .onInAppPurchaseCompletion { product, result in

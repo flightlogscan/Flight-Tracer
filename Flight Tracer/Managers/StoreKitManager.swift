@@ -9,8 +9,8 @@ class StoreKitManager: ObservableObject {
     @Published var restoreResultMessage: String?
 
     private let productIDs = [
-        "com.flightlogscan.premium",
-        "com.flightlogscan.subscription.monthly.nonrenewing"
+        "com.flightlogscan.subscription.monthly",
+        "com.flightlogscan.subscription.yearly"
     ]
         
     nonisolated init() {
@@ -19,12 +19,12 @@ class StoreKitManager: ObservableObject {
         }
     }
     
-    func isPremium() -> Bool {
+    func isSubscribed() -> Bool {
         return !purchasedProductIDs.isDisjoint(with: productIDs)
     }
     
-    func isSubscribed() -> Bool {
-        return purchasedProductIDs.contains("com.flightlogscan.subscription.monthly.nonrenewing")
+    var subscriptionStatusIsKnownAndNotSubscribed: Bool {
+        finishedCheckingSubscriptionStatus && !isSubscribed()
     }
     
     func listenForTransactions() async {
@@ -52,21 +52,17 @@ class StoreKitManager: ObservableObject {
         isRestoringPurchases = true
         defer { isRestoringPurchases = false }
         
-        do {
-            var didRestore = false
-            for await result in Transaction.currentEntitlements {
-                if case .verified(let transaction) = result {
-                    await handle(transaction)
-                    didRestore = true
-                }
+        var didRestore = false
+        for await result in Transaction.currentEntitlements {
+            if case .verified(let transaction) = result {
+                await handle(transaction)
+                didRestore = true
             }
-            restoreResultMessage = didRestore
-                ? "Purchases successfully restored."
-                : "No previous purchases found."
-        } catch {
-            print("Failed to restore purchases: \(error.localizedDescription)")
-            restoreResultMessage = "Failed to restore purchases. Please try again."
         }
+        
+        restoreResultMessage = didRestore
+            ? "Purchases successfully restored."
+            : "No previous purchases found."
     }
 
 
