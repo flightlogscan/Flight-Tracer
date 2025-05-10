@@ -39,21 +39,32 @@ struct FLSStoreView: View {
                         .fontWeight(.bold)
                         .padding(7)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [
-                                            Color(hex: "FFD700"),
-                                            Color.purple,
-                                            Color(hex: "8A2BE2"),
-                                            Color.purple,
-                                            //Color(hex: "8A2BE2"),
-                                            Color(hex: "FFD700")]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: 2
-                                )
+                            ZStack(alignment: .topLeading) {
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [
+                                                Color(hex: "FFD700"),
+                                                Color.purple,
+                                                Color(hex: "8A2BE2"),
+                                                Color.purple,
+                                                Color(hex: "FFD700")]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 2
+                                    )
+
+                                Text("SAVE 52%")
+                                    .font(.caption2)
+                                    .fontWeight(.bold)
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(Color(hex: "8A2BE2"))
+                                    .foregroundColor(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                                    .offset(x: 20, y: -9)
+                            }
                         )
                         .onInAppPurchaseCompletion { product, result in
                             dismiss()

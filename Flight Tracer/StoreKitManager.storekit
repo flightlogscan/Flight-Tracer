@@ -11,44 +11,16 @@
   },
   "identifier" : "67461AB6",
   "nonRenewingSubscriptions" : [
-    {
-      "displayPrice" : "29.99",
-      "familyShareable" : false,
-      "internalID" : "6743055889",
-      "localizations" : [
-        {
-          "description" : "Unlock scanning and exporting for one month",
-          "displayName" : "One Month Only",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "com.flightlogscan.subscription.monthly.nonrenewing",
-      "referenceName" : "FlightLogScan Monthly Non-Renewing Subscription",
-      "type" : "NonRenewingSubscription"
-    }
+
   ],
   "products" : [
-    {
-      "displayPrice" : "99.99",
-      "familyShareable" : false,
-      "internalID" : "6743055961",
-      "localizations" : [
-        {
-          "description" : "Unlimited log scanning and exporting!",
-          "displayName" : "One-Time Purchase",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "com.flightlogscan.premium",
-      "referenceName" : "FlightLogScan Premium One-time Purchase",
-      "type" : "NonConsumable"
-    }
+
   ],
   "settings" : {
     "_applicationInternalID" : "6739791303",
     "_developerTeamID" : "NHB5BVN6YR",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 768071630.194121,
+    "_lastSynchronizedDate" : 768586001.91208899,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -121,7 +93,7 @@
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Unlock log scan exporting",
+              "description" : "Unlock log scanning and exporting",
               "displayName" : "Monthly Subscription",
               "locale" : "en_US"
             }
@@ -147,14 +119,14 @@
           "groupNumber" : 1,
           "internalID" : "6740945762",
           "introductoryOffer" : {
-            "internalID" : "BCFF67BA",
+            "internalID" : "5D8E44AE",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
           },
           "localizations" : [
             {
-              "description" : "$3.33/mo - Save 52%",
+              "description" : "Unlock log scanning and exporting",
               "displayName" : "Yearly Subscription",
               "locale" : "en_US"
             }
