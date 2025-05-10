@@ -24,46 +24,8 @@ struct ImagePresentationView: View {
                                 ScanButtonView(scanPressed: $activeScanPressed)
                             }
                         }
-                        .overlay (alignment: .topLeading) {
-                            Group {
-                                if parentViewModel.selectedImage.hasError && !parentViewModel.validationInProgress {
-                                    HStack (spacing: 0) {
-                                        Button {
-                                            parentViewModel.resetImage()
-                                        } label: {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .font(.title)
-                                                .foregroundStyle(Color.primary, .regularMaterial)
-                                        }
-                                        .accessibilityElement()
-                                        .accessibilityIdentifier("ClearImageButton")
-                                        CropperView(selectedImage: $parentViewModel.selectedImage)
-                                        Button {
-                                            parentViewModel.showAlert = true
-                                        } label: {
-                                            Image(systemName: "exclamationmark.circle.fill")
-                                                .foregroundStyle(.white, .red)
-                                                .font(.title)
-                                        }
-                                    }
-                                    .offset(x: 25, y: 5)
-                                } else if !parentViewModel.validationInProgress {
-                                    HStack (spacing: 0) {
-                                        Button {
-                                            parentViewModel.resetImage()
-                                        } label: {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .font(.title)
-                                                .foregroundStyle(Color.primary, .regularMaterial)
-                                        }
-                                        .accessibilityElement()
-                                        .accessibilityIdentifier("ClearImageButton")
-                                        
-                                        CropperView(selectedImage: $parentViewModel.selectedImage)
-                                    }
-                                    .offset(x: 25, y: 5)
-                                }
-                            }
+                        .overlay(alignment: .topLeading) {
+                            ImageTopLeftControls(parentViewModel: parentViewModel)
                         }
                     
                     if parentViewModel.validationInProgress {
