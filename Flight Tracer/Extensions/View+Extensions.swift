@@ -8,7 +8,7 @@ struct CustomSheetModifier<SheetContent: View>: ViewModifier {
         content
             .sheet(isPresented: $isPresented) {
                 sheetContent()
-                    .presentationDetents([.fraction(0.5)])
+                    .presentationDetents([.fraction(0.65)])
                     .presentationCornerRadius(25)
             }
     }
