@@ -4,6 +4,7 @@ struct ScanButtonView: View {
     @EnvironmentObject var storeKitManager: StoreKitManager
     
     @Binding var scanPressed: Bool
+    @Binding var isDisabled: Bool
     
     // Internal state to manage presentation
     @State private var internalShowStore = false
@@ -22,18 +23,18 @@ struct ScanButtonView: View {
                     .font(.headline)
                     .padding(.horizontal, 15)
                     .padding(.vertical, 7.5)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
+                    .background(.thickMaterial)
+                    .opacity(isDisabled ? 0.4 : 1.0)
+                    .environment(\.colorScheme, .light)
+                    .clipShape(Capsule())
             }
-            .background(.green)
-            .clipShape(Capsule())
             .accessibilityIdentifier("ScanPhotoButton")
             .accessibilityLabel(Text("Scan photo button"))
+            .disabled(isDisabled)
         }
-        .offset(x: -25, y: 5)
-        .sheet(isPresented: $internalShowStore) {
+        .premiumSheet(isPresented: $internalShowStore) {
             FLSStoreView()
-                .presentationDetents([.fraction(0.5)])
-                .presentationCornerRadius(25)
         }
     }
 }

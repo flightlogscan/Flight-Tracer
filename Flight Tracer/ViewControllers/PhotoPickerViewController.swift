@@ -48,8 +48,6 @@ struct PhotoPickerViewController: UIViewControllerRepresentable {
                 parent.alertMessage = "No asset identifier found. Ensure the app has access to the selected photo."
                 parent.showAlert = true
             }
-
-            picker.dismiss(animated: true)
         }
     }
 }

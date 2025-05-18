@@ -21,7 +21,7 @@ struct ExportButtonView: View {
                         .padding(.horizontal, 15)
                         .padding(.vertical, 7.5)
                         .foregroundColor(.black)
-                        .background(.thinMaterial)
+                        .background(.thickMaterial)
                         .environment(\.colorScheme, .light)
                         .clipShape(Capsule())
                 }
