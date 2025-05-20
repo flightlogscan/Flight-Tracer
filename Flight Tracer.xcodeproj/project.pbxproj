@@ -120,7 +120,6 @@
 		D8EE51E42DDC118600E4FEA6 /* AccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51E32DDC118300E4FEA6 /* AccountSection.swift */; };
 		D8EE51E62DDC119400E4FEA6 /* SupportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51E52DDC119100E4FEA6 /* SupportSection.swift */; };
 		D8EE51E82DDC119D00E4FEA6 /* SignOutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51E72DDC119B00E4FEA6 /* SignOutSection.swift */; };
-		D8EE51EA2DDC11A300E4FEA6 /* AdminSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51E92DDC11A000E4FEA6 /* AdminSection.swift */; };
 		D8EE51EC2DDC11A800E4FEA6 /* DeleteAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51EB2DDC11A500E4FEA6 /* DeleteAccountSection.swift */; };
 		D8EE51EE2DDC123B00E4FEA6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51ED2DDC123700E4FEA6 /* String+Extensions.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
@@ -225,7 +224,6 @@
 		D8EE51E32DDC118300E4FEA6 /* AccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSection.swift; sourceTree = "<group>"; };
 		D8EE51E52DDC119100E4FEA6 /* SupportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSection.swift; sourceTree = "<group>"; };
 		D8EE51E72DDC119B00E4FEA6 /* SignOutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutSection.swift; sourceTree = "<group>"; };
-		D8EE51E92DDC11A000E4FEA6 /* AdminSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSection.swift; sourceTree = "<group>"; };
 		D8EE51EB2DDC11A500E4FEA6 /* DeleteAccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountSection.swift; sourceTree = "<group>"; };
 		D8EE51ED2DDC123700E4FEA6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
@@ -518,7 +516,6 @@
 			isa = PBXGroup;
 			children = (
 				D8EE51E32DDC118300E4FEA6 /* AccountSection.swift */,
-				D8EE51E92DDC11A000E4FEA6 /* AdminSection.swift */,
 				D8EE51EB2DDC11A500E4FEA6 /* DeleteAccountSection.swift */,
 				D8EE51E72DDC119B00E4FEA6 /* SignOutSection.swift */,
 				D8EE51E52DDC119100E4FEA6 /* SupportSection.swift */,
@@ -798,7 +795,6 @@
 				D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */,
 				D88804F22D29F36600EB0A56 /* CropperView.swift in Sources */,
 				D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */,
-				D8EE51EA2DDC11A300E4FEA6 /* AdminSection.swift in Sources */,
 				D83C766B2CEAB6F700DDAACD /* PhotoPermissionsManager.swift in Sources */,
 				D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */,
 				D803E2282B24C8CF001B5100 /* CustomEmailEntryViewController.swift in Sources */,
