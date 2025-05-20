@@ -30,10 +30,8 @@ struct ScanButtonView: View {
             .accessibilityLabel(Text("Scan photo button"))
         }
         .offset(x: -25, y: 5)
-        .sheet(isPresented: $internalShowStore) {
+        .premiumSheet(isPresented: $internalShowStore) {
             FLSStoreView()
-                .presentationDetents([.fraction(0.5)])
-                .presentationCornerRadius(25)
         }
     }
 }
