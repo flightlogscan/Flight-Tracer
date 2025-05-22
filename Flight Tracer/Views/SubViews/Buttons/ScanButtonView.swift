@@ -33,6 +33,10 @@ struct ScanButtonView: View {
             .accessibilityLabel(Text("Scan photo button"))
             .disabled(isDisabled)
         }
+<<<<<<< HEAD
+=======
+        .offset(x: -25, y: 5)
+>>>>>>> main
         .premiumSheet(isPresented: $internalShowStore) {
             FLSStoreView()
         }

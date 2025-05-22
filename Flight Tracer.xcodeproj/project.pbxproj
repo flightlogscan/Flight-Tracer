@@ -120,8 +120,15 @@
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */; };
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
+		D8EE51E42DDC118600E4FEA6 /* AccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51E32DDC118300E4FEA6 /* AccountSection.swift */; };
+		D8EE51E62DDC119400E4FEA6 /* SupportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51E52DDC119100E4FEA6 /* SupportSection.swift */; };
+		D8EE51E82DDC119D00E4FEA6 /* SignOutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51E72DDC119B00E4FEA6 /* SignOutSection.swift */; };
+		D8EE51EC2DDC11A800E4FEA6 /* DeleteAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51EB2DDC11A500E4FEA6 /* DeleteAccountSection.swift */; };
+		D8EE51EE2DDC123B00E4FEA6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51ED2DDC123700E4FEA6 /* String+Extensions.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
 		D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */; };
+		D8FE94682DDE9C7200D57B38 /* FLTDeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE94672DDE9C5F00D57B38 /* FLTDeleteAccount.swift */; };
+		D8FE946A2DDEA1D500D57B38 /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE94692DDEA1D000D57B38 /* DeleteAccountViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,8 +229,15 @@
 		D8E75E242D221A9800E5BE12 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageScanResult.swift; sourceTree = "<group>"; };
 		D8EA91032AAFF588003B8DE5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		D8EE51E32DDC118300E4FEA6 /* AccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSection.swift; sourceTree = "<group>"; };
+		D8EE51E52DDC119100E4FEA6 /* SupportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSection.swift; sourceTree = "<group>"; };
+		D8EE51E72DDC119B00E4FEA6 /* SignOutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutSection.swift; sourceTree = "<group>"; };
+		D8EE51EB2DDC11A500E4FEA6 /* DeleteAccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountSection.swift; sourceTree = "<group>"; };
+		D8EE51ED2DDC123700E4FEA6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
 		D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
+		D8FE94672DDE9C5F00D57B38 /* FLTDeleteAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLTDeleteAccount.swift; sourceTree = "<group>"; };
+		D8FE94692DDEA1D000D57B38 /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +290,7 @@
 		9E81E8522AB7E9B100524C29 /* Daos */ = {
 			isa = PBXGroup;
 			children = (
+				D8FE94672DDE9C5F00D57B38 /* FLTDeleteAccount.swift */,
 				9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */,
 				D8028B362AAC1278004FFD02 /* SimpleImageScanner.swift */,
 			);
@@ -315,6 +330,7 @@
 		D83C76652CEA4E2200DDAACD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D8EE51ED2DDC123700E4FEA6 /* String+Extensions.swift */,
 				D8CF7E542D7E085C00C7229A /* View+Extensions.swift */,
 				D83C76662CEA4E5300DDAACD /* Color+Extensions.swift */,
 				D896A0F72CF116F7003AA2F8 /* Image+Extensions.swift */,
@@ -401,6 +417,7 @@
 		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D8FE94692DDEA1D000D57B38 /* DeleteAccountViewModel.swift */,
 				9E25DF542D7E11840012983B /* EditableLogData.swift */,
 				D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */,
 				D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */,
@@ -490,6 +507,7 @@
 		D8AD8FDC2D5052EC00BF84DA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D8EE51E22DDC117700E4FEA6 /* Sections */,
 				D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */,
 				D8A521FC2D175EB7003825CF /* SettingSheet.swift */,
 				9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */,
@@ -506,6 +524,17 @@
 				D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D8EE51E22DDC117700E4FEA6 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				D8EE51E32DDC118300E4FEA6 /* AccountSection.swift */,
+				D8EE51EB2DDC11A500E4FEA6 /* DeleteAccountSection.swift */,
+				D8EE51E72DDC119B00E4FEA6 /* SignOutSection.swift */,
+				D8EE51E52DDC119100E4FEA6 /* SupportSection.swift */,
+			);
+			path = Sections;
 			sourceTree = "<group>";
 		};
 		D8F1CD622D872A5600B29BD6 /* Log */ = {
@@ -724,6 +753,7 @@
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
+				D8EE51EC2DDC11A800E4FEA6 /* DeleteAccountSection.swift in Sources */,
 				D88804F02D29F24D00EB0A56 /* CropperViewController.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SimpleImageScanner.swift in Sources */,
 				D8442AD22CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
@@ -735,6 +765,8 @@
 				D8CF7E532D767ACF00C7229A /* DeleteLogButtonView.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
 				D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */,
+				D8EE51E42DDC118600E4FEA6 /* AccountSection.swift in Sources */,
+				D8EE51EE2DDC123B00E4FEA6 /* String+Extensions.swift in Sources */,
 				D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
 				D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
@@ -750,10 +782,12 @@
 				D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
 				D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */,
+				D8EE51E62DDC119400E4FEA6 /* SupportSection.swift in Sources */,
 				D8A521FD2D175EBB003825CF /* SettingSheet.swift in Sources */,
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				9E25DF552D7E11840012983B /* EditableLogData.swift in Sources */,
+				D8FE94682DDE9C7200D57B38 /* FLTDeleteAccount.swift in Sources */,
 				D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */,
 				D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
@@ -764,7 +798,11 @@
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
 				9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */,
+<<<<<<< HEAD
 				D8068D772DDA363D0067C3A9 /* LogListPlaceholderView.swift in Sources */,
+=======
+				D8EE51E82DDC119D00E4FEA6 /* SignOutSection.swift in Sources */,
+>>>>>>> main
 				D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanButtonView.swift in Sources */,
 				D836F9432B0153B6000FC988 /* User.swift in Sources */,
@@ -773,6 +811,7 @@
 				D896A0F82CF116FB003AA2F8 /* Image+Extensions.swift in Sources */,
 				D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */,
 				D836F9412B01520F000FC988 /* AppCoordinator.swift in Sources */,
+				D8FE946A2DDEA1D500D57B38 /* DeleteAccountViewModel.swift in Sources */,
 				D87764392DCFBF7400E95D3E /* ImageTopLeftControls.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
 				D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */,
