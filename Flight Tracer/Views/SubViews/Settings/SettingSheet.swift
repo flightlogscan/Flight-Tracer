@@ -48,7 +48,7 @@ struct SettingsSheet: View {
                         AdminSettingsSection(selectedScanType: $selectedScanType)
                     }
                         
-                    DeleteAccountSection()
+                    DeleteAccountSection(selectedScanType: selectedScanType)
                 }
             }
         }
