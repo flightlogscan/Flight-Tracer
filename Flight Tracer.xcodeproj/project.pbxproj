@@ -798,11 +798,8 @@
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
 				9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */,
-<<<<<<< HEAD
 				D8068D772DDA363D0067C3A9 /* LogListPlaceholderView.swift in Sources */,
-=======
 				D8EE51E82DDC119D00E4FEA6 /* SignOutSection.swift in Sources */,
->>>>>>> main
 				D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanButtonView.swift in Sources */,
 				D836F9432B0153B6000FC988 /* User.swift in Sources */,
