@@ -3,11 +3,17 @@ import SwiftUI
 struct DeleteAccountSection: View {
     @EnvironmentObject var authManager: AuthManager
 
-    @State private var showAlert = false
+    @StateObject private var viewModel = DeleteAccountViewModel()
+    @State private var showDeleteAccountConfirmation = false
+    @State private var showDeleteAccountAlert = false
+    @State private var resultMessage = ""
+    
+    let selectedScanType: ScanType
+
 
     var body: some View {
         Section ("Highway to the Danger Zone"){
-            Button(action: { showAlert = true }) {
+            Button(action: { showDeleteAccountConfirmation = true }) {
                 HStack {
                     Spacer()
                     Text("Delete Account")
@@ -17,13 +23,31 @@ struct DeleteAccountSection: View {
                 }
             }
             .listRowBackground(Color.red.opacity(0.05))
-            .alert("Delete Account?", isPresented: $showAlert) {
+            .alert("Delete Account?", isPresented: $showDeleteAccountConfirmation) {
                 Button("Cancel", role: .cancel) {}
                 Button("Delete", role: .destructive) {
-                    // Need to make + call backend delete account API
+                    Task {
+                        await viewModel.deleteAccount(token: authManager.user.token, selectedScanType: selectedScanType)
+                        
+                        switch viewModel.deletionStatus {
+                        case .success:
+                            resultMessage = "Account deleted successfully"
+                            showDeleteAccountAlert = true
+                        case .failure, .none:
+                            resultMessage = "Error deleting account. Please try again."
+                            showDeleteAccountAlert = true
+                        }
+                    }
                 }
             } message: {
                 Text("Deleting this account will remove your data from this device. Data stored in iCloud will not be deleted.")
+            }
+            .alert(resultMessage, isPresented: $showDeleteAccountAlert) {
+                Button("OK") {
+                    if viewModel.deletionStatus == .success {
+                        authManager.resetUser()
+                    }
+                }
             }
             .accessibilityIdentifier("DeleteAccountButton")
         }

@@ -124,6 +124,8 @@
 		D8EE51EE2DDC123B00E4FEA6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE51ED2DDC123700E4FEA6 /* String+Extensions.swift */; };
 		D8F756D92C67CE6900C68CBA /* JeppesenLogFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */; };
 		D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */; };
+		D8FE94682DDE9C7200D57B38 /* FLTDeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE94672DDE9C5F00D57B38 /* FLTDeleteAccount.swift */; };
+		D8FE946A2DDEA1D500D57B38 /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE94692DDEA1D000D57B38 /* DeleteAccountViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +230,8 @@
 		D8EE51ED2DDC123700E4FEA6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D8F756D82C67CE6900C68CBA /* JeppesenLogFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JeppesenLogFormat.json; sourceTree = "<group>"; };
 		D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
+		D8FE94672DDE9C5F00D57B38 /* FLTDeleteAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLTDeleteAccount.swift; sourceTree = "<group>"; };
+		D8FE94692DDEA1D000D57B38 /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
 		FDE097162A5643EA00102E96 /* Flight Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097272A5643F800102E96 /* Flight TracerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE097312A5643F800102E96 /* Flight TracerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flight TracerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +284,7 @@
 		9E81E8522AB7E9B100524C29 /* Daos */ = {
 			isa = PBXGroup;
 			children = (
+				D8FE94672DDE9C5F00D57B38 /* FLTDeleteAccount.swift */,
 				9E81E8532AB7EA2800524C29 /* AdvancedImageScanner.swift */,
 				D8028B362AAC1278004FFD02 /* SimpleImageScanner.swift */,
 			);
@@ -406,6 +411,7 @@
 		D879523D2AA3D49F0076E898 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D8FE94692DDEA1D000D57B38 /* DeleteAccountViewModel.swift */,
 				9E25DF542D7E11840012983B /* EditableLogData.swift */,
 				D8831E112CFBA7E600F7ADFF /* LogRowViewModel.swift */,
 				D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */,
@@ -770,6 +776,7 @@
 				D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */,
 				D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */,
 				9E25DF552D7E11840012983B /* EditableLogData.swift in Sources */,
+				D8FE94682DDE9C7200D57B38 /* FLTDeleteAccount.swift in Sources */,
 				D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */,
 				D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */,
 				D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */,
@@ -789,6 +796,7 @@
 				D896A0F82CF116FB003AA2F8 /* Image+Extensions.swift in Sources */,
 				D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */,
 				D836F9412B01520F000FC988 /* AppCoordinator.swift in Sources */,
+				D8FE946A2DDEA1D500D57B38 /* DeleteAccountViewModel.swift in Sources */,
 				D87764392DCFBF7400E95D3E /* ImageTopLeftControls.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,
 				D83C766F2CEC36E800DDAACD /* PhotoPickerViewController.swift in Sources */,
