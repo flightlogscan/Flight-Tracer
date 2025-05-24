@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SupportSection: View {
     @ObservedObject var parentViewModel = SettingsViewModel()
-
+    
     var body: some View {
         Section("Support") {
             SettingsSheetButton(
@@ -29,7 +29,10 @@ struct SupportSection: View {
                 action: { parentViewModel.openWebsite("https://www.flightlogscan.com/terms") },
                 accessibilityIdentifier: "TermsWebsite"
             )
+            
+            ShareLink(item: URL(string: "https://apps.apple.com/app/flightlogscan/id6739791303")!) {
+                SettingsButtonTextFormat(title: "Share the app", iconName: "square.and.arrow.up")
+            }
         }
     }
 }
-
