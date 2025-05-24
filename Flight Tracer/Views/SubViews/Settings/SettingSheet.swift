@@ -43,6 +43,7 @@ struct SettingsSheet: View {
                 List {
                     AccountSection(showStore: $showStore)
                     SupportSection(parentViewModel: settingsViewModel)
+                    
                     SignOutSection(selectedScanType: $selectedScanType)
                     if authManager.isAdmin() {
                         AdminSettingsSection(selectedScanType: $selectedScanType)
@@ -64,18 +65,28 @@ struct SettingsSheetButton: View {
 
     var body: some View {
         Button(action: action) {
-            HStack {
-                Image(systemName: iconName)
-                    .foregroundColor(color ?? .primary)
-                    .frame(width: 24, height: 24)
-                Text(title)
-                    .foregroundColor(.primary)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.secondary)
-                    .font(.caption2)
-            }
+            SettingsButtonTextFormat(title: title, iconName: iconName, color: color)
         }
         .accessibilityIdentifier(accessibilityIdentifier ?? "")
+    }
+}
+
+struct SettingsButtonTextFormat: View {
+    let title: String
+    let iconName: String
+    var color: Color?
+
+    var body: some View {
+        HStack {
+            Image(systemName: iconName)
+                .foregroundColor(color ?? .primary)
+                .frame(width: 24, height: 24)
+            Text(title)
+                .foregroundColor(.primary)
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundColor(.secondary)
+                .font(.caption2)
+        }
     }
 }

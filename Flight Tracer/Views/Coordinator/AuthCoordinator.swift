@@ -6,6 +6,9 @@ struct AuthCoordinator: View {
     // Listen for subscription transactions at startup
     @StateObject private var storeKitManager = StoreKitManager()
 
+    @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+    @State private var hasSeenWelcomeView = false
+
     var body: some View {
         ZStack {
             if !authManager.finishedCheckingLoginStatus {
@@ -15,12 +18,22 @@ struct AuthCoordinator: View {
                     .ignoresSafeArea()
                     .accessibilityIdentifier("LoginView")
             } else if authManager.isLoggedIn {
-                AuthenticatedView()
-                    .environmentObject(storeKitManager)
+                if isFirstLaunch && !hasSeenWelcomeView {
+                    WelcomeView(onContinue: {
+                        hasSeenWelcomeView = true
+                    })
+                } else {
+                    AuthenticatedView()
+                        .environmentObject(storeKitManager)
+                }
             }
         }
         .environmentObject(authManager)
         .task {
+            if isFirstLaunch {
+                print("first launch")
+                UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            }
             await storeKitManager.listenForTransactions()
         }
     }
