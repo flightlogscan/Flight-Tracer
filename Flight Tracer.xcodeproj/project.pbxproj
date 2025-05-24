@@ -54,6 +54,7 @@
 		D80C41602DDF7FF5005EA700 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */; };
 		D8110EDC2CE90D6000C76D7B /* PhoneSettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */; };
 		D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */; };
+		D81C88262DE23E1E009479F7 /* FreeTrialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81C88252DE23E18009479F7 /* FreeTrialView.swift */; };
 		D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */; };
 		D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */; };
 		D836F9412B01520F000FC988 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9402B01520F000FC988 /* AppCoordinator.swift */; };
@@ -165,6 +166,7 @@
 		D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSettingsAlert.swift; sourceTree = "<group>"; };
 		D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
+		D81C88252DE23E18009479F7 /* FreeTrialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeTrialView.swift; sourceTree = "<group>"; };
 		D81FA38C2B2287F60082B178 /* CustomAuthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthPickerViewController.swift; sourceTree = "<group>"; };
 		D8328D372D3C28490060F7DC /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
 		D836F93F2B015142000FC988 /* Flight-Tracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flight-Tracer-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -375,6 +377,7 @@
 		D85561F62AAC233400A3CA49 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				D81C88252DE23E18009479F7 /* FreeTrialView.swift */,
 				D879525A2AA3D49F0076E898 /* AuthenticatedView.swift */,
 				D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */,
 				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
@@ -771,6 +774,7 @@
 				D8AD8FD72D504CCA00BF84DA /* AuthCoordinator.swift in Sources */,
 				9E81E8542AB7EA2800524C29 /* AdvancedImageScanner.swift in Sources */,
 				D8AD8FE12D51B36C00BF84DA /* StoreKitManager.swift in Sources */,
+				D81C88262DE23E1E009479F7 /* FreeTrialView.swift in Sources */,
 				D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
 				D841CC362CE1330200A02B5D /* LogFieldMetadata.swift in Sources */,
@@ -1009,6 +1013,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightLogScan;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used to access flight logs in your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1064,6 +1069,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Flight-Tracer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FlightLogScan;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to take pictures of flight logs from phone";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used to access flight logs in your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

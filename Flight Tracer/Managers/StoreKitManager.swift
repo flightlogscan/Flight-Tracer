@@ -65,7 +65,24 @@ class StoreKitManager: ObservableObject {
             : "No previous purchases found."
     }
 
-
+    func purchase(subscription: Product) async -> Bool {
+        do {
+            let result = try await subscription.purchase()
+            switch result {
+            case .success(let verification):
+                if case .verified(let transaction) = verification {
+                    await handle(transaction)
+                    return true
+                }
+                return false
+            default:
+                return false
+            }
+        } catch {
+            print("Purchase failed: \(error)")
+            return false
+        }
+    }
     
     private func handle(_ transaction: StoreKit.Transaction) async {
         await update(from: transaction)
