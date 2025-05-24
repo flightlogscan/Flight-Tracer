@@ -51,9 +51,12 @@
 		D803E22C2B267857001B5100 /* CustomPasswordSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */; };
 		D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */; };
 		D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */; };
+<<<<<<< HEAD
 		D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */; };
 		D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */; };
 		D8068D772DDA363D0067C3A9 /* LogListPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D762DDA36390067C3A9 /* LogListPlaceholderView.swift */; };
+=======
+>>>>>>> main
 		D80C41602DDF7FF5005EA700 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */; };
 		D8110EDC2CE90D6000C76D7B /* PhoneSettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */; };
 		D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */; };
@@ -165,9 +168,12 @@
 		D803E22B2B267857001B5100 /* CustomPasswordSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignInViewController.swift; sourceTree = "<group>"; };
 		D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignUpViewController.swift; sourceTree = "<group>"; };
 		D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordVerificationViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScanButtonView.swift; sourceTree = "<group>"; };
 		D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissScreenCoverButton.swift; sourceTree = "<group>"; };
 		D8068D762DDA36390067C3A9 /* LogListPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListPlaceholderView.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> main
 		D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSettingsAlert.swift; sourceTree = "<group>"; };
 		D8110EE12CE90ECE00C76D7B /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
