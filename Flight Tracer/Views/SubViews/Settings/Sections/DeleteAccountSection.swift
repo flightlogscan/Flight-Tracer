@@ -10,7 +10,6 @@ struct DeleteAccountSection: View {
     
     let selectedScanType: ScanType
 
-
     var body: some View {
         Section ("Highway to the Danger Zone"){
             Button(action: { showDeleteAccountConfirmation = true }) {
