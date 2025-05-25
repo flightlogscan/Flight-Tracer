@@ -8,6 +8,7 @@ struct AuthCoordinator: View {
 
     @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
     @State private var hasSeenWelcomeView = false
+    @State private var hasSeenFreeTrialView = false
 
     var body: some View {
         ZStack {
@@ -18,10 +19,16 @@ struct AuthCoordinator: View {
                     .ignoresSafeArea()
                     .accessibilityIdentifier("LoginView")
             } else if authManager.isLoggedIn {
-                if isFirstLaunch && !hasSeenWelcomeView {
-                    WelcomeView(onContinue: {
-                        hasSeenWelcomeView = true
-                    })
+                if (!hasSeenWelcomeView || !hasSeenFreeTrialView) && isFirstLaunch {
+                    NavigationStack {
+                        if !hasSeenWelcomeView {
+                            WelcomeView {
+                                hasSeenWelcomeView = true
+                                hasSeenFreeTrialView = true
+                            }
+                        }
+                    }
+                    .environmentObject(storeKitManager)
                 } else {
                     AuthenticatedView()
                         .environmentObject(storeKitManager)
@@ -31,14 +38,9 @@ struct AuthCoordinator: View {
         .environmentObject(authManager)
         .task {
             if isFirstLaunch {
-                print("first launch")
                 UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
             }
             await storeKitManager.listenForTransactions()
         }
     }
-}
-
-#Preview {
-    AuthCoordinator()
 }
