@@ -8,22 +8,18 @@ struct LogTabView: View {
     @State private var fieldContentValues: [String: String] = [:]
     @State private var fieldGroupNames: [String: String] = [:]
     
-    @ObservedObject var logSwiperViewModel: LogSwiperViewModel
+    @StateObject var logTabViewModel = LogTabViewModel()
     
-    // Get field names from the header row
     var fieldNames: [String: String] {
         let headerRow = rows.first(where: { $0.header })?.content ?? [:]
         return headerRow
     }
     
-    // Get the parent headers (categories) for grouping
     var parentHeaders: [String: String] {
-        // Get parent headers from the current data row, or default to empty dictionary
         let currentRow = rows.first(where: { $0.rowIndex == rowIndex && !$0.header })
         return currentRow?.parentHeaders ?? [:]
     }
     
-    // Get content from the data rows
     var rowContent: [String: String] {
         var combined: [String: String] = [:]
         rows.filter({ !$0.header }).forEach { row in
@@ -90,6 +86,7 @@ struct LogTabView: View {
             .scrollContentBackground(.hidden)
             .onAppear {
                 initializeLocalState()
+                logTabViewModel.setEditableData(from: rows)
             }
             .scrollDismissesKeyboard(.immediately)
         }
@@ -102,7 +99,7 @@ struct LogTabView: View {
                 get: { fieldNameValues[key] ?? "" },
                 set: { newValue in
                     fieldNameValues[key] = newValue
-                    logSwiperViewModel.updateFieldName(oldKey: key, newName: newValue)
+                    logTabViewModel.updateFieldName(oldKey: key, newName: newValue)
                 }
             ))
             .font(.footnote)
@@ -114,7 +111,7 @@ struct LogTabView: View {
                 get: { fieldContentValues[key] ?? "" },
                 set: { newValue in
                     fieldContentValues[key] = newValue
-                    logSwiperViewModel.updateField(rowIndex: rowIndex, fieldKey: key, newValue: newValue)
+                    logTabViewModel.updateField(rowIndex: rowIndex, fieldKey: key, newValue: newValue)
                 }
             ))
             .font(.footnote)
@@ -128,7 +125,7 @@ struct LogTabView: View {
         // Initialize field names
         for key in fieldNames.keys {
             let value: String
-            if let editableData = logSwiperViewModel.editableLogData {
+            if let editableData = logTabViewModel.editableLogData {
                 value = editableData.getFieldName(key: key)
             } else {
                 value = fieldNames[key] ?? ""
@@ -139,7 +136,7 @@ struct LogTabView: View {
         // Initialize field values
         for key in fieldNames.keys {
             let value: String
-            if let editableData = logSwiperViewModel.editableLogData {
+            if let editableData = logTabViewModel.editableLogData {
                 value = editableData.getValue(rowIndex: rowIndex, key: key)
             } else {
                 value = rowContent[key] ?? ""

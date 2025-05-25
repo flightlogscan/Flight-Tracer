@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct LogsView: View {
-    @ObservedObject var logSwiperViewModel: LogSwiperViewModel
+    let rows: [RowDTO]
     
     var groupedRows: [Int: [RowDTO]] {
-        guard let headerRow = logSwiperViewModel.rows.first(where: { $0.header }) else {
-            return Dictionary(grouping: logSwiperViewModel.rows.filter { !$0.header }) { $0.rowIndex }
+        guard let headerRow = rows.first(where: { $0.header }) else {
+            return Dictionary(grouping: rows.filter { !$0.header }) { $0.rowIndex }
         }
 
-        let dataRows = Dictionary(grouping: logSwiperViewModel.rows.filter { !$0.header }) { $0.rowIndex }
+        let dataRows = Dictionary(grouping: rows.filter { !$0.header }) { $0.rowIndex }
 
         var result: [Int: [RowDTO]] = [:]
         for (index, rows) in dataRows {
@@ -25,7 +25,6 @@ struct LogsView: View {
                         LogTabView(
                             rows: rows,
                             rowIndex: rowIndex,
-                            logSwiperViewModel: logSwiperViewModel
                         )
                     }
                 }

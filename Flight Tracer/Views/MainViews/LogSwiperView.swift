@@ -31,7 +31,7 @@ struct LogSwiperView: View {
             NavigationStack {
                 ZStack {
                     if isDataLoaded {
-                        LogsView(logSwiperViewModel: logSwiperViewModel)
+                        LogsView(rows: logSwiperViewModel.rows)
                     } else {
                         ProgressView()
                             .tint(.white)
@@ -49,7 +49,8 @@ struct LogSwiperView: View {
                         }
                         
                         ToolbarItem(placement: .topBarTrailing) {
-                            ExportButtonView(logSwiperViewModel: logSwiperViewModel, showStore: $showStore)
+                            //TODO: move to log list view: ExportButtonView(logSwiperViewModel: logSwiperViewModel, showStore: $showStore)
+                            //TODO: Save button
                         }
                     }
                 }
