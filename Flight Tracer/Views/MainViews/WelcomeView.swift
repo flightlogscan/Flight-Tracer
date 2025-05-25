@@ -2,7 +2,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     var onContinue: () -> Void
-
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -74,7 +74,7 @@ struct WelcomeView: View {
                     .padding(.bottom)
 
                 HStack {
-                    Button(action: onContinue) {
+                    NavigationLink(destination: FreeTrialView(onFinished: onContinue)) {
                         Text("Continue")
                             .fontWeight(.semibold)
                             .padding()
@@ -95,5 +95,7 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView(onContinue: {})
+    WelcomeView {
+        print("Continue tapped")
+    }
 }
