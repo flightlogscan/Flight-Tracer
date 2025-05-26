@@ -1,11 +1,9 @@
 import Foundation
 
-// Make this a struct instead of a class for value semantics
 struct LogEdits {
     var contentEdits: [Int: [String: String]] = [:]
     var headerEdits: [String: String] = [:]
     
-    // Helper to check if we have any edits
     var hasEdits: Bool {
         return !contentEdits.isEmpty || !headerEdits.isEmpty
     }
@@ -13,7 +11,7 @@ struct LogEdits {
 
 class EditableLogData: ObservableObject {
     let originalRows: [RowDTO]
-    @Published var edits = LogEdits()
+    var edits = LogEdits()
     
     init(rows: [RowDTO]) {
         self.originalRows = rows
@@ -23,64 +21,41 @@ class EditableLogData: ObservableObject {
         if let editedName = edits.headerEdits[key] {
             return editedName
         }
-        let headerRow = originalRows.first(where: { $0.header })
-        return headerRow?.content[key] ?? key
+        return originalRows.first(where: { $0.header })?.content[key] ?? key
     }
     
     func getValue(rowIndex: Int, key: String) -> String {
-        if let rowEdits = edits.contentEdits[rowIndex], let editedValue = rowEdits[key] {
+        if let rowEdits = edits.contentEdits[rowIndex],
+           let editedValue = rowEdits[key] {
             return editedValue
         }
-        return originalRows.first(where: { $0.rowIndex == rowIndex && !$0.header })?.content[key] ?? ""
+        return originalRows.first(where: { $0.rowIndex == rowIndex && !$0.header })?
+            .content[key] ?? ""
     }
     
     func updateFieldName(oldKey: String, newName: String) {
         print("Updating header field \(oldKey) to \(newName)")
-        
-        // Only update if the name is actually different
-        let currentName = getFieldName(key: oldKey)
-        if currentName != newName {
-            // Create a new copy of headerEdits with the update
-            var newHeaderEdits = edits.headerEdits
-            newHeaderEdits[oldKey] = newName
-            
-            // Replace the entire edits struct with a new one
-            var newEdits = edits
-            newEdits.headerEdits = newHeaderEdits
-            edits = newEdits
+        if edits.headerEdits[oldKey] != newName {
+            edits.headerEdits[oldKey] = newName
         }
     }
     
     func updateValue(rowIndex: Int, key: String, newValue: String) {
         print("Updating row \(rowIndex) field \(key) to \(newValue)")
-        
-        // Get the original value for comparison
-        let originalValue = originalRows.first(where: { $0.rowIndex == rowIndex && !$0.header })?.content[key] ?? ""
-        
-        // Create a new copy of our edits
-        var newEdits = edits
-        
-        // Only update if the value has actually changed from the original
+        let originalValue = originalRows
+            .first(where: { $0.rowIndex == rowIndex && !$0.header })?
+            .content[key] ?? ""
         if originalValue != newValue {
-            if newEdits.contentEdits[rowIndex] == nil {
-                newEdits.contentEdits[rowIndex] = [:]
+            if edits.contentEdits[rowIndex] == nil {
+                edits.contentEdits[rowIndex] = [:]
             }
-            newEdits.contentEdits[rowIndex]?[key] = newValue
+            edits.contentEdits[rowIndex]?[key] = newValue
         } else {
-            // If setting back to original value, remove the edit
-            if newEdits.contentEdits[rowIndex]?[key] != nil {
-                newEdits.contentEdits[rowIndex]?[key] = nil
-                
-                // Clean up empty dictionaries
-                if newEdits.contentEdits[rowIndex]?.isEmpty ?? true {
-                    newEdits.contentEdits.removeValue(forKey: rowIndex)
-                }
+            edits.contentEdits[rowIndex]?[key] = nil
+            if let rowEdits = edits.contentEdits[rowIndex], rowEdits.isEmpty {
+                edits.contentEdits.removeValue(forKey: rowIndex)
             }
         }
-        
-        // Replace the entire edits struct with our new version
-        edits = newEdits
-        
         print("Content edits after update: \(edits.contentEdits)")
     }
     

@@ -27,18 +27,18 @@ func hardCodedImageScan() -> AdvancedImageScanResult {
                     isImageValid: true,
                     errorCode: ErrorCode.NO_ERROR,
                     analyzeResult: analyzeResult,
-                    tables: analyzeImageResponse.tables ?? []
+                    rows: analyzeImageResponse.tables ?? []
                 )
             } else {
                 print("Error with sample response deserialization")
-                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.HARDCODED_ERROR, tables: [])
+                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.HARDCODED_ERROR, rows: [])
             }
         } catch {
             print("Error with sample response content: \(error)")
-            return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.HARDCODED_ERROR, tables: [])
+            return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.HARDCODED_ERROR, rows: [])
         }
     } else {
         print("Error with sample response file")
-        return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.HARDCODED_ERROR, tables: [])
+        return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.HARDCODED_ERROR, rows: [])
     }
 }

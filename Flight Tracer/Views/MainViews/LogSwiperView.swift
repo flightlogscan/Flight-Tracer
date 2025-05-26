@@ -8,6 +8,8 @@ struct LogSwiperView: View {
     @State var showStore: Bool = false
     @StateObject var logSwiperViewModel = LogSwiperViewModel()
     
+    @State var editableRows: [EditableRow] = []
+        
     let uiImage: UIImage
     let selectedScanType: ScanType
     
@@ -31,7 +33,7 @@ struct LogSwiperView: View {
             NavigationStack {
                 ZStack {
                     if isDataLoaded {
-                        LogsView(rows: logSwiperViewModel.rows)
+                        LogTabsView(editableRows: $editableRows)
                     } else {
                         ProgressView()
                             .tint(.white)
@@ -72,6 +74,7 @@ struct LogSwiperView: View {
                     )
                 }
                 .onReceive(logSwiperViewModel.$rows) { rows in
+                    editableRows = rows
                     isDataLoaded = !rows.isEmpty
                 }
             }

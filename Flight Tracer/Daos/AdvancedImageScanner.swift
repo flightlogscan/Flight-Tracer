@@ -23,7 +23,7 @@ struct AdvancedImageScanner {
 
             guard let url = URL(string: urlString) else {
                 print("Invalid URL")
-                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.INVALID_REQUEST, tables: [])
+                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.INVALID_REQUEST, rows: [])
             }
             
             let bearerToken = "Bearer \(userToken)"
@@ -45,7 +45,7 @@ struct AdvancedImageScanner {
                 print("Invalid response")
                 trace?.incrementMetric("InvalidResponse", by: 1)
                 trace?.stop()
-                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR, tables: [])
+                return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR, rows: [])
             }
             
             if (200...299).contains(httpResponse.statusCode) {
@@ -70,13 +70,13 @@ struct AdvancedImageScanner {
                     isImageValid: true,
                     errorCode: ErrorCode.NO_ERROR,
                     analyzeResult: finalAnalyzeResult ?? AnalyzeResult(content: "", tables: []),
-                    tables: analyzeImageResponse.tables
+                    rows: analyzeImageResponse.tables
                 )
              } else {
                 print("API request failed. Status code: \(httpResponse.statusCode)")
                 trace?.incrementMetric("UnhealthyResponse", by: 1)
                 trace?.stop()
-                 return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR, tables: [])
+                 return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR, rows: [])
             }
         } else {
             return hardCodedImageScan()

@@ -30,7 +30,6 @@
 		9E1ED63E2CFA31F4002584A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
 		9E1ED63F2CFA31F4002584A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836F9422B0153B6000FC988 /* User.swift */; };
 		9E25DF552D7E11840012983B /* EditableLogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25DF542D7E11840012983B /* EditableLogData.swift */; };
-		9E25DF572D7E11B70012983B /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25DF562D7E11B70012983B /* LogsView.swift */; };
 		9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25DF582D7E11C90012983B /* LogTabView.swift */; };
 		9E4A085C2BEFE42900EC7C17 /* SampleResultResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */; };
 		9E4A085D2BEFE48300EC7C17 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
@@ -52,6 +51,10 @@
 		D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */; };
 		D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */; };
 		D8066DE22DE3C603003293F3 /* LogTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DE12DE3C600003293F3 /* LogTabViewModel.swift */; };
+		D8066DE42DE3E3C0003293F3 /* LogTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DE32DE3E3BD003293F3 /* LogTabsView.swift */; };
+		D8066DE62DE3F17E003293F3 /* EditableFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DE52DE3F175003293F3 /* EditableFields.swift */; };
+		D8066DE72DE3F17E003293F3 /* EditableFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DE52DE3F175003293F3 /* EditableFields.swift */; };
+		D8066DE82DE3F17E003293F3 /* EditableFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DE52DE3F175003293F3 /* EditableFields.swift */; };
 		D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */; };
 		D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */; };
 		D8068D772DDA363D0067C3A9 /* LogListPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D762DDA36390067C3A9 /* LogListPlaceholderView.swift */; };
@@ -152,7 +155,6 @@
 
 /* Begin PBXFileReference section */
 		9E25DF542D7E11840012983B /* EditableLogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLogData.swift; sourceTree = "<group>"; };
-		9E25DF562D7E11B70012983B /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
 		9E25DF582D7E11C90012983B /* LogTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTabView.swift; sourceTree = "<group>"; };
 		9E4A08632BEFE79B00EC7C17 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		9E5A6EF22BD4491900FEF9A1 /* SampleResultResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleResultResponse.json; sourceTree = "<group>"; };
@@ -167,6 +169,8 @@
 		D803E22D2B267861001B5100 /* CustomPasswordSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordSignUpViewController.swift; sourceTree = "<group>"; };
 		D803E22F2B26786C001B5100 /* CustomPasswordVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordVerificationViewController.swift; sourceTree = "<group>"; };
 		D8066DE12DE3C600003293F3 /* LogTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTabViewModel.swift; sourceTree = "<group>"; };
+		D8066DE32DE3E3BD003293F3 /* LogTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTabsView.swift; sourceTree = "<group>"; };
+		D8066DE52DE3F175003293F3 /* EditableFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableFields.swift; sourceTree = "<group>"; };
 		D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScanButtonView.swift; sourceTree = "<group>"; };
 		D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissScreenCoverButton.swift; sourceTree = "<group>"; };
 		D8068D762DDA36390067C3A9 /* LogListPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListPlaceholderView.swift; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 				D841CC312CE1328E00A02B5D /* enum */,
 				D8442ACA2CF69CB60087450B /* AdvancedImageScanResult.swift */,
 				D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */,
+				D8066DE52DE3F175003293F3 /* EditableFields.swift */,
 				D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */,
 				9EB795DB2D6260FA008B351C /* LogData.swift */,
 				D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */,
@@ -546,9 +551,9 @@
 		D8F1CD622D872A5600B29BD6 /* Log */ = {
 			isa = PBXGroup;
 			children = (
+				D8066DE32DE3E3BD003293F3 /* LogTabsView.swift */,
 				D8068D762DDA36390067C3A9 /* LogListPlaceholderView.swift */,
 				9E25DF582D7E11C90012983B /* LogTabView.swift */,
-				9E25DF562D7E11B70012983B /* LogsView.swift */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 				D88DE8A52AC0AF7F0080D5EB /* ExportButtonView.swift in Sources */,
 				D803E22A2B26784A001B5100 /* CustomPasswordRecoveryViewController.swift in Sources */,
 				D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */,
+				D8066DE42DE3E3C0003293F3 /* LogTabsView.swift in Sources */,
 				D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */,
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
@@ -763,7 +769,6 @@
 				D88804F02D29F24D00EB0A56 /* CropperViewController.swift in Sources */,
 				D8028B372AAC1278004FFD02 /* SimpleImageScanner.swift in Sources */,
 				D8442AD22CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
-				9E25DF572D7E11B70012983B /* LogsView.swift in Sources */,
 				D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */,
 				D841CC2C2CE1251400A02B5D /* AuthManager.swift in Sources */,
 				D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */,
@@ -804,6 +809,7 @@
 				9EB795DC2D6260FA008B351C /* LogData.swift in Sources */,
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
 				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
+				D8066DE82DE3F17E003293F3 /* EditableFields.swift in Sources */,
 				9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */,
 				D8068D772DDA363D0067C3A9 /* LogListPlaceholderView.swift in Sources */,
 				D8EE51E82DDC119D00E4FEA6 /* SignOutSection.swift in Sources */,
@@ -838,6 +844,7 @@
 				9EB795DD2D6260FA008B351C /* LogData.swift in Sources */,
 				9E1ED63C2CFA31F0002584A4 /* SimpleImageScanResult.swift in Sources */,
 				9E1ED6322CFA31D5002584A4 /* ScanType.swift in Sources */,
+				D8066DE72DE3F17E003293F3 /* EditableFields.swift in Sources */,
 				D8A522012D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				9E1ED6362CFA31E2002584A4 /* AnalyzeResult.swift in Sources */,
 				9E1ED6342CFA31DB002584A4 /* LogFieldType.swift in Sources */,
@@ -861,6 +868,7 @@
 				D8A521FF2D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				9E1ED6332CFA31D5002584A4 /* ScanType.swift in Sources */,
 				9EC2454D2CE12EDD0006269B /* Flight_TracerUITestsE2E.swift in Sources */,
+				D8066DE62DE3F17E003293F3 /* EditableFields.swift in Sources */,
 				D8442AD32CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
 				9E1ED6312CFA31CB002584A4 /* ErrorCode.swift in Sources */,
 				9E1ED6352CFA31DB002584A4 /* LogFieldType.swift in Sources */,
