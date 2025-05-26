@@ -3,7 +3,10 @@ import FirebaseAuthUI
 import PhotosUI
 
 struct AuthenticatedView: View {
+    @Environment(\.modelContext) private var modelContext
+
     @EnvironmentObject var storeKitManager: StoreKitManager
+    @EnvironmentObject var authManager: AuthManager
 
     @State var selectedScanType: ScanType = .api
     @State var showStore = false
@@ -28,7 +31,7 @@ struct AuthenticatedView: View {
                         .ignoresSafeArea(.all)
                         .accessibilityIdentifier("ScanBackground")
                     
-                    LogListPlaceholderView()
+                    LogListView(userId: authManager.user.id, modelContext: modelContext)
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {

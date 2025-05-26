@@ -52,7 +52,7 @@ struct LogSwiperView: View {
                         
                         ToolbarItem(placement: .topBarTrailing) {
                             //TODO: move to log list view: ExportButtonView(logSwiperViewModel: logSwiperViewModel, showStore: $showStore)
-                            //TODO: Save button
+                            SaveLogButtonView(editableRows: editableRows, userId: authManager.user.id)
                         }
                     }
                 }

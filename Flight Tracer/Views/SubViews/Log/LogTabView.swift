@@ -11,9 +11,14 @@ struct LogTabView: View {
             List {
                 ForEach(headerRow.content.keys.sorted { Int($0) ?? 0 < Int($1) ?? 0 }, id: \.self) { key in
                     HStack {
-                        Text(headerRow.content[key] ?? "")
-                            .font(.footnote)
-                            .foregroundColor(.white)
+                        TextField("", text: Binding(
+                            get: { headerRow.content[key, default: ""] },
+                            set: { newValue in
+                                headerRow.content[key] = newValue
+                            }
+                        ))
+                        .font(.footnote)
+                        .foregroundColor(.white)
                         Spacer()
                         TextField("Value", text: Binding(
                             get: { logRow.content[key, default: ""] },
