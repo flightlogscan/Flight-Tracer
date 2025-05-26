@@ -8,9 +8,9 @@ struct ScanView: View {
     
     @Binding var selectedScanType: ScanType
     @Binding var showStore: Bool
+    @Binding var showScanSheet: Bool
     
     @EnvironmentObject var storeKitManager: StoreKitManager
-
 
     var body: some View {
         NavigationStack {
@@ -35,26 +35,25 @@ struct ScanView: View {
                             alignment: .bottom
                         )
                 }
-                .toolbar {
-                        ToolbarItem(placement: .topBarLeading) {
-                            DismissScreenCoverButton()
-                        }
-                        
-                        ToolbarItem(placement: .topBarTrailing) {
-                            ScanButtonView(
-                                scanPressed: $activeScanPressed,
-                                isDisabled: $isScanningDisabled
-                            )
-                        }
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .topBarLeading) {
+                    DismissScreenCoverButton()
                 }
-                .toolbarBackground(.hidden, for: .navigationBar)
-                .onChange(of: scanViewModel.isImageValid) { _, _ in
-                    isScanningDisabled = !scanViewModel.isImageValid
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    ScanButtonView(
+                        scanPressed: $activeScanPressed,
+                        isDisabled: $isScanningDisabled
+                    )
                 }
+            }
+            .toolbarBackground(.hidden, for: .navigationBar)
+            .onChange(of: scanViewModel.isImageValid) { _, _ in
+                isScanningDisabled = !scanViewModel.isImageValid
             }
             .navigationDestination(isPresented: $activeScanPressed) {
                 if let uiImage = scanViewModel.selectedImage.uiImage {
-                    LogSwiperView(uiImage: uiImage, selectedScanType: selectedScanType)
+                    LogSwiperView(showScanSheet: $showScanSheet, uiImage: uiImage, selectedScanType: selectedScanType)
                         .environmentObject(storeKitManager)
                 }
             }

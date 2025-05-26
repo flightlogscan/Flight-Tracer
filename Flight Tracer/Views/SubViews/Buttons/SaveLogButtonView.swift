@@ -1,16 +1,25 @@
 import SwiftUI
+import SwiftData
 
 struct SaveLogButtonView: View {
     
-    @Environment(\.modelContext) private var modelContext
-        
     let editableRows: [EditableRow]
     let userId: String
+    let onComplete: () -> Void
+    
+    @StateObject private var viewModel: SaveLogButtonViewModel
+    
+    init(userId: String, modelContext: ModelContext, editableRows: [EditableRow], onComplete: @escaping () -> Void) {
+        self.userId = userId
+        self.editableRows = editableRows
+        self.onComplete = onComplete
+        _viewModel = StateObject(wrappedValue: SaveLogButtonViewModel(modelContext: modelContext, userId: userId))
+    }
+
     
     var body: some View {
         Button {
-            SaveLogButtonViewModel(modelContext: modelContext, userId: userId)
-                .saveLog(editableRows: editableRows)
+            viewModel.saveLog(editableRows: editableRows)
         } label: {
             Text("Save")
                 .font(.headline)
@@ -22,5 +31,11 @@ struct SaveLogButtonView: View {
                 .clipShape(Capsule())
         }
         .accessibilityIdentifier("SaveButton")
+        .onChange(of: viewModel.logSaved) { _, newValue in
+            if newValue {
+                print("here")
+                onComplete()
+            }
+        }
     }
 }

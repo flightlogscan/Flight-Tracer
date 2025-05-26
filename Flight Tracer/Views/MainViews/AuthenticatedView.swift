@@ -8,7 +8,7 @@ struct AuthenticatedView: View {
     @EnvironmentObject var storeKitManager: StoreKitManager
     @EnvironmentObject var authManager: AuthManager
 
-    @State var selectedScanType: ScanType = .api
+    @State var selectedScanType: ScanType = .hardcoded
     @State var showStore = false
     @State var showScanSheet: Bool = false
 
@@ -20,7 +20,7 @@ struct AuthenticatedView: View {
                     .zIndex(2)
             }
             
-            NavigationStack {
+            NavigationStack() {
                 ZStack {
                     Rectangle()
                         .fill(LinearGradient(
@@ -52,7 +52,7 @@ struct AuthenticatedView: View {
                             
                             AddScanButtonView(showScanSheet: $showScanSheet)
                                 .fullScreenCover(isPresented: $showScanSheet) {
-                                    ScanView(selectedScanType: $selectedScanType, showStore: $showStore)
+                                    ScanView(selectedScanType: $selectedScanType, showStore: $showStore, showScanSheet: $showScanSheet)
                                 }
                             
                             SettingsButtonView(selectedScanType: $selectedScanType)

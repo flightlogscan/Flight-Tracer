@@ -14,22 +14,25 @@ struct LogListView: View {
     var body: some View {
         Group {
             if viewModel.logs.isEmpty {
-                let _ = print("empty logs")
-                LogListPlaceHolderView()
+                ZStack {
+                    LogListPlaceHolderView()
+                }
+                .background(Color.clear)
             } else {
-                let _ = print("logs \(viewModel.logs.count)")
-
                 NavigationStack {
                     List(viewModel.logs) { log in
                         NavigationLink(log.title) {
                             Text("Detail for \(log.title)")
                         }
                     }
+                    .listStyle(PlainListStyle())
+                    .scrollContentBackground(.hidden)
                 }
+                .toolbarBackground(.hidden, for: .navigationBar)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .onAppear {
+        .onAppear() {
             viewModel.getLogs()
         }
     }

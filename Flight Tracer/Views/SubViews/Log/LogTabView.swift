@@ -20,7 +20,7 @@ struct LogTabView: View {
                         .font(.footnote)
                         .foregroundColor(.white)
                         Spacer()
-                        TextField("Value", text: Binding(
+                        TextField("", text: Binding(
                             get: { logRow.content[key, default: ""] },
                             set: { newValue in
                                 logRow.content[key] = newValue

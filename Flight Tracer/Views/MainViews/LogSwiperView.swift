@@ -2,6 +2,8 @@ import SwiftUI
 
 struct LogSwiperView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.modelContext) private var modelContext
+
     @EnvironmentObject var authManager: AuthManager
     
     @State var isDataLoaded: Bool = false
@@ -9,6 +11,8 @@ struct LogSwiperView: View {
     @StateObject var logSwiperViewModel = LogSwiperViewModel()
     
     @State var editableRows: [EditableRow] = []
+    
+    @Binding var showScanSheet: Bool
         
     let uiImage: UIImage
     let selectedScanType: ScanType
@@ -52,7 +56,13 @@ struct LogSwiperView: View {
                         
                         ToolbarItem(placement: .topBarTrailing) {
                             //TODO: move to log list view: ExportButtonView(logSwiperViewModel: logSwiperViewModel, showStore: $showStore)
-                            SaveLogButtonView(editableRows: editableRows, userId: authManager.user.id)
+                            SaveLogButtonView(
+                                userId: authManager.user.id,
+                                modelContext: modelContext,
+                                editableRows: editableRows
+                            ) {
+                                showScanSheet = false
+                            }
                         }
                     }
                 }

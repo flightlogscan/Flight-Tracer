@@ -5,6 +5,8 @@ class SaveLogButtonViewModel: ObservableObject {
     private let modelContext: ModelContext
     private let userId: String
 
+    @Published var logSaved = false
+    
     init(modelContext: ModelContext, userId: String) {
         self.modelContext = modelContext
         self.userId = userId
@@ -33,6 +35,7 @@ class SaveLogButtonViewModel: ObservableObject {
 
         do {
             try modelContext.save()
+            logSaved = true
             print("Saved log successfully!")
         } catch {
             print("Failed to save log: \(error)")
