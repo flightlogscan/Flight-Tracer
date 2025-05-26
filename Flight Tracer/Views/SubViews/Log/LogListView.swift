@@ -13,27 +13,32 @@ struct LogListView: View {
     
     var body: some View {
         Group {
-            if viewModel.logs.isEmpty {
-                ZStack {
-                    LogListPlaceHolderView()
-                }
-                .background(Color.clear)
+            if viewModel.logSummaries.isEmpty {
+                LogListPlaceHolderView()
             } else {
                 NavigationStack {
-                    List(viewModel.logs) { log in
-                        NavigationLink(log.title) {
-                            Text("Detail for \(log.title)")
+                    ZStack {
+                        Rectangle()
+                            .fill(LinearGradient(
+                                gradient: Gradient(colors: [.navyBlue, .black, .black]),
+                                startPoint: .top,
+                                endPoint: .bottom
+                            ))
+                            .ignoresSafeArea(.all)
+                        List(viewModel.logSummaries) { logSummary in
+                            LogListButtonView(logSummary: logSummary, userId: userId)
                         }
+                        .scrollContentBackground(.hidden)
+                        .scrollBounceBehavior(.basedOnSize)
+                        .listRowBackground(Color.clear)
                     }
-                    .listStyle(PlainListStyle())
-                    .scrollContentBackground(.hidden)
+                    .toolbarBackground(.hidden, for: .navigationBar)
                 }
-                .toolbarBackground(.hidden, for: .navigationBar)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear() {
-            viewModel.getLogs()
+            viewModel.getLogSummaries()
         }
     }
 }

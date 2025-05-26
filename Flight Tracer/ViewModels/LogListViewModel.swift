@@ -2,28 +2,21 @@ import Foundation
 import SwiftData
 
 class LogListViewModel: ObservableObject {
-    private let modelContext: ModelContext
-    private let userId: String
-    @Published var logs: [StoredLog] = []
+    private let dao: StoredLogsDao
+    @Published var logSummaries: [LogSummary] = []
 
     init(modelContext: ModelContext, userId: String) {
-        self.modelContext = modelContext
-        self.userId = userId
+        self.dao = StoredLogsDao(modelContext: modelContext, userId: userId)
     }
     
-    func getLogs() {
-        let uid = userId
-        let descriptor = FetchDescriptor<StoredLog>(
-            predicate: #Predicate { $0.userId == uid },
-            sortBy: [SortDescriptor(\.createdAt, order: .reverse)]
-        )
-
-        do {
-            let results = try modelContext.fetch(descriptor)
-            self.logs = results
-        } catch {
-            print("Failed to fetch logs: \(error)")
+    func getLogSummaries() {
+        let storedLogs = dao.getStoredLogs()
+        self.logSummaries = storedLogs.map {
+            LogSummary(
+                id: $0.persistentModelID,
+                title: $0.title,
+                createdAt: $0.createdAt
+            )
         }
     }
-    
 }
