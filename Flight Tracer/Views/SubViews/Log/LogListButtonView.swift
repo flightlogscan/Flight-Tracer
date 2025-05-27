@@ -8,7 +8,6 @@ struct LogListButtonView: View {
     let logSummary: LogSummary
     let userId: String
 
-
     var body: some View {
         Button(logSummary.title) {
             showDetailSheet = true

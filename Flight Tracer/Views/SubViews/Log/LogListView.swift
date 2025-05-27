@@ -2,12 +2,15 @@ import SwiftUI
 import SwiftData
 
 struct LogListView: View {
-    
-    let userId: String
     @StateObject private var viewModel: LogListViewModel
+    @Binding var showScanSheet: Bool
 
-    init(userId: String, modelContext: ModelContext) {
+    let userId: String
+
+    // Need init because view model needs model context
+    init(userId: String, modelContext: ModelContext, showScanSheet: Binding<Bool>) {
         self.userId = userId
+        self._showScanSheet = showScanSheet
         _viewModel = StateObject(wrappedValue: LogListViewModel(modelContext: modelContext, userId: userId))
     }
     
@@ -39,6 +42,11 @@ struct LogListView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear() {
             viewModel.getLogSummaries()
+        }
+        .onChange(of: showScanSheet) { _, isPresented in
+            if !isPresented {
+                viewModel.getLogSummaries()
+            }
         }
     }
 }

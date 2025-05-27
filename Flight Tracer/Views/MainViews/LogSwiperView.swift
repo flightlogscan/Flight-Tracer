@@ -55,7 +55,6 @@ struct LogSwiperView: View {
                         }
                         
                         ToolbarItem(placement: .topBarTrailing) {
-                            //TODO: move to log list view: ExportButtonView(logSwiperViewModel: logSwiperViewModel, showStore: $showStore)
                             SaveLogButtonView(
                                 userId: authManager.user.id,
                                 modelContext: modelContext,

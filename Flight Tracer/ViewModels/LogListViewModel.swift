@@ -2,8 +2,9 @@ import Foundation
 import SwiftData
 
 class LogListViewModel: ObservableObject {
-    private let dao: StoredLogsDao
     @Published var logSummaries: [LogSummary] = []
+
+    private let dao: StoredLogsDao
 
     init(modelContext: ModelContext, userId: String) {
         self.dao = StoredLogsDao(modelContext: modelContext, userId: userId)

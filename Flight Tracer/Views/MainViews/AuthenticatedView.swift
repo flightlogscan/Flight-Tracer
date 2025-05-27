@@ -31,7 +31,7 @@ struct AuthenticatedView: View {
                         .ignoresSafeArea(.all)
                         .accessibilityIdentifier("ScanBackground")
                     
-                    LogListView(userId: authManager.user.id, modelContext: modelContext)
+                    LogListView(userId: authManager.user.id, modelContext: modelContext, showScanSheet: $showScanSheet)
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
