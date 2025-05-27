@@ -36,7 +36,7 @@ struct AuthenticatedView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Text("Scan")
+                        Text("Scans")
                             .font(.custom(
                                 "Magnolia Script",
                                 fixedSize: 36))

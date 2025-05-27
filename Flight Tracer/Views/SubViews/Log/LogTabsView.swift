@@ -9,7 +9,13 @@ struct LogTabsView: View {
 
     var body: some View {
         TabView {
-            ForEach(editableRows.indices.filter { !editableRows[$0].header }, id: \.self) { index in
+            ForEach(
+                editableRows
+                    .indices
+                    .filter { !editableRows[$0].header }
+                    .sorted { editableRows[$0].rowIndex < editableRows[$1].rowIndex },
+                id: \.self
+            ) { index in
                 if let headerIndex = headerIndex {
                     LogTabView(
                         logRow: $editableRows[index],

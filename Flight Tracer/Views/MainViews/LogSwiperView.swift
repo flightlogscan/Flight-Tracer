@@ -59,7 +59,8 @@ struct LogSwiperView: View {
                             SaveLogButtonView(
                                 userId: authManager.user.id,
                                 modelContext: modelContext,
-                                editableRows: editableRows
+                                editableRows: editableRows,
+                                logSaveMode: .new
                             ) {
                                 showScanSheet = false
                             }

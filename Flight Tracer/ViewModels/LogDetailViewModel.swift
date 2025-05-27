@@ -4,6 +4,7 @@ import SwiftData
 class LogDetailViewModel: ObservableObject {
     private let dao: StoredLogsDao
     @Published var log: [EditableRow] = []
+    @Published var storedLog: StoredLog?
 
     init(modelContext: ModelContext, userId: String) {
         self.dao = StoredLogsDao(modelContext: modelContext, userId: userId)
@@ -11,6 +12,7 @@ class LogDetailViewModel: ObservableObject {
 
     func loadLog(id: PersistentIdentifier) {
         if let storedLog = dao.getStoredLog(by: id) {
+            self.storedLog = storedLog
             self.log = storedLog.rows
                 .map {
                     EditableRow(

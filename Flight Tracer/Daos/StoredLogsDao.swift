@@ -28,5 +28,32 @@ class StoredLogsDao {
     public func getStoredLog(by id: PersistentIdentifier) -> StoredLog? {
         modelContext.model(for: id) as? StoredLog
     }
-}
+    
+    public func deleteLog(_ log: StoredLog) {
+        modelContext.delete(log)
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to delete log: \(error)")
+        }
+    }
 
+    public func updateLog() {
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to update log: \(error)")
+        }
+    }
+    
+    public func insertLog(_ log: StoredLog) {
+        modelContext.insert(log)
+
+        do {
+            try modelContext.save()
+            print("Saved log successfully!")
+        } catch {
+            print("Failed to save log: \(error)")
+        }
+    }
+}

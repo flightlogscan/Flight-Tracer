@@ -64,6 +64,9 @@
 		D8066DFC2DE4FC4B003293F3 /* LogSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DF92DE4FC48003293F3 /* LogSummary.swift */; };
 		D8066DFE2DE500EA003293F3 /* LogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DFD2DE500E5003293F3 /* LogDetailView.swift */; };
 		D8066E002DE50894003293F3 /* LogDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066DFF2DE5088D003293F3 /* LogDetailViewModel.swift */; };
+		D8066E022DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
+		D8066E032DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
+		D8066E042DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
 		D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */; };
 		D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */; };
 		D8068D772DDA363D0067C3A9 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D762DDA36390067C3A9 /* LogListView.swift */; };
@@ -187,6 +190,7 @@
 		D8066DF92DE4FC48003293F3 /* LogSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummary.swift; sourceTree = "<group>"; };
 		D8066DFD2DE500E5003293F3 /* LogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailView.swift; sourceTree = "<group>"; };
 		D8066DFF2DE5088D003293F3 /* LogDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailViewModel.swift; sourceTree = "<group>"; };
+		D8066E012DE53DC2003293F3 /* LogSaveMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSaveMode.swift; sourceTree = "<group>"; };
 		D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScanButtonView.swift; sourceTree = "<group>"; };
 		D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissScreenCoverButton.swift; sourceTree = "<group>"; };
 		D8068D762DDA36390067C3A9 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				D8442AC82CF698740087450B /* ScanType.swift */,
 				D86DAA2B2CE10A0F00D35D7E /* ErrorCode.swift */,
 				D841CC332CE132B000A02B5D /* LogFieldType.swift */,
+				D8066E012DE53DC2003293F3 /* LogSaveMode.swift */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -806,6 +811,7 @@
 				D8066DF22DE42F34003293F3 /* LogListPlaceHolderView.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
 				D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
+				D8066E022DE53DC6003293F3 /* LogSaveMode.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
 				D87952602AA3D5690076E898 /* AuthenticatedView.swift in Sources */,
 				D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */,
@@ -872,6 +878,7 @@
 			files = (
 				9E1ED63A2CFA31EB002584A4 /* LogFieldMetadata.swift in Sources */,
 				D8066DFB2DE4FC4B003293F3 /* LogSummary.swift in Sources */,
+				D8066E032DE53DC6003293F3 /* LogSaveMode.swift in Sources */,
 				9E1ED63C2CFA31F0002584A4 /* SimpleImageScanResult.swift in Sources */,
 				9E1ED6322CFA31D5002584A4 /* ScanType.swift in Sources */,
 				D8066DE72DE3F17E003293F3 /* EditableRow.swift in Sources */,
@@ -893,6 +900,7 @@
 			files = (
 				D8066DEC2DE424BB003293F3 /* StoredLog.swift in Sources */,
 				9E1ED63B2CFA31EB002584A4 /* LogFieldMetadata.swift in Sources */,
+				D8066E042DE53DC6003293F3 /* LogSaveMode.swift in Sources */,
 				9E1ED62F2CFA31A2002584A4 /* AdvancedImageScanResult.swift in Sources */,
 				9E1ED6372CFA31E2002584A4 /* AnalyzeResult.swift in Sources */,
 				9E1ED6392CFA31E7002584A4 /* ImageDetail.swift in Sources */,

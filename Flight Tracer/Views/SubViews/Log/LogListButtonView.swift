@@ -3,7 +3,7 @@ import SwiftUI
 struct LogListButtonView: View {
     @Environment(\.modelContext) private var modelContext
 
-    @State private var showingSheet = false
+    @State private var showDetailSheet = false
     
     let logSummary: LogSummary
     let userId: String
@@ -11,15 +11,11 @@ struct LogListButtonView: View {
 
     var body: some View {
         Button(logSummary.title) {
-            showingSheet = true
+            showDetailSheet = true
         }
         .buttonStyle(PlainButtonStyle())
-        .sheet(isPresented: $showingSheet) {
+        .fullScreenCover(isPresented: $showDetailSheet) {
             LogDetailView(logSummary: logSummary, modelContext: modelContext, userId: userId)
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
-                .presentationBackground(.regularMaterial)
-
         }
     }
 }

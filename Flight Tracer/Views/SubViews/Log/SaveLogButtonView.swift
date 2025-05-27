@@ -6,20 +6,22 @@ struct SaveLogButtonView: View {
     let editableRows: [EditableRow]
     let userId: String
     let onComplete: () -> Void
+    let logSaveMode: LogSaveMode
     
     @StateObject private var viewModel: SaveLogButtonViewModel
     
-    init(userId: String, modelContext: ModelContext, editableRows: [EditableRow], onComplete: @escaping () -> Void) {
+    // Had to do init cause the ViewModel needs the modelContext
+    init(userId: String, modelContext: ModelContext, editableRows: [EditableRow], logSaveMode: LogSaveMode, onComplete: @escaping () -> Void) {
         self.userId = userId
         self.editableRows = editableRows
         self.onComplete = onComplete
+        self.logSaveMode = logSaveMode
         _viewModel = StateObject(wrappedValue: SaveLogButtonViewModel(modelContext: modelContext, userId: userId))
     }
 
-    
     var body: some View {
         Button {
-            viewModel.saveLog(editableRows: editableRows)
+            viewModel.saveLog(editableRows: editableRows, logSaveMode: logSaveMode)
         } label: {
             Text("Save")
                 .font(.headline)
@@ -33,7 +35,6 @@ struct SaveLogButtonView: View {
         .accessibilityIdentifier("SaveButton")
         .onChange(of: viewModel.logSaved) { _, newValue in
             if newValue {
-                print("here")
                 onComplete()
             }
         }
