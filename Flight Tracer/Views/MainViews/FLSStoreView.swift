@@ -126,5 +126,5 @@ struct FLSStoreView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

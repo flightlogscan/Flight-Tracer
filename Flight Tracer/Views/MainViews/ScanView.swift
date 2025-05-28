@@ -62,5 +62,5 @@ struct ScanView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

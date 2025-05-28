@@ -48,5 +48,5 @@ struct PhotoPickerView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

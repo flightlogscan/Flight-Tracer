@@ -21,5 +21,5 @@ struct SettingsButtonView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

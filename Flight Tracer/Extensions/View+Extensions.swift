@@ -24,5 +24,5 @@ extension View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

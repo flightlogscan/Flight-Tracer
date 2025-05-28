@@ -3,6 +3,10 @@ import SwiftData
 
 struct LogListView: View {
     @StateObject private var viewModel: LogListViewModel
+    
+    @State private var showDeleteConfirmation = false
+    @State private var logToDeleteID: PersistentIdentifier?
+    
     @Binding var showScanSheet: Bool
 
     let userId: String
@@ -15,27 +19,18 @@ struct LogListView: View {
     }
     
     var body: some View {
-        Group {
+        ZStack {
             if viewModel.logSummaries.isEmpty {
                 LogListPlaceHolderView()
             } else {
-                NavigationStack {
-                    ZStack {
-                        Rectangle()
-                            .fill(LinearGradient(
-                                gradient: Gradient(colors: [.navyBlue, .black, .black]),
-                                startPoint: .top,
-                                endPoint: .bottom
-                            ))
-                            .ignoresSafeArea(.all)
-                        List(viewModel.logSummaries) { logSummary in
-                            LogListButtonView(logSummary: logSummary, userId: userId)
-                        }
-                        .scrollContentBackground(.hidden)
-                        .scrollBounceBehavior(.basedOnSize)
-                        .listRowBackground(Color.clear)
-                    }
-                    .toolbarBackground(.hidden, for: .navigationBar)
+                LogListContent(
+                    summaries: viewModel.logSummaries,
+                    userId: userId,
+                    showScanSheet: $showScanSheet,
+                    showDeleteConfirmation: $showDeleteConfirmation,
+                    logToDeleteID: $logToDeleteID
+                ) { id in
+                    viewModel.deleteLog(id: id)
                 }
             }
         }

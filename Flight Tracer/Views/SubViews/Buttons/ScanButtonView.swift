@@ -40,5 +40,5 @@ struct ScanButtonView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

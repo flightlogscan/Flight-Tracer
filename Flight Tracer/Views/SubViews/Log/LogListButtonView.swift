@@ -12,7 +12,7 @@ struct LogListButtonView: View {
         Button(logSummary.title) {
             showDetailSheet = true
         }
-        .buttonStyle(PlainButtonStyle())
+        .padding()
         .fullScreenCover(isPresented: $showDetailSheet) {
             LogDetailView(logSummary: logSummary, modelContext: modelContext, userId: userId)
         }

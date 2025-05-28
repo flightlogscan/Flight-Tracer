@@ -53,7 +53,7 @@ struct ImagePresentationView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }
 
  

@@ -21,5 +21,5 @@ struct PillButtonView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

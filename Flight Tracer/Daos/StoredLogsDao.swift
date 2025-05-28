@@ -29,7 +29,11 @@ class StoredLogsDao {
         modelContext.model(for: id) as? StoredLog
     }
     
-    public func deleteLog(_ log: StoredLog) {
+    public func deleteLog(by id: PersistentIdentifier) {
+        guard let log = modelContext.model(for: id) as? StoredLog else {
+            print("No StoredLog found for id \(id)")
+            return
+        }
         modelContext.delete(log)
         do {
             try modelContext.save()

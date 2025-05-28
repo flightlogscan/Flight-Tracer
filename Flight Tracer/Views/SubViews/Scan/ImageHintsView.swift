@@ -37,5 +37,5 @@ struct ImageHintsView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

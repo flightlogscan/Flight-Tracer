@@ -43,5 +43,5 @@ struct PremiumButton: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

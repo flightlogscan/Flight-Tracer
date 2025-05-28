@@ -67,6 +67,7 @@
 		D8066E022DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
 		D8066E032DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
 		D8066E042DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
+		D8066E092DE69659003293F3 /* LogListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E082DE69656003293F3 /* LogListContentView.swift */; };
 		D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */; };
 		D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */; };
 		D8068D772DDA363D0067C3A9 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D762DDA36390067C3A9 /* LogListView.swift */; };
@@ -105,7 +106,7 @@
 		D87764392DCFBF7400E95D3E /* ImageTopLeftControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87764382DCFBF6E00E95D3E /* ImageTopLeftControls.swift */; };
 		D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952562AA3D49F0076E898 /* ImageHintsView.swift */; };
 		D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952582AA3D49F0076E898 /* ImagePresentationView.swift */; };
-		D87952602AA3D5690076E898 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* AuthenticatedView.swift */; };
+		D87952602AA3D5690076E898 /* ScansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* ScansView.swift */; };
 		D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */; };
 		D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */; };
 		D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952412AA3D49F0076E898 /* CsvCreator.swift */; };
@@ -191,6 +192,7 @@
 		D8066DFD2DE500E5003293F3 /* LogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailView.swift; sourceTree = "<group>"; };
 		D8066DFF2DE5088D003293F3 /* LogDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailViewModel.swift; sourceTree = "<group>"; };
 		D8066E012DE53DC2003293F3 /* LogSaveMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSaveMode.swift; sourceTree = "<group>"; };
+		D8066E082DE69656003293F3 /* LogListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListContentView.swift; sourceTree = "<group>"; };
 		D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScanButtonView.swift; sourceTree = "<group>"; };
 		D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissScreenCoverButton.swift; sourceTree = "<group>"; };
 		D8068D762DDA36390067C3A9 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
@@ -231,7 +233,7 @@
 		D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_TracerApp.swift; sourceTree = "<group>"; };
 		D87952562AA3D49F0076E898 /* ImageHintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHintsView.swift; sourceTree = "<group>"; };
 		D87952582AA3D49F0076E898 /* ImagePresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentationView.swift; sourceTree = "<group>"; };
-		D879525A2AA3D49F0076E898 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		D879525A2AA3D49F0076E898 /* ScansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScansView.swift; sourceTree = "<group>"; };
 		D88804EF2D29F24B00EB0A56 /* CropperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropperViewController.swift; sourceTree = "<group>"; };
 		D88804F12D29F36300EB0A56 /* CropperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropperView.swift; sourceTree = "<group>"; };
 		D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResult.swift; sourceTree = "<group>"; };
@@ -337,6 +339,15 @@
 			path = Scan;
 			sourceTree = "<group>";
 		};
+		D8066E052DE56207003293F3 /* FirstLaunchViews */ = {
+			isa = PBXGroup;
+			children = (
+				D81C88252DE23E18009479F7 /* FreeTrialView.swift */,
+				D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */,
+			);
+			path = FirstLaunchViews;
+			sourceTree = "<group>";
+		};
 		D8110EE02CE90E5600C76D7B /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,13 +422,11 @@
 		D85561F62AAC233400A3CA49 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				D81C88252DE23E18009479F7 /* FreeTrialView.swift */,
-				D879525A2AA3D49F0076E898 /* AuthenticatedView.swift */,
 				D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */,
 				D86EF48C2C5FF0050093E18D /* LogSwiperView.swift */,
 				D83C3CFD2B13C3C90094EEAE /* LoginPageView.swift */,
 				D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */,
-				D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */,
+				D879525A2AA3D49F0076E898 /* ScansView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -496,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				D8AD8FD52D504CBF00BF84DA /* Coordinator */,
+				D8066E052DE56207003293F3 /* FirstLaunchViews */,
 				D85561F62AAC233400A3CA49 /* MainViews */,
 				D87952552AA3D49F0076E898 /* SubViews */,
 			);
@@ -579,6 +589,7 @@
 				D8066DF52DE4F70A003293F3 /* LogListButtonView.swift */,
 				D8066DF12DE42F30003293F3 /* LogListPlaceHolderView.swift */,
 				D8068D762DDA36390067C3A9 /* LogListView.swift */,
+				D8066E082DE69656003293F3 /* LogListContentView.swift */,
 				9E25DF582D7E11C90012983B /* LogTabView.swift */,
 				D8066DE32DE3E3BD003293F3 /* LogTabsView.swift */,
 				D8066DE92DE3FFE8003293F3 /* SaveLogButtonView.swift */,
@@ -801,6 +812,7 @@
 				D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */,
 				D841CC2C2CE1251400A02B5D /* AuthManager.swift in Sources */,
 				D8066DF42DE42FA3003293F3 /* LogListViewModel.swift in Sources */,
+				D8066E092DE69659003293F3 /* LogListContentView.swift in Sources */,
 				D8110EE22CE90ED300C76D7B /* CameraPermissionManager.swift in Sources */,
 				D8CF7E532D767ACF00C7229A /* DeleteLogButtonView.swift in Sources */,
 				D81FA38D2B2287F60082B178 /* CustomAuthPickerViewController.swift in Sources */,
@@ -813,7 +825,7 @@
 				D8A522002D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				D8066E022DE53DC6003293F3 /* LogSaveMode.swift in Sources */,
 				D879525E2AA3D5690076E898 /* ImagePresentationView.swift in Sources */,
-				D87952602AA3D5690076E898 /* AuthenticatedView.swift in Sources */,
+				D87952602AA3D5690076E898 /* ScansView.swift in Sources */,
 				D8328D382D3C28520060F7DC /* ImagePlaceholderView.swift in Sources */,
 				D83C76692CEA679100DDAACD /* ScanViewModel.swift in Sources */,
 				D8110EDC2CE90D6000C76D7B /* PhoneSettingsAlert.swift in Sources */,

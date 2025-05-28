@@ -2,7 +2,7 @@ import SwiftUI
 import FirebaseAuthUI
 import PhotosUI
 
-struct AuthenticatedView: View {
+struct ScansView: View {
     @Environment(\.modelContext) private var modelContext
 
     @EnvironmentObject var storeKitManager: StoreKitManager
@@ -66,5 +66,5 @@ struct AuthenticatedView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

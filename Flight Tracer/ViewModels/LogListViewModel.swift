@@ -11,6 +11,15 @@ class LogListViewModel: ObservableObject {
     }
     
     func getLogSummaries() {
+        refreshSummaries()
+    }
+
+    func deleteLog(id: PersistentIdentifier) {
+        dao.deleteLog(by: id)
+        refreshSummaries()
+    }
+    
+    private func refreshSummaries() {
         let storedLogs = dao.getStoredLogs()
         self.logSummaries = storedLogs.map {
             LogSummary(

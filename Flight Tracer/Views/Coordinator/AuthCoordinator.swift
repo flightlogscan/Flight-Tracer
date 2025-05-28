@@ -30,7 +30,7 @@ struct AuthCoordinator: View {
                     }
                     .environmentObject(storeKitManager)
                 } else {
-                    AuthenticatedView()
+                    ScansView()
                         .environmentObject(storeKitManager)
                 }
             }
