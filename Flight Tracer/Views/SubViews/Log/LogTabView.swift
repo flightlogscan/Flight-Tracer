@@ -1,155 +1,39 @@
 import SwiftUI
 
 struct LogTabView: View {
-    let rows: [RowDTO]
-    let rowIndex: Int
-    
-    @State private var fieldNameValues: [String: String] = [:]
-    @State private var fieldContentValues: [String: String] = [:]
-    @State private var fieldGroupNames: [String: String] = [:]
-    
-    @ObservedObject var logSwiperViewModel: LogSwiperViewModel
-    
-    // Get field names from the header row
-    var fieldNames: [String: String] {
-        let headerRow = rows.first(where: { $0.header })?.content ?? [:]
-        return headerRow
-    }
-    
-    // Get the parent headers (categories) for grouping
-    var parentHeaders: [String: String] {
-        // Get parent headers from the current data row, or default to empty dictionary
-        let currentRow = rows.first(where: { $0.rowIndex == rowIndex && !$0.header })
-        return currentRow?.parentHeaders ?? [:]
-    }
-    
-    // Get content from the data rows
-    var rowContent: [String: String] {
-        var combined: [String: String] = [:]
-        rows.filter({ !$0.header }).forEach { row in
-            combined.merge(row.content) { current, _ in current }
-        }
-        return combined
-    }
-    
-    // Group field keys by their parent headers while preserving order, filtering out redundant parent headers
-    var orderedFieldGroups: [(String?, [String])] {
-        var result: [(String?, [String])] = []
-        var currentGroup: [String] = []
-        var currentParent: String? = nil
+    @Binding var logRow: EditableRow
+    @Binding var headerRow: EditableRow
 
-        let sortedKeys = fieldNames.keys.sorted { (Int($0) ?? 0) < (Int($1) ?? 0) }
-
-        for key in sortedKeys {
-            let fieldName = fieldNameValues[key] ?? fieldNames[key] ?? ""
-            let parent = fieldGroupNames[key]
-
-            let normalizedField = fieldName.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-            let normalizedParent = parent?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-
-            let isRedundant = (normalizedField == normalizedParent)
-            let effectiveParent = isRedundant ? nil : parent
-
-            let shouldGroupWithPrevious = (effectiveParent == currentParent) || (effectiveParent == nil && currentParent == nil)
-
-            if shouldGroupWithPrevious {
-                currentGroup.append(key)
-            } else {
-                if !currentGroup.isEmpty {
-                    result.append((currentParent, currentGroup))
-                }
-                currentGroup = [key]
-                currentParent = effectiveParent
-            }
-        }
-
-        if !currentGroup.isEmpty {
-            result.append((currentParent, currentGroup))
-        }
-
-        return result
-    }
-    
     var body: some View {
         VStack {
-            Text("Row \(rowIndex)")
+            Text("Row \(logRow.rowIndex)")
                 .font(.headline)
             List {
-                ForEach(orderedFieldGroups, id: \.1) { groupKey, keys in
-                    Section(header:
-                        (groupKey?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() == keys.first.flatMap { fieldNameValues[$0] ?? fieldNames[$0] }?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
-                        ? AnyView(EmptyView())
-                        : AnyView(Text(groupKey ?? "").foregroundColor(.gray))
-                    ) {
-                        ForEach(keys, id: \.self) { key in
-                            rowView(for: key)
-                        }
+                ForEach(headerRow.content.keys.sorted { Int($0) ?? 0 < Int($1) ?? 0 }, id: \.self) { key in
+                    HStack {
+                        TextField("", text: Binding(
+                            get: { headerRow.content[key, default: ""] },
+                            set: { newValue in
+                                headerRow.content[key] = newValue
+                            }
+                        ))
+                        .font(.footnote)
+                        .foregroundColor(.white)
+                        Spacer()
+                        TextField("", text: Binding(
+                            get: { logRow.content[key, default: ""] },
+                            set: { newValue in
+                                logRow.content[key] = newValue
+                            }
+                        ))
+                        .font(.footnote)
+                        .multilineTextAlignment(.trailing)
+                        .foregroundColor(.white)
                     }
                 }
             }
             .scrollContentBackground(.hidden)
-            .onAppear {
-                initializeLocalState()
-            }
             .scrollDismissesKeyboard(.immediately)
-        }
-    }
-    
-    @ViewBuilder
-    private func rowView(for key: String) -> some View {
-        HStack {
-            TextField("", text: Binding(
-                get: { fieldNameValues[key] ?? "" },
-                set: { newValue in
-                    fieldNameValues[key] = newValue
-                    logSwiperViewModel.updateFieldName(oldKey: key, newName: newValue)
-                }
-            ))
-            .font(.footnote)
-            .bold()
-            .fixedSize(horizontal: true, vertical: true)
-            .foregroundColor(.white)
-
-            TextField("", text: Binding(
-                get: { fieldContentValues[key] ?? "" },
-                set: { newValue in
-                    fieldContentValues[key] = newValue
-                    logSwiperViewModel.updateField(rowIndex: rowIndex, fieldKey: key, newValue: newValue)
-                }
-            ))
-            .font(.footnote)
-            .multilineTextAlignment(.trailing)
-            .foregroundColor(.white)
-        }
-        .padding(.vertical, 4)
-    }
-    
-    private func initializeLocalState() {
-        // Initialize field names
-        for key in fieldNames.keys {
-            let value: String
-            if let editableData = logSwiperViewModel.editableLogData {
-                value = editableData.getFieldName(key: key)
-            } else {
-                value = fieldNames[key] ?? ""
-            }
-            fieldNameValues[key] = value
-        }
-        
-        // Initialize field values
-        for key in fieldNames.keys {
-            let value: String
-            if let editableData = logSwiperViewModel.editableLogData {
-                value = editableData.getValue(rowIndex: rowIndex, key: key)
-            } else {
-                value = rowContent[key] ?? ""
-            }
-            fieldContentValues[key] = value
-        }
-        
-        // Initialize parent headers (group names)
-        for (key, value) in parentHeaders {
-            fieldGroupNames[key] = value
         }
     }
 }

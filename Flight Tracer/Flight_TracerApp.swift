@@ -4,6 +4,7 @@ import FirebaseOAuthUI
 import FirebaseGoogleAuthUI
 import FirebaseCore
 import FirebaseAuthUI
+import SwiftData
 
 class AppDelegate: NSObject, UIApplicationDelegate, FUIAuthDelegate {
     
@@ -40,6 +41,6 @@ struct Flight_TracerApp: App {
             AppCoordinator()
           }
         }
+        .modelContainer(for: [StoredLog.self, StoredLogRow.self])
     }
 }
-

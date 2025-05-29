@@ -4,7 +4,6 @@ import _PhotosUI_SwiftUI
 struct ImagePresentationView: View {
     
     @ObservedObject var parentViewModel: ScanViewModel
-    @Binding var activeScanPressed: Bool
     @Binding var showStore: Bool
     
     var body: some View {
@@ -19,11 +18,6 @@ struct ImagePresentationView: View {
                     
                     parentViewModel.selectedImage.image!
                         .logImageStyle()
-                        .overlay (alignment: .topTrailing) {
-                            if (!parentViewModel.selectedImage.hasError && !parentViewModel.validationInProgress) {
-                                ScanButtonView(scanPressed: $activeScanPressed)
-                            }
-                        }
                         .overlay(alignment: .topLeading) {
                             ImageTopLeftControls(parentViewModel: parentViewModel)
                         }
@@ -59,7 +53,7 @@ struct ImagePresentationView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }
 
  

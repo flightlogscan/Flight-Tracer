@@ -47,5 +47,5 @@ struct CameraView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

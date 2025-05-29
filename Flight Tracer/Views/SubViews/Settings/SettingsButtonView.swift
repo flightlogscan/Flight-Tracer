@@ -8,15 +8,11 @@ struct SettingsButtonView: View {
         Button {
             showSettingsSheet = true
         } label: {
-            Image(systemName: "gearshape.fill")
-                .frame(width: 36, height: 36)
-                .foregroundColor(.semiTransparentBlack)
-                .background(
-                    Circle()
-                        .fill(.thickMaterial)
-                        .environment(\.colorScheme, .light)
-                )
+            Image(systemName: "gearshape.circle.fill")
+                .font(.title)
+                .foregroundStyle(.thickMaterial)
         }
+        .environment(\.colorScheme, .light)
         .sheet(isPresented: $showSettingsSheet) {
             SettingsSheet(showSettingsSheet: $showSettingsSheet, selectedScanType: $selectedScanType)
         }
@@ -25,5 +21,5 @@ struct SettingsButtonView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

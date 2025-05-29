@@ -36,6 +36,6 @@ struct ImagePlaceholderView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }
 

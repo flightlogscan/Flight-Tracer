@@ -35,6 +35,7 @@ struct PhotoPickerView: View {
                     .onChange(of: photoPickerViewModel.selectedAsset) {
                         photoPickerViewModel.handleSelectedAsset(photoPickerViewModel.selectedAsset)
                         selectedImage = photoPickerViewModel.selectedImage!
+                        photoPickerViewModel.showImagePicker = false
                     }
             }
             .alert("Photo Access Issue", isPresented: $photoPickerViewModel.showAlert) {
@@ -47,5 +48,5 @@ struct PhotoPickerView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }

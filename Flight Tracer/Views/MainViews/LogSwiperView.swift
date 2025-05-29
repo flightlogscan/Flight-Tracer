@@ -2,12 +2,18 @@ import SwiftUI
 
 struct LogSwiperView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.modelContext) private var modelContext
+
     @EnvironmentObject var authManager: AuthManager
     
     @State var isDataLoaded: Bool = false
     @State var showStore: Bool = false
     @StateObject var logSwiperViewModel = LogSwiperViewModel()
     
+    @State var editableRows: [EditableRow] = []
+    
+    @Binding var showScanSheet: Bool
+        
     let uiImage: UIImage
     let selectedScanType: ScanType
     
@@ -31,7 +37,7 @@ struct LogSwiperView: View {
             NavigationStack {
                 ZStack {
                     if isDataLoaded {
-                        LogsView(logSwiperViewModel: logSwiperViewModel)
+                        LogTabsView(editableRows: $editableRows)
                     } else {
                         ProgressView()
                             .tint(.white)
@@ -43,13 +49,20 @@ struct LogSwiperView: View {
                 }
                 .accessibilityIdentifier("LogSwiperView")
                 .toolbar {
-                    if !showStore {
+                    if !showStore && isDataLoaded {
                         ToolbarItem(placement: .topBarLeading) {
                             DeleteLogButtonView()
                         }
                         
                         ToolbarItem(placement: .topBarTrailing) {
-                            ExportButtonView(logSwiperViewModel: logSwiperViewModel, showStore: $showStore)
+                            SaveLogButtonView(
+                                userId: authManager.user.id,
+                                modelContext: modelContext,
+                                editableRows: editableRows,
+                                logSaveMode: .new
+                            ) {
+                                showScanSheet = false
+                            }
                         }
                     }
                 }
@@ -71,6 +84,7 @@ struct LogSwiperView: View {
                     )
                 }
                 .onReceive(logSwiperViewModel.$rows) { rows in
+                    editableRows = rows
                     isDataLoaded = !rows.isEmpty
                 }
             }

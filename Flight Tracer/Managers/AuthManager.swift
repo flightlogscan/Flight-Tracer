@@ -27,7 +27,7 @@ class AuthManager: ObservableObject {
                     self.isLoggedIn = true
                     self.finishedCheckingLoginStatus = true
                 }
-                print("Already logged in user: \(String(describing: firebaseUser.email))")
+                print("Already logged in user: \(String(describing: firebaseUser.email)) (uid: \(firebaseUser.uid))")
             } else {
                 resetUser()
             }

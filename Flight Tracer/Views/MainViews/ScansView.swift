@@ -2,11 +2,15 @@ import SwiftUI
 import FirebaseAuthUI
 import PhotosUI
 
-struct AuthenticatedView: View {
-    @EnvironmentObject var storeKitManager: StoreKitManager
+struct ScansView: View {
+    @Environment(\.modelContext) private var modelContext
 
-    @State var selectedScanType: ScanType = .api
+    @EnvironmentObject var storeKitManager: StoreKitManager
+    @EnvironmentObject var authManager: AuthManager
+
+    @State var selectedScanType: ScanType = .hardcoded
     @State var showStore = false
+    @State var showScanSheet: Bool = false
 
     var body: some View {
         ZStack {
@@ -16,15 +20,23 @@ struct AuthenticatedView: View {
                     .zIndex(2)
             }
             
-            NavigationStack {
+            NavigationStack() {
                 ZStack {
-                    ScanView(selectedScanType: $selectedScanType, showStore: $showStore)
-                        .zIndex(1)
+                    Rectangle()
+                        .fill(LinearGradient(
+                            gradient: Gradient(colors: [.navyBlue, .black, .black]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        ))
+                        .ignoresSafeArea(.all)
+                        .accessibilityIdentifier("ScanBackground")
+                    
+                    LogListView(userId: authManager.user.id, modelContext: modelContext, showScanSheet: $showScanSheet)
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Text("Scan")
+                        Text("Scans")
                             .font(.custom(
                                 "Magnolia Script",
                                 fixedSize: 36))
@@ -33,10 +45,15 @@ struct AuthenticatedView: View {
                     }
                     
                     ToolbarItemGroup(placement: .topBarTrailing) {
-                        HStack(spacing: 4) {
+                        HStack(spacing: 0) {
                             if storeKitManager.subscriptionStatusIsKnownAndNotSubscribed {
                                 PremiumButton(showStore: $showStore)
                             }
+                            
+                            AddScanButtonView(showScanSheet: $showScanSheet)
+                                .fullScreenCover(isPresented: $showScanSheet) {
+                                    ScanView(selectedScanType: $selectedScanType, showStore: $showStore, showScanSheet: $showScanSheet)
+                                }
                             
                             SettingsButtonView(selectedScanType: $selectedScanType)
                         }
@@ -49,5 +66,5 @@ struct AuthenticatedView: View {
 }
 
 #Preview {
-    AuthenticatedView()
+    ScansView()
 }
