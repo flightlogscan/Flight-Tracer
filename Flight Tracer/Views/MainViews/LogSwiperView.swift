@@ -49,7 +49,7 @@ struct LogSwiperView: View {
                 }
                 .accessibilityIdentifier("LogSwiperView")
                 .toolbar {
-                    if !showStore {
+                    if !showStore && isDataLoaded {
                         ToolbarItem(placement: .topBarLeading) {
                             DeleteLogButtonView()
                         }

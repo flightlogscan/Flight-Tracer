@@ -2,12 +2,13 @@ import SwiftUI
 import SwiftData
 
 struct LogListContent: View {
-    let summaries: [LogSummary]
     let userId: String
+    let summaries: [LogSummary]
+    let viewModel: LogListViewModel
+
+    @State var selectedLogId: PersistentIdentifier?
     @Binding var showScanSheet: Bool
     @Binding var showDeleteConfirmation: Bool
-    @Binding var logToDeleteID: PersistentIdentifier?
-    let onDelete: (PersistentIdentifier) -> Void
 
     var body: some View {
         List {
@@ -15,12 +16,19 @@ struct LogListContent: View {
                 LogListButtonView(logSummary: summary, userId: userId)
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button {
-                            logToDeleteID = summary.id
+                            selectedLogId = summary.id
                             showDeleteConfirmation = true
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
                         .tint(.red)
+                        
+                        if let shareItem = viewModel.exportLog(id: summary.id) {
+                            ShareLink(item: shareItem, preview: SharePreview(summary.title)) {
+                                Label("Export", systemImage: "square.and.arrow.up")
+                            }
+                            .tint(.blue)
+                        }
                     }
             }
         }
@@ -41,8 +49,8 @@ struct LogListContent: View {
             titleVisibility: .visible
         ) {
             Button("Delete", role: .destructive) {
-                if let id = logToDeleteID {
-                    onDelete(id)
+                if let id = selectedLogId {
+                    viewModel.deleteLog(id: id)
                 }
             }
             Button("Cancel", role: .cancel) {

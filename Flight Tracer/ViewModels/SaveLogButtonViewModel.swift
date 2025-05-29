@@ -65,7 +65,7 @@ class SaveLogButtonViewModel: ObservableObject {
     
     private func makeLogTitle() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
         let timestamp = formatter.string(from: Date())
         return "Log \(timestamp)"
     }

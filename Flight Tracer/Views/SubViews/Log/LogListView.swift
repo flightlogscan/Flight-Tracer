@@ -5,7 +5,6 @@ struct LogListView: View {
     @StateObject private var viewModel: LogListViewModel
     
     @State private var showDeleteConfirmation = false
-    @State private var logToDeleteID: PersistentIdentifier?
     
     @Binding var showScanSheet: Bool
 
@@ -24,14 +23,12 @@ struct LogListView: View {
                 LogListPlaceHolderView()
             } else {
                 LogListContent(
-                    summaries: viewModel.logSummaries,
                     userId: userId,
+                    summaries: viewModel.logSummaries,
+                    viewModel: viewModel,
                     showScanSheet: $showScanSheet,
-                    showDeleteConfirmation: $showDeleteConfirmation,
-                    logToDeleteID: $logToDeleteID
-                ) { id in
-                    viewModel.deleteLog(id: id)
-                }
+                    showDeleteConfirmation: $showDeleteConfirmation
+                )
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

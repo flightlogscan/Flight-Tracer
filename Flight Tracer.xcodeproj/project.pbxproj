@@ -68,6 +68,8 @@
 		D8066E032DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
 		D8066E042DE53DC6003293F3 /* LogSaveMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E012DE53DC2003293F3 /* LogSaveMode.swift */; };
 		D8066E092DE69659003293F3 /* LogListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E082DE69656003293F3 /* LogListContentView.swift */; };
+		D8066E0B2DE6C8AA003293F3 /* CsvExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E0A2DE6C8A7003293F3 /* CsvExporter.swift */; };
+		D8066E0D2DE6CB22003293F3 /* CsvFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E0C2DE6CB1E003293F3 /* CsvFileManager.swift */; };
 		D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */; };
 		D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */; };
 		D8068D772DDA363D0067C3A9 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D762DDA36390067C3A9 /* LogListView.swift */; };
@@ -109,7 +111,6 @@
 		D87952602AA3D5690076E898 /* ScansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879525A2AA3D49F0076E898 /* ScansView.swift */; };
 		D87952642AA3D5690076E898 /* ImageTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */; };
 		D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */; };
-		D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87952412AA3D49F0076E898 /* CsvCreator.swift */; };
 		D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879524F2AA3D49F0076E898 /* Flight_TracerApp.swift */; };
 		D885E5D32C8CC2750088D1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87952472AA3D49F0076E898 /* Assets.xcassets */; };
 		D88804EE2D29F00200EB0A56 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = D88804ED2D29F00200EB0A56 /* Mantis */; };
@@ -193,6 +194,8 @@
 		D8066DFF2DE5088D003293F3 /* LogDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailViewModel.swift; sourceTree = "<group>"; };
 		D8066E012DE53DC2003293F3 /* LogSaveMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSaveMode.swift; sourceTree = "<group>"; };
 		D8066E082DE69656003293F3 /* LogListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListContentView.swift; sourceTree = "<group>"; };
+		D8066E0A2DE6C8A7003293F3 /* CsvExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExporter.swift; sourceTree = "<group>"; };
+		D8066E0C2DE6CB1E003293F3 /* CsvFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvFileManager.swift; sourceTree = "<group>"; };
 		D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScanButtonView.swift; sourceTree = "<group>"; };
 		D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissScreenCoverButton.swift; sourceTree = "<group>"; };
 		D8068D762DDA36390067C3A9 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
@@ -225,7 +228,6 @@
 		D87764382DCFBF6E00E95D3E /* ImageTopLeftControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTopLeftControls.swift; sourceTree = "<group>"; };
 		D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRecognizer.swift; sourceTree = "<group>"; };
 		D879523F2AA3D49F0076E898 /* LogSwiperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiperViewModel.swift; sourceTree = "<group>"; };
-		D87952412AA3D49F0076E898 /* CsvCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvCreator.swift; sourceTree = "<group>"; };
 		D87952472AA3D49F0076E898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87952492AA3D49F0076E898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D879524A2AA3D49F0076E898 /* Flight_Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flight_Tracer.entitlements; sourceTree = "<group>"; };
@@ -475,7 +477,8 @@
 		D87952402AA3D49F0076E898 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D87952412AA3D49F0076E898 /* CsvCreator.swift */,
+				D8066E0A2DE6C8A7003293F3 /* CsvExporter.swift */,
+				D8066E0C2DE6CB1E003293F3 /* CsvFileManager.swift */,
 				D879523E2AA3D49F0076E898 /* ImageTextRecognizer.swift */,
 			);
 			path = Util;
@@ -854,7 +857,6 @@
 				D8CF7E512D7384F800C7229A /* PillButtonView.swift in Sources */,
 				9E4A08642BEFE79B00EC7C17 /* SettingsButtonView.swift in Sources */,
 				D87952652AA3D5690076E898 /* LogSwiperViewModel.swift in Sources */,
-				D87952662AA3D5690076E898 /* CsvCreator.swift in Sources */,
 				D8066DE82DE3F17E003293F3 /* EditableRow.swift in Sources */,
 				9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */,
 				D8068D772DDA363D0067C3A9 /* LogListView.swift in Sources */,
@@ -865,9 +867,11 @@
 				D8066E002DE50894003293F3 /* LogDetailViewModel.swift in Sources */,
 				D841CC342CE132BB00A02B5D /* LogFieldType.swift in Sources */,
 				D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */,
+				D8066E0B2DE6C8AA003293F3 /* CsvExporter.swift in Sources */,
 				D896A0F82CF116FB003AA2F8 /* Image+Extensions.swift in Sources */,
 				D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */,
 				D836F9412B01520F000FC988 /* AppCoordinator.swift in Sources */,
+				D8066E0D2DE6CB22003293F3 /* CsvFileManager.swift in Sources */,
 				D8FE946A2DDEA1D500D57B38 /* DeleteAccountViewModel.swift in Sources */,
 				D87764392DCFBF7400E95D3E /* ImageTopLeftControls.swift in Sources */,
 				D879526A2AA3D5690076E898 /* Flight_TracerApp.swift in Sources */,

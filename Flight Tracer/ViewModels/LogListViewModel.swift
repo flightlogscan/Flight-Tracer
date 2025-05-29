@@ -10,6 +10,18 @@ class LogListViewModel: ObservableObject {
         self.dao = StoredLogsDao(modelContext: modelContext, userId: userId)
     }
     
+    func exportLog(id: PersistentIdentifier) -> URL? {
+        guard let storedLog = dao.getStoredLog(by: id) else {
+            return nil
+        }
+        let csvString = CSVExporter.export(storedLog)
+        let fileName = "\(storedLog.title).csv"
+        guard let fileURL = CSVFileManager.shared.saveCSV(csvString, fileName: fileName) else {
+            return nil
+        }
+        return fileURL
+    }
+    
     func getLogSummaries() {
         refreshSummaries()
     }
