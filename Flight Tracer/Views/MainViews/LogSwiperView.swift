@@ -9,11 +9,12 @@ struct LogSwiperView: View {
     @State var isDataLoaded: Bool = false
     @State var showStore: Bool = false
     @StateObject var logSwiperViewModel = LogSwiperViewModel()
-    
-    @State var editableRows: [EditableRow] = []
-    
+        
     @Binding var showScanSheet: Bool
         
+    //TODO: Needs to be optional/error handled if non-existant
+    @State var editableLog: EditableLog = EditableLog(editableRows: [])
+
     let uiImage: UIImage
     let selectedScanType: ScanType
     
@@ -37,7 +38,7 @@ struct LogSwiperView: View {
             NavigationStack {
                 ZStack {
                     if isDataLoaded {
-                        LogTabsView(editableRows: $editableRows)
+                        LogTabsView(editableLog: $editableLog)
                     } else {
                         ProgressView()
                             .tint(.white)
@@ -58,7 +59,7 @@ struct LogSwiperView: View {
                             SaveLogButtonView(
                                 userId: authManager.user.id,
                                 modelContext: modelContext,
-                                editableRows: editableRows,
+                                editableLog: editableLog,
                                 logSaveMode: .new
                             ) {
                                 showScanSheet = false
@@ -83,9 +84,11 @@ struct LogSwiperView: View {
                         selectedScanType: selectedScanType
                     )
                 }
-                .onReceive(logSwiperViewModel.$rows) { rows in
-                    editableRows = rows
-                    isDataLoaded = !rows.isEmpty
+                .onReceive(logSwiperViewModel.$editableLog) { log in
+                    if let log = log {
+                        editableLog = log
+                        isDataLoaded = !log.editableRows.isEmpty
+                    }
                 }
             }
         }

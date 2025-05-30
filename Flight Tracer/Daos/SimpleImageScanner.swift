@@ -18,20 +18,16 @@ class SimpleImageScanner {
         var originalImageData = image.jpegData(compressionQuality: compressionQuality)!
         var newImageData = originalImageData
 
-        print ("initial image size: \(Double(newImageData.count) / 1024 / 1024)")
         while newImageData.count > MAX_SIZE_IN_BYTES && compressionQuality >= MIN_QUALITY {
 
             compressionQuality -= 0.05
 
             newImageData = image.jpegData(compressionQuality: compressionQuality)!
 
-            print("Compressed to quality: \(compressionQuality), size: \(Double(newImageData.count) / 1024 / 1024)MB")
         }
         
         originalImageData = newImageData
-        
-        print ("Final compressionQuality: \(compressionQuality)")
-        
+                
         // If we compress and are still too big, error.
         if (originalImageData.count > MAX_SIZE_IN_BYTES) {
             trace?.incrementMetric("InvalidSize", by: 1)

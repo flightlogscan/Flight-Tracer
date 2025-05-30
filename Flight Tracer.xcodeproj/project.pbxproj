@@ -131,6 +131,11 @@
 		D8AD8FDB2D5052AF00BF84DA /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */; };
 		D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */; };
 		D8AD8FE12D51B36C00BF84DA /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */; };
+		D8CBEDB32DEA41C0002EC89B /* EditableLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBEDB22DEA41BC002EC89B /* EditableLog.swift */; };
+		D8CBEDB42DEA41C0002EC89B /* EditableLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBEDB22DEA41BC002EC89B /* EditableLog.swift */; };
+		D8CBEDB52DEA41C0002EC89B /* EditableLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBEDB22DEA41BC002EC89B /* EditableLog.swift */; };
+		D8CBEDB72DEA654D002EC89B /* LogImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBEDB62DEA6546002EC89B /* LogImageButtonView.swift */; };
+		D8CBEDB92DEA6680002EC89B /* LogImageSheetCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBEDB82DEA667B002EC89B /* LogImageSheetCoverView.swift */; };
 		D8CF7E512D7384F800C7229A /* PillButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E502D7384F700C7229A /* PillButtonView.swift */; };
 		D8CF7E532D767ACF00C7229A /* DeleteLogButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */; };
 		D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E542D7E085C00C7229A /* View+Extensions.swift */; };
@@ -251,6 +256,9 @@
 		D8AD8FDA2D5052AA00BF84DA /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D8AD8FDD2D51A91200BF84DA /* FLSStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLSStoreView.swift; sourceTree = "<group>"; };
 		D8AD8FE02D51B36A00BF84DA /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		D8CBEDB22DEA41BC002EC89B /* EditableLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLog.swift; sourceTree = "<group>"; };
+		D8CBEDB62DEA6546002EC89B /* LogImageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogImageButtonView.swift; sourceTree = "<group>"; };
+		D8CBEDB82DEA667B002EC89B /* LogImageSheetCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogImageSheetCoverView.swift; sourceTree = "<group>"; };
 		D8CF7E502D7384F700C7229A /* PillButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButtonView.swift; sourceTree = "<group>"; };
 		D8CF7E522D767AC800C7229A /* DeleteLogButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLogButtonView.swift; sourceTree = "<group>"; };
 		D8CF7E542D7E085C00C7229A /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -410,6 +418,7 @@
 				D841CC312CE1328E00A02B5D /* enum */,
 				D8442ACA2CF69CB60087450B /* AdvancedImageScanResult.swift */,
 				D88DE89F2ABBE16A0080D5EB /* AnalyzeResult.swift */,
+				D8CBEDB22DEA41BC002EC89B /* EditableLog.swift */,
 				D8066DE52DE3F175003293F3 /* EditableRow.swift */,
 				D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */,
 				D841CC352CE132FB00A02B5D /* LogFieldMetadata.swift */,
@@ -589,6 +598,8 @@
 			isa = PBXGroup;
 			children = (
 				D8066DFD2DE500E5003293F3 /* LogDetailView.swift */,
+				D8CBEDB62DEA6546002EC89B /* LogImageButtonView.swift */,
+				D8CBEDB82DEA667B002EC89B /* LogImageSheetCoverView.swift */,
 				D8066DF52DE4F70A003293F3 /* LogListButtonView.swift */,
 				D8066DF12DE42F30003293F3 /* LogListPlaceHolderView.swift */,
 				D8068D762DDA36390067C3A9 /* LogListView.swift */,
@@ -805,6 +816,7 @@
 				D8066DE42DE3E3C0003293F3 /* LogTabsView.swift in Sources */,
 				D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */,
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
+				D8CBEDB42DEA41C0002EC89B /* EditableLog.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
 				D8066DF82DE4FA03003293F3 /* StoredLogsDao.swift in Sources */,
 				D879525C2AA3D5690076E898 /* ImageHintsView.swift in Sources */,
@@ -822,6 +834,7 @@
 				D83C76672CEA4E5700DDAACD /* Color+Extensions.swift in Sources */,
 				D8EE51E42DDC118600E4FEA6 /* AccountSection.swift in Sources */,
 				D8EE51EE2DDC123B00E4FEA6 /* String+Extensions.swift in Sources */,
+				D8CBEDB72DEA654D002EC89B /* LogImageButtonView.swift in Sources */,
 				D8FA4C432D658E4200EDD99F /* PremiumButtonView.swift in Sources */,
 				D8066DF22DE42F34003293F3 /* LogListPlaceHolderView.swift in Sources */,
 				D8442ACB2CF69CBB0087450B /* AdvancedImageScanResult.swift in Sources */,
@@ -860,6 +873,7 @@
 				D8066DE82DE3F17E003293F3 /* EditableRow.swift in Sources */,
 				9E25DF592D7E11C90012983B /* LogTabView.swift in Sources */,
 				D8068D772DDA363D0067C3A9 /* LogListView.swift in Sources */,
+				D8CBEDB92DEA6680002EC89B /* LogImageSheetCoverView.swift in Sources */,
 				D8EE51E82DDC119D00E4FEA6 /* SignOutSection.swift in Sources */,
 				D8AD8FDE2D51A91800BF84DA /* FLSStoreView.swift in Sources */,
 				D88DE8A32ABBE1E40080D5EB /* ScanButtonView.swift in Sources */,
@@ -900,6 +914,7 @@
 				D8066DE72DE3F17E003293F3 /* EditableRow.swift in Sources */,
 				D8A522012D1760BE003825CF /* AdminSettingsSection.swift in Sources */,
 				9E1ED6362CFA31E2002584A4 /* AnalyzeResult.swift in Sources */,
+				D8CBEDB32DEA41C0002EC89B /* EditableLog.swift in Sources */,
 				D8066DEE2DE424BB003293F3 /* StoredLog.swift in Sources */,
 				9E1ED6342CFA31DB002584A4 /* LogFieldType.swift in Sources */,
 				D8442AD42CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */,
@@ -918,6 +933,7 @@
 				9E1ED63B2CFA31EB002584A4 /* LogFieldMetadata.swift in Sources */,
 				D8066E042DE53DC6003293F3 /* LogSaveMode.swift in Sources */,
 				9E1ED62F2CFA31A2002584A4 /* AdvancedImageScanResult.swift in Sources */,
+				D8CBEDB52DEA41C0002EC89B /* EditableLog.swift in Sources */,
 				9E1ED6372CFA31E2002584A4 /* AnalyzeResult.swift in Sources */,
 				9E1ED6392CFA31E7002584A4 /* ImageDetail.swift in Sources */,
 				D8A521FF2D1760BE003825CF /* AdminSettingsSection.swift in Sources */,

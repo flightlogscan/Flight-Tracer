@@ -6,7 +6,10 @@ struct LogDetailView: View {
     @Environment(\.dismiss) private var dismiss
 
     @StateObject private var viewModel: LogDetailViewModel
-    @State var editableRows: [EditableRow] = []
+    @State private var showImageCover: Bool = false
+    
+    //TODO: Needs to be optional/error handled if non-existant
+    @State var editableLog: EditableLog = EditableLog(editableRows: [])
 
     private let userId: String
     private let logSummary: LogSummary
@@ -31,26 +34,34 @@ struct LogDetailView: View {
                     ))
                     .ignoresSafeArea(.all)
                 VStack {
-                    LogTabsView(editableRows: $editableRows)
+                    LogTabsView(editableLog: $editableLog)
+                    
                 }
                 .onAppear {
                     viewModel.loadLog(id: logSummary.id)
-                    editableRows = viewModel.log
+                    editableLog = viewModel.log
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .topBarLeading) {
                         DismissScreenCoverButton()
                     }
                     
-                    ToolbarItem(placement: .topBarTrailing) {
+                    ToolbarItemGroup(placement: .topBarTrailing) {
                         if let storedLog = viewModel.storedLog {
-                            SaveLogButtonView(
-                                userId: userId,
-                                modelContext: modelContext,
-                                editableRows: editableRows,
-                                logSaveMode: .edit(existing: storedLog)
-                            ) {
-                                dismiss()
+                            HStack(spacing: 0) {
+                                LogImageButtonView(showImageCover: $showImageCover)
+                                    .fullScreenCover(isPresented: $showImageCover) {
+                                        LogImageSheetCoverView(imageData: editableLog.imageData)
+                                    }
+                                
+                                SaveLogButtonView(
+                                    userId: userId,
+                                    modelContext: modelContext,
+                                    editableLog: editableLog,
+                                    logSaveMode: .edit(existing: storedLog)
+                                ) {
+                                    dismiss()
+                                }
                             }
                         }
                     }

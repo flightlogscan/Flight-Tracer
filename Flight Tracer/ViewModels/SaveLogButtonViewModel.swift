@@ -14,19 +14,19 @@ class SaveLogButtonViewModel: ObservableObject {
         self.storedLogDao = StoredLogsDao(modelContext: modelContext, userId: userId)
     }
 
-    func saveLog(editableRows: [EditableRow], logSaveMode: LogSaveMode) {
+    func saveLog(editableLog: EditableLog, logSaveMode: LogSaveMode) {
         switch logSaveMode {
         case .new:
-            handleNewLog(from: editableRows)
+            handleNewLog(editableLog)
         case .edit(let storedLog):
-            handleEditLog(existing: storedLog, from: editableRows)
+            handleEditLog(existing: storedLog, editableLog: editableLog)
         }
         
         logSaved = true
     }
 
-    private func handleNewLog(from editableRows: [EditableRow]) {
-        let storedRows = editableRows.map { editable in
+    private func handleNewLog(_ editableLog: EditableLog) {
+        let storedRows = editableLog.editableRows.map { editable in
             StoredLogRow(
                 rowIndex: editable.rowIndex,
                 header: editable.header,
@@ -35,7 +35,7 @@ class SaveLogButtonViewModel: ObservableObject {
             )
         }
 
-        let newLog = StoredLog(title: makeLogTitle(), userId: userId, rows: storedRows)
+        let newLog = StoredLog(title: makeLogTitle(), userId: userId, rows: storedRows, imageData: editableLog.imageData)
         for row in storedRows {
             row.log = newLog
         }
@@ -43,8 +43,8 @@ class SaveLogButtonViewModel: ObservableObject {
         storedLogDao.insertLog(newLog)
     }
 
-    private func handleEditLog(existing storedLog: StoredLog, from editableRows: [EditableRow]) {
-        let updatedRows = editableRows
+    private func handleEditLog(existing storedLog: StoredLog, editableLog: EditableLog) {
+        let updatedRows = editableLog.editableRows
             .sorted(by: { $0.rowIndex < $1.rowIndex })
             .map { editable in
                 StoredLogRow(
@@ -65,7 +65,7 @@ class SaveLogButtonViewModel: ObservableObject {
     
     private func makeLogTitle() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
+        formatter.dateFormat = "yyyy-MM-dd_HH'h'mm'm'ss's'"
         let timestamp = formatter.string(from: Date())
         return "Log \(timestamp)"
     }

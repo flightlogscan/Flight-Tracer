@@ -20,6 +20,7 @@ class AuthManager: ObservableObject {
             if let firebaseUser = firebaseUser {
                 firebaseUser.getIDTokenForcingRefresh(true) { idToken, error in
                     if error != nil {
+                        // TODO: Potentially needs real UI error handling to let user know of login error
                         print("User token retrieval error")
                         return
                     }
@@ -39,6 +40,7 @@ class AuthManager: ObservableObject {
             self.resetUser()
             try self.authUI?.signOut()
         } catch let error {
+            // TODO: Potentially needs real UI error handling to let user know of signout error
             print("error: \(error)")
         }
     }

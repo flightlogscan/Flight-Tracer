@@ -1,27 +1,28 @@
 import SwiftUI
 
 struct LogTabsView: View {
-    @Binding var editableRows: [EditableRow]
+    @Binding var editableLog: EditableLog
 
     private var headerIndex: Int? {
-        editableRows.firstIndex(where: { $0.header })
+        editableLog.editableRows.firstIndex(where: { $0.header })
     }
 
     var body: some View {
         TabView {
             ForEach(
-                editableRows
+                editableLog.editableRows
                     .indices
-                    .filter { !editableRows[$0].header }
-                    .sorted { editableRows[$0].rowIndex < editableRows[$1].rowIndex },
+                    .filter { !editableLog.editableRows[$0].header }
+                    .sorted { editableLog.editableRows[$0].rowIndex < editableLog.editableRows[$1].rowIndex },
                 id: \.self
             ) { index in
                 if let headerIndex = headerIndex {
                     LogTabView(
-                        logRow: $editableRows[index],
-                        headerRow: $editableRows[headerIndex]
+                        logRow: $editableLog.editableRows[index],
+                        headerRow: $editableLog.editableRows[headerIndex]
                     )
                 } else {
+                    //TODO: Real error handling
                     Text("Error headers not found")
                 }
             }
