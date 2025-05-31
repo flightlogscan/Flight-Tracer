@@ -13,10 +13,12 @@ class SettingsViewModel: ObservableObject {
         if let url = URL(string: "mailto:\(CONTACT_EMAIL)") {
             UIApplication.shared.open(url) { success in
                 if !success {
+                    // TODO: Potentially needs real UI error handling to let user know of email error?
                     print("Unable to send email. Please configure your mail app.")
                 }
             }
         } else {
+            // TODO: Potentially needs real UI error handling to let user know of email error?
             print("Unable to send email. Please configure your mail app.")
         }
     }

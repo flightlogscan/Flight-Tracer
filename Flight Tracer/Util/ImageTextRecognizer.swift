@@ -2,8 +2,8 @@ import Foundation
 import Vision
 import VisionKit
 
+// TODO: Potentially needs real UI error handling to let user know of image scan error?
 struct ImageTextRecognizer {
-    // Define a completion handler that will be used to pass the recognized text back to the caller.
     typealias TextRecognitionCompletion = ([String]) -> Void
     
     func scanImageForText(image: UIImage, completion: @escaping TextRecognitionCompletion) {

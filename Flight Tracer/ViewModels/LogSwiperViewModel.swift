@@ -4,14 +4,13 @@ class LogSwiperViewModel: ObservableObject {
     @Published var isImageValid: Bool = false
     @Published var alertMessage = ErrorCode.NO_ERROR.message
     @Published var showAlert: Bool = false
-    @Published var rows: [EditableRow] = []
+    @Published var editableLog: EditableLog? = nil
     
     let advancedImageScanner = AdvancedImageScanner()
     
     func scanImageForLogText(uiImage: UIImage, userToken: String, selectedScanType: ScanType) {
         Task {
             await MainActor.run {
-                rows = []
                 isImageValid = false
                 alertMessage = ErrorCode.NO_ERROR.message
                 showAlert = false
@@ -36,16 +35,19 @@ class LogSwiperViewModel: ObservableObject {
                             showAlert = true
                             return
                         }
-                        rows = scanRows.map { dto in
-                            EditableRow(
-                                rowIndex: dto.rowIndex,
-                                header: dto.header,
-                                content: dto.content,
-                                parentHeaders: dto.parentHeaders
-                            )
-                        }
                         
-                        print("rows: \(rows)")
+                        editableLog = EditableLog(
+                            editableRows: scanRows.map { dto in
+                                EditableRow(
+                                    rowIndex: dto.rowIndex,
+                                    header: dto.header,
+                                    content: dto.content,
+                                    parentHeaders: dto.parentHeaders
+                                )
+                            },
+                            imageData: uiImage.jpegData(compressionQuality: 0.9)
+                        )
+                        
                     } else {
                         showAlert = true
                     }

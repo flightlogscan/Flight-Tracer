@@ -93,9 +93,3 @@ struct WelcomeView: View {
         }
     }
 }
-
-#Preview {
-    WelcomeView {
-        print("Continue tapped")
-    }
-}

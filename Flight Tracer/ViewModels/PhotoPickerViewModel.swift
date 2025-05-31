@@ -39,6 +39,7 @@ class PhotoPickerViewModel: ObservableObject {
 
     func handleSelectedAsset(_ asset: PHAsset?) {
         guard let asset = asset else {
+            // TODO: Potentially needs real UI error handling to let user know of photo picker error?
             print("No asset selected or accessible.")
             return
         }

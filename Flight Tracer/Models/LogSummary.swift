@@ -1,5 +1,6 @@
 import SwiftData
 import Foundation
+import SwiftUI
 /**
 
  Use to lazy load logs from SwiftData.

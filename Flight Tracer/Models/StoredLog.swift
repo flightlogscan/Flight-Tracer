@@ -23,13 +23,16 @@ class StoredLog {
     var title: String
     var userId: String
     var createdAt: Date
+    @Attribute(.externalStorage)
+    var imageData: Data?
     @Relationship(deleteRule: .cascade) var rows: [StoredLogRow]
 
-    init(title: String, userId: String, rows: [StoredLogRow] = []) {
+    init(title: String, userId: String, rows: [StoredLogRow] = [], imageData: Data? = nil) {
         self.id = UUID()
         self.title = title
         self.userId = userId
         self.createdAt = .now
+        self.imageData = imageData
         self.rows = rows
     }
 }

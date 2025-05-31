@@ -79,6 +79,7 @@ class StoreKitManager: ObservableObject {
                 return false
             }
         } catch {
+            // TODO: Potentially needs real UI error handling to let user know of purchase error
             print("Purchase failed: \(error)")
             return false
         }

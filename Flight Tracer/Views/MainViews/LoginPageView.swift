@@ -56,13 +56,13 @@ struct LoginPageView : UIViewControllerRepresentable {
             self.parent = parent
         }
         
-        // TODO: Do we need all these prints? Great question! Yes we do.
+        // TODO: Do we need all these prints? Great question! Yes we do. sthu up lantz!
         func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?){
             
             if let authDataResult {
                 authDataResult.user.getIDTokenForcingRefresh(true) { idToken, error in
                     if error != nil {
-                        // Handle error
+                        // TODO: Potentially needs real UI error handling to let user know of auth error?
                         print("user token retrieval error: \(String(describing: error))")
                         return;
                     }
@@ -70,12 +70,14 @@ struct LoginPageView : UIViewControllerRepresentable {
                     if (authDataResult.user.email != nil && idToken != nil) {
                         self.parent.user = User(id: authDataResult.user.uid, email: authDataResult.user.email!, token: idToken!)
                     } else {
+                        // TODO: Potentially needs real UI error handling to let user know of auth error?
                         print("authDataResult missing email or token")
                     }
 
                     print("user \(String(describing: self.parent.user))")
                 }
             } else {
+                // TODO: Potentially needs real UI error handling to let user know of auth error?
                 print("authDataResult null")
             }
         }

@@ -16,13 +16,10 @@ struct AdvancedImageScanner {
     func analyzeImageAsync(uiImage: UIImage, userToken: String, selectedScanType: ScanType) async throws -> AdvancedImageScanResult {
         
         if (selectedScanType == .localhost || selectedScanType == .api) {
-            print("Scan type selected: \(selectedScanType)")
             
             let urlString = selectedScanType == .localhost ? "\(localEndpoint)/api/analyze" : "\(realEndpoint)/api/analyze"
-            print("Using urlString: \(urlString)")
 
             guard let url = URL(string: urlString) else {
-                print("Invalid URL")
                 return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.INVALID_REQUEST, rows: [])
             }
             
@@ -42,7 +39,6 @@ struct AdvancedImageScanner {
             let (data, response) = try await URLSession.shared.data(for: request)
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                print("Invalid response")
                 trace?.incrementMetric("InvalidResponse", by: 1)
                 trace?.stop()
                 return AdvancedImageScanResult(isImageValid: false, errorCode: ErrorCode.SERVER_ERROR, rows: [])

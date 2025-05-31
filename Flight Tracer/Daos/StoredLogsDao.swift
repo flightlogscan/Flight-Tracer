@@ -1,6 +1,7 @@
 import Foundation
 import SwiftData
 
+//TODO: Need real UI error handling strategy in all the catches with prints
 class StoredLogsDao {
     private let modelContext: ModelContext
     private let userId: String
@@ -55,7 +56,6 @@ class StoredLogsDao {
 
         do {
             try modelContext.save()
-            print("Saved log successfully!")
         } catch {
             print("Failed to save log: \(error)")
         }
