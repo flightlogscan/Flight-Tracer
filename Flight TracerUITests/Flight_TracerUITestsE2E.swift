@@ -88,7 +88,7 @@ final class Flight_TracerUITestsE2E: XCTestCase {
         // Verify toolbar title
         let toolbarTitle = app.staticTexts["ToolbarTitle"]
         XCTAssertTrue(toolbarTitle.waitForExistence(timeout: 5), "ToolbarTitle should be visible")
-        XCTAssertEqual(toolbarTitle.label, "Flight Log Tracer", "Toolbar title should match 'Flight Log Tracer'")
+        XCTAssertEqual(toolbarTitle.label, "FlightLogScan", "Toolbar title should match 'FlightLogScan'")
         
         // Verify ImagePresentationView exists
         let imagePresentationView = app.descendants(matching: .any)["ImagePresentationView"]

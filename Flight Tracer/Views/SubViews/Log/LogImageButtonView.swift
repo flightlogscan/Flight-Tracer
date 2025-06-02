@@ -9,7 +9,7 @@ struct LogImageButtonView: View {
         } label: {
             Image(systemName: "photo.circle.fill")
                 .font(.title)
-                .foregroundStyle(.thickMaterial)
+                .foregroundStyle(.regularMaterial)
         }
         .environment(\.colorScheme, .light)
     }

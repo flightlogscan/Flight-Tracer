@@ -5,6 +5,7 @@ struct ScanView: View {
     
     @State var activeScanPressed: Bool = false
     @State var isScanningDisabled: Bool = true
+    @State private var showHintsSheet: Bool = false
     
     @Binding var selectedScanType: ScanType
     @Binding var showStore: Bool
@@ -25,15 +26,8 @@ struct ScanView: View {
                     .accessibilityIdentifier("ScanBackground")
                 
                 VStack {
-                    ImageHintsView()
-                    
                     ImagePresentationView(parentViewModel: scanViewModel, showStore: $showStore)
                         .accessibilityIdentifier("ImagePresentationView")
-                        .overlay (
-                            PillButtonView(selectedImage: $scanViewModel.selectedImage)
-                                .padding(.bottom),
-                            alignment: .bottom
-                        )
                 }
             }
             .toolbar {
@@ -48,6 +42,12 @@ struct ScanView: View {
                 }
             }
             .toolbarBackground(.hidden, for: .navigationBar)
+            .onAppear {
+                if !UserDefaults.standard.bool(forKey: "hasShownHintsOnce") {
+                    showHintsSheet = true
+                    UserDefaults.standard.set(true, forKey: "hasShownHintsOnce")
+                }
+            }
             .onChange(of: scanViewModel.isImageValid) { _, _ in
                 isScanningDisabled = !scanViewModel.isImageValid
             }
@@ -56,6 +56,9 @@ struct ScanView: View {
                     LogSwiperView(showScanSheet: $showScanSheet, uiImage: uiImage, selectedScanType: selectedScanType)
                         .environmentObject(storeKitManager)
                 }
+            }
+            .sheet(isPresented: $showHintsSheet) {
+                ImageHintsView(showHintsSheet: $showHintsSheet)
             }
         }
     }

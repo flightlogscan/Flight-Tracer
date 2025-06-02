@@ -2,40 +2,72 @@ import SwiftUI
 
 struct ImageHintsView: View {
     
+    @Binding var showHintsSheet: Bool
+    
     var body: some View {
-        ZStack {
-            VStack (alignment: .leading, spacing: 5){
-                HStack {
-                    Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
-                    Text("Readable, neat, and bold handwritten text")
-                }
-                HStack {
-                    Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
-                    Text("Includes both pages of the log")
-                }
-                HStack {
-                    Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
-                    Text("Well-lit images")
-                }
-                HStack {
-                    Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
-                    Text("Images that are not flight logs")
-                }
-                HStack {
-                    Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
-                    Text("Wrinkles or tears in the log")
-                }
-                Text("File size should be 4MB or less")
-                    .font(.subheadline)
-                    .padding([.top])
+        VStack (spacing: 0) {
+            ZStack {
+                Text("Image Guidelines")
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding([.leading, .top])
-            .accessibilityIdentifier("ImageHintsView")
+            .frame(height: 44)
+            .padding([.horizontal])
+            .padding(.top, 8)
+
+            List {
+                Section ("What Works") {
+                    HStack {
+                        Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                        Text("File size should be 4MB or less")
+                    }
+                    HStack {
+                        Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                        Text("Readable, neat, and bold handwriting")
+                    }
+                    HStack {
+                        Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                        Text("Includes both pages of the log")
+                    }
+                    HStack {
+                        Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                        Text("Well-lit images")
+                    }
+                }
+                Section ("Avoid These") {
+                    HStack {
+                        Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
+                        Text("Images that are not flight logs")
+                    }
+                    HStack {
+                        Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
+                        Text("Wrinkles or tears in the log")
+                    }
+                }
+            }
+            
+            Spacer()
+            
+            VStack {
+                Button("Continue", action: {
+                    withAnimation {
+                        showHintsSheet = false
+                    }
+                })
+                .fontWeight(.semibold)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .foregroundColor(.black)
+                .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+            }
+            .padding()
+            .padding([.leading, .trailing])
         }
     }
 }
 
 #Preview {
-    ScansView()
+    ImageHintsView(showHintsSheet: .constant(true))
 }

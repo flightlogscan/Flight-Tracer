@@ -20,7 +20,7 @@ struct ScansView: View {
                     .zIndex(2)
             }
             
-            NavigationStack() {
+            NavigationStack {
                 ZStack {
                     Rectangle()
                         .fill(LinearGradient(
@@ -51,9 +51,6 @@ struct ScansView: View {
                             }
                             
                             AddScanButtonView(showScanSheet: $showScanSheet)
-                                .fullScreenCover(isPresented: $showScanSheet) {
-                                    ScanView(selectedScanType: $selectedScanType, showStore: $showStore, showScanSheet: $showScanSheet)
-                                }
                             
                             SettingsButtonView(selectedScanType: $selectedScanType)
                         }
@@ -61,6 +58,9 @@ struct ScansView: View {
                 }
                 .toolbarBackground(.hidden, for: .navigationBar)
             }
+        }
+        .fullScreenCover(isPresented: $showScanSheet) {
+            ScanView(selectedScanType: $selectedScanType, showStore: $showStore, showScanSheet: $showScanSheet)
         }
     }
 }

@@ -27,7 +27,10 @@ class StoredLogsDao {
     }
     
     public func getStoredLog(by id: PersistentIdentifier) -> StoredLog? {
-        modelContext.model(for: id) as? StoredLog
+        let descriptor = FetchDescriptor<StoredLog>(
+            predicate: #Predicate { $0.persistentModelID == id }
+        )
+        return (try? modelContext.fetch(descriptor))?.first
     }
     
     public func deleteLog(by id: PersistentIdentifier) {
