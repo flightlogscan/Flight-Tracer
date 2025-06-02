@@ -24,7 +24,11 @@ struct ImageHintsView: View {
                     }
                     HStack {
                         Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
-                        Text("Readable, neat, and bold handwriting")
+                        Text("Works best with Jeppesen logbooks")
+                    }
+                    HStack {
+                        Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
+                        Text("Neat, bold, legible handwriting")
                     }
                     HStack {
                         Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
@@ -32,17 +36,17 @@ struct ImageHintsView: View {
                     }
                     HStack {
                         Image(systemName: "checkmark").foregroundColor(Color.green).fontWeight(.bold)
-                        Text("Well-lit images")
+                        Text("Bright, even lighting")
                     }
                 }
                 Section ("Avoid These") {
                     HStack {
                         Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
-                        Text("Images that are not flight logs")
+                        Text("Anything that isn’t a flight log")
                     }
                     HStack {
                         Image(systemName: "xmark").foregroundColor(Color.red).fontWeight(.bold)
-                        Text("Wrinkles or tears in the log")
+                        Text("Torn, wrinkled, or damaged pages")
                     }
                 }
             }
