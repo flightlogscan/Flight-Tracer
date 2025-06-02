@@ -10,7 +10,7 @@ struct SettingsButtonView: View {
         } label: {
             Image(systemName: "gearshape.circle.fill")
                 .font(.title)
-                .foregroundStyle(.thickMaterial)
+                .foregroundStyle(.regularMaterial)
         }
         .environment(\.colorScheme, .light)
         .sheet(isPresented: $showSettingsSheet) {

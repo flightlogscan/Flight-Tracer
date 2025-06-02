@@ -27,7 +27,7 @@ struct SaveLogButtonView: View {
                 .padding(.horizontal, 15)
                 .padding(.vertical, 7.5)
                 .foregroundColor(.black)
-                .background(.thickMaterial)
+                .background(.regularMaterial)
                 .environment(\.colorScheme, .light)
                 .clipShape(Capsule())
         }

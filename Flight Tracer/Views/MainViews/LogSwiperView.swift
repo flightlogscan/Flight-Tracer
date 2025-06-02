@@ -52,7 +52,7 @@ struct LogSwiperView: View {
                 .toolbar {
                     if !showStore && isDataLoaded {
                         ToolbarItem(placement: .topBarLeading) {
-                            DeleteLogButtonView()
+                            DiscardScanButtonView()
                         }
                         
                         ToolbarItem(placement: .topBarTrailing) {

@@ -9,7 +9,7 @@ struct AddScanButtonView: View {
         } label: {
             Image(systemName: "plus.circle.fill")
                 .font(.title)
-                .foregroundStyle(.thickMaterial)
+                .foregroundStyle(.regularMaterial)
         }
         .environment(\.colorScheme, .light)
     }

@@ -3,13 +3,6 @@ import AVFoundation
 
 struct CameraView: View {
     
-    private enum Constants {
-        static let iconSize: CGFloat = 18
-        static let iconWeight: Font.Weight = .medium
-        static let horizontalPadding: CGFloat = 16
-        static let verticalPadding: CGFloat = 12
-    }
-    
     @State private var showCamera: Bool = false
     @State private var showAlert: Bool = false
     @StateObject private var permissionManager = CameraPermissionManager()
@@ -17,26 +10,27 @@ struct CameraView: View {
     @Binding var selectedImage: ImageDetail
     
     var body: some View {
-        Button(action: {
-            if permissionManager.hasPermission {
+        Button {
+            switch permissionManager.permissionStatus {
+            case .authorized:
                 showCamera = true
-            } else {
+            case .notDetermined:
+                permissionManager.requestPermission()
+            case .denied, .restricted:
                 showAlert = true
+            @unknown default:
+                break
             }
-        }) {
-            Image(systemName: "camera")
-                .font(.system(size: Constants.iconSize, weight: Constants.iconWeight))
-                .foregroundColor(.semiTransparentBlack)
-                .padding(.horizontal, Constants.horizontalPadding)
-                .padding(.vertical, Constants.verticalPadding)
+        } label: {
+            Image(systemName: "camera.circle.fill")
+                .font(.system(size: 50))
+                .foregroundStyle(Color.primary, .regularMaterial)
+                .environment(\.colorScheme, .light)
         }
         .alert("Allow access?", isPresented: $showAlert) {
             PhoneSettingsAlert()
         } message: {
-            Text("Flight Log Tracer needs Camera access to take photos.")
-        }
-        .onAppear {
-            permissionManager.requestPermission()
+            Text("FlightLogScan needs Camera access to take photos.")
         }
         .fullScreenCover(isPresented: $showCamera) {
             CameraViewController(selectedImage: $selectedImage)

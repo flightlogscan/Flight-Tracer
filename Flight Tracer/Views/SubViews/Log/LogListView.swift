@@ -20,7 +20,8 @@ struct LogListView: View {
     var body: some View {
         ZStack {
             if viewModel.logSummaries.isEmpty {
-                LogListPlaceHolderView()
+                LogListPlaceHolderView(showScanSheet: $showScanSheet)
+                    .padding([.top, .bottom])
             } else {
                 LogListContent(
                     userId: userId,

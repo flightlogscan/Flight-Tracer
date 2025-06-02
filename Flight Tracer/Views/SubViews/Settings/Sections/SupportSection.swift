@@ -2,7 +2,8 @@ import SwiftUI
 
 struct SupportSection: View {
     @ObservedObject var parentViewModel = SettingsViewModel()
-    
+    @State var showImageHints = false
+
     var body: some View {
         Section("Support") {
             SettingsSheetButton(
@@ -32,6 +33,16 @@ struct SupportSection: View {
             
             ShareLink(item: URL(string: "https://apps.apple.com/app/flightlogscan/id6739791303")!) {
                 SettingsButtonTextFormat(title: "Share the app", iconName: "square.and.arrow.up")
+            }
+            
+            SettingsSheetButton(
+                title: "Image Guidelines",
+                iconName: "info.circle",
+                action: { showImageHints = true },
+                accessibilityIdentifier: "ImageGuidelines"
+            )
+            .sheet(isPresented: $showImageHints) {
+                ImageHintsView(showHintsSheet: $showImageHints)
             }
         }
     }

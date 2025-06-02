@@ -24,7 +24,7 @@ struct ScanButtonView: View {
                     .padding(.horizontal, 15)
                     .padding(.vertical, 7.5)
                     .foregroundColor(.black)
-                    .background(.thickMaterial)
+                    .background(.regularMaterial)
                     .opacity(isDisabled ? 0.4 : 1.0)
                     .environment(\.colorScheme, .light)
                     .clipShape(Capsule())

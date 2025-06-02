@@ -1,13 +1,13 @@
 import AVFoundation
 
+@MainActor
 class CameraPermissionManager: ObservableObject {
-    
-    @Published var hasPermission: Bool = false
+    @Published var permissionStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
 
     func requestPermission() {
         AVCaptureDevice.requestAccess(for: .video) { accessGranted in
-            DispatchQueue.main.async {
-                self.hasPermission = accessGranted
+            Task {
+                self.permissionStatus = accessGranted ? .authorized : .denied
             }
         }
     }
