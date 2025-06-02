@@ -24,7 +24,7 @@ struct LogListContent: View {
                         .tint(.red)
                         
                         if let shareItem = viewModel.exportLog(id: summary.id) {
-                            ShareLink(item: shareItem, preview: SharePreview(summary.title)) {
+                            ShareLink(item: shareItem, preview: SharePreview(summary.title, image: Image("logo"))) {
                                 Label("Export", systemImage: "square.and.arrow.up")
                             }
                             .tint(.blue)
