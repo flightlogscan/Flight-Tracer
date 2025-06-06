@@ -8,7 +8,7 @@ struct ScansView: View {
     @EnvironmentObject var storeKitManager: StoreKitManager
     @EnvironmentObject var authManager: AuthManager
 
-    @State var selectedScanType: ScanType = .api
+    @State var selectedScanType: ScanType = .hardcoded
     @State var showStore = false
     @State var showScanSheet: Bool = false
 

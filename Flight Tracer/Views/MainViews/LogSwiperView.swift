@@ -7,7 +7,6 @@ struct LogSwiperView: View {
     @EnvironmentObject var authManager: AuthManager
     
     @State var isDataLoaded: Bool = false
-    @State var showStore: Bool = false
     @StateObject var logSwiperViewModel = LogSwiperViewModel()
         
     @Binding var showScanSheet: Bool
@@ -20,12 +19,6 @@ struct LogSwiperView: View {
     
     var body: some View {
         ZStack {
-            if (showStore) {
-                Color.semiTransparentBlack
-                    .ignoresSafeArea(.all)
-                    .zIndex(2)
-            }
-            
             Rectangle()
                 .fill(LinearGradient(
                     gradient: Gradient(colors: [.navyBlue, .black, .black]),
@@ -40,22 +33,20 @@ struct LogSwiperView: View {
                     if isDataLoaded {
                         LogTabsView(editableLog: $editableLog)
                     } else {
-                        ProgressView()
-                            .tint(.white)
-                            .padding()
-                            .background(.black)
-                            .cornerRadius(10)
-                            .zIndex(1)
+                        SparklesProgressView()
                     }
                 }
-                .accessibilityIdentifier("LogSwiperView")
                 .toolbar {
-                    if !showStore && isDataLoaded {
-                        ToolbarItem(placement: .topBarLeading) {
+                    ToolbarItem(placement: .topBarLeading) {
+                        if isDataLoaded {
                             DiscardScanButtonView()
+                        } else {
+                            // Reserves space for toolbox so the sparkles progress view doesn't bounce
+                            Color.clear.frame(width: 44, height: 44)
                         }
-                        
-                        ToolbarItem(placement: .topBarTrailing) {
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        if isDataLoaded {
                             SaveLogButtonView(
                                 userId: authManager.user.id,
                                 modelContext: modelContext,
@@ -64,6 +55,9 @@ struct LogSwiperView: View {
                             ) {
                                 showScanSheet = false
                             }
+                        } else {
+                            // Reserves space for toolbox so the sparkles progress view doesn't bounce
+                            Color.clear.frame(width: 44, height: 44)
                         }
                     }
                 }
@@ -93,8 +87,5 @@ struct LogSwiperView: View {
             }
         }
         .background(Color.clear)
-        .premiumSheet(isPresented: $showStore) {
-            FLSStoreView()
-        }
     }
 }
