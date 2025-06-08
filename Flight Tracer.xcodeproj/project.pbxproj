@@ -136,6 +136,7 @@
 		D8CF7E552D7E086100C7229A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7E542D7E085C00C7229A /* View+Extensions.swift */; };
 		D8D458DA2AACCFE500E29B83 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D458D92AACCFE500E29B83 /* CameraViewController.swift */; };
 		D8D599752D09399900EA88D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8D599742D09399900EA88D8 /* GoogleService-Info.plist */; };
+		D8DB2EC32DEFEEAA00FEAAC1 /* SparklesProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB2EC22DEFEEA900FEAAC1 /* SparklesProgressView.swift */; };
 		D8DD98242AA81F4100F43034 /* custom-layout.json in Resources */ = {isa = PBXBuildFile; fileRef = D8DD98232AA81F4100F43034 /* custom-layout.json */; };
 		D8EA04EA2CF3A9DD00FE8EA5 /* SimpleImageScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */; };
 		D8EA91042AAFF588003B8DE5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA91032AAFF588003B8DE5 /* CameraView.swift */; };
@@ -257,6 +258,7 @@
 		D8D458D92AACCFE500E29B83 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D8D599712D091B9400EA88D8 /* Flight TracerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Flight TracerRelease.entitlements"; sourceTree = "<group>"; };
 		D8D599742D09399900EA88D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D8DB2EC22DEFEEA900FEAAC1 /* SparklesProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklesProgressView.swift; sourceTree = "<group>"; };
 		D8DD98232AA81F4100F43034 /* custom-layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "custom-layout.json"; sourceTree = "<group>"; };
 		D8E75E242D221A9800E5BE12 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D8EA04E92CF3A9D600FE8EA5 /* SimpleImageScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageScanResult.swift; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 				9E25DF582D7E11C90012983B /* LogTabView.swift */,
 				D8066DE32DE3E3BD003293F3 /* LogTabsView.swift */,
 				D8066DE92DE3FFE8003293F3 /* SaveLogButtonView.swift */,
+				D8DB2EC22DEFEEA900FEAAC1 /* SparklesProgressView.swift */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				D86DAA2C2CE10A1200D35D7E /* ErrorCode.swift in Sources */,
 				D8066DE42DE3E3C0003293F3 /* LogTabsView.swift in Sources */,
 				D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */,
+				D8DB2EC32DEFEEAA00FEAAC1 /* SparklesProgressView.swift in Sources */,
 				D803E2302B26786C001B5100 /* CustomPasswordVerificationViewController.swift in Sources */,
 				D8CBEDB42DEA41C0002EC89B /* EditableLog.swift in Sources */,
 				D803E22E2B267861001B5100 /* CustomPasswordSignUpViewController.swift in Sources */,
