@@ -24,7 +24,7 @@ struct LogTabView: View {
                                 get: { headerRow.content[key, default: "" ] },
                                 set: { headerRow.content[key] = $0 }
                             ),
-                            prompt: Text("Enter value").foregroundStyle(.secondary)
+                            prompt: Text("Value").foregroundStyle(.secondary)
                         )
                         .font(.footnote.weight(.semibold))
                         .focused($focused, equals: .header(key))
@@ -37,7 +37,7 @@ struct LogTabView: View {
                                 get: { logRow.content[key, default: "" ] },
                                 set: { logRow.content[key] = $0 }
                             ),
-                            prompt: Text("Enter value").foregroundStyle(.secondary)
+                            prompt: Text("Value").foregroundStyle(.secondary)
                         )
                         .font(.footnote)
                         .multilineTextAlignment(.trailing)
