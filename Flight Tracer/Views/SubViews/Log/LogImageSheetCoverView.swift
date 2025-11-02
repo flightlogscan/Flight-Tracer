@@ -33,4 +33,6 @@ struct LogImageSheetCoverView: View {
 
 #Preview {
     ScansView()
+        .environmentObject(AuthManager())
+        .environmentObject(StoreKitManager())
 }

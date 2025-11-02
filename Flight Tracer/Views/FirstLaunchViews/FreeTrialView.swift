@@ -22,7 +22,6 @@ struct FreeTrialView: View {
                     )
                     .ignoresSafeArea()
                     .padding(.bottom)
-                    .padding(.bottom)
 
                 VStack {
                     Spacer()
@@ -70,14 +69,9 @@ struct FreeTrialView: View {
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        onFinished()
+                ToolbarItem(placement: .destructiveAction) {
+                    Button("Cancel", systemImage: "xmark") {
                         dismiss()
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(.title)
-                            .foregroundStyle(Color.primary, .thinMaterial)
                     }
                 }
             }

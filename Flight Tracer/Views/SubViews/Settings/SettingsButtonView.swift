@@ -22,4 +22,7 @@ struct SettingsButtonView: View {
 
 #Preview {
     ScansView()
+        .environmentObject(AuthManager())
+        .environmentObject(StoreKitManager())
+
 }

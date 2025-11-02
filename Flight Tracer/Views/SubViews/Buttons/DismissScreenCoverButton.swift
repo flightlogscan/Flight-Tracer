@@ -4,12 +4,8 @@ struct DismissScreenCoverButton: View {
     @Environment(\.dismiss) private var dismiss
         
     var body: some View {
-        Button {
+        Button("Cancel", systemImage: "xmark") {
             dismiss()
-        } label: {
-            Image(systemName: "xmark.circle.fill")
-                .font(.title)
-                .foregroundStyle(Color.primary, .ultraThinMaterial)
         }
         .accessibilityIdentifier("DismissScreenCoverButton")
     }

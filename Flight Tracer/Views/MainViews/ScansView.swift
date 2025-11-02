@@ -39,21 +39,21 @@ struct ScansView: View {
                         Text("Scans")
                             .font(.custom(
                                 "Magnolia Script",
-                                fixedSize: 36))
+                                fixedSize: 25))
                             .foregroundStyle(.white)
                             .accessibilityIdentifier("ToolbarTitle")
                     }
                     
+                    
                     ToolbarItemGroup(placement: .topBarTrailing) {
-                        HStack(spacing: 0) {
-                            if storeKitManager.subscriptionStatusIsKnownAndNotSubscribed {
-                                PremiumButton(showStore: $showStore)
-                            }
-                            
-                            AddScanButtonView(showScanSheet: $showScanSheet)
-                            
-                            SettingsButtonView(selectedScanType: $selectedScanType)
+                        if storeKitManager.subscriptionStatusIsKnownAndNotSubscribed {
+                            PremiumButton(showStore: $showStore)
                         }
+                        
+                        AddScanButtonView(showScanSheet: $showScanSheet)
+                        
+                        SettingsButtonView(selectedScanType: $selectedScanType)
+                        
                     }
                 }
                 .toolbarBackground(.hidden, for: .navigationBar)
@@ -67,4 +67,6 @@ struct ScansView: View {
 
 #Preview {
     ScansView()
+        .environmentObject(AuthManager())
+        .environmentObject(StoreKitManager())
 }

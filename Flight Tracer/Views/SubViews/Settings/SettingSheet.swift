@@ -27,6 +27,7 @@ struct SettingsSheet: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                     
                     HStack {
+                        
                         Spacer()
                         Button("Done", action: {
                             withAnimation {
@@ -89,4 +90,11 @@ struct SettingsButtonTextFormat: View {
                 .font(.caption2)
         }
     }
+}
+
+#Preview {
+    ScansView()
+        .environmentObject(AuthManager())
+        .environmentObject(StoreKitManager())
+
 }

@@ -12,6 +12,7 @@ struct ScanView: View {
     @Binding var showScanSheet: Bool
     
     @EnvironmentObject var storeKitManager: StoreKitManager
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
@@ -66,4 +67,6 @@ struct ScanView: View {
 
 #Preview {
     ScansView()
+        .environmentObject(AuthManager())
+        .environmentObject(StoreKitManager())
 }

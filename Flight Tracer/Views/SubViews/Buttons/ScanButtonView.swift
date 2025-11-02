@@ -21,14 +21,9 @@ struct ScanButtonView: View {
             } label: {
                 Text("Scan")
                     .font(.headline)
-                    .padding(.horizontal, 15)
-                    .padding(.vertical, 7.5)
-                    .foregroundColor(.black)
-                    .background(.regularMaterial)
-                    .opacity(isDisabled ? 0.4 : 1.0)
-                    .environment(\.colorScheme, .light)
-                    .clipShape(Capsule())
             }
+            .buttonStyle(.glassProminent)
+            .foregroundStyle(.primary)
             .accessibilityIdentifier("ScanPhotoButton")
             .accessibilityLabel(Text("Scan photo button"))
             .disabled(isDisabled)
@@ -41,4 +36,7 @@ struct ScanButtonView: View {
 
 #Preview {
     ScansView()
+        .environmentObject(AuthManager())
+        .environmentObject(StoreKitManager())
+
 }

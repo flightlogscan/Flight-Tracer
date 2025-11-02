@@ -69,7 +69,6 @@
 		D8066E0B2DE6C8AA003293F3 /* CsvExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E0A2DE6C8A7003293F3 /* CsvExporter.swift */; };
 		D8066E0D2DE6CB22003293F3 /* CsvFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8066E0C2DE6CB1E003293F3 /* CsvFileManager.swift */; };
 		D8068D732DDA33370067C3A9 /* AddScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */; };
-		D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */; };
 		D8068D772DDA363D0067C3A9 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8068D762DDA36390067C3A9 /* LogListView.swift */; };
 		D80C41602DDF7FF5005EA700 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */; };
 		D8110EDC2CE90D6000C76D7B /* PhoneSettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */; };
@@ -97,6 +96,7 @@
 		D8442AD22CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */; };
 		D8442AD32CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */; };
 		D8442AD42CF7D6F40087450B /* HardcodedImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */; };
+		D84C02512EB7DAA2002FDD5E /* DismissScreenCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84C02502EB7DAA1002FDD5E /* DismissScreenCoverButton.swift */; };
 		D84FF5C72AAFF7FA009B2ACB /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */; };
 		D84FF5CC2AB7546D009B2ACB /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */; };
 		D86B85BC2C95EFC2002E8C13 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */; };
@@ -198,7 +198,6 @@
 		D8066E0A2DE6C8A7003293F3 /* CsvExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExporter.swift; sourceTree = "<group>"; };
 		D8066E0C2DE6CB1E003293F3 /* CsvFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvFileManager.swift; sourceTree = "<group>"; };
 		D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScanButtonView.swift; sourceTree = "<group>"; };
-		D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissScreenCoverButton.swift; sourceTree = "<group>"; };
 		D8068D762DDA36390067C3A9 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
 		D80C415F2DDF7FF3005EA700 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D8110EDB2CE90D6000C76D7B /* PhoneSettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSettingsAlert.swift; sourceTree = "<group>"; };
@@ -220,6 +219,7 @@
 		D8442AC82CF698740087450B /* ScanType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanType.swift; sourceTree = "<group>"; };
 		D8442ACA2CF69CB60087450B /* AdvancedImageScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedImageScanResult.swift; sourceTree = "<group>"; };
 		D8442AD12CF7D6F00087450B /* HardcodedImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedImageScanner.swift; sourceTree = "<group>"; };
+		D84C02502EB7DAA1002FDD5E /* DismissScreenCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissScreenCoverButton.swift; sourceTree = "<group>"; };
 		D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D84FF5CB2AB7546D009B2ACB /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		D86B85BB2C95EFC2002E8C13 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
@@ -531,11 +531,11 @@
 		D88DE8A12ABBE1C30080D5EB /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D84C02502EB7DAA1002FDD5E /* DismissScreenCoverButton.swift */,
 				D8068D722DDA33260067C3A9 /* AddScanButtonView.swift */,
 				D8EA91032AAFF588003B8DE5 /* CameraView.swift */,
 				D88804F12D29F36300EB0A56 /* CropperView.swift */,
 				D8CF7E522D767AC800C7229A /* DiscardScanButtonView.swift */,
-				D8068D742DDA34000067C3A9 /* DismissScreenCoverButton.swift */,
 				D84FF5C62AAFF7FA009B2ACB /* PhotoPickerView.swift */,
 				D8FA4C422D658E3600EDD99F /* PremiumButtonView.swift */,
 				D88DE8A22ABBE1E40080D5EB /* ScanButtonView.swift */,
@@ -842,7 +842,6 @@
 				D8AD8FE12D51B36C00BF84DA /* StoreKitManager.swift in Sources */,
 				D81C88262DE23E1E009479F7 /* FreeTrialView.swift in Sources */,
 				D83C76712CEC412900DDAACD /* PhotoPickerViewModel.swift in Sources */,
-				D8068D752DDA34210067C3A9 /* DismissScreenCoverButton.swift in Sources */,
 				D86EF48D2C5FF0050093E18D /* LogSwiperView.swift in Sources */,
 				D8066DED2DE424BB003293F3 /* StoredLog.swift in Sources */,
 				D8EE51E62DDC119400E4FEA6 /* SupportSection.swift in Sources */,
@@ -872,6 +871,7 @@
 				D841CC342CE132BB00A02B5D /* LogFieldType.swift in Sources */,
 				D88DE8A02ABBE16A0080D5EB /* AnalyzeResult.swift in Sources */,
 				D8066E0B2DE6C8AA003293F3 /* CsvExporter.swift in Sources */,
+				D84C02512EB7DAA2002FDD5E /* DismissScreenCoverButton.swift in Sources */,
 				D896A0F82CF116FB003AA2F8 /* Image+Extensions.swift in Sources */,
 				D83C3CFE2B13C3C90094EEAE /* LoginPageView.swift in Sources */,
 				D836F9412B01520F000FC988 /* AppCoordinator.swift in Sources */,
@@ -1111,7 +1111,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -1167,7 +1167,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
