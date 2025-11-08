@@ -35,42 +35,33 @@ struct ScansView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        HStack {
-                            Text("Scans")
-                                .font(.custom(
-                                    "Magnolia Script",
-                                    fixedSize: 32))
-                                .foregroundStyle(.white)
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.5)
-                                .allowsTightening(true)
-                                .accessibilityIdentifier("ToolbarTitle")
-                            Spacer()
-                        }
+                    ToolbarItem(placement: .topBarLeading) {
+                        Text("Scans")
+                            .fixedSize()
+                            .font(.custom("Magnolia Script", fixedSize: 36))
+                            .accessibilityIdentifier("ToolbarTitle")
                     }
-                    
+                    .sharedBackgroundVisibility(.hidden)
+                                        
                     if storeKitManager.subscriptionStatusIsKnownAndNotSubscribed {
-                        ToolbarItem(placement: .topBarTrailing) {
+                        ToolbarItemGroup(placement: .topBarTrailing) {
                             PremiumButton(showStore: $showStore)
                                 .accessibilityIdentifier("PremiumToolbarButton")
                         }
+                        .sharedBackgroundVisibility(.hidden)
+                        
                     }
                     
-                    ToolbarSpacer(.fixed, placement: .topBarTrailing)
-
                     ToolbarItemGroup(placement: .topBarTrailing) {
                         AddScanButtonView(showScanSheet: $showScanSheet)
-                            .tint(.white)
                     }
-                    ToolbarSpacer(.fixed, placement: .topBarTrailing)
-                    ToolbarItemGroup(placement: .primaryAction) {
+                    
+                    ToolbarSpacer(.flexible, placement: .topBarTrailing)
+                    
+                    ToolbarItemGroup(placement: .topBarTrailing) {
                         SettingsButtonView(selectedScanType: $selectedScanType)
                     }
                 }
-                .toolbarBackground(.hidden, for: .navigationBar)
-                .toolbarColorScheme(.dark, for: .navigationBar)
-                .tint(.white)
             }
         }
         .fullScreenCover(isPresented: $showScanSheet) {

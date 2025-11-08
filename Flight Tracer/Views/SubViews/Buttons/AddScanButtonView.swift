@@ -4,16 +4,14 @@ struct AddScanButtonView: View {
     @Binding var showScanSheet: Bool
     
     var body: some View {
-        Button {
+        Button("Add Scan", systemImage: "plus") {
             showScanSheet = true
-        } label: {
-            Image(systemName: "plus")
-                .font(.title3)
-                .symbolRenderingMode(.monochrome)
-                .foregroundColor(.white)
         }
-        .buttonStyle(.plain)
-        .labelStyle(.iconOnly)
-        .environment(\.colorScheme, .light)
     }
+}
+
+#Preview {
+    ScansView()
+        .environmentObject(AuthManager())
+        .environmentObject(StoreKitManager())
 }
