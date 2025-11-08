@@ -21,7 +21,7 @@ struct ScanButtonView: View {
             }
             .accessibilityIdentifier("ScanPhotoButton")
             .accessibilityLabel(Text("Scan photo button"))
-            .disabled(false)
+            .disabled(isDisabled)
         }
         .premiumSheet(isPresented: $internalShowStore) {
             FLSStoreView()
