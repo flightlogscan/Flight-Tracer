@@ -8,15 +8,14 @@ struct SettingsButtonView: View {
         Button {
             showSettingsSheet = true
         } label: {
-            Image(systemName: "gearshape.circle.fill")
-                .font(.title)
-                .foregroundStyle(.regularMaterial)
+            Image(systemName: "gearshape")
+                .font(.title3)
         }
-        .environment(\.colorScheme, .light)
         .sheet(isPresented: $showSettingsSheet) {
             SettingsSheet(showSettingsSheet: $showSettingsSheet, selectedScanType: $selectedScanType)
         }
         .accessibilityIdentifier("SettingsMenuButton")
+        .tint(.white)
     }
 }
 
