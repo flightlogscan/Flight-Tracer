@@ -32,10 +32,10 @@ struct ScanView: View {
                 }
             }
             .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     DismissScreenCoverButton()
                 }
-                ToolbarItemGroup(placement: .topBarTrailing) {
+                ToolbarItem(placement: .confirmationAction) {
                     ScanButtonView(
                         scanPressed: $activeScanPressed,
                         isDisabled: $isScanningDisabled

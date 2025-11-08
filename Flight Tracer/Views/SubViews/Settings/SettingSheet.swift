@@ -19,28 +19,7 @@ struct SettingsSheet: View {
                     .zIndex(1)
             }
             
-            VStack (spacing: 0) {
-                ZStack {
-                    Text("Settings")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                    
-                    HStack {
-                        
-                        Spacer()
-                        Button("Done", action: {
-                            withAnimation {
-                                showSettingsSheet = false
-                            }
-                        })
-                        .foregroundStyle(.primary)
-                    }
-                }
-                .frame(height: 44)
-                .padding([.horizontal])
-                .padding(.top, 8)
-                
+            NavigationStack {
                 List {
                     AccountSection(showStore: $showStore)
                     SupportSection(parentViewModel: settingsViewModel)
@@ -51,6 +30,23 @@ struct SettingsSheet: View {
                     }
                         
                     DeleteAccountSection(selectedScanType: selectedScanType)
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("Settings")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                    }
+                    
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Done", systemImage: "checkmark") {
+                            withAnimation {
+                                showSettingsSheet = false
+                            }
+                        }
+                        .tint(.white)
+                    }
                 }
             }
         }

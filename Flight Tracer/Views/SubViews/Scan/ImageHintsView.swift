@@ -5,17 +5,7 @@ struct ImageHintsView: View {
     @Binding var showHintsSheet: Bool
     
     var body: some View {
-        VStack (spacing: 0) {
-            ZStack {
-                Text("Image Guidelines")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .frame(maxWidth: .infinity, alignment: .center)
-            }
-            .frame(height: 44)
-            .padding([.horizontal])
-            .padding(.top, 8)
-
+        NavigationStack {
             List {
                 Section ("What Works") {
                     HStack {
@@ -50,24 +40,23 @@ struct ImageHintsView: View {
                     }
                 }
             }
-            
-            Spacer()
-            
-            VStack {
-                Button("Continue", action: {
-                    withAnimation {
-                        showHintsSheet = false
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Image Guidelines")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                }
+                
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done", systemImage: "checkmark") {
+                        withAnimation {
+                            showHintsSheet = false
+                        }
                     }
-                })
-                .fontWeight(.semibold)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.white)
-                .foregroundColor(.black)
-                .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+                    .tint(.white)
+                }
             }
-            .padding()
-            .padding([.leading, .trailing])
         }
     }
 }

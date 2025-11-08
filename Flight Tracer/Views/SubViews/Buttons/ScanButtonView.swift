@@ -11,22 +11,14 @@ struct ScanButtonView: View {
 
     var body: some View {
         VStack{
-            Button {
+            Button ("Scan") {
                 if storeKitManager.isSubscribed() {
                     scanPressed = true
                 } else {
                     scanPressed = false
                     internalShowStore = true
                 }
-            } label: {
-                Text("Scan")
-                    .font(.headline)
             }
-            .buttonStyle(.glassProminent)
-            .foregroundStyle(.primary)
-            .accessibilityIdentifier("ScanPhotoButton")
-            .accessibilityLabel(Text("Scan photo button"))
-            .disabled(isDisabled)
         }
         .premiumSheet(isPresented: $internalShowStore) {
             FLSStoreView()
