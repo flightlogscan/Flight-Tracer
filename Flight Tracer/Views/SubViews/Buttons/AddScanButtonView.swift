@@ -7,10 +7,13 @@ struct AddScanButtonView: View {
         Button {
             showScanSheet = true
         } label: {
-            Image(systemName: "plus.circle.fill")
-                .font(.title)
-                .foregroundStyle(.regularMaterial)
+            Image(systemName: "plus")
+                .font(.title3)
+                .symbolRenderingMode(.monochrome)
+                .foregroundColor(.white)
         }
+        .buttonStyle(.plain)
+        .labelStyle(.iconOnly)
         .environment(\.colorScheme, .light)
     }
 }
