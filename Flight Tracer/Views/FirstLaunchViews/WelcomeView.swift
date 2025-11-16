@@ -81,7 +81,7 @@ struct WelcomeView: View {
                             .frame(maxWidth: .infinity)
                             .background(Color.white.opacity(0.8))
                             .foregroundColor(.black)
-                            .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+                            .clipShape(Capsule())
                     }
                 }
                 Spacer()
@@ -91,5 +91,11 @@ struct WelcomeView: View {
             .padding([.leading, .trailing])
 
         }
+    }
+}
+
+#Preview {
+    NavigationStack {
+        WelcomeView(onContinue: {})
     }
 }
