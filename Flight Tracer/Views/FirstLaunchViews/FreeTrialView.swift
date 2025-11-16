@@ -54,7 +54,7 @@ struct FreeTrialView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.white)
                         .foregroundColor(.black)
-                        .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+                        .clipShape(Capsule())
 
                         Text("7 days free then $39.99/year.")
                             .fixedSize(horizontal: false , vertical: true)
