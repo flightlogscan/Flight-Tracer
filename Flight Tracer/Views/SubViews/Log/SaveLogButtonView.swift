@@ -19,17 +19,8 @@ struct SaveLogButtonView: View {
     }
 
     var body: some View {
-        Button {
+        Button ("Save", role: .confirm) {
             viewModel.saveLog(editableLog: editableLog, logSaveMode: logSaveMode)
-        } label: {
-            Text("Save")
-                .font(.headline)
-                .padding(.horizontal, 15)
-                .padding(.vertical, 7.5)
-                .foregroundColor(.black)
-                .background(.regularMaterial)
-                .environment(\.colorScheme, .light)
-                .clipShape(Capsule())
         }
         .accessibilityIdentifier("SaveButton")
         .onChange(of: viewModel.logSaved) { _, newValue in

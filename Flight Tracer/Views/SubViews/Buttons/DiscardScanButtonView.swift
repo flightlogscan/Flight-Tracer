@@ -17,10 +17,12 @@ struct DiscardScanButtonView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
             }
         } label: {
-            Image(systemName: "xmark.circle.fill")
-                .font(.title)
-                .foregroundStyle(Color.primary, .ultraThinMaterial)
+            Image(systemName: "xmark")
         }
         .accessibilityIdentifier("DeleteLog")
     }
+}
+
+#Preview {
+    DiscardScanButtonView()
 }
