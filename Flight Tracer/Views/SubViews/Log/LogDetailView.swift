@@ -46,22 +46,24 @@ struct LogDetailView: View {
                         DismissScreenCoverButton()
                     }
                     
-                    ToolbarItemGroup(placement: .topBarTrailing) {
-                        if let storedLog = viewModel.storedLog {
-                            HStack(spacing: 0) {
-                                LogImageButtonView(showImageCover: $showImageCover)
-                                    .fullScreenCover(isPresented: $showImageCover) {
-                                        LogImageSheetCoverView(imageData: editableLog.imageData)
-                                    }
-                                
-                                SaveLogButtonView(
-                                    userId: userId,
-                                    modelContext: modelContext,
-                                    editableLog: editableLog,
-                                    logSaveMode: .edit(existing: storedLog)
-                                ) {
-                                    dismiss()
+                    if let storedLog = viewModel.storedLog {
+                        ToolbarItemGroup(placement: .topBarTrailing) {
+                            LogImageButtonView(showImageCover: $showImageCover)
+                                .fullScreenCover(isPresented: $showImageCover) {
+                                    LogImageSheetCoverView(imageData: editableLog.imageData)
                                 }
+                        }
+                        
+                        ToolbarSpacer(.flexible, placement: .topBarTrailing)
+                        
+                        ToolbarItemGroup(placement: .topBarTrailing) {
+                            SaveLogButtonView(
+                                userId: userId,
+                                modelContext: modelContext,
+                                editableLog: editableLog,
+                                logSaveMode: .edit(existing: storedLog)
+                            ) {
+                                dismiss()
                             }
                         }
                     }
