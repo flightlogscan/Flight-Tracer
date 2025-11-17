@@ -70,7 +70,8 @@ struct FreeTrialView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .destructiveAction) {
-                    Button("Cancel", systemImage: "xmark") {
+                    Button(role: .close) {
+                        onFinished()
                         dismiss()
                     }
                 }
