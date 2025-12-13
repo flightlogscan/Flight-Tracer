@@ -1083,7 +1083,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight_Tracer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = NHB5BVN6YR;
@@ -1139,7 +1139,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Flight Tracer/Flight TracerRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flight Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = NHB5BVN6YR;
